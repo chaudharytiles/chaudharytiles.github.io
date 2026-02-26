@@ -45,7 +45,9 @@ nav a:hover{
 
 /* HERO */
 .hero{
-    height:90vh;
+  min-height: 70vh;
+  padding: 60px 20px;
+}
     background:url("tiles-bg.jpg") center/cover no-repeat;
     display:flex;
     justify-content:center;
