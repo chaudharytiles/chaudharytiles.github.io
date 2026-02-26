@@ -3,552 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Akhilesh Chaudhary | Premium Tile & Stone Contractor Gurugram</title>
+    <title>Akhilesh Chaudhary | Luxury Tile & Stone Contractor Gurugram</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@200;300;400;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
 <style>
-    /* --- CORE VARIABLES --- */
+    /* --- DESIGN SYSTEM --- */
     :root {
         --gold: #FFD700;
         --dark-gold: #C5A000;
-        --black: #000000;
-        --soft-black: #0d0d0d;
-        --deep-grey: #1a1a1a;
-        --light-grey: #f8f9fa;
-        --white: #ffffff;
-        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --bg: #ffffff;
+        --text: #1a1a1a;
+        --text-muted: #666666;
+        --card-bg: #fdfdfd;
+        --border: #eeeeee;
+        --header-bg: rgba(255, 255, 255, 0.9);
+        --accent: #000000;
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* --- RESET & GLOBAL --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-    body { background: var(--white); color: #333; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    [data-theme="dark"] {
+        --bg: #080808;
+        --text: #ffffff;
+        --text-muted: #aaaaaa;
+        --card-bg: #111111;
+        --border: #222222;
+        --header-bg: rgba(0, 0, 0, 0.9);
+        --accent: #FFD700;
+    }
+
+    /* --- RESET --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: var(--bg); color: var(--text); transition: var(--transition); overflow-x: hidden; line-height: 1.6; }
     
-    /* Scroll Progress Bar */
-    #progress { position: fixed; top: 0; left: 0; height: 5px; background: var(--gold); z-index: 10001; width: 0%; transition: 0.1s; }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-    /* --- HEADER & NAVIGATION --- */
+    #progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, var(--gold), #fff); z-index: 10001; width: 0%; }
+
+    /* --- HEADER --- */
     header { 
-        background: rgba(0,0,0,0.95); padding: 20px 0; position: fixed; 
-        top: 0; width: 100%; z-index: 9999; border-bottom: 1px solid #222; 
-        backdrop-filter: blur(10px);
+        padding: 20px 0; position: fixed; top: 0; width: 100%; z-index: 9999; 
+        background: var(--header-bg); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
     }
-    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
-    .logo-brand { color: var(--gold); font-family: 'Montserrat'; font-weight: 900; font-size: 1.6rem; text-decoration: none; letter-spacing: 1px; }
-    nav ul { display: flex; list-style: none; gap: 25px; }
-    nav a { color: #fff; text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition); }
-    nav a:hover { color: var(--gold); }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+    .logo-brand { font-family: 'Montserrat'; font-weight: 900; font-size: 1.5rem; color: var(--text); text-decoration: none; letter-spacing: -1px; }
+    .logo-brand span { color: var(--gold); }
+    
+    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .theme-switch { cursor: pointer; font-size: 1.2rem; color: var(--gold); background: none; border: none; }
 
     /* --- HERO SECTION --- */
     .hero { 
-        background: var(--black); min-height: 100vh; display: flex; flex-direction: column; 
-        justify-content: center; align-items: center; text-align: center; padding: 120px 20px; 
+        height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600607687940-47a04b629753?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover; background-position: center; background-attachment: fixed; text-align: center; color: white;
+    }
+    .hero-content h1 { font-family: 'Montserrat'; font-size: clamp(3rem, 10vw, 6rem); line-height: 1; margin-bottom: 20px; }
+    .hero-content p { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 40px; font-weight: 300; }
+    .cta-btn { 
+        padding: 18px 45px; background: var(--gold); color: #000; text-decoration: none; font-weight: 900; 
+        border-radius: 50px; text-transform: uppercase; transition: var(--transition); display: inline-block;
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    }
+    .cta-btn:hover { transform: scale(1.05); background: #fff; box-shadow: 0 15px 40px rgba(255,255,255,0.2); }
+
+    /* --- STATS --- */
+    .stats { background: var(--accent); color: var(--bg); padding: 80px 20px; border-bottom: 1px solid var(--border); }
+    .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+    .stat-item h2 { font-family: 'Montserrat'; font-size: 3.5rem; color: var(--gold); }
+    .stat-item p { text-transform: uppercase; font-size: 12px; letter-spacing: 2px; }
+
+    /* --- SERVICES --- */
+    .section-padding { padding: 120px 20px; }
+    .section-title { text-align: center; margin-bottom: 80px; }
+    .section-title h4 { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 14px; margin-bottom: 10px; }
+    .section-title h2 { font-family: 'Montserrat'; font-size: 3rem; text-transform: uppercase; }
+
+    .services-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .service-card { 
+        background: var(--card-bg); padding: 50px 40px; border: 1px solid var(--border); transition: var(--transition);
         position: relative; overflow: hidden;
     }
-    .hero::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+    .service-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+    .service-card i { font-size: 45px; color: var(--gold); margin-bottom: 25px; display: block; }
+    .service-card h3 { font-family: 'Montserrat'; margin-bottom: 15px; }
+    .service-card ul { list-style: none; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+    .service-card ul li { margin-bottom: 8px; }
+
+    /* --- CALCULATOR --- */
+    .calc-box { 
+        max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 60px; border-radius: 4px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.1); border-top: 5px solid var(--gold);
     }
-    .hero-content { position: relative; z-index: 10; max-width: 1000px; }
-    .hero-logo { width: 320px; margin-bottom: 30px; filter: drop-shadow(0 0 25px var(--gold)); animation: float 4s infinite ease-in-out; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-    .hero h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 8vw, 5.5rem); color: var(--gold); font-weight: 900; line-height: 1; margin-bottom: 20px; text-transform: uppercase; }
-    .hero h2 { color: #fff; font-size: clamp(1rem, 3vw, 1.8rem); letter-spacing: 10px; font-weight: 300; margin-bottom: 40px; text-transform: uppercase; }
-    
-    .main-cta { 
-        background: var(--gold); color: #000; padding: 20px 50px; border-radius: 50px; 
-        font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 14px;
-        box-shadow: 0 15px 35px rgba(255,215,0,0.3); transition: var(--transition); display: inline-block;
+    .calc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; }
+    .input-field { display: flex; flex-direction: column; }
+    .input-field label { font-weight: 700; margin-bottom: 10px; font-size: 12px; text-transform: uppercase; }
+    .input-field select, .input-field input { 
+        padding: 15px; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 5px; font-size: 1rem;
     }
-    .main-cta:hover { transform: translateY(-5px); background: #fff; color: #000; }
-
-    /* --- STATS / COUNTERS --- */
-    .stats-bar { background: var(--soft-black); padding: 100px 20px; border-bottom: 1px solid #1a1a1a; }
-    .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-    .stat-card { text-align: center; color: #fff; }
-    .stat-card h3 { font-size: 4.5rem; color: var(--gold); font-family: 'Montserrat'; font-weight: 900; line-height: 1; }
-    .stat-card p { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 3px; margin-top: 10px; }
-
-    /* --- PROFESSIONAL SERVICES (DETAILED) --- */
-    .services-sec { padding: 120px 20px; background: var(--light-grey); }
-    .section-head { text-align: center; margin-bottom: 80px; }
-    .section-head h4 { color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
-    .section-head h2 { font-family: 'Montserrat'; font-size: 3rem; color: #000; text-transform: uppercase; }
-    
-    .services-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .service-box { 
-        background: #fff; padding: 50px 40px; border-radius: 25px; transition: var(--transition); 
-        border: 1px solid #eee; position: relative; overflow: hidden;
+    .result-display { 
+        grid-column: span 2; background: var(--accent); color: var(--gold); padding: 30px; 
+        text-align: center; border-radius: 5px; margin-top: 20px;
     }
-    .service-box::after { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--gold); transition: 0.3s; transform: scaleY(0); }
-    .service-box:hover { transform: translateY(-15px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
-    .service-box:hover::after { transform: scaleY(1); }
-    .service-box i { font-size: 50px; color: var(--gold); margin-bottom: 30px; display: block; }
-    .service-box h3 { font-family: 'Montserrat'; font-size: 1.5rem; margin-bottom: 20px; color: #000; }
-    .service-box p { color: #666; font-size: 15px; margin-bottom: 20px; }
-    .service-list { list-style: none; }
-    .service-list li { font-size: 13px; font-weight: 600; color: #444; margin-bottom: 8px; display: flex; align-items: center; }
-    .service-list li i { font-size: 12px; margin-bottom: 0; margin-right: 10px; color: #2ecc71; }
+    .result-display h3 { font-size: 3rem; font-family: 'Montserrat'; }
 
-    /* --- ABOUT SECTION --- */
-    .about-sec { padding: 140px 20px; background: #fff; }
-    .about-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-    .about-img-frame { position: relative; }
-    .about-img-frame img { width: 100%; border-radius: 30px; filter: grayscale(100%); transition: 0.5s; }
-    .about-img-frame:hover img { filter: grayscale(0%); }
-    .experience-tag { 
-        position: absolute; bottom: -40px; right: -40px; background: var(--black); color: var(--gold); 
-        padding: 40px; border-radius: 20px; text-align: center; border: 2px solid var(--gold);
+    /* --- GALLERY --- */
+    .gallery-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0px; }
+    .gallery-item { height: 450px; position: relative; overflow: hidden; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
+    .gallery-overlay { 
+        position: absolute; inset: 0; background: rgba(0,0,0,0.8); display: flex; flex-direction: column;
+        justify-content: center; align-items: center; opacity: 0; transition: 0.5s; color: white; padding: 20px;
     }
-    .experience-tag span { font-size: 50px; font-weight: 900; display: block; line-height: 1; }
-    .about-content h2 { font-family: 'Montserrat'; font-size: 3rem; line-height: 1.1; margin-bottom: 30px; color: #000; }
-    .about-content p { font-size: 1.1rem; color: #555; margin-bottom: 25px; }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-    /* --- WORKING PROCESS (STEPS) --- */
-    .process-sec { padding: 120px 20px; background: var(--soft-black); color: #fff; }
-    .process-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
-    .process-item { text-align: center; padding: 40px 20px; background: #111; border-radius: 20px; border: 1px solid #222; position: relative; }
-    .step-badge { 
-        position: absolute; top: -25px; left: 50%; transform: translateX(-50%); 
-        background: var(--gold); color: #000; width: 50px; height: 50px; border-radius: 50%; 
-        display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;
-    }
-    .process-item i { font-size: 40px; color: var(--gold); margin-bottom: 25px; }
-    .process-item h3 { font-family: 'Montserrat'; margin-bottom: 15px; font-size: 1.2rem; }
-
-    /* --- PORTFOLIO GALLERY --- */
-    .gallery-sec { padding: 120px 0; background: #000; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .gallery-box { height: 450px; position: relative; overflow: hidden; cursor: crosshair; }
-    .gallery-box img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
-    .gallery-box:hover img { transform: scale(1.1); filter: brightness(0.3); }
-    .gallery-info { 
-        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-        text-align: center; opacity: 0; transition: 0.4s; width: 100%;
-    }
-    .gallery-box:hover .gallery-info { opacity: 1; }
-    .gallery-info h3 { color: var(--gold); font-family: 'Montserrat'; font-size: 1.5rem; text-transform: uppercase; }
-    .gallery-info p { color: #fff; font-size: 12px; letter-spacing: 2px; }
-
-    /* --- TESTIMONIALS (GOOGLE) --- */
-    .review-sec { padding: 120px 20px; background: #fff; }
-    .review-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .review-card { 
-        background: #fdfdfd; padding: 50px 40px; border-radius: 30px; border: 1px solid #eee; 
-        position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.02);
-    }
-    .google-verify { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 13px; color: #1a73e8; font-weight: 700; }
-    .stars { color: #fbbc05; margin-bottom: 15px; font-size: 15px; }
-    .review-card p { font-style: italic; color: #555; line-height: 1.8; margin-bottom: 25px; }
-    .reviewer-info { display: flex; align-items: center; gap: 15px; }
-    .reviewer-info img { width: 50px; height: 50px; border-radius: 50%; background: #eee; }
-    .reviewer-info h5 { font-weight: 800; color: #000; font-size: 15px; }
-
-    /* --- RATES SECTION --- */
-    .rates-sec { padding: 120px 20px; background: var(--light-grey); }
-    .rates-table { max-width: 900px; margin: 0 auto; }
-    .rate-card { 
-        background: #fff; display: flex; justify-content: space-between; align-items: center; 
-        padding: 40px; border-radius: 20px; margin-bottom: 20px; transition: 0.3s; border: 1px solid #eee;
-    }
-    .rate-card:hover { transform: scale(1.03); border-color: var(--gold); }
-    .rate-name h4 { font-size: 1.5rem; font-family: 'Montserrat'; color: #000; }
-    .rate-name p { font-size: 13px; color: #888; }
-    .rate-val { font-size: 2.8rem; font-weight: 900; color: var(--gold); }
-
-    /* --- FAQ SECTION --- */
-    .faq-sec { padding: 120px 20px; background: #fff; }
-    .faq-wrap { max-width: 850px; margin: 0 auto; }
-    .faq-card { border: 1px solid #eee; border-radius: 15px; margin-bottom: 15px; overflow: hidden; }
-    .faq-q { padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 17px; background: #fff; }
-    .faq-a { padding: 0 30px; height: 0; overflow: hidden; transition: 0.4s; color: #666; font-size: 15px; line-height: 1.8; }
-    .faq-card.active .faq-a { padding-bottom: 30px; height: auto; border-top: 1px solid #eee; }
-    .faq-card.active .faq-q { color: var(--gold); }
+    /* --- PROCESS TIMELINE --- */
+    .timeline { max-width: 1000px; margin: 0 auto; position: relative; padding: 40px 0; }
+    .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--border); }
+    .time-item { margin-bottom: 60px; width: 50%; position: relative; padding: 0 40px; }
+    .time-item:nth-child(even) { margin-left: auto; text-align: left; }
+    .time-item:nth-child(odd) { text-align: right; }
+    .time-dot { position: absolute; top: 0; width: 20px; height: 20px; background: var(--gold); border-radius: 50%; z-index: 1; }
+    .time-item:nth-child(odd) .time-dot { right: -10px; }
+    .time-item:nth-child(even) .time-dot { left: -10px; }
 
     /* --- FOOTER --- */
-    footer { background: #000; color: #666; padding: 100px 20px 40px; border-top: 1px solid #111; }
-    .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; text-align: left; }
-    .footer-col h4 { color: var(--gold); font-family: 'Montserrat'; font-size: 1.2rem; margin-bottom: 30px; text-transform: uppercase; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 15px; font-size: 14px; }
-    .footer-col a { color: #666; text-decoration: none; transition: 0.3s; }
-    .footer-col a:hover { color: #fff; padding-left: 5px; }
+    footer { background: #000; color: #fff; padding: 100px 40px 40px; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; }
+    .footer-col h4 { color: var(--gold); font-family: 'Montserrat'; margin-bottom: 30px; text-transform: uppercase; }
+    .footer-col p { color: #888; font-size: 14px; margin-bottom: 15px; }
+    .social-links { display: flex; gap: 20px; font-size: 1.5rem; margin-top: 20px; }
+    .social-links a { color: #fff; transition: 0.3s; }
+    .social-links a:hover { color: var(--gold); }
 
-    /* --- FLOATING ACTIONS --- */
-    .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; z-index: 10000; box-shadow: 0 15px 30px rgba(0,0,0,0.3); text-decoration: none; }
-    .call-float { position: fixed; bottom: 115px; right: 30px; background: var(--gold); color: #000; padding: 15px 35px; border-radius: 50px; font-weight: 900; z-index: 10000; box-shadow: 0 15px 30px rgba(0,0,0,0.3); text-decoration: none; font-size: 15px; text-transform: uppercase; }
+    /* --- FLOATING ELEMENTS --- */
+    .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; color: white; z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-    /* --- MOBILE RESPONSIVE --- */
+    /* --- RESPONSIVE --- */
     @media (max-width: 1024px) {
-        .services-container, .stats-grid, .process-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
-        .about-wrap { grid-template-columns: 1fr; text-align: center; }
-        .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        .services-grid, .stats-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        .gallery-container { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
-        nav { display: none; }
-        .stats-grid, .process-grid, .review-grid, .footer-grid { grid-template-columns: 1fr; }
-        .services-container { grid-template-columns: 1fr; }
-        .hero h1 { font-size: 3rem; }
-        .section-head h2 { font-size: 2.2rem; }
-        .rate-card { flex-direction: column; text-align: center; gap: 20px; }
-        .experience-tag { position: static; margin-top: 30px; }
-        section { padding: 80px 20px; }
+        .nav-links { display: none; }
+        .services-grid, .stats-grid, .footer-grid, .calc-form { grid-template-columns: 1fr; }
+        .hero-content h1 { font-size: 3.5rem; }
+        .timeline::before { left: 20px; }
+        .time-item { width: 100%; text-align: left !important; padding-left: 50px; }
+        .time-dot { left: 10px !important; }
+        .result-display h3 { font-size: 2rem; }
     }
 </style>
 </head>
-
 <body>
 
 <div id="progress"></div>
 
 <header>
     <div class="nav-container">
-        <a href="#" class="logo-brand">AKHILESH CHAUDHARY</a>
-        <nav>
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">Legacy</a></li>
-                <li><a href="#work">Portfolio</a></li>
-                <li><a href="#rates">Price</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-        </nav>
+        <a href="#" class="logo-brand">AKHILESH<span> CHAUDHARY</span></a>
+        <ul class="nav-links">
+            <li><a href="#services">Expertise</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#process">Workflow</a></li>
+            <li><button class="theme-switch" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></button></li>
+        </ul>
+        <a href="tel:+917827692023" class="cta-btn" style="padding: 10px 25px; font-size: 12px;">Get a Quote</a>
     </div>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <img src="logo.png" alt="Chaudhary Tiles" class="hero-logo" onerror="this.src='https://via.placeholder.com/300/000/FFD700?text=CHAUDHARY+TILES'">
-        <h1>CHAUDHARY TILES</h1>
-        <h2>Premium Labor Contractor</h2>
-        <p style="color: #888; font-size: 1.2rem; margin-bottom: 40px; max-width: 800px; margin-inline: auto;">
-            Transforming spaces across Gurugram and Delhi NCR since 2005. Specialized in Italian Marble, 
-            Luxury Vitrified Tiles, and Scientific Waterproofing systems.
-        </p>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="tel:+917827692023" class="main-cta">Call Now: 7827692023</a>
-            <a href="#work" class="main-cta" style="background: transparent; border: 2px solid var(--gold); color: var(--gold);">Browse Projects</a>
+    <div class="hero-content" data-aos="zoom-out" data-aos-duration="1500">
+        <p>Premium Stone & Tile Artisans</p>
+        <h1>MASTERING<br><span style="color: var(--gold);">THE CRAFT</span></h1>
+        <a href="#calculator" class="cta-btn">Estimate Project Cost</a>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="stats-grid">
+        <div class="stat-item" data-aos="fade-up">
+            <h2 class="counter" data-target="21">0</h2>
+            <p>Years Legacy</p>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="counter" data-target="950">0</h2>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="counter" data-target="50">0</h2>
+            <p>Artisans Team</p>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>% Quality Focus</p>
         </div>
     </div>
 </section>
 
-<section class="stats-bar">
-    <div class="stats-grid">
-        <div class="stat-card"><h3 class="count" data-target="21">0</h3><p>Years Experience</p></div>
-        <div class="stat-card"><h3 class="count" data-target="950">0</h3><p>Projects Finished</p></div>
-        <div class="stat-card"><h3 class="count" data-target="50">0</h3><p>Artisans Team</p></div>
-        <div class="stat-card"><h3 class="count" data-target="100">0</h3><p>% Site Accuracy</p></div>
+<section id="services" class="section-padding">
+    <div class="section-title" data-aos="fade-up">
+        <h4>Our Core Expertise</h4>
+        <h2>World-Class Finishing</h2>
     </div>
-</section>
-
-<section id="services" class="services-sec">
-    <div class="section-head">
-        <h4>Our Expertise</h4>
-        <h2>Professional Services</h2>
-    </div>
-    <div class="services-container">
-        <div class="service-box">
+    <div class="services-grid">
+        <div class="service-card" data-aos="fade-up">
+            <i class="fas fa-gem"></i>
+            <h3>Italian Marble</h3>
+            <p>Luxury marble laying with zero-joint technology and high-gloss diamond mirror polishing.</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Figure Matching Slabs</li>
+                <li><i class="fas fa-check"></i> Crystallization Treatment</li>
+                <li><i class="fas fa-check"></i> Nanowhite Specialized</li>
+            </ul>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
             <i class="fas fa-th-large"></i>
             <h3>Luxury Tile Fitting</h3>
-            <p>Specialized in large format tiles (8x4 ft). We use laser-alignment and imported spacers for a seamless finish.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check"></i> Zero-Hollow Technology</li>
-                <li><i class="fas fa-check"></i> Epoxy Grout Support</li>
-                <li><i class="fas fa-check"></i> Laser Level Mapping</li>
+            <p>Specialized in large format vitrified tiles (8x4 ft) using laser leveling and suction tools.</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Epoxy Grouting</li>
+                <li><i class="fas fa-check"></i> Paper-Joint Precision</li>
+                <li><i class="fas fa-check"></i> Hollow-Free Sounding</li>
             </ul>
         </div>
-        <div class="service-box">
-            <i class="fas fa-gem"></i>
-            <h3>Italian Marble Work</h3>
-            <p>Master craftsmanship for Italian marble flooring, wall cladding, and figure-matching diamond polish.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check"></i> Precision Inlay Work</li>
-                <li><i class="fas fa-check"></i> Mirror Finish Polish</li>
-                <li><i class="fas fa-check"></i> Chemical Crystallization</li>
-            </ul>
-        </div>
-        <div class="service-box">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
             <i class="fas fa-tint-slash"></i>
-            <h3>Waterproofing Specialist</h3>
-            <p>Advanced 7-layer chemical waterproofing for bathrooms, terraces, and basements with long-term warranty.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check"></i> Seepage Protection</li>
-                <li><i class="fas fa-check"></i> Roof Cooling Treatment</li>
-                <li><i class="fas fa-check"></i> Dr. Fixit Certified Mix</li>
-            </ul>
-        </div>
-        <div class="service-box">
-            <i class="fas fa-utensils"></i>
-            <h3>Granite Molding</h3>
-            <p>Custom kitchen countertops and staircase granite fitting with round-molding and edge-polishing.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check"></i> Seamless Jointing</li>
-                <li><i class="fas fa-check"></i> Nano White Specialist</li>
-                <li><i class="fas fa-check"></i> CNC Like Edge Finish</li>
-            </ul>
-        </div>
-        <div class="service-box">
-            <i class="fas fa-shower"></i>
-            <h3>Bathroom Renovation</h3>
-            <p>Complete end-to-end bathroom dismantling and new tile-plumbing-fitting services under 15 days.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check"></i> Concept Design Help</li>
+            <h3>Waterproofing</h3>
+            <p>7-Layer chemical waterproofing with 10-year warranty for bathrooms and terraces.</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Dr. Fixit/Sika Certified</li>
                 <li><i class="fas fa-check"></i> Slope Management</li>
-                <li><i class="fas fa-check"></i> CP Fitting Installation</li>
-            </ul>
-        </div>
-        <div class="service-box">
-            <i class="fas fa-ruler-combined"></i>
-            <h3>Site Measurement</h3>
-            <p>Professional area measurement and material calculation to ensure zero wastage of expensive tiles.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check"></i> Batch Number Check</li>
-                <li><i class="fas fa-check"></i> Layout Planning</li>
-                <li><i class="fas fa-check"></i> Wholesale Sourcing Help</li>
+                <li><i class="fas fa-check"></i> Corner-Sealing Mesh</li>
             </ul>
         </div>
     </div>
 </section>
 
-<section id="about" class="about-sec">
-    <div class="about-wrap">
-        <div class="about-img-frame">
-            <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" alt="Tile Expert">
-            <div class="experience-tag">
-                <span>21+</span>
-                <p>Years Excellence</p>
+<section id="calculator" class="section-padding" style="background: var(--card-bg);">
+    <div class="section-title">
+        <h4>Transparent Pricing</h4>
+        <h2>Cost Calculator</h2>
+    </div>
+    <div class="calc-box" data-aos="zoom-in">
+        <div class="calc-form">
+            <div class="input-field">
+                <label>Select Work Type</label>
+                <select id="work-type" onchange="runCalculation()">
+                    <option value="45">Premium Tile Fitting (₹45/sqft)</option>
+                    <option value="200">Kitchen Granite/Stone (₹200/sqft)</option>
+                    <option value="250">Window Stone Work (₹250/sqft)</option>
+                    <option value="80">Scientific Waterproofing (₹80/sqft)</option>
+                    <option value="20">Epoxy Grouting (₹20/sqft)</option>
+                    <option value="15000">Bathroom Plumbing (₹15,000 Fixed)</option>
+                </select>
+            </div>
+            <div class="input-field" id="area-group">
+                <label>Total Area (Square Feet)</label>
+                <input type="number" id="sqft-input" placeholder="Enter sqft..." oninput="runCalculation()">
+            </div>
+            <div class="result-display">
+                <p>Estimated Labour Cost</p>
+                <h3 id="final-cost">₹ 0</h3>
             </div>
         </div>
-        <div class="about-content">
-            <h2>The Name of Trust: <br><span style="color: var(--gold);">Mr. Akhilesh Chaudhary</span></h2>
-            <p>Founded in 2005, Chaudhary Tiles has become Gurugram's most reliable labor contractor for high-end residential and commercial projects.</p>
-            <p>We don't just "lay tiles"—we understand the science behind bonding, moisture management, and structural alignment. Every site is personally supervised by Akhilesh Ji to ensure that the work survives for generations.</p>
-            <div style="background: #000; color: #fff; padding: 30px; border-radius: 20px; display: flex; gap: 30px; align-items: center;">
-                <i class="fas fa-award" style="font-size: 50px; color: var(--gold);"></i>
-                <div>
-                    <h4 style="color: var(--gold);">100% Quality Assurance</h4>
-                    <p style="color: #888; font-size: 13px;">No hollow sounds. No uneven levels. Guaranteed.</p>
-                </div>
-            </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="color: var(--text-muted); font-size: 13px;">*This is an approximate labor estimate. Material cost and final quote will be provided after site inspection by Akhilesh Chaudhary.</p>
         </div>
     </div>
 </section>
 
-<section class="process-sec">
-    <div class="section-head">
-        <h2 style="color: #fff;">Our Working Process</h2>
+<section id="projects" class="section-padding">
+    <div class="section-title">
+        <h4>Visual Legacy</h4>
+        <h2>Our Craftsmanship</h2>
     </div>
-    <div class="process-grid">
-        <div class="process-item">
-            <div class="step-badge">1</div>
-            <i class="fas fa-search-plus"></i>
-            <h3>Site Survey</h3>
-            <p>Detailed leveling check and area measurement.</p>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600" alt="Bath">
+            <div class="gallery-overlay"><h3>Luxury Bathroom</h3><p>Full-height Tile Cladding</p></div>
         </div>
-        <div class="process-item">
-            <div class="step-badge">2</div>
-            <i class="fas fa-file-invoice"></i>
-            <h3>Estimating</h3>
-            <p>Fixed labor quote with material quantity list.</p>
-        </div>
-        <div class="process-item">
-            <div class="step-badge">3</div>
-            <i class="fas fa-tools"></i>
-            <h3>Base Prep</h3>
-            <p>Chemical coating and surface preparation.</p>
-        </div>
-        <div class="process-item">
-            <div class="step-badge">4</div>
-            <i class="fas fa-hand-sparkles"></i>
-            <h3>Execution</h3>
-            <p>Laser-level fitting and final handover.</p>
-        </div>
-    </div>
-</section>
-
-<section id="work" class="gallery-sec">
-    <div class="gallery-grid">
-        <div class="gallery-box">
+        <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600" alt="Floor">
-            <div class="gallery-info"><h3>Vitrified Floor</h3><p>800x1600mm Fitting</p></div>
+            <div class="gallery-overlay"><h3>Italian Marble</h3><p>Diamond Mirror Polishing</p></div>
         </div>
-        <div class="gallery-box">
-            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600" alt="Bathroom">
-            <div class="gallery-info"><h3>Luxury Bath</h3><p>Full-Height Cladding</p></div>
-        </div>
-        <div class="gallery-box">
+        <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1620626011761-9963d7521476?auto=format&fit=crop&w=600" alt="Kitchen">
-            <div class="gallery-info"><h3>Designer Kitchen</h3><p>Nano White Slabs</p></div>
+            <div class="gallery-overlay"><h3>Designer Kitchen</h3><p>Granite Countertop Molding</p></div>
         </div>
-        <div class="gallery-box">
+        <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Stairs">
-            <div class="gallery-info"><h3>Italian Marble</h3><p>Diamond Mirror Polish</p></div>
+            <div class="gallery-overlay"><h3>Stone Stairs</h3><p>CNC Border & Round Polish</p></div>
         </div>
     </div>
 </section>
 
-<section class="review-sec">
-    <div class="section-head"><h2>Google Verified Ratings</h2></div>
-    <div class="review-grid">
-        <div class="review-card">
-            <div class="google-verify"><i class="fab fa-google"></i> Verified Local Guide</div>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p>"Akhilesh Ji's finishing is world-class. He did my flat in DLF Phase 5. No hollow sounds in tiles, perfect leveling."</p>
-            <div class="reviewer-info">
-                <img src="https://ui-avatars.com/api/?name=Rohan+Verma&background=FFD700&color=000" alt="User">
-                <h5>Rohan Verma, Gurugram</h5>
+<section id="process" class="section-padding" style="background: var(--bg);">
+    <div class="section-title">
+        <h4>Workflow</h4>
+        <h2>How We Work</h2>
+    </div>
+    <div class="timeline">
+        <div class="time-item" data-aos="fade-right">
+            <div class="time-dot"></div>
+            <h3>01. Site Survey</h3>
+            <p>Akhilesh Ji personally visits the site to check leveling, batch numbers, and moisture levels.</p>
+        </div>
+        <div class="time-item" data-aos="fade-left">
+            <div class="time-dot"></div>
+            <h3>02. Estimation</h3>
+            <p>Formal labor quote provided with material quantity requirements to prevent wastage.</p>
+        </div>
+        <div class="time-item" data-aos="fade-right">
+            <div class="time-dot"></div>
+            <h3>03. Execution</h3>
+            <p>Our expert team begins work using laser-leveling tools and specialized bonding chemicals.</p>
+        </div>
+        <div class="time-item" data-aos="fade-left">
+            <div class="time-dot"></div>
+            <h3>04. Final Polish</h3>
+            <p>Deep cleaning and final mirror-polishing/epoxy-filling for a world-class look.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" style="background: var(--accent); color: white;">
+    <div class="section-title">
+        <h2 style="color: white;">Client Stories</h2>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 10px;">
+            <p style="font-style: italic; font-family: 'Playfair Display'; font-size: 18px;">"Akhilesh Chaudhary's team transformed my bungalow. The Italian marble mirror finish is actually better than what I saw in 5-star hotels. Highly professional."</p>
+            <h5 style="margin-top: 20px; color: var(--gold);">— Mr. Varun Khanna, DLF Phase 5</h5>
+            <small>Verified Project Review</small>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 10px;">
+            <p style="font-style: italic; font-family: 'Playfair Display'; font-size: 18px;">"I was worried about leakage. They did 7-layer waterproofing 3 years ago and still not a single drop. Honest contractor in Gurugram."</p>
+            <h5 style="margin-top: 20px; color: var(--gold);">— Dr. Sameer Gupta, Manesar</h5>
+            <small>Verified Project Review</small>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="footer-grid">
+        <div class="footer-col" style="grid-column: span 2;">
+            <h2 style="font-family: 'Montserrat'; color: var(--text);">Ready for Excellence?</h2>
+            <p>Contact us today for a free site visit and professional material consultation.</p>
+            <div style="margin-top: 30px;">
+                <p><i class="fas fa-phone-alt"></i> +91 7827692023</p>
+                <p><i class="fas fa-envelope"></i> work@chaudharytiles.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sector 10, Gurugram, Haryana</p>
             </div>
         </div>
-        <div class="review-card">
-            <div class="google-verify"><i class="fab fa-google"></i> Verified Local Guide</div>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p>"Highly professional team. They finished my bathroom renovation 2 days early. Best labor contractor in NCR."</p>
-            <div class="reviewer-info">
-                <img src="https://ui-avatars.com/api/?name=Anita+Sharma&background=FFD700&color=000" alt="User">
-                <h5>Dr. Anita Sharma, Sector 56</h5>
-            </div>
-        </div>
-        <div class="review-card">
-            <div class="google-verify"><i class="fab fa-google"></i> Verified Local Guide</div>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p>"Found them for Italian Marble polishing. The mirror finish they achieved is incredible. Very honest person."</p>
-            <div class="reviewer-info">
-                <img src="https://ui-avatars.com/api/?name=Sameer+Gupta&background=FFD700&color=000" alt="User">
-                <h5>Sameer Gupta, Manesar</h5>
-            </div>
+        <div class="footer-col" style="grid-column: span 2;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112222.91572004279!2d76.9536854!3d28.4594965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5b806d3d9e33!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000" width="100%" height="300" style="border:0; border-radius: 10px; filter: grayscale(1) invert(0.9);" allowfullscreen=""></iframe>
         </div>
     </div>
-</section>
-
-<section id="rates" class="rates-sec">
-    <div class="section-head"><h2>Labor Price Guide</h2></div>
-    <div class="rates-table">
-        <div class="rate-card">
-            <div class="rate-name"><h4>Tile Fitting</h4><p>Standard Vitrified Floors</p></div>
-            <div class="rate-val">₹45 <span style="font-size:12px; color:#999;">/sqft</span></div>
-        </div>
-        <div class="rate-card">
-            <div class="rate-name"><h4>Marble Laying</h4><p>Fitting + Diamond Polishing</p></div>
-            <div class="rate-val">₹85 <span style="font-size:12px; color:#999;">/sqft</span></div>
-        </div>
-        <div class="rate-card">
-            <div class="rate-name"><h4>Waterproofing</h4><p>Full 7-Layer Treatment</p></div>
-            <div class="rate-val">₹70 <span style="font-size:12px; color:#999;">/sqft</span></div>
-        </div>
-    </div>
-</section>
-
-<section id="faq" class="faq-sec">
-    <div class="section-head"><h2>Common Questions</h2></div>
-    <div class="faq-wrap">
-        <div class="faq-card">
-            <div class="faq-q">Do you provide labor only or material too? <i class="fas fa-plus"></i></div>
-            <div class="faq-a">We are a specialized labor contracting firm. However, Mr. Akhilesh Chaudhary provides free expert guidance to buy materials from wholesale markets to save you costs.</div>
-        </div>
-        <div class="faq-card">
-            <div class="faq-q">Is there a warranty for leakage? <i class="fas fa-plus"></i></div>
-            <div class="faq-a">Yes! Our specialized waterproofing comes with a 10-year assurance. We use Dr. Fixit and Sika chemical systems.</div>
-        </div>
-        <div class="faq-card">
-            <div class="faq-q">How do you ensure perfect leveling? <i class="fas fa-plus"></i></div>
-            <div class="faq-a">We use Bosch 360-degree laser levelers at every 2 feet to ensure 100% flat surfaces and perfect slopes in bathrooms.</div>
-        </div>
-        <div class="faq-card">
-            <div class="faq-q">What areas do you serve? <i class="fas fa-plus"></i></div>
-            <div class="faq-a">We cover all of Gurugram (DLF 1-5, Golf Course, Sohna Rd, Palam Vihar) and nearby Delhi NCR regions.</div>
-        </div>
-    </div>
-</section>
-
-<section style="padding: 0;">
-    <iframe style="width:100%; height:500px; border:none; filter:grayscale(1) invert(90%);" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112255.44146747535!2d76.992683!3d28.459497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5b7a1262d057a!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v17000000000000" allowfullscreen=""></iframe>
 </section>
 
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
-            <h4 style="color: #fff;">CHAUDHARY TILES</h4>
-            <p>Mastering stone and tile work since 2005. The first choice for luxury homes in Gurugram.</p>
-            <div style="margin-top: 20px; color: var(--gold); font-size: 20px;">
-                <i class="fab fa-instagram"></i> &nbsp; <i class="fab fa-facebook"></i> &nbsp; <i class="fab fa-youtube"></i>
+            <h4>Akhilesh Chaudhary</h4>
+            <p>Gurugram's trusted name for premium flooring and stone masonry since 2005.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="footer-col">
+            <h4>Services</h4>
+            <p>Italian Marble Laying</p>
+            <p>Large Format Tiles</p>
+            <p>Stone Cladding</p>
+            <p>Granite Molding</p>
+        </div>
+        <div class="footer-col">
             <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#services">Our Services</a></li>
-                <li><a href="#work">Portfolio</a></li>
-                <li><a href="#rates">Price Guide</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
+            <p><a href="#services" style="color:#888; text-decoration:none;">Expertise</a></p>
+            <p><a href="#calculator" style="color:#888; text-decoration:none;">Pricing</a></p>
+            <p><a href="#projects" style="color:#888; text-decoration:none;">Portfolio</a></p>
         </div>
         <div class="footer-col">
-            <h4>Service Areas</h4>
-            <ul>
-                <li>DLF Phase 1-5</li>
-                <li>Sohna Road</li>
-                <li>Golf Course Ext.</li>
-                <li>Manesar & Palam</li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Direct Contact</h4>
-            <p><i class="fas fa-user-tie"></i> Akhilesh Chaudhary</p>
-            <p><i class="fas fa-phone-alt"></i> +91 7827692023</p>
-            <p><i class="fas fa-map-marker-alt"></i> Sector 10, Gurugram, HR</p>
+            <h4>Support</h4>
+            <p>24/7 Consultation</p>
+            <p>Site Maintenance</p>
+            <p>Material Sourcing</p>
         </div>
     </div>
-    <div style="text-align:center; padding-top: 80px; font-size: 11px;">
-        © 2026 Chaudhary Tiles & Stone | Premium Labor Contractors
+    <div style="text-align:center; margin-top:80px; padding-top:40px; border-top:1px solid #222; font-size:12px; color:#555;">
+        © 2026 Akhilesh Chaudhary | Premium Stone & Tile Contractors. Designed with Excellence.
     </div>
 </footer>
 
-<a href="tel:+917827692023" class="call-float"><i class="fas fa-phone-alt"></i> Call Akhilesh Ji</a>
-<a href="https://wa.me/917827692023?text=Hi+Akhilesh+Ji,+I+found+your+website+and+need+a+quote+for+tile/marble+work." class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/917827692023" class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    // Scroll Progress
+    AOS.init({ duration: 1000, once: true });
+
+    // THEME TOGGLE
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        if(body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // CHECK SAVED THEME
+    if(localStorage.getItem('theme') === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+    }
+
+    // SCROLL PROGRESS
     window.onscroll = function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
         document.getElementById("progress").style.width = scrolled + "%";
+        
+        // Header Shrink
+        const header = document.querySelector('header');
+        if(winScroll > 50) header.style.padding = "10px 0";
+        else header.style.padding = "20px 0";
     };
 
-    // FAQ Toggle
-    document.querySelectorAll('.faq-card').forEach(card => {
-        card.querySelector('.faq-q').addEventListener('click', () => {
-            card.classList.toggle('active');
-            let icon = card.querySelector('.fa-plus') || card.querySelector('.fa-minus');
-            icon.classList.toggle('fa-plus');
-            icon.classList.toggle('fa-minus');
-        });
-    });
+    // CALCULATOR LOGIC
+    function runCalculation() {
+        const rate = document.getElementById('work-type').value;
+        const sqft = document.getElementById('sqft-input').value;
+        const display = document.getElementById('final-cost');
+        const areaGroup = document.getElementById('area-group');
 
-    // Count Up Logic
-    const counters = document.querySelectorAll('.count');
-    const options = { threshold: 1 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                const target = +entry.target.getAttribute('data-target');
-                let count = 0;
-                const update = () => {
-                    const speed = target / 50;
-                    if(count < target) {
-                        count += speed;
-                        entry.target.innerText = Math.ceil(count) + "+";
-                        setTimeout(update, 40);
-                    } else { entry.target.innerText = target + "+"; }
-                };
-                update();
-                observer.unobserve(entry.target);
+        if(rate == "15000") {
+            areaGroup.style.opacity = "0.3";
+            areaGroup.style.pointerEvents = "none";
+            display.innerText = "₹ 15,000";
+        } else {
+            areaGroup.style.opacity = "1";
+            areaGroup.style.pointerEvents = "auto";
+            if(sqft > 0) {
+                let total = rate * sqft;
+                display.innerText = "₹ " + total.toLocaleString('en-IN');
+            } else {
+                display.innerText = "₹ 0";
             }
-        });
-    }, options);
-    counters.forEach(c => observer.observe(c));
+        }
+    }
+
+    // COUNTER ANIMATION
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target + "+";
+            }
+        };
+        
+        // Trigger on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) updateCount();
+        }, { threshold: 1 });
+        observer.observe(counter);
+    });
 </script>
 
 </body>
