@@ -4,227 +4,113 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Chaudhary Tiles & Stone | Gurugram</title>
-<meta name="description" content="21+ Years Experience in Tile & Stone Installation in Gurugram. Professional Tile Work, Bathroom Renovation, Marble & Granite Services.">
-<meta name="keywords" content="Tiles Work Gurugram, Marble Work, Bathroom Tiles, Stone Installation">
-<meta name="author" content="Akhilesh Chaudhary">
-<link rel="icon" href="logo.png">
-<link rel="canonical" href="https://chaudharytiles.github.io/">
+<title>Chaudhary Tiles & Stone | Premium Tile Contractor Gurugram</title>
 
+<meta name="title" content="Chaudhary Tiles & Stone | Tile Work in Gurugram">
+<meta name="description" content="Professional Tile Fitting, Stone Installation, Waterproofing & Plumbing Services in Gurugram. Affordable and Trusted Experts.">
+<meta name="author" content="Chaudhary Tiles & Stone">
+<meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="mZBSTdvTJR7xCXj8LDgAKwtT6PWKPz3TOstrsNYee2g">
+<meta name="keywords" content="Tiles, Tile Contractor, Marble, Granite, Gurugram, Bathroom Renovation, Epoxy, Waterproofing">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Only ONE EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-html{scroll-behavior:smooth;}
-body{line-height:1.6;background:#fff;color:#333;}
-section{padding:60px 8%;text-align:center;}
-h2{margin-bottom:30px;}
 
-nav{
-display:flex;justify-content:space-between;align-items:center;
-background:#111;color:white;padding:15px 8%;
-position:sticky;top:0;z-index:1000;
-}
-nav img{height:40px;}
-nav ul{display:flex;list-style:none;}
-nav ul li{margin:0 10px;}
-nav ul li a{color:white;text-decoration:none;}
-.menu-toggle{display:none;font-size:22px;cursor:pointer;}
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:#fff;color:#111;transition:0.3s;line-height:1.6;padding-top:90px;}
+a{text-decoration:none;}
+h1,h2,h3{font-weight:600;}
+button{cursor:pointer;font-family:'Poppins',sans-serif;}
+.dark-mode{background:#111;color:#fff;}
 
-.hero{
-background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
-height:90vh;color:white;display:flex;
-flex-direction:column;justify-content:center;align-items:center;
-text-shadow:1px 1px 5px black;
-}
-.hero h1{font-size:40px;}
-.hero button{
-margin-top:20px;padding:10px 20px;
-background:gold;border:none;cursor:pointer;
-}
+/* HEADER */
+header{background:#111;color:#fff;padding:15px 50px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;z-index:1000;}
+.header-container{display:flex;align-items:center;justify-content:space-between;width:95%;margin:auto;flex-wrap:wrap;}
+.logo-box{display:flex;align-items:center;gap:10px;}
+.header-logo{height:55px;}
+nav a{color:white;margin:0 10px;font-size:16px;transition:0.3s;}
+nav a:hover{color:gold;}
+.toggle-btn{background:gold;border:none;padding:6px 10px;border-radius:5px;}
 
-.counter-section{background:#111;color:white;}
-.counter-box{display:flex;justify-content:center;flex-wrap:wrap;}
-.counter-item{margin:20px;}
-.counter{font-size:40px;color:gold;}
+/* HERO */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#000;text-align:center;padding:0 20px;}
+.hero-logo{width:500px;max-width:90%;margin-bottom:20px;}
+.hero h1{font-size:48px;color:gold;margin-bottom:15px;}
+.hero p{font-size:20px;color:white;margin-bottom:20px;max-width:700px;}
+.gold-btn{background:gold;color:black;padding:14px 30px;border-radius:40px;font-weight:bold;display:inline-block;transition:0.3s;box-shadow:0 0 15px rgba(255,215,0,0.6);}
+.gold-btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,215,0,0.9);}
+.badge{margin-top:25px;background:linear-gradient(45deg,gold,#ffcc00);color:black;padding:10px 25px;border-radius:30px;font-weight:bold;}
 
-.service-box,.gallery-box,.testimonial-box{
-display:flex;flex-wrap:wrap;justify-content:center;
-}
-.card{
-background:white;width:250px;margin:10px;padding:20px;
-border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,0.1);
-transition:.3s;
-}
-.card:hover{transform:translateY(-5px);}
+/* COUNTER */
+.counter-section{display:flex;justify-content:center;gap:60px;padding:60px 20px;background:#111;color:white;text-align:center;}
+.counter-box h2{font-size:42px;color:gold;}
+.counter-box p{font-size:18px;}
 
-.gallery-box img{
-width:250px;height:200px;object-fit:cover;
-margin:10px;border-radius:8px;
-}
+/* SECTIONS */
+section{padding:70px 20px;text-align:center;}
+#about h2{font-size:36px;margin-bottom:20px;}
+#about p{max-width:700px;margin:auto;}
 
-#calculator input{
-width:100%;padding:10px;margin:10px 0;
-}
-#calculator button{padding:10px 20px;background:gold;border:none;}
+/* EXPERIENCE */
+.experience ul{list-style:none;margin-top:20px;}
+.experience li{margin:10px 0;font-weight:500;}
 
-#contact input,#contact textarea{
-width:100%;padding:10px;margin:10px 0;
-}
+/* PRICING */
+.pricing-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;width:90%;margin:auto;}
+.price-card{background:#f4f4f4;padding:25px;border-radius:10px;transition:0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.05);}
+.price-card:hover{transform:translateY(-8px);}
+.highlight{border:3px solid gold;}
+.price{color:goldenrod;font-weight:bold;font-size:20px;margin-top:10px;}
 
-button{cursor:pointer;}
+/* GALLERY */
+.gallery img{width:250px;height:200px;object-fit:cover;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition:0.4s;margin:10px;}
+.gallery img:hover{transform:scale(1.05);}
 
-footer{background:#111;color:white;padding:20px;}
+/* CALCULATOR */
+.calc-box input{padding:10px;margin:5px;width:150px;border:1px solid #ccc;border-radius:5px;}
+.calc-box select{padding:10px;margin:5px;width:170px;border:1px solid #ccc;border-radius:5px;}
+.calc-box button{padding:8px 15px;background:gold;border:none;border-radius:5px;}
+#result{margin-top:10px;font-weight:bold;}
 
-.sticky-call,.whatsapp,.top-btn{
-position:fixed;bottom:20px;
-padding:12px;border-radius:50%;
-color:white;text-decoration:none;
-}
-.sticky-call{right:100px;background:#007bff;}
-.whatsapp{right:50px;background:#25D366;}
-.top-btn{right:20px;background:#000;}
+/* REVIEWS */
+.review-card{background:#f4f4f4;padding:20px;margin:15px auto;width:80%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.05);}
 
+/* BOOKING */
+.booking-form input,.booking-form textarea{padding:12px;border-radius:8px;border:1px solid #ccc;width:100%;margin-bottom:10px;}
+.booking-form button{padding:12px;background:gold;border:none;border-radius:30px;font-weight:bold;}
+.booking-form button:hover{transform:scale(1.05);}
+
+/* CONTACT */
+.contact-info{font-weight:bold;margin-top:20px;}
+
+/* FOOTER */
+footer{background:#111;color:white;padding:25px;text-align:center;}
+footer a{color:gold;margin:0 10px;}
+
+/* FLOATING */
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;font-size:22px;}
+.sticky-call{position:fixed;bottom:90px;right:20px;background:red;color:white;padding:12px 20px;border-radius:30px;font-weight:bold;}
+
+/* MOBILE */
 @media(max-width:768px){
-nav ul{display:none;flex-direction:column;background:#111;position:absolute;top:60px;right:0;width:200px;}
-nav ul.show{display:flex;}
-.menu-toggle{display:block;}
-.hero h1{font-size:28px;}
+.hero-logo{width:170px;}
+.hero h1{font-size:32px;}
+.hero p{font-size:16px;}
+.counter-section{flex-direction:column;gap:30px;}
+.gallery img{width:90%;height:auto;}
+.pricing-container{grid-template-columns:1fr;}
+.calc-box input{width:100%;}
+.calc-box select{width:100%;}
 }
+
 </style>
 </head>
 
 <body>
-
-<nav>
-<img src="logo.png">
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-<ul id="menu">
-<li><a href="#">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#gallery">Gallery</a></li>
-<li><a href="#calculator">Calculator</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a href="blog.html">Blog</a></li>
-</ul>
-</nav>
-
-<section class="hero">
-<h1>Premium Tiles & Stone Work</h1>
-<p>21+ Years Experience in Gurugram</p>
-<button onclick="document.getElementById('contact').scrollIntoView()">Get Free Quote</button>
-</section>
-
-<section class="counter-section">
-<div class="counter-box">
-<div class="counter-item">
-<div class="counter" data-target="21">0</div>
-<p>Years Experience</p>
-</div>
-<div class="counter-item">
-<div class="counter" data-target="950">0</div>
-<p>Projects Completed</p>
-</div>
-<div class="counter-item">
-<div class="counter" data-target="100">0</div>
-<p>% Satisfaction</p>
-</div>
-</div>
-</section>
-
-<section id="services">
-<h2>Our Services</h2>
-<div class="service-box">
-<div class="card">Floor Tiles Installation</div>
-<div class="card">Bathroom Renovation</div>
-<div class="card">Kitchen Tiles</div>
-<div class="card">Marble & Granite Work</div>
-</div>
-</section>
-
-<section id="gallery">
-<h2>Our Work Gallery</h2>
-<div class="gallery-box">
-<img src="https://source.unsplash.com/400x300/?tiles">
-<img src="https://source.unsplash.com/400x300/?marble">
-<img src="https://source.unsplash.com/400x300/?bathroom-tiles">
-<img src="https://source.unsplash.com/400x300/?floor-tiles">
-</div>
-</section>
-
-<section id="calculator">
-<h2>Tile Area Calculator</h2>
-<input type="number" id="length" placeholder="Room Length (ft)">
-<input type="number" id="width" placeholder="Room Width (ft)">
-<button onclick="calculate()">Calculate</button>
-<p id="result"></p>
-</section>
-
-<section id="contact">
-<h2>Book a Site Visit</h2>
-
-<iframe src="https://www.google.com/maps?q=Sector+28+Gurugram&output=embed"
-width="100%" height="300" style="border:0;"></iframe>
-
-<form onsubmit="event.preventDefault(); sendBooking();">
-<input type="text" id="name" placeholder="Your Name" required>
-<input type="tel" id="phone" placeholder="Your Phone" required>
-<textarea id="details" placeholder="Project Details"></textarea>
-<button type="submit">Book Now</button>
-</form>
-</section>
-
-<footer>
-<p>© 2026 Chaudhary Tiles & Stone | Gurugram</p>
-</footer>
-
-<a href="tel:917827692023" class="sticky-call">📞</a>
-<a href="https://wa.me/917827692023" class="whatsapp" target="_blank">💬</a>
-<a href="#" class="top-btn">⬆</a>
-
-<script>
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
-}
-
-const counters=document.querySelectorAll(".counter");
-counters.forEach(counter=>{
-counter.innerText="0";
-const updateCounter=()=>{
-const target=+counter.getAttribute("data-target");
-const c=+counter.innerText;
-const inc=target/150;
-if(c<target){counter.innerText=Math.ceil(c+inc);setTimeout(updateCounter,15);}
-else{counter.innerText=target+"+";}
-};
-updateCounter();
-});
-
-function calculate(){
-let l=document.getElementById("length").value;
-let w=document.getElementById("width").value;
-if(l && w){
-let area=l*w;
-document.getElementById("result").innerText="Total Area: "+area+" sq.ft";
-}
-}
-
-(function(){emailjs.init("YOUR_PUBLIC_KEY");})();
-
-function sendBooking(){
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let details=document.getElementById("details").value;
-
-let params={from_name:name,phone:phone,message:details};
-
-emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",params)
-.then(()=>alert("Booking Sent Successfully!"));
-
-let msg="New Booking:%0AName:"+name+"%0APhone:"+phone+"%0ADetails:"+details;
-window.open("https://wa.me/917827692023?text="+msg,"_blank");
-}
-</script>
-
-</body>
-</html>
