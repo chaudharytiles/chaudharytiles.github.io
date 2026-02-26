@@ -465,3 +465,26 @@ footer{
 .service-box p {
   font-size: 14px;
 }
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  header nav {
+    margin-top: 10px;
+  }
+
+  header nav a {
+    display: block;
+    margin: 8px 0;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+}
