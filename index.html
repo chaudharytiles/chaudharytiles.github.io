@@ -114,3 +114,148 @@ footer a{color:gold;margin:0 10px;}
 </head>
 
 <body>
+<!-- CALCULATOR SECTION -->
+<section id="calculator" class="calculator-section">
+    <h2>Tile Calculator</h2>
+    <div class="calc-box">
+        <input type="number" id="length" placeholder="Room Length (feet)">
+        <input type="number" id="width" placeholder="Room Width (feet)">
+        <button onclick="calculateTiles()">Calculate</button>
+        <p id="result"></p>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+    <h2>Our Location</h2>
+    <iframe 
+        src="https://www.google.com/maps?q=Sector+28+Gurugram&output=embed" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+
+    <p class="contact-info">
+        📍 Sector 28, Gurugram <br>
+        📞 +91 7827692023
+    </p>
+
+    <!-- BOOKING FORM -->
+    <div class="booking-form">
+        <h3>Book Site Visit</h3>
+        <form id="bookingForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <textarea id="details" placeholder="Project Details"></textarea>
+            <button type="button" onclick="sendBooking()">Book Now</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Chaudhary Tiles & Stone | Founded by <strong>Mr. Akhilesh Chaudhary</strong></p>
+</footer>
+
+<!-- STICKY BUTTONS -->
+<a href="tel:917827692023" class="sticky-call">📞 Call Now</a>
+<a href="https://wa.me/917827692023" class="whatsapp" target="_blank">💬</a>
+
+<!-- EMAILJS SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+
+/* DARK MODE */
+function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+/* COUNTER */
+const counters = document.querySelectorAll(".counter");
+counters.forEach(counter => {
+    counter.innerText = "0";
+    const updateCounter = () => {
+        const target = +counter.getAttribute("data-target");
+        const c = +counter.innerText;
+        const inc = target / 150;
+
+        if (c < target) {
+            counter.innerText = Math.ceil(c + inc);
+            setTimeout(updateCounter, 15);
+        } else {
+            counter.innerText = target + "+";
+        }
+    };
+    updateCounter();
+});
+
+/* TILE CALCULATOR */
+function calculateTiles() {
+    let length = document.getElementById("length").value;
+    let width = document.getElementById("width").value;
+
+    if (length === "" || width === "") {
+        document.getElementById("result").innerText = "Please enter both values";
+        return;
+    }
+
+    let area = length * width;
+    let tilesNeeded = area * 1.1; // 10% extra
+
+    document.getElementById("result").innerText =
+        "Total Area: " + area + " sq.ft | Tiles Required (approx): " + Math.ceil(tilesNeeded);
+}
+
+/* EMAILJS INIT */
+(function () {
+    emailjs.init("fuOSxRj64wAVOzg-Y");
+})();
+
+/* BOOKING FUNCTION */
+function sendBooking() {
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
+    let details = document.getElementById("details").value;
+
+    if (name === "" || phone === "" || date === "" || time === "") {
+        alert("Please fill all required fields");
+        return;
+    }
+
+    let templateParams = {
+        from_name: name,
+        phone: phone,
+        date: date,
+        time: time,
+        message: details
+    };
+
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+        .then(function () {
+            alert("Booking Sent Successfully!");
+        }, function () {
+            alert("Email failed but WhatsApp will open.");
+        });
+
+    let whatsappMessage =
+        "New Site Visit Booking:%0A" +
+        "Name: " + name + "%0A" +
+        "Phone: " + phone + "%0A" +
+        "Date: " + date + "%0A" +
+        "Time: " + time + "%0A" +
+        "Details: " + details;
+
+    window.open("https://wa.me/917827692023?text=" + whatsappMessage, "_blank");
+}
+
+</script>
+
+</body>
+</html>
