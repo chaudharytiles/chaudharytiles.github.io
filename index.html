@@ -3,500 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Akhilesh Chaudhary | Luxury Tile & Stone Contractor Gurugram</title>
+    <title>Akhilesh Chaudhary | Premium Stone Engineering & Tile Art</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@200;300;400;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
-<style>
-    /* --- DESIGN SYSTEM --- */
-    :root {
-        --gold: #FFD700;
-        --dark-gold: #C5A000;
-        --bg: #ffffff;
-        --text: #1a1a1a;
-        --text-muted: #666666;
-        --card-bg: #fdfdfd;
-        --border: #eeeeee;
-        --header-bg: rgba(255, 255, 255, 0.9);
-        --accent: #000000;
-        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    <style>
+        /* ========================================
+           1. CSS VARIABLES & THEMES
+           ========================================
+        */
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #FFDF00;
+            --dark-bg: #0a0a0a;
+            --light-bg: #ffffff;
+            --card-dark: #151515;
+            --card-light: #f9f9f9;
+            --text-dark: #ffffff;
+            --text-light: #1a1a1a;
+            --border-dark: #222;
+            --border-light: #eee;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    [data-theme="dark"] {
-        --bg: #080808;
-        --text: #ffffff;
-        --text-muted: #aaaaaa;
-        --card-bg: #111111;
-        --border: #222222;
-        --header-bg: rgba(0, 0, 0, 0.9);
-        --accent: #FFD700;
-    }
+        [data-theme="dark"] {
+            --current-bg: var(--dark-bg);
+            --current-text: var(--text-dark);
+            --current-card: var(--card-dark);
+            --current-border: var(--border-dark);
+            --current-header: rgba(0,0,0,0.9);
+        }
 
-    /* --- RESET --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: var(--bg); color: var(--text); transition: var(--transition); overflow-x: hidden; line-height: 1.6; }
-    
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        [data-theme="light"] {
+            --current-bg: var(--light-bg);
+            --current-text: var(--text-light);
+            --current-card: var(--card-light);
+            --current-border: var(--border-light);
+            --current-header: rgba(255,255,255,0.95);
+        }
 
-    #progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, var(--gold), #fff); z-index: 10001; width: 0%; }
+        /* ========================================
+           2. GLOBAL RESET & SCROLLBAR
+           ========================================
+        */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { 
+            background: var(--current-bg); 
+            color: var(--current-text); 
+            font-family: 'Poppins', sans-serif; 
+            transition: var(--transition);
+            overflow-x: hidden;
+            width: 100%;
+        }
 
-    /* --- HEADER --- */
-    header { 
-        padding: 20px 0; position: fixed; top: 0; width: 100%; z-index: 9999; 
-        background: var(--header-bg); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
-    }
-    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
-    .logo-brand { font-family: 'Montserrat'; font-weight: 900; font-size: 1.5rem; color: var(--text); text-decoration: none; letter-spacing: -1px; }
-    .logo-brand span { color: var(--gold); }
-    
-    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-    .nav-links a { text-decoration: none; color: var(--text); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-    .nav-links a:hover { color: var(--gold); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--current-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-    .theme-switch { cursor: pointer; font-size: 1.2rem; color: var(--gold); background: none; border: none; }
+        #progress-bar { 
+            position: fixed; top: 0; left: 0; height: 4px; 
+            background: linear-gradient(to right, var(--gold), #fff); 
+            z-index: 10001; width: 0%; 
+        }
 
-    /* --- HERO SECTION --- */
-    .hero { 
-        height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600607687940-47a04b629753?auto=format&fit=crop&w=1920&q=80');
-        background-size: cover; background-position: center; background-attachment: fixed; text-align: center; color: white;
-    }
-    .hero-content h1 { font-family: 'Montserrat'; font-size: clamp(3rem, 10vw, 6rem); line-height: 1; margin-bottom: 20px; }
-    .hero-content p { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 40px; font-weight: 300; }
-    .cta-btn { 
-        padding: 18px 45px; background: var(--gold); color: #000; text-decoration: none; font-weight: 900; 
-        border-radius: 50px; text-transform: uppercase; transition: var(--transition); display: inline-block;
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-    }
-    .cta-btn:hover { transform: scale(1.05); background: #fff; box-shadow: 0 15px 40px rgba(255,255,255,0.2); }
+        /* ========================================
+           3. TYPOGRAPHY & BUTTONS
+           ========================================
+        */
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+        .section-padding { padding: 100px 20px; max-width: 1300px; margin: 0 auto; }
+        .center-title { text-align: center; margin-bottom: 60px; }
+        .center-title h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; }
+        .center-title p { color: var(--gold); letter-spacing: 4px; font-weight: 600; font-size: 13px; margin-bottom: 10px; }
 
-    /* --- STATS --- */
-    .stats { background: var(--accent); color: var(--bg); padding: 80px 20px; border-bottom: 1px solid var(--border); }
-    .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
-    .stat-item h2 { font-family: 'Montserrat'; font-size: 3.5rem; color: var(--gold); }
-    .stat-item p { text-transform: uppercase; font-size: 12px; letter-spacing: 2px; }
+        .btn-gold { 
+            background: var(--gold); color: #000; padding: 18px 35px; 
+            border-radius: 5px; font-weight: 900; text-decoration: none; 
+            display: inline-block; transition: 0.3s; border: 2px solid var(--gold);
+            font-size: 14px; text-align: center;
+        }
+        .btn-gold:hover { background: transparent; color: var(--current-text); }
 
-    /* --- SERVICES --- */
-    .section-padding { padding: 120px 20px; }
-    .section-title { text-align: center; margin-bottom: 80px; }
-    .section-title h4 { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 14px; margin-bottom: 10px; }
-    .section-title h2 { font-family: 'Montserrat'; font-size: 3rem; text-transform: uppercase; }
+        /* ========================================
+           4. NAVIGATION (MOBILE OPTIMIZED)
+           ========================================
+        */
+        header { 
+            position: fixed; top: 0; width: 100%; z-index: 10000; 
+            background: var(--current-header); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--current-border);
+            padding: 15px 0;
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1400px; margin: 0 auto; }
+        
+        .logo { text-decoration: none; color: var(--current-text); font-family: 'Montserrat'; font-weight: 900; font-size: 1.4rem; line-height: 1; }
+        .logo span { color: var(--gold); }
 
-    .services-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .service-card { 
-        background: var(--card-bg); padding: 50px 40px; border: 1px solid var(--border); transition: var(--transition);
-        position: relative; overflow: hidden;
-    }
-    .service-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-    .service-card i { font-size: 45px; color: var(--gold); margin-bottom: 25px; display: block; }
-    .service-card h3 { font-family: 'Montserrat'; margin-bottom: 15px; }
-    .service-card ul { list-style: none; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
-    .service-card ul li { margin-bottom: 8px; }
+        .menu-items { display: flex; list-style: none; gap: 30px; }
+        .menu-items a { text-decoration: none; color: var(--current-text); font-size: 12px; font-weight: 700; transition: 0.3s; }
+        .menu-items a:hover { color: var(--gold); }
 
-    /* --- CALCULATOR --- */
-    .calc-box { 
-        max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 60px; border-radius: 4px;
-        box-shadow: 0 30px 60px rgba(0,0,0,0.1); border-top: 5px solid var(--gold);
-    }
-    .calc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; }
-    .input-field { display: flex; flex-direction: column; }
-    .input-field label { font-weight: 700; margin-bottom: 10px; font-size: 12px; text-transform: uppercase; }
-    .input-field select, .input-field input { 
-        padding: 15px; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 5px; font-size: 1rem;
-    }
-    .result-display { 
-        grid-column: span 2; background: var(--accent); color: var(--gold); padding: 30px; 
-        text-align: center; border-radius: 5px; margin-top: 20px;
-    }
-    .result-display h3 { font-size: 3rem; font-family: 'Montserrat'; }
+        .mobile-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--gold); }
 
-    /* --- GALLERY --- */
-    .gallery-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0px; }
-    .gallery-item { height: 450px; position: relative; overflow: hidden; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
-    .gallery-overlay { 
-        position: absolute; inset: 0; background: rgba(0,0,0,0.8); display: flex; flex-direction: column;
-        justify-content: center; align-items: center; opacity: 0; transition: 0.5s; color: white; padding: 20px;
-    }
-    .gallery-item:hover img { transform: scale(1.1); }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
+        @media (max-width: 992px) {
+            .menu-items { 
+                position: fixed; top: 70px; left: -100%; width: 100%; height: 100vh; 
+                background: var(--current-bg); flex-direction: column; align-items: center; 
+                padding-top: 50px; transition: 0.5s; 
+            }
+            .menu-items.active { left: 0; }
+            .mobile-toggle { display: block; }
+        }
 
-    /* --- PROCESS TIMELINE --- */
-    .timeline { max-width: 1000px; margin: 0 auto; position: relative; padding: 40px 0; }
-    .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--border); }
-    .time-item { margin-bottom: 60px; width: 50%; position: relative; padding: 0 40px; }
-    .time-item:nth-child(even) { margin-left: auto; text-align: left; }
-    .time-item:nth-child(odd) { text-align: right; }
-    .time-dot { position: absolute; top: 0; width: 20px; height: 20px; background: var(--gold); border-radius: 50%; z-index: 1; }
-    .time-item:nth-child(odd) .time-dot { right: -10px; }
-    .time-item:nth-child(even) .time-dot { left: -10px; }
+        /* ========================================
+           5. HERO SECTION
+           ========================================
+        */
+        .hero { 
+            height: 100vh; display: flex; align-items: center; justify-content: center; 
+            text-align: center; position: relative; background: #000; overflow: hidden;
+        }
+        .hero-img { 
+            position: absolute; width: 100%; height: 100%; object-fit: cover; 
+            opacity: 0.5; filter: grayscale(100%); transition: 1s; transform: scale(1.1);
+        }
+        .hero:hover .hero-img { transform: scale(1); filter: grayscale(0%); opacity: 0.7; }
+        .hero-inner { position: relative; z-index: 10; padding: 0 20px; }
+        .hero-inner h1 { font-size: clamp(2.5rem, 10vw, 6rem); color: #fff; line-height: 1; margin-bottom: 20px; }
+        .hero-inner p { color: var(--gold); font-size: clamp(1rem, 3vw, 1.5rem); letter-spacing: 5px; margin-bottom: 40px; }
 
-    /* --- FOOTER --- */
-    footer { background: #000; color: #fff; padding: 100px 40px 40px; }
-    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; }
-    .footer-col h4 { color: var(--gold); font-family: 'Montserrat'; margin-bottom: 30px; text-transform: uppercase; }
-    .footer-col p { color: #888; font-size: 14px; margin-bottom: 15px; }
-    .social-links { display: flex; gap: 20px; font-size: 1.5rem; margin-top: 20px; }
-    .social-links a { color: #fff; transition: 0.3s; }
-    .social-links a:hover { color: var(--gold); }
+        /* ========================================
+           6. SERVICES SECTION (STYLISH GRID)
+           ========================================
+        */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { 
+            background: var(--current-card); padding: 50px 30px; border: 1px solid var(--current-border);
+            border-bottom: 4px solid transparent; transition: var(--transition);
+        }
+        .service-card:hover { border-bottom-color: var(--gold); transform: translateY(-10px); }
+        .service-card i { font-size: 50px; color: var(--gold); margin-bottom: 25px; }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .service-card p { font-size: 14px; opacity: 0.7; }
 
-    /* --- FLOATING ELEMENTS --- */
-    .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; color: white; z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        /* ========================================
+           7. CALCULATOR (FULLY RESPONSIVE)
+           ========================================
+        */
+        .calc-wrapper { 
+            background: var(--current-card); border-radius: 20px; overflow: hidden; 
+            display: flex; flex-wrap: wrap; border: 1px solid var(--current-border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        .calc-form { flex: 1; min-width: 300px; padding: 50px; }
+        .calc-display { 
+            flex: 0.8; min-width: 300px; background: var(--gold); 
+            display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; color: #000; padding: 50px; text-align: center;
+        }
+        .calc-input-group { margin-bottom: 25px; }
+        .calc-input-group label { display: block; font-weight: 800; font-size: 11px; text-transform: uppercase; margin-bottom: 10px; color: var(--gold); }
+        .calc-input-group select, .calc-input-group input { 
+            width: 100%; padding: 18px; background: var(--current-bg); border: 1px solid var(--current-border); 
+            color: var(--current-text); border-radius: 8px; font-size: 16px; 
+        }
 
-    /* --- RESPONSIVE --- */
-    @media (max-width: 1024px) {
-        .services-grid, .stats-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
-        .gallery-container { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-        .nav-links { display: none; }
-        .services-grid, .stats-grid, .footer-grid, .calc-form { grid-template-columns: 1fr; }
-        .hero-content h1 { font-size: 3.5rem; }
-        .timeline::before { left: 20px; }
-        .time-item { width: 100%; text-align: left !important; padding-left: 50px; }
-        .time-dot { left: 10px !important; }
-        .result-display h3 { font-size: 2rem; }
-    }
-</style>
+        /* ========================================
+           8. GALLERY SECTION
+           ========================================
+        */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .gallery-item { height: 400px; overflow: hidden; position: relative; border-radius: 10px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay { 
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #fff;
+            transform: translateY(20px); opacity: 0; transition: 0.4s;
+        }
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); opacity: 1; }
+
+        /* ========================================
+           9. FAQ & POLICY
+           ========================================
+        */
+        .faq-item { background: var(--current-card); margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
+        .faq-question { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; }
+        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: 0.4s; color: #888; font-size: 14px; }
+        .faq-item.active .faq-answer { padding-bottom: 25px; max-height: 500px; }
+
+        /* ========================================
+           10. FOOTER & WHATSAPP
+           ========================================
+        */
+        footer { background: #000; color: #fff; padding: 80px 20px 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; max-width: 1300px; margin: 0 auto; }
+        .footer-col h4 { color: var(--gold); margin-bottom: 25px; font-size: 14px; }
+        .footer-col p, .footer-col li { font-size: 13px; color: #777; margin-bottom: 12px; list-style: none; }
+        
+        .whatsapp-float { 
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; 
+            width: 60px; height: 60px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; font-size: 30px; color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none;
+        }
+
+        /* ========================================
+           11. DARK/LIGHT TOGGLE (TOP-RIGHT)
+           ========================================
+        */
+        .theme-btn { 
+            background: var(--gold); color: #000; border: none; padding: 8px 15px; 
+            border-radius: 30px; font-weight: 900; font-size: 10px; cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 60px 20px; }
+            .hero-inner h1 { font-size: 3rem; }
+            .calc-form, .calc-display { padding: 30px; }
+            .calc-display h3 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
-<body>
+<body data-theme="dark">
 
-<div id="progress"></div>
+    <div id="progress-bar"></div>
 
-<header>
-    <div class="nav-container">
-        <a href="#" class="logo-brand">AKHILESH<span> CHAUDHARY</span></a>
-        <ul class="nav-links">
-            <li><a href="#services">Expertise</a></li>
-            <li><a href="#calculator">Calculator</a></li>
-            <li><a href="#projects">Work</a></li>
-            <li><a href="#process">Workflow</a></li>
-            <li><button class="theme-switch" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></button></li>
-        </ul>
-        <a href="tel:+917827692023" class="cta-btn" style="padding: 10px 25px; font-size: 12px;">Get a Quote</a>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="hero-content" data-aos="zoom-out" data-aos-duration="1500">
-        <p>Premium Stone & Tile Artisans</p>
-        <h1>MASTERING<br><span style="color: var(--gold);">THE CRAFT</span></h1>
-        <a href="#calculator" class="cta-btn">Estimate Project Cost</a>
-    </div>
-</section>
-
-<section class="stats">
-    <div class="stats-grid">
-        <div class="stat-item" data-aos="fade-up">
-            <h2 class="counter" data-target="21">0</h2>
-            <p>Years Legacy</p>
-        </div>
-        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-            <h2 class="counter" data-target="950">0</h2>
-            <p>Projects Delivered</p>
-        </div>
-        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-            <h2 class="counter" data-target="50">0</h2>
-            <p>Artisans Team</p>
-        </div>
-        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-            <h2 class="counter" data-target="100">0</h2>
-            <p>% Quality Focus</p>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="section-padding">
-    <div class="section-title" data-aos="fade-up">
-        <h4>Our Core Expertise</h4>
-        <h2>World-Class Finishing</h2>
-    </div>
-    <div class="services-grid">
-        <div class="service-card" data-aos="fade-up">
-            <i class="fas fa-gem"></i>
-            <h3>Italian Marble</h3>
-            <p>Luxury marble laying with zero-joint technology and high-gloss diamond mirror polishing.</p>
-            <ul>
-                <li><i class="fas fa-check"></i> Figure Matching Slabs</li>
-                <li><i class="fas fa-check"></i> Crystallization Treatment</li>
-                <li><i class="fas fa-check"></i> Nanowhite Specialized</li>
+    <header>
+        <div class="nav-wrapper">
+            <a href="#" class="logo">AKHILESH <span>CHAUDHARY</span></a>
+            
+            <ul class="menu-items" id="navLinks">
+                <li><a href="#home" onclick="toggleMenu()">HOME</a></li>
+                <li><a href="#services" onclick="toggleMenu()">SERVICES</a></li>
+                <li><a href="#calculator" onclick="toggleMenu()">ESTIMATOR</a></li>
+                <li><a href="#gallery" onclick="toggleMenu()">PORTFOLIO</a></li>
+                <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">CONTACT</a></li>
             </ul>
-        </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-th-large"></i>
-            <h3>Luxury Tile Fitting</h3>
-            <p>Specialized in large format vitrified tiles (8x4 ft) using laser leveling and suction tools.</p>
-            <ul>
-                <li><i class="fas fa-check"></i> Epoxy Grouting</li>
-                <li><i class="fas fa-check"></i> Paper-Joint Precision</li>
-                <li><i class="fas fa-check"></i> Hollow-Free Sounding</li>
-            </ul>
-        </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-tint-slash"></i>
-            <h3>Waterproofing</h3>
-            <p>7-Layer chemical waterproofing with 10-year warranty for bathrooms and terraces.</p>
-            <ul>
-                <li><i class="fas fa-check"></i> Dr. Fixit/Sika Certified</li>
-                <li><i class="fas fa-check"></i> Slope Management</li>
-                <li><i class="fas fa-check"></i> Corner-Sealing Mesh</li>
-            </ul>
-        </div>
-    </div>
-</section>
 
-<section id="calculator" class="section-padding" style="background: var(--card-bg);">
-    <div class="section-title">
-        <h4>Transparent Pricing</h4>
-        <h2>Cost Calculator</h2>
-    </div>
-    <div class="calc-box" data-aos="zoom-in">
-        <div class="calc-form">
-            <div class="input-field">
-                <label>Select Work Type</label>
-                <select id="work-type" onchange="runCalculation()">
-                    <option value="45">Premium Tile Fitting (₹45/sqft)</option>
-                    <option value="200">Kitchen Granite/Stone (₹200/sqft)</option>
-                    <option value="250">Window Stone Work (₹250/sqft)</option>
-                    <option value="80">Scientific Waterproofing (₹80/sqft)</option>
-                    <option value="20">Epoxy Grouting (₹20/sqft)</option>
-                    <option value="15000">Bathroom Plumbing (₹15,000 Fixed)</option>
-                </select>
-            </div>
-            <div class="input-field" id="area-group">
-                <label>Total Area (Square Feet)</label>
-                <input type="number" id="sqft-input" placeholder="Enter sqft..." oninput="runCalculation()">
-            </div>
-            <div class="result-display">
-                <p>Estimated Labour Cost</p>
-                <h3 id="final-cost">₹ 0</h3>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">LIGHT MODE</button>
+                <i class="fas fa-bars mobile-toggle" onclick="toggleMenu()"></i>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <p style="color: var(--text-muted); font-size: 13px;">*This is an approximate labor estimate. Material cost and final quote will be provided after site inspection by Akhilesh Chaudhary.</p>
-        </div>
-    </div>
-</section>
+    </header>
 
-<section id="projects" class="section-padding">
-    <div class="section-title">
-        <h4>Visual Legacy</h4>
-        <h2>Our Craftsmanship</h2>
-    </div>
-    <div class="gallery-container">
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600" alt="Bath">
-            <div class="gallery-overlay"><h3>Luxury Bathroom</h3><p>Full-height Tile Cladding</p></div>
+    <section class="hero" id="home">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" class="hero-img" alt="Luxury Stone">
+        <div class="hero-inner">
+            <p data-aos="fade-up">GURUGRAM'S FINEST ARTISANS</p>
+            <h1 data-aos="fade-up" data-aos-delay="200">MASTERING<br>THE STONE</h1>
+            <a href="#calculator" class="btn-gold" data-aos="fade-up" data-aos-delay="400">GET FREE ESTIMATE</a>
         </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600" alt="Floor">
-            <div class="gallery-overlay"><h3>Italian Marble</h3><p>Diamond Mirror Polishing</p></div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1620626011761-9963d7521476?auto=format&fit=crop&w=600" alt="Kitchen">
-            <div class="gallery-overlay"><h3>Designer Kitchen</h3><p>Granite Countertop Molding</p></div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Stairs">
-            <div class="gallery-overlay"><h3>Stone Stairs</h3><p>CNC Border & Round Polish</p></div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="process" class="section-padding" style="background: var(--bg);">
-    <div class="section-title">
-        <h4>Workflow</h4>
-        <h2>How We Work</h2>
-    </div>
-    <div class="timeline">
-        <div class="time-item" data-aos="fade-right">
-            <div class="time-dot"></div>
-            <h3>01. Site Survey</h3>
-            <p>Akhilesh Ji personally visits the site to check leveling, batch numbers, and moisture levels.</p>
+    <section class="section-padding" id="services">
+        <div class="center-title" data-aos="fade-up">
+            <p>WHAT WE DO</p>
+            <h2>OUR EXPERTISE</h2>
         </div>
-        <div class="time-item" data-aos="fade-left">
-            <div class="time-dot"></div>
-            <h3>02. Estimation</h3>
-            <p>Formal labor quote provided with material quantity requirements to prevent wastage.</p>
-        </div>
-        <div class="time-item" data-aos="fade-right">
-            <div class="time-dot"></div>
-            <h3>03. Execution</h3>
-            <p>Our expert team begins work using laser-leveling tools and specialized bonding chemicals.</p>
-        </div>
-        <div class="time-item" data-aos="fade-left">
-            <div class="time-dot"></div>
-            <h3>04. Final Polish</h3>
-            <p>Deep cleaning and final mirror-polishing/epoxy-filling for a world-class look.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding" style="background: var(--accent); color: white;">
-    <div class="section-title">
-        <h2 style="color: white;">Client Stories</h2>
-    </div>
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 10px;">
-            <p style="font-style: italic; font-family: 'Playfair Display'; font-size: 18px;">"Akhilesh Chaudhary's team transformed my bungalow. The Italian marble mirror finish is actually better than what I saw in 5-star hotels. Highly professional."</p>
-            <h5 style="margin-top: 20px; color: var(--gold);">— Mr. Varun Khanna, DLF Phase 5</h5>
-            <small>Verified Project Review</small>
-        </div>
-        <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 10px;">
-            <p style="font-style: italic; font-family: 'Playfair Display'; font-size: 18px;">"I was worried about leakage. They did 7-layer waterproofing 3 years ago and still not a single drop. Honest contractor in Gurugram."</p>
-            <h5 style="margin-top: 20px; color: var(--gold);">— Dr. Sameer Gupta, Manesar</h5>
-            <small>Verified Project Review</small>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding">
-    <div class="footer-grid">
-        <div class="footer-col" style="grid-column: span 2;">
-            <h2 style="font-family: 'Montserrat'; color: var(--text);">Ready for Excellence?</h2>
-            <p>Contact us today for a free site visit and professional material consultation.</p>
-            <div style="margin-top: 30px;">
-                <p><i class="fas fa-phone-alt"></i> +91 7827692023</p>
-                <p><i class="fas fa-envelope"></i> work@chaudharytiles.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Sector 10, Gurugram, Haryana</p>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up">
+                <i class="fas fa-gem"></i>
+                <h3>Italian Marble</h3>
+                <p>High-gloss diamond polishing and figure-matching laying for luxury villas.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-th-large"></i>
+                <h3>GVT/Slab Fitting</h3>
+                <p>Precision installation of large format tiles (8x4ft) with laser alignment.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-water"></i>
+                <h3>Waterproofing</h3>
+                <p>Industrial grade 7-step chemical coating with 10 years guarantee.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <i class="fas fa-tools"></i>
+                <h3>Epoxy Work</h3>
+                <p>Cleanroom standards epoxy grouting for zero stains and high durability.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-kitchen-set"></i>
+                <h3>Stone Molding</h3>
+                <p>Custom CNC style molding for kitchen countertops and staircases.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-sink"></i>
+                <h3>Full Plumbing</h3>
+                <p>Complete concealed plumbing solution with pressure testing certification.</p>
             </div>
         </div>
-        <div class="footer-col" style="grid-column: span 2;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112222.91572004279!2d76.9536854!3d28.4594965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5b806d3d9e33!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000" width="100%" height="300" style="border:0; border-radius: 10px; filter: grayscale(1) invert(0.9);" allowfullscreen=""></iframe>
-        </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h4>Akhilesh Chaudhary</h4>
-            <p>Gurugram's trusted name for premium flooring and stone masonry since 2005.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+    <section class="section-padding" id="calculator">
+        <div class="center-title">
+            <p>TRANSPARENT PRICING</p>
+            <h2>COST CALCULATOR</h2>
+        </div>
+        <div class="calc-wrapper" data-aos="zoom-in">
+            <div class="calc-form">
+                <div class="calc-input-group">
+                    <label>Work Category</label>
+                    <select id="workType" onchange="runCalculation()">
+                        <option value="45">Premium Tile Fitting (₹45/sqft)</option>
+                        <option value="65">Italian Marble Fitting (₹65/sqft)</option>
+                        <option value="200">Granite/Kitchen Stone (₹200/sqft)</option>
+                        <option value="80">Scientific Waterproofing (₹80/sqft)</option>
+                        <option value="25">Epoxy Grouting (₹25/sqft)</option>
+                        <option value="15000">Bathroom Plumbing (Fixed ₹15,000)</option>
+                    </select>
+                </div>
+                <div class="calc-input-group" id="sqftGroup">
+                    <label>Total Area (Square Feet)</label>
+                    <input type="number" id="sqftInput" placeholder="Enter Area..." oninput="runCalculation()">
+                </div>
+                <p style="font-size: 11px; opacity: 0.6; margin-top: 20px;">*Estimate excludes material cost. Final quote after site survey.</p>
+            </div>
+            <div class="calc-display">
+                <p style="letter-spacing: 2px; font-weight: 700;">TOTAL LABOUR COST</p>
+                <h3 id="resultDisplay">₹0</h3>
+                <a href="https://wa.me/917827692023" class="btn-gold" style="background:#000; color:#fff; border:none; margin-top:20px; width:100%;">BOOK SITE VISIT</a>
             </div>
         </div>
-        <div class="footer-col">
-            <h4>Services</h4>
-            <p>Italian Marble Laying</p>
-            <p>Large Format Tiles</p>
-            <p>Stone Cladding</p>
-            <p>Granite Molding</p>
+    </section>
+
+    <section class="section-padding" id="gallery">
+        <div class="center-title">
+            <p>OUR WORK</p>
+            <h2>RECENT PROJECTS</h2>
         </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <p><a href="#services" style="color:#888; text-decoration:none;">Expertise</a></p>
-            <p><a href="#calculator" style="color:#888; text-decoration:none;">Pricing</a></p>
-            <p><a href="#projects" style="color:#888; text-decoration:none;">Portfolio</a></p>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600" alt="Work">
+                <div class="gallery-overlay"><h4>Luxury Bath</h4><p>Tile Slabbing</p></div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1620626011761-9963d7521476?auto=format&fit=crop&w=600" alt="Work">
+                <div class="gallery-overlay"><h4>Modular Kitchen</h4><p>Granite Top</p></div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600" alt="Work">
+                <div class="gallery-overlay"><h4>Italian Floor</h4><p>Mirror Finish</p></div>
+            </div>
         </div>
-        <div class="footer-col">
-            <h4>Support</h4>
-            <p>24/7 Consultation</p>
-            <p>Site Maintenance</p>
-            <p>Material Sourcing</p>
+    </section>
+
+    <section class="section-padding" id="faq">
+        <div class="center-title">
+            <p>LEARN MORE</p>
+            <h2>FREQUENTLY ASKED</h2>
         </div>
-    </div>
-    <div style="text-align:center; margin-top:80px; padding-top:40px; border-top:1px solid #222; font-size:12px; color:#555;">
-        © 2026 Akhilesh Chaudhary | Premium Stone & Tile Contractors. Designed with Excellence.
-    </div>
-</footer>
+        <div class="faq-sec">
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">What brands do you use for waterproofing? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">We use Dr. Fixit, Sika, and Fosroc industrial-grade chemicals depending on the site requirements and customer preference.</div>
+            </div>
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">Do you provide service outside Gurugram? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">While our primary focus is Gurugram (DLF, Sohna Road, Golf Course), we take premium projects across Delhi NCR for large villas.</div>
+            </div>
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">Why is Epoxy Grout better than White Cement? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">Epoxy grout is non-porous, meaning it won't absorb water or dirt. It prevents fungal growth and doesn't crack like cement.</div>
+            </div>
+        </div>
+    </section>
 
-<a href="https://wa.me/917827692023" class="wa-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
+    <section class="section-padding" id="contact" style="background: var(--current-card);">
+        <div class="center-title">
+            <p>GET IN TOUCH</p>
+            <h2>CONTACT US</h2>
+        </div>
+        <div style="text-align:center; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 30px;">Direct Line: <a href="tel:+917827692023" style="color:var(--gold); text-decoration:none;">+91 7827692023</a></p>
+            <p style="opacity:0.7; margin-bottom: 50px;">Sector 10, Gurugram, Haryana, India</p>
+            <a href="https://wa.me/917827692023" class="btn-gold">WHATSAPP CHAT</a>
+        </div>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-    AOS.init({ duration: 1000, once: true });
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo">AKHILESH <span>CHAUDHARY</span></a>
+                <p style="margin-top:20px;">Premium stone and tile contractor specialized in high-end residential and commercial projects.</p>
+            </div>
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#services">Expertise</a></li>
+                    <li><a href="#calculator">Estimator</a></li>
+                    <li><a href="#gallery">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li>Terms of Service</li>
+                    <li>Quality Assurance</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONNECT</h4>
+                <div style="display:flex; gap:15px; font-size: 20px;">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; border-top:1px solid #222; margin-top:60px; padding-top:40px; font-size: 11px; color:#444;">
+            © 2026 AKHILESH CHAUDHARY | DESIGNED FOR EXCELLENCE
+        </div>
+    </footer>
 
-    // THEME TOGGLE
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        if(body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            icon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark');
-        }
-    }
+    <a href="https://wa.me/917827692023" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    // CHECK SAVED THEME
-    if(localStorage.getItem('theme') === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
-        document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
-    }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 1000, once: true });
 
-    // SCROLL PROGRESS
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("progress").style.width = scrolled + "%";
-        
-        // Header Shrink
-        const header = document.querySelector('header');
-        if(winScroll > 50) header.style.padding = "10px 0";
-        else header.style.padding = "20px 0";
-    };
-
-    // CALCULATOR LOGIC
-    function runCalculation() {
-        const rate = document.getElementById('work-type').value;
-        const sqft = document.getElementById('sqft-input').value;
-        const display = document.getElementById('final-cost');
-        const areaGroup = document.getElementById('area-group');
-
-        if(rate == "15000") {
-            areaGroup.style.opacity = "0.3";
-            areaGroup.style.pointerEvents = "none";
-            display.innerText = "₹ 15,000";
-        } else {
-            areaGroup.style.opacity = "1";
-            areaGroup.style.pointerEvents = "auto";
-            if(sqft > 0) {
-                let total = rate * sqft;
-                display.innerText = "₹ " + total.toLocaleString('en-IN');
+        // THEME TOGGLE
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            if(body.getAttribute('data-theme') === 'dark') {
+                body.setAttribute('data-theme', 'light');
+                btn.innerText = 'DARK MODE';
             } else {
-                display.innerText = "₹ 0";
+                body.setAttribute('data-theme', 'dark');
+                btn.innerText = 'LIGHT MODE';
             }
         }
-    }
 
-    // COUNTER ANIMATION
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = target / speed;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target + "+";
-            }
+        // MOBILE MENU
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // SCROLL PROGRESS
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
         };
-        
-        // Trigger on Scroll
-        const observer = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting) updateCount();
-        }, { threshold: 1 });
-        observer.observe(counter);
-    });
-</script>
 
+        // CALCULATOR
+        function runCalculation() {
+            const rate = parseFloat(document.getElementById('workType').value);
+            const area = parseFloat(document.getElementById('sqftInput').value);
+            const display = document.getElementById('resultDisplay');
+            const sqftGroup = document.getElementById('sqftGroup');
+
+            if(rate === 15000) {
+                sqftGroup.style.opacity = "0.3";
+                sqftGroup.style.pointerEvents = "none";
+                display.innerText = "₹15,000";
+            } else {
+                sqftGroup.style.opacity = "1";
+                sqftGroup.style.pointerEvents = "auto";
+                if(area > 0) {
+                    let total = rate * area;
+                    display.innerText = "₹" + total.toLocaleString('en-IN');
+                } else {
+                    display.innerText = "₹0";
+                }
+            }
+        }
+
+        // FAQ ACCORDION
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
