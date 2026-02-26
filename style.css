@@ -411,6 +411,33 @@ footer{
 .service-category ul li {
   margin: 8px 0;
   font-size: 16px;
+    /* SERVICES GRID */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  width:90%;
+  margin:auto;
+  margin-top:40px;
+}
+
+.service-box{
+  background:#f4f4f4;
+  padding:25px;
+  border-radius:12px;
+  transition:0.3s;
+  text-align:center;
+}
+
+.service-box i{
+  font-size:30px;
+  color:gold;
+  margin-bottom:10px;
+}
+
+.service-box:hover{
+  transform:translateY(-5px);
+}
 }
 /* ===============================
    SERVICES GRID SECTION
