@@ -488,5 +488,19 @@ footer{
   .logo {
     font-size: 20px;
   }
+@media (max-width: 768px) {
+
+  .experience-box {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .experience-box h2 {
+    font-size: 28px;
+  }
+
+  .experience-box p {
+    font-size: 14px;
+  }
 
 }
