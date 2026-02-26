@@ -266,33 +266,6 @@ footer{
     text-align:center;
     padding:20px;
 }
-
-/* RESPONSIVE */
-@media(max-width:768px){
-
-    .hero h1{
-        font-size:32px;
-    }
-
-    header{
-        flex-direction:column;
-    }
-
-    nav{
-        margin-top:10px;
-    }
-
-    .counter-section{
-        flex-direction:column;
-    }
-
-    .experience-box,
-    .service-box,
-    .review-box{
-        flex-direction:column;
-        align-items:center;
-    }
-}
 /* WHY SECTION */
 .why-section {
   padding: 60px 20px;
