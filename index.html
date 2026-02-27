@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); 
+        })();
+    </script>
 
     <style>
         /* GLOBAL SETTINGS */
@@ -15,90 +22,58 @@
         body { background: #fff; color: #111; padding-top: 80px; overflow-x: hidden; }
         .dark-mode { background: #111; color: #fff; }
         
-        /* HEADER & NAV */
+        /* HEADER */
         header { background: #111; color: #fff; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; width: 90%; margin: auto; }
         .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
         .logo-box img { height: 50px; }
         nav a { color: white; margin-left: 15px; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.3s; }
         nav a:hover { color: gold; }
-        .toggle-btn { background: gold; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-left: 15px; }
 
-        /* HERO SECTION - BIG LOGO BLACK BG */
+        /* HERO SECTION - 650px Logo & Black BG */
         .hero { background: #000; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; }
         .hero-logo-container { background: #000; padding: 30px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 0 50px rgba(255,215,0,0.15); }
         .hero-logo { width: 650px; max-width: 90%; filter: brightness(1.2); }
         .hero h1 { color: gold; font-size: 48px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
         .hero p { color: #fff; font-size: 20px; margin-bottom: 30px; }
         
-        /* STYLISH BADGE - FIXED POSITION */
-        .badge { 
-            margin: 20px 0; 
-            background: linear-gradient(135deg, #FFD700, #BF953F); 
-            color: #000; 
-            padding: 15px 35px; 
-            border-radius: 50px; 
-            font-weight: 800; 
-            display: inline-block;
-            box-shadow: 0 4px 20px rgba(255,215,0,0.4);
-            border: 2px solid #fff;
-            animation: pulse 2s infinite;
-        }
+        /* BADGE */
+        .badge { margin: 20px 0; background: linear-gradient(135deg, #FFD700, #BF953F); color: #000; padding: 15px 35px; border-radius: 50px; font-weight: 800; box-shadow: 0 4px 20px rgba(255,215,0,0.4); border: 2px solid #fff; animation: pulse 2s infinite; display: inline-block; }
         @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.03);} 100% {transform: scale(1);} }
 
-        /* COUNTER SECTION */
-        .counter-section { display: flex; justify-content: space-around; background: #0a0a0a; color: #fff; padding: 80px 20px; flex-wrap: wrap; gap: 40px; border-top: 1px solid #333; }
-        .counter-box { text-align: center; }
-        .counter-box h2 { font-size: 55px; color: gold; font-weight: 700; line-height: 1; }
-        .counter-box p { font-size: 18px; color: #aaa; margin-top: 10px; text-transform: uppercase; }
+        /* PRICING NOTE */
+        .rate-note { background: #fff59d; color: #333; padding: 10px 20px; border-radius: 8px; font-weight: bold; margin-bottom: 30px; display: inline-block; border-left: 5px solid #fbc02d; }
 
-        /* STYLISH CALCULATOR */
+        /* CALCULATOR */
         .calculator-container { max-width: 600px; margin: 50px auto; background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid #eee; }
-        .calc-title { text-align: center; margin-bottom: 30px; color: #111; font-size: 28px; }
-        .calc-card { display: flex; flex-direction: column; gap: 20px; }
-        .calc-input-group { position: relative; }
-        .calc-input-group i { position: absolute; left: 15px; top: 15px; color: gold; font-size: 18px; }
-        .calc-input-group select, .calc-input-group input { width: 100%; padding: 15px 15px 15px 45px; border: 2px solid #f0f0f0; border-radius: 12px; font-size: 16px; transition: 0.3s; outline: none; }
-        .calc-input-group input:focus { border-color: gold; }
-        .calc-btn { background: #111; color: gold; padding: 18px; border-radius: 12px; border: none; font-weight: bold; font-size: 18px; cursor: pointer; transition: 0.3s; }
-        .calc-btn:hover { background: gold; color: #111; transform: translateY(-3px); }
         .result-box { margin-top: 25px; background: #fffde7; padding: 20px; border-radius: 12px; text-align: center; border: 1px dashed gold; display: none; }
-        .result-box h3 { color: #111; font-size: 22px; }
 
-        /* INQUIRY FORM */
-        .inquiry-box { max-width: 850px; margin: 40px auto; background: #111; color: #fff; padding: 40px; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        .form-row input, .form-row select, textarea { width: 100%; padding: 15px; border-radius: 10px; border: none; background: #222; color: #fff; font-size: 15px; }
-        textarea { grid-column: span 2; }
-        .inq-submit { background: gold; color: #000; font-weight: bold; padding: 18px; border: none; border-radius: 10px; cursor: pointer; grid-column: span 2; font-size: 18px; }
-
-        /* RATES & PRICING */
-        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; width: 90%; margin: auto; }
-        .price-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border-top: 5px solid gold; }
-        .price-card:hover { transform: translateY(-10px); }
-        .price-card h3 { font-size: 20px; margin-bottom: 15px; }
-        .price-card .amount { font-size: 28px; font-weight: 700; color: goldenrod; }
-
-        /* GALLERY */
+        /* GALLERY (Tiles, Stone, Epoxy Only) */
         .gallery-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; width: 90%; margin: auto; padding: 40px 0; }
-        .gallery-container img { width: 100%; height: 250px; object-fit: cover; border-radius: 20px; transition: 0.5s; }
-        .gallery-container img:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .gallery-container img { width: 100%; height: 250px; object-fit: cover; border-radius: 20px; transition: 0.5s; border: 1px solid #ddd; }
 
-        /* MAP */
-        .map-section { width: 90%; margin: 50px auto; border-radius: 30px; overflow: hidden; height: 450px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        /* FAQ SECTION */
+        .faq-section { background: #f9f9f9; padding: 80px 20px; }
+        .faq-container { max-width: 800px; margin: auto; }
+        .faq-item { background: #fff; margin-bottom: 15px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .faq-question { padding: 20px; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: 0.3s; }
+        .faq-question:hover { background: #fffde7; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: #666; font-size: 15px; }
+        .faq-item.active .faq-answer { padding: 20px; max-height: 200px; border-top: 1px solid #eee; }
+        .faq-item.active .fa-chevron-down { transform: rotate(180deg); color: gold; }
 
-        /* FOOTER & FLOATING */
-        footer { background: #000; color: #fff; padding: 50px 20px; text-align: center; border-top: 1px solid #222; }
-        .whatsapp-btn { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .call-btn { position: fixed; bottom: 105px; right: 25px; background: #ff0000; color: white; padding: 12px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        /* FOOTER GRID */
+        .footer-top { background: #0a0a0a; color: #fff; padding: 60px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-top: 1px solid #222; }
+        .footer-col h3 { color: gold; margin-bottom: 20px; border-bottom: 2px solid gold; display: inline-block; font-size: 18px; }
+        .footer-col p, .footer-col li { color: #ccc; font-size: 14px; margin-bottom: 10px; list-style: none; }
+        .footer-col a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-col a:hover { color: gold; }
 
-        @media (max-width: 768px) {
-            .hero-logo { width: 95%; }
-            .hero h1 { font-size: 32px; }
-            .form-row { grid-template-columns: 1fr; }
-            textarea, .inq-submit { grid-column: span 1; }
-            nav { display: none; }
-        }
+        /* FLOATING BTNS */
+        .whatsapp-btn { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .call-btn { position: fixed; bottom: 105px; right: 25px; background: #ff0000; color: white; padding: 12px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 32px; } .hero-logo { width: 95%; } nav { display: none; } }
     </style>
 </head>
 <body>
@@ -114,10 +89,9 @@
             <a href="#rates">Labour Rates</a>
             <a href="#gallery">Our Work</a>
             <a href="#calculator">Calculator</a>
+            <a href="#faq">FAQ</a>
             <a href="blog.html">Blogs</a>
-            <a href="#contact">Contact</a>
         </nav>
-        <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">🌙 Mode</button>
     </div>
 </header>
 
@@ -126,106 +100,108 @@
         <img src="logo.png" class="hero-logo" alt="Main Logo">
     </div>
     <h1 data-aos="fade-up">Chaudhary Tiles & Stone</h1>
-    <p data-aos="fade-up" data-aos-delay="200">Gurugram's Most Trusted Labor Contractor: <strong>Mr. Akhilesh Chaudhary</strong></p>
-    
-    <div class="badge" data-aos="flip-up" data-aos-delay="400">
-        🏆 SINCE 2005 | 21+ YEARS EXP | 950+ PROJECTS
-    </div>
-    
-    <a href="#calculator" class="gold-btn" style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="600">Estimate Cost Now</a>
+    <p data-aos="fade-up" data-aos-delay="200">Gurugram's Top Labor Contractor: <strong>Mr. Akhilesh Chaudhary</strong></p>
+    <div class="badge" data-aos="flip-up" data-aos-delay="400">🏆 SINCE 2005 | 21+ YEARS EXP | 950+ PROJECTS</div>
 </section>
 
-<section class="counter-section">
-    <div class="counter-box" data-aos="fade-up">
-        <h2 class="counter" data-target="21">0</h2>
-        <p>Years Working</p>
-    </div>
-    <div class="counter-box" data-aos="fade-up" data-aos-delay="200">
-        <h2 class="counter" data-target="950">0</h2>
-        <p>Successful Projects</p>
-    </div>
-    <div class="counter-box" data-aos="fade-up" data-aos-delay="400">
-        <h2 class="counter" data-target="100">0</h2>
-        <p>% Quality Assurance</p>
-    </div>
-</section>
-
-<section id="rates" style="padding: 80px 0;">
-    <h2 style="text-align: center; font-size: 36px; margin-bottom: 50px;" data-aos="fade-up">Standard Labour Rates</h2>
-    <div class="price-grid">
-        <div class="price-card" data-aos="zoom-in"><h3>Floor Tile Fitting</h3><p class="amount">₹45/sq.ft</p></div>
-        <div class="price-card" data-aos="zoom-in"><h3>Kitchen Stone</h3><p class="amount">₹200/sq.ft</p></div>
-        <div class="price-card" data-aos="zoom-in"><h3>Window Stone</h3><p class="amount">₹250/sq.ft</p></div>
-        <div class="price-card" data-aos="zoom-in"><h3>Waterproofing</h3><p class="amount">₹80/sq.ft</p></div>
-        <div class="price-card" data-aos="zoom-in"><h3>Epoxy Grouting</h3><p class="amount">₹20/sq.ft</p></div>
-        <div class="price-card" data-aos="zoom-in" style="background: #111; color: gold;"><h3>Bath Plumbing</h3><p class="amount" style="color: #fff;">₹15,000</p></div>
+<section id="rates" style="padding: 80px 0; text-align: center;">
+    <h2 style="font-size: 36px; margin-bottom: 10px;" data-aos="fade-up">Labour Rates</h2>
+    <div class="rate-note" data-aos="fade-up">⚠️ Note: These are Labour Rates only. Material rates will be different based on choice.</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; width: 90%; margin: auto;">
+        <div style="background:#fff; padding:30px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid gold;">
+            <h3>Floor Tile Work</h3><p style="font-size:28px; font-weight:700; color:goldenrod;">₹45/sq.ft</p>
+        </div>
+        <div style="background:#fff; padding:30px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid gold;">
+            <h3>Epoxy Grouting</h3><p style="font-size:28px; font-weight:700; color:goldenrod;">₹20/sq.ft</p>
+        </div>
+        <div style="background:#fff; padding:30px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid gold;">
+            <h3>Kitchen Granite</h3><p style="font-size:28px; font-weight:700; color:goldenrod;">₹200/sq.ft</p>
+        </div>
+        <div style="background:#111; padding:30px; border-radius:20px; color:gold;">
+            <h3>Plumbing Fixed</h3><p style="font-size:28px; font-weight:700; color:#fff;">₹15,000</p>
+        </div>
     </div>
 </section>
 
 <section id="calculator" style="background: #fbfbfb; padding: 80px 0;">
     <div class="calculator-container" data-aos="fade-up">
-        <h2 class="calc-title"><i class="fas fa-calculator"></i> Cost Estimator</h2>
-        <div class="calc-card">
-            <div class="calc-input-group">
-                <i class="fas fa-tools"></i>
-                <select id="service_rate">
-                    <option value="45">Tile Fitting (₹45)</option>
-                    <option value="200">Kitchen Stone (₹200)</option>
-                    <option value="250">Window Stone (₹250)</option>
-                    <option value="80">Waterproofing (₹80)</option>
-                    <option value="20">Epoxy Grouting (₹20)</option>
-                </select>
-            </div>
-            <div class="calc-input-group">
-                <i class="fas fa-ruler-combined"></i>
-                <input type="number" id="area_size" placeholder="Enter Total Area (sq.ft)">
-            </div>
-            <button class="calc-btn" onclick="calculateNow()">Calculate Total Cost</button>
+        <h2 style="text-align:center; margin-bottom:30px;">🏠 Cost Estimator (Labour)</h2>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+            <select id="service_rate" style="padding:15px; border-radius:12px; border:2px solid #eee;">
+                <option value="45">Tile Fitting (₹45)</option>
+                <option value="200">Kitchen Stone (₹200)</option>
+                <option value="20">Epoxy Grouting (₹20)</option>
+                <option value="80">Waterproofing (₹80)</option>
+            </select>
+            <input type="number" id="area_size" placeholder="Enter Area (sq.ft)" style="padding:15px; border-radius:12px; border:2px solid #eee;">
+            <button onclick="calculateNow()" style="background:#111; color:gold; padding:18px; border-radius:12px; border:none; font-weight:bold; cursor:pointer;">Calculate Cost</button>
             <div id="res_box" class="result-box">
                 <p>Estimated Labour Cost:</p>
-                <h3 id="final_price">₹0</h3>
-                <small>*Rates may vary based on site condition</small>
+                <h3 id="final_price" style="font-size:30px; color:#111;">₹0</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section id="contact" style="padding: 80px 0;">
-    <h2 style="text-align: center; margin-bottom: 40px;">Send Work Inquiry</h2>
-    <div class="inquiry-box" data-aos="fade-up">
-        <div class="form-row">
-            <input type="text" id="user_name" placeholder="Your Name">
-            <input type="tel" id="user_phone" placeholder="WhatsApp Number">
-            <select id="user_service">
-                <option value="Tiling">Tile Work</option>
-                <option value="Marble">Marble Polishing</option>
-                <option value="Granite">Kitchen Granite</option>
-                <option value="Plumbing">Plumbing/Waterproofing</option>
-            </select>
-            <input type="text" id="user_loc" placeholder="Site Location (Sector)">
-            <textarea id="user_msg" rows="4" placeholder="Brief details about your work..."></textarea>
-            <button class="inq-submit" onclick="sendToWhatsApp()">Send Inquiry via WhatsApp</button>
+<section id="gallery" style="padding: 60px 0;">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 10px;">Our Work Showcase</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">Specialized in Premium Tile, Stone, and Epoxy Fitting</p>
+    <div class="gallery-container" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600" alt="Tile Work">
+        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600" alt="Epoxy Grouting">
+        <img src="https://images.unsplash.com/photo-1600607687940-47a0f9259d47?auto=format&fit=crop&w=600" alt="Stone Work">
+        <img src="https://images.unsplash.com/photo-1523413555809-0fb8a4a2c727?auto=format&fit=crop&w=600" alt="Floor Design">
+    </div>
+</section>
+
+<section id="faq" class="faq-section">
+    <div class="faq-container">
+        <h2 style="text-align: center; margin-bottom: 40px; font-size: 32px;">Frequently Asked Questions</h2>
+        <div class="faq-item" data-aos="fade-up">
+            <div class="faq-question">Do you provide services outside Gurugram? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Primary we focus on Gurugram area for faster service, but we take large projects in nearby Delhi NCR regions as well.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up">
+            <div class="faq-question">Does the cost include material? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">The rates mentioned are for labour only. Material cost (Tiles, Cement, Epoxy, etc.) will be separate as per your quality preference.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up">
+            <div class="faq-question">How many years of warranty do you provide? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">We provide a 1-year workmanship guarantee on all our tile and stone installations.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up">
+            <div class="faq-question">What is Epoxy Grouting? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Epoxy Grouting is a waterproof and stain-resistant filling for tile joints, much more durable than white cement.</div>
         </div>
     </div>
 </section>
 
-<section id="gallery">
-    <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">Our Recent Projects</h2>
-    <div class="gallery-container" data-aos="fade-up">
-        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600" alt="Work 1">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Work 2">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600" alt="Work 3">
-        <img src="https://images.unsplash.com/photo-1600607687940-47a0f9259d47?auto=format&fit=crop&w=600" alt="Work 4">
+<div class="footer-top">
+    <div class="footer-col">
+        <h3>Expert Craftsmanship</h3>
+        <p>Managed personally by <strong>Mr. Akhilesh Chaudhary</strong>. We ensure that every tile is perfectly leveled and every corner is precisely cut.</p>
     </div>
-</section>
-
-<div class="map-section" data-aos="zoom-in">
-    <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="footer-col">
+        <h3>Quick Access</h3>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#rates">Labour Rates</a></li>
+        <li><a href="blog.html">Blogs & Tips</a></li>
+        <li><a href="#calculator">Estimator</a></li>
+    </div>
+    <div class="footer-col">
+        <h3>Availability</h3>
+        <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+        <p>Emergency Site Visits: Available</p>
+    </div>
+    <div class="footer-col">
+        <h3>Reach Us</h3>
+        <p>📍 Sector 28, Gurugram, Haryana</p>
+        <p>📞 +91 7827692023</p>
+    </div>
 </div>
 
 <footer>
-    <p>© 2026 Chaudhary Tiles & Stone | Led by <strong>Mr. Akhilesh Chaudhary</strong></p>
-    <p style="font-size: 13px; color: #888; margin-top: 10px;">Premium Labor Contractor Services in Gurugram</p>
+    <p>© 2026 Chaudhary Tiles & Stone | Gurugram Premium Contractor</p>
 </footer>
 
 <a href="tel:917827692023" class="call-btn">📞 Call Now</a>
@@ -235,50 +211,21 @@
 <script>
     AOS.init({ duration: 1000, once: true });
 
-    // COUNTER SCRIPT
-    const counters = document.querySelectorAll('.counter');
-    const animateCounters = () => {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const updateCount = () => {
-                const count = +counter.innerText;
-                const inc = target / 70;
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 30);
-                } else { counter.innerText = target + (target === 100 ? "%" : "+"); }
-            };
-            updateCount();
+    // FAQ ACCORDION
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const parent = q.parentElement;
+            parent.classList.toggle('active');
         });
-    };
-    let obs = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting) animateCounters();
-    }, { threshold: 0.5 });
-    obs.observe(document.querySelector('.counter-section'));
+    });
 
-    // CALCULATOR LOGIC
     function calculateNow() {
         let rate = document.getElementById('service_rate').value;
         let area = document.getElementById('area_size').value;
         if(area > 0) {
-            let total = rate * area;
             document.getElementById('res_box').style.display = 'block';
-            document.getElementById('final_price').innerText = "₹" + total.toLocaleString();
-        } else { alert("Please enter valid area size!"); }
-    }
-
-    // WHATSAPP INQUIRY
-    function sendToWhatsApp() {
-        let name = document.getElementById('user_name').value;
-        let phone = document.getElementById('user_phone').value;
-        let service = document.getElementById('user_service').value;
-        let loc = document.getElementById('user_loc').value;
-        let msg = document.getElementById('user_msg').value;
-
-        if(name && phone) {
-            let waUrl = `https://wa.me/917827692023?text=New Inquiry%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ALocation: ${loc}%0ADetails: ${msg}`;
-            window.open(waUrl, '_blank');
-        } else { alert("Please fill Name and Phone!"); }
+            document.getElementById('final_price').innerText = "₹" + (rate * area).toLocaleString();
+        } else { alert("Please enter valid area!"); }
     }
 </script>
 </body>
