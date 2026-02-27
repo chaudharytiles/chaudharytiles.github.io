@@ -14,24 +14,16 @@
         /* --- GLOBAL & PREMIUM THEME --- */
         :root {
             --gold: #D4AF37;
-            --dark: #111;
-            --light: #f9f9f9;
+            --dark: #000000;
+            --light: #f4f4f4;
             --white: #ffffff;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
-        body { background: var(--white); color: var(--dark); line-height: 1.6; padding-top: 70px; overflow-x: hidden; }
+        body { background: var(--white); color: #333; line-height: 1.6; padding-top: 70px; overflow-x: hidden; }
 
-        /* --- SCROLL PROGRESS --- */
         #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: var(--gold);
-            z-index: 2000;
-            transition: width 0.1s;
+            position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: var(--gold); z-index: 2000; transition: width 0.1s;
         }
 
         /* --- ANIMATIONS --- */
@@ -39,74 +31,72 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* --- HEADER --- */
-        header { background: rgba(17, 17, 17, 0.95); color: #fff; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); }
+        header { background: rgba(0, 0, 0, 0.95); color: #fff; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); }
         .header-container { display: flex; align-items: center; justify-content: space-between; width: 90%; margin: auto; }
         .logo-box { display: flex; align-items: center; gap: 10px; }
-        .header-logo { height: 40px; border-radius: 4px; }
-        nav a { color: white; margin: 0 15px; font-size: 14px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .header-logo { height: 35px; border-radius: 4px; }
+        nav a { color: white; margin: 0 15px; font-size: 13px; transition: 0.3s; text-transform: uppercase; text-decoration: none; }
         nav a:hover { color: var(--gold); }
-        .toggle-btn { background: var(--gold); border: none; padding: 7px 10px; border-radius: 50%; cursor: pointer; }
 
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         .hero { 
-            height: 90vh; 
+            height: 100vh; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80'); 
-            background-size: cover; background-position: center; text-align: center; color: white; padding: 20px; 
+            background: var(--dark);
+            text-align: center; color: white; padding: 20px; 
         }
-        .hero h1 { font-size: clamp(32px, 5vw, 60px); color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 800px; }
-        .gold-btn { background: var(--gold); color: black; padding: 15px 40px; border-radius: 5px; font-weight: bold; transition: 0.4s; text-transform: uppercase; }
+        .hero-logo-big { width: 220px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); }
+        .hero h1 { font-size: clamp(35px, 6vw, 65px); color: var(--gold); text-transform: uppercase; font-weight: 700; margin-bottom: 5px; letter-spacing: 2px; }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; }
+        
+        .exp-badge {
+            background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            color: #000; padding: 8px 25px; border-radius: 50px; font-weight: 700; 
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); text-transform: uppercase; font-size: 14px; margin-bottom: 25px;
+        }
+
+        .gold-btn { background: var(--gold); color: #000; padding: 18px 45px; border-radius: 5px; font-weight: bold; transition: 0.4s; text-transform: uppercase; text-decoration: none; display: inline-block; }
         .gold-btn:hover { background: white; transform: scale(1.05); }
 
-        /* --- PROCESS SECTION --- */
-        .process-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; padding: 60px 10%; background: var(--light); text-align: center; }
-        .process-step { padding: 20px; }
-        .step-num { width: 50px; height: 50px; background: var(--gold); color: black; line-height: 50px; border-radius: 50%; margin: 0 auto 20px; font-weight: bold; font-size: 20px; }
+        /* --- PRICING SECTION --- */
+        .pricing-section { padding: 80px 10%; text-align: center; background: #fff; }
+        .pricing-section h2 { font-size: 36px; margin-bottom: 10px; }
+        .pricing-section .subtitle { color: #888; margin-bottom: 40px; font-weight: 600; text-transform: uppercase; }
+        
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .price-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; }
+        .price-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .price-card h3 { font-size: 18px; color: #111; margin-bottom: 10px; }
+        .price-card .price { font-size: 24px; color: var(--gold); font-weight: 700; }
+        .price-card.highlight { border: 2px solid var(--gold); background: #fffdf5; }
 
-        /* --- SERVICES GRID --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 60px 10%; }
-        .service-box { padding: 40px; background: var(--white); border-radius: 10px; transition: 0.3s; border: 1px solid #eee; position: relative; overflow: hidden; }
-        .service-box:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        /* --- STATS COUNTER --- */
+        .stats-section { background: #111; padding: 60px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; color: white; }
+        .stat-box h2 { font-size: 45px; color: var(--gold); margin-bottom: 5px; }
+        .stat-box p { font-size: 16px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- ABOUT & OTHER STYLES --- */
+        .about-section { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: center; }
+        .about-img { width: 100%; border-radius: 15px; border-bottom: 8px solid var(--gold); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 60px 10%; background: var(--light); }
+        .service-box { padding: 40px; background: var(--white); border-radius: 10px; transition: 0.3s; border: 1px solid #ddd; }
         .service-box i { font-size: 40px; color: var(--gold); margin-bottom: 20px; }
 
-        /* --- PRICING --- */
-        .pricing-section { padding: 60px 10%; text-align: center; }
-        .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 40px; }
-        .price-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .price-card.highlight { border: 2px solid var(--gold); transform: scale(1.05); background: #fffdf5; }
-        .price { font-size: 28px; color: var(--gold); font-weight: 700; margin: 15px 0; }
-
-        /* --- FAQ SECTION --- */
-        .faq-section { padding: 60px 10%; background: var(--white); }
-        .faq-item { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; cursor: pointer; }
-        .faq-question { font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { display: none; padding-top: 10px; color: #666; font-size: 14px; }
-
-        /* --- CALCULATOR --- */
-        .calculator-section { background: var(--light); padding: 80px 20px; }
         .calc-box { max-width: 500px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .calc-box select, .calc-box input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
-        .calc-box button { width: 100%; padding: 15px; background: var(--gold); border: none; color: black; font-weight: 700; cursor: pointer; border-radius: 5px; }
+        .calc-box input, .calc-box select { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; }
+        .calc-box button { width: 100%; padding: 15px; background: var(--gold); border: none; font-weight: bold; cursor: pointer; }
 
-        /* --- FORM & FOOTER --- */
-        .booking-section { padding: 80px 10%; text-align: center; }
         .booking-form { max-width: 600px; margin: 40px auto; text-align: left; }
         .booking-form input, .booking-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; }
         
-        footer { background: #111; color: white; padding: 50px 10%; text-align: center; }
-        .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        .sticky-call { position: fixed; bottom: 20px; left: 20px; background: #ff3b30; color: white; padding: 12px 25px; border-radius: 30px; font-weight: bold; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-
-        /* DARK MODE */
-        .dark-mode { background: #121212; color: #eee; }
-        .dark-mode .service-box, .dark-mode .price-card, .dark-mode .calc-box, .dark-mode .process-container { background: #1e1e1e; color: #fff; border-color: #333; }
-        .dark-mode .faq-answer { color: #bbb; }
+        footer { background: #000; color: white; padding: 50px 10%; text-align: center; }
+        .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; }
+        .sticky-call { position: fixed; bottom: 20px; left: 20px; background: #ff3b30; color: white; padding: 12px 25px; border-radius: 30px; font-weight: bold; z-index: 1000; text-decoration: none; }
 
         @media(max-width: 768px) {
+            .about-section { grid-template-columns: 1fr; }
             nav { display: none; }
-            .hero h1 { font-size: 36px; }
-            .pricing-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 40px; }
         }
     </style>
 </head>
@@ -119,208 +109,149 @@
     <div class="header-container">
         <div class="logo-box">
             <img src="logo.png" alt="Logo" class="header-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972130.png'">
-            <h1 style="font-size: 18px; letter-spacing: 1px;">CHAUDHARY TILES</h1>
+            <h1 style="font-size: 18px;">CHAUDHARY TILES</h1>
         </div>
         <nav>
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
+            <a href="#about">About</a>
             <a href="#rates">Rates</a>
+            <a href="#services">Services</a>
             <a href="#calculator">Calculator</a>
             <a href="#booking">Contact</a>
         </nav>
-        <button class="toggle-btn" onclick="toggleMode()">🌙</button>
     </div>
 </header>
 
 <section class="hero">
-    <h1 class="reveal active">Premium Tiles & Stone Work</h1>
-    <p class="reveal active">Transforming Gurugram homes since 2005. Expertise in Italian Marble, Granite, and Designer Tiles under the leadership of <b>Mr. Akhilesh Chaudhary</b>.</p>
-    <a href="#booking" class="gold-btn">Book Free Site Visit</a>
+    <img src="logo.png" class="hero-logo-big" alt="Chaudhary Tiles Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972130.png'">
+    <div class="exp-badge">🏆 21+ Years of Excellence</div>
+    <h1>Chaudhary Tiles & Stone</h1>
+    <p>Premium Tile Installation & Stone Work Specialists in Gurugram</p>
+    <a href="#booking" class="gold-btn">Get Free Estimate</a>
 </section>
 
-
-<section id="process" class="process-container reveal">
-    <div class="process-step">
-        <div class="step-num">1</div>
-        <h3>Site Visit</h3>
-        <p>Expert measurement and condition analysis of your space.</p>
-    </div>
-    <div class="process-step">
-        <div class="step-num">2</div>
-        <h3>Consultation</h3>
-        <p>Material selection guidance based on your budget & style.</p>
-    </div>
-    <div class="process-step">
-        <div class="step-num">3</div>
-        <h3>Installation</h3>
-        <p>Precision work using modern tools and high-grade epoxy.</p>
-    </div>
-    <div class="process-step">
-        <div class="step-num">4</div>
-        <h3>Finishing</h3>
-        <p>Final polishing and deep cleaning before handover.</p>
-    </div>
+<section class="stats-section reveal">
+    <div class="stat-box"><h2 class="counter" data-target="950">0</h2><p>Projects Completed</p></div>
+    <div class="stat-box"><h2 class="counter" data-target="21">0</h2><p>Years Experience</p></div>
+    <div class="stat-box"><h2 class="counter" data-target="100">0</h2><p>% Satisfaction</p></div>
+    <div class="stat-box"><h2 class="counter" data-target="15">0</h2><p>Expert Artisans</p></div>
 </section>
 
-<section id="services" class="services-grid">
-    <div class="service-box reveal">
-        <i class="fas fa-layer-group"></i>
-        <h3>Floor Tile Fitting</h3>
-        <p>Flawless alignment for Vitrified, Ceramic, and Large Format tiles.</p>
-    </div>
-    <div class="service-box reveal">
-        <i class="fas fa-gem"></i>
-        <h3>Marble Polishing</h3>
-        <p>Mirror-finish diamond polishing for Italian and Indian marbles.</p>
-    </div>
-    <div class="service-box reveal">
-        <i class="fas fa-faucet"></i>
-        <h3>Bathroom Renovation</h3>
-        <p>End-to-end solutions including plumbing, tiling, and waterproofing.</p>
+<section id="rates" class="pricing-section reveal">
+    <h2>Transparent Labor Rates</h2>
+    <p class="subtitle">⚠️ Note: Only Labor Rates (Without Material)</p>
+    
+    <div class="pricing-grid">
+        <div class="price-card"><h3>Tile Fitting</h3><p class="price">₹45/sq.ft</p></div>
+        <div class="price-card"><h3>Kitchen Stone</h3><p class="price">₹200/sq.ft</p></div>
+        <div class="price-card"><h3>Window Stone</h3><p class="price">₹250/sq.ft</p></div>
+        <div class="price-card"><h3>Waterproofing</h3><p class="price">₹80/sq.ft</p></div>
+        <div class="price-card"><h3>Epoxy Work</h3><p class="price">₹20/sq.ft</p></div>
+        <div class="price-card highlight"><h3>Bathroom Plumbing</h3><p class="price">₹15,000</p></div>
     </div>
 </section>
 
-<section id="rates" class="pricing-section">
-    <h2 class="reveal">Transparent Pricing</h2>
-    <div class="pricing-container">
-        <div class="price-card reveal">
-            <h3>Standard Tiling</h3>
-            <p class="price">₹45 <span style="font-size: 14px; color: #666;">/sq.ft</span></p>
-            <p>Labor charge for floor tiles</p>
-        </div>
-        <div class="price-card highlight reveal">
-            <h3>Complete Bathroom</h3>
-            <p class="price">₹15,000 <span style="font-size: 14px; color: #666;">Starting</span></p>
-            <p>Plumbing + Tiling + Grouting</p>
-        </div>
-        <div class="price-card reveal">
-            <h3>Waterproofing</h3>
-            <p class="price">₹80 <span style="font-size: 14px; color: #666;">/sq.ft</span></p>
-            <p>3-Layer protection coating</p>
-        </div>
+<section id="about" class="about-section reveal">
+    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="Work" class="about-img">
+    <div class="about-text">
+        <h2>About Mr. Akhilesh Chaudhary</h2>
+        <p>Founded in 2005, <b>Chaudhary Tiles & Stone</b> has become Gurugram's most trusted name for high-end floor and wall finishes. Led by <b>Mr. Akhilesh Chaudhary</b>, we focus on providing skilled labor for premium stone and tile installation.</p>
+        <p>We use modern techniques and tools to ensure that your material is handled with care and installed with perfection. Whether it's complex epoxy work or complete plumbing, our labor team is trained for excellence.</p>
     </div>
 </section>
 
-<section id="calculator" class="calculator-section">
+<section id="calculator" style="padding: 80px 10%; background: #f9f9f9;">
     <div class="calc-box reveal">
-        <h2 style="margin-bottom: 20px; text-align: center;">Cost Estimator</h2>
-        <select id="calc-service" onchange="toggleCalcInputs()">
-            <option value="45">Tile Fitting (₹45/sq.ft)</option>
-            <option value="200">Kitchen Granite (₹200/sq.ft)</option>
-            <option value="80">Waterproofing (₹80/sq.ft)</option>
-            <option value="15000">Bathroom Combo (Fixed)</option>
+        <h2 style="text-align: center; margin-bottom: 20px;">Estimate Your Cost</h2>
+        <select id="calc-service" onchange="toggleCalc()">
+            <option value="45">Tile Fitting (₹45)</option>
+            <option value="200">Kitchen Stone (₹200)</option>
+            <option value="250">Window Stone (₹250)</option>
+            <option value="80">Waterproofing (₹80)</option>
+            <option value="20">Epoxy Work (₹20)</option>
+            <option value="15000">Bathroom Plumbing (Fixed)</option>
         </select>
         <div id="dim-inputs">
             <input type="number" id="calc-length" placeholder="Length (Feet)">
             <input type="number" id="calc-width" placeholder="Width (Feet)">
         </div>
-        <button onclick="calculateFinalCost()">Calculate Estimate</button>
-        <div id="calc-result" style="margin-top: 20px; font-weight: bold; text-align: center; color: #D4AF37; font-size: 20px;"></div>
-    </div>
-</section>
-
-<section class="faq-section reveal">
-    <h2 style="text-align: center; margin-bottom: 40px;">Frequently Asked Questions</h2>
-    <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-question">Do you provide material or only labor? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">We specialize in labor-only contracts to give you flexibility, but we can assist in material procurement at wholesale rates from trusted vendors.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-question">How much time does one bathroom take? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">A standard bathroom renovation (tiling & plumbing) usually takes 7 to 10 working days.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-question">Do you offer any warranty? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">Yes, we provide a 2-year service warranty on leakage and tile bonding for all our projects.</div>
+        <button onclick="calculateFinal()">Calculate Total Labor Cost</button>
+        <div id="calc-result" style="margin-top:20px; text-align:center; font-weight:700; color:var(--gold);"></div>
     </div>
 </section>
 
 <section id="booking" class="booking-section reveal">
-    <h2>Ready to start your project?</h2>
-    <p>Contact <b>Mr. Akhilesh Chaudhary</b> for a free quote.</p>
+    <h2>Book Your Site Visit</h2>
     <div class="booking-form">
         <input type="text" id="user-name" placeholder="Your Name" required>
         <input type="tel" id="user-phone" placeholder="Phone Number" required>
-        <textarea id="user-msg" rows="4" placeholder="Briefly describe your work (e.g., 2 BHK flooring, Bathroom Leakage)"></textarea>
-        <button onclick="handleBooking()" style="width: 100%; background: #111; color: gold; padding: 15px; border: none; font-weight: bold; cursor: pointer;">SUBMIT ENQUIRY</button>
+        <textarea id="user-msg" rows="4" placeholder="Describe your work (e.g. Tile fitting in 2 rooms)"></textarea>
+        <button onclick="handleBooking()" style="width: 100%; background: #000; color: gold; padding: 15px; border: none; font-weight: bold; cursor: pointer;">SUBMIT ENQUIRY</button>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 Chaudhary Tiles & Stone | Gurugram, Haryana</p>
-    <p style="margin-top: 10px; font-size: 13px; color: #888;">Expertise. Integrity. Quality.</p>
+    <p>© 2026 Chaudhary Tiles & Stone | Gurugram</p>
+    <p style="font-size:12px; opacity:0.6; margin-top:10px;">Expert Labor Contractor: Mr. Akhilesh Chaudhary</p>
 </footer>
 
-<a href="tel:917827692023" class="sticky-call">📞 Call Expert</a>
+<a href="tel:917827692023" class="sticky-call">📞 Call Now</a>
 <a href="https://wa.me/917827692023" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-    // 1. Scroll Progress & Reveal Animation
+    // Animations & Counter (Same logic as before)
     window.onscroll = function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("scroll-progress").style.width = scrolled + "%";
-
+        document.getElementById("scroll-progress").style.width = (winScroll / height) * 100 + "%";
         document.querySelectorAll('.reveal').forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-                el.classList.add('active');
-            }
+            if (el.getBoundingClientRect().top < window.innerHeight - 100) { el.classList.add('active'); }
         });
+        if(document.querySelector('.stats-section').classList.contains('active')) { startCounters(); }
     };
 
-    // 2. Dark Mode
-    function toggleMode() { document.body.classList.toggle("dark-mode"); }
-
-    // 3. FAQ Toggle
-    function toggleFaq(el) {
-        let ans = el.querySelector('.faq-answer');
-        let icon = el.querySelector('i');
-        let isOpen = ans.style.display === "block";
-        
-        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-        document.querySelectorAll('.faq-item i').forEach(i => i.style.transform = 'rotate(0deg)');
-
-        if (!isOpen) {
-            ans.style.display = "block";
-            icon.style.transform = "rotate(180deg)";
-        }
+    let started = false;
+    function startCounters() {
+        if (started) return;
+        started = true;
+        document.querySelectorAll('.counter').forEach(counter => {
+            let target = +counter.getAttribute('data-target');
+            let count = 0;
+            let inc = target / 50;
+            let update = () => {
+                if(count < target) {
+                    count = Math.ceil(count + inc);
+                    counter.innerText = count + (target === 100 ? "%" : "+");
+                    setTimeout(update, 30);
+                } else { counter.innerText = target + (target === 100 ? "%" : "+"); }
+            };
+            update();
+        });
     }
 
-    // 4. Calculator Logic
-    function toggleCalcInputs() {
-        let service = document.getElementById("calc-service").value;
-        document.getElementById("dim-inputs").style.display = (service == "15000") ? "none" : "block";
+    function toggleCalc() {
+        let val = document.getElementById("calc-service").value;
+        document.getElementById("dim-inputs").style.display = (val == "15000") ? "none" : "block";
     }
 
-    function calculateFinalCost() {
-        let rate = parseFloat(document.getElementById("calc-service").value);
-        let l = parseFloat(document.getElementById("calc-length").value) || 0;
-        let w = parseFloat(document.getElementById("calc-width").value) || 0;
+    function calculateFinal() {
+        let rate = +document.getElementById("calc-service").value;
+        let l = +document.getElementById("calc-length").value || 0;
+        let w = +document.getElementById("calc-width").value || 0;
         let total = (rate == 15000) ? 15000 : (l * w * rate);
-        document.getElementById("calc-result").innerHTML = "Estimated Cost: ₹" + total.toLocaleString();
+        document.getElementById("calc-result").innerText = "Estimated Labor Cost: ₹" + total.toLocaleString();
     }
 
-    // 5. Booking Handler
     emailjs.init("fuOSxRj64wAVOzg-Y");
     function handleBooking() {
         let name = document.getElementById("user-name").value;
         let phone = document.getElementById("user-phone").value;
         let msg = document.getElementById("user-msg").value;
-
-        if(!name || !phone) return alert("Please provide Name and Phone.");
-
-        let fullMsg = `Lead from Website:\nName: ${name}\nPhone: ${phone}\nWork: ${msg}`;
-        
-        emailjs.send("service_evwf6pl", "template_8xks8im", {
-            from_name: name,
-            phone: phone,
-            message: msg
-        }).then(() => {
-            alert("Success! Opening WhatsApp for instant chat.");
-            window.open(`https://wa.me/917827692023?text=${encodeURIComponent(fullMsg)}`, "_blank");
-        }).catch(err => {
-            window.open(`https://wa.me/917827692023?text=${encodeURIComponent(fullMsg)}`, "_blank");
+        if(!name || !phone) return alert("Please fill Name and Phone.");
+        let text = `New Lead (Labor Work):\nName: ${name}\nPhone: ${phone}\nMsg: ${msg}`;
+        emailjs.send("service_evwf6pl", "template_8xks8im", {from_name: name, phone: phone, message: msg})
+        .then(() => {
+            alert("Sent! Opening WhatsApp...");
+            window.open(`https://wa.me/917827692023?text=${encodeURIComponent(text)}`, "_blank");
         });
     }
 </script>
