@@ -15,58 +15,50 @@
         body { color: #333; line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
 
         /* --- HEADER --- */
-        header { background: #000; padding: 15px 5%; position: fixed; width: 100%; z-index: 1000; border-bottom: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: center; }
-        .logo { color: #fff; text-decoration: none; font-weight: 800; font-size: 18px; text-transform: uppercase; }
-        .logo span { color: var(--gold); }
-        nav a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        header { background: #000; padding: 12px 5%; position: fixed; width: 100%; z-index: 1000; border-bottom: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: center; }
+        .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+        .logo-box img { height: 45px; border-radius: 5px; }
+        .logo-box h2 { font-size: clamp(14px, 4vw, 18px); font-weight: 800; text-transform: uppercase; }
+        nav a { color: #fff; text-decoration: none; margin-left: 15px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
 
         /* --- HERO --- */
-        .hero { height: 90vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; overflow: hidden; }
-        .hero-bg { position: absolute; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://i.postimg.cc/85M2pYg6/image-522f1c.jpg'); background-size: cover; background-position: center; z-index: -1; animation: zoomImg 20s infinite alternate; }
-        @keyframes zoomImg { from { transform: scale(1); } to { transform: scale(1.1); } }
-        .hero-content h1 { font-size: clamp(35px, 8vw, 65px); color: var(--gold); font-weight: 800; line-height: 1.1; }
-        .hero-content p { font-size: clamp(16px, 3vw, 22px); margin: 20px 0; font-weight: 300; }
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+        .hero-bg { position: absolute; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://i.postimg.cc/85M2pYg6/image-522f1c.jpg'); background-size: cover; background-position: center; z-index: -1; }
+        .hero h1 { font-size: clamp(32px, 8vw, 60px); color: var(--gold); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: clamp(16px, 3vw, 20px); margin-bottom: 30px; }
 
-        /* --- TRUST BAR --- */
-        .trust-bar { background: var(--gold); padding: 15px 0; text-align: center; font-weight: 800; color: #000; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; }
-
-        /* --- ABOUT (Akhilesh Chaudhary Profile) --- */
-        .about { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center; max-width: 1200px; margin: auto; }
-        .about-img img { width: 100%; border-radius: 20px; box-shadow: 20px 20px 0 var(--dark); border: 2px solid var(--gold); }
-        .about-text h4 { color: var(--gold); font-weight: 800; margin-bottom: 10px; }
-        .about-text h2 { font-size: 36px; margin-bottom: 20px; color: var(--dark); }
-        .about-text p { margin-bottom: 15px; font-size: 16px; color: #555; }
+        /* --- ABOUT (BIG SIZE) --- */
+        .about { padding: 80px 5%; background: #fff; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: auto; align-items: center; }
+        .about-img img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0 var(--gold); border: 1px solid #ddd; }
+        .about-text h2 { font-size: 38px; font-weight: 800; margin-bottom: 15px; }
+        .about-text span { color: var(--gold); }
 
         /* --- SERVICES --- */
-        .services { padding: 80px 5%; background: var(--grey); text-align: center; }
-        .s-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
-        .s-card { background: #fff; padding: 40px; border-radius: 15px; border-bottom: 5px solid transparent; transition: 0.4s; }
-        .s-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .s-card i { font-size: 45px; color: var(--gold); margin-bottom: 20px; }
+        .services { padding: 60px 5%; background: var(--grey); text-align: center; }
+        .s-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+        .s-card { background: #fff; padding: 30px; border-radius: 15px; transition: 0.3s; }
+        .s-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .s-card i { font-size: 40px; color: var(--gold); margin-bottom: 15px; }
 
         /* --- CALCULATOR --- */
-        .calc-sec { padding: 80px 5%; background: #000; color: #fff; text-align: center; }
-        .calc-box { max-width: 550px; margin: 40px auto; background: #111; padding: 40px; border-radius: 20px; border: 1px solid var(--gold); }
-        .calc-box input, .calc-box select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: none; font-size: 16px; }
-        .calc-btn { width: 100%; padding: 18px; background: var(--gold); color: #000; font-weight: 800; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; transition: 0.3s; }
-        .calc-btn:hover { background: #fff; }
+        .calc-sec { padding: 60px 5%; background: #000; color: #fff; text-align: center; }
+        .calc-box { max-width: 500px; margin: 30px auto; background: #1a1a1a; padding: 30px; border-radius: 20px; border: 1px solid var(--gold); }
+        input, select { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; font-size: 16px; border: none; }
+        .calc-btn { width: 100%; padding: 15px; background: var(--gold); color: #000; font-weight: 800; border-radius: 5px; border: none; cursor: pointer; }
 
         /* --- GALLERY --- */
-        .gallery { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; transition: 0.4s; }
-        .gallery img:hover { transform: scale(1.02); filter: brightness(1.1); }
+        .gallery { padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; transition: 0.4s; }
 
-        /* --- FOOTER --- */
-        footer { background: #000; color: #fff; padding: 60px 5% 120px; text-align: center; }
-        .social-links { margin: 25px 0; }
-        .social-links a { color: var(--gold); font-size: 24px; margin: 0 15px; text-decoration: none; transition: 0.3s; }
-        .social-links a:hover { color: #fff; }
-
-        /* --- STICKY MOBILE NAV --- */
-        .sticky-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; z-index: 1000; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); }
-        .sticky-bar a { flex: 1; text-align: center; padding: 15px; font-size: 14px; font-weight: 800; text-decoration: none; color: #000; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .sticky-bar a.wa { background: #25D366; color: #fff; }
-        .sticky-bar a.call { background: var(--gold); }
+        /* --- FOOTER & STICKY --- */
+        footer { background: #000; color: #fff; padding: 40px 5% 100px; text-align: center; border-top: 2px solid var(--gold); }
+        .socials { margin-top: 20px; }
+        .socials a { color: var(--gold); font-size: 24px; margin: 0 10px; }
+        .sticky-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; z-index: 1000; box-shadow: 0 -5px 10px rgba(0,0,0,0.1); }
+        .sticky-bar a { flex: 1; text-align: center; padding: 15px; font-weight: 800; text-decoration: none; font-size: 14px; color: #000; }
+        .sticky-bar .call { background: var(--gold); }
+        .sticky-bar .wa { background: #25D366; color: #fff; }
 
         @media (max-width: 768px) { nav { display: none; } }
     </style>
@@ -74,111 +66,82 @@
 <body>
 
 <header>
-    <a href="#" class="logo"><span>Akhilesh</span> Chaudhary</a>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#work">Our Work</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <a href="#" class="logo-box">
+        <img src="logo.png" alt="Logo"> <h2>Akhilesh Chaudhary</h2>
+    </a>
+    <nav><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a></nav>
 </header>
 
 <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-content" data-aos="fade-up">
-        <h1>Excellence in Every <br><span>Square Foot</span></h1>
-        <p>Premium Marble & Tile Contracting by Mr. Akhilesh Chaudhary</p>
-        <a href="tel:+917827692023" style="background:var(--gold); color:#000; padding:15px 35px; border-radius:50px; text-decoration:none; font-weight:800; display:inline-block;">FREE SITE VISIT</a>
+    <div class="hero-content" data-aos="zoom-in">
+        <h1>Master Of <span>Premium Floors</span></h1>
+        <p>Expert Labour Contractor in Gurugram | 21+ Years Experience</p>
+        <a href="tel:+917827692023" style="background:var(--gold); color:#000; padding:12px 30px; text-decoration:none; font-weight:800; border-radius:50px;">CALL NOW</a>
     </div>
 </section>
-
-<div class="trust-bar">
-    🏆 Gurugram's Most Trusted Contractor - 21+ Years Experience
-</div>
 
 <section id="about" class="about">
-    <div class="about-img" data-aos="fade-right">
-        <img src="https://i.postimg.cc/8CjTqR6t/image-522ea5.jpg" alt="Akhilesh Chaudhary Work">
-    </div>
-    <div class="about-text" data-aos="fade-left">
-        <h4>MEET THE MASTER</h4>
-        <h2>Mr. Akhilesh Chaudhary</h2>
-        <p>Chaudhary Tiles & Stone ke founder, Mr. Akhilesh Chaudhary, pichle 21 saalon se Gurugram ki sabse khoobsurat floorings ke peeche ek bada naam hain.</p>
-        <p>Humari team har tile ko laser precision ke saath install karti hai, jisme zero hollow sound aur perfect level ki guaranty milti hai. DLF se lekar Golf Course Road tak, humne hazaron sapno ko reality banaya hai.</p>
-        <div style="margin-top:20px; display:flex; gap:30px;">
-            <div style="text-align:center;"><h3 style="color:var(--gold)">21+</h3><p style="font-size:12px;">Years</p></div>
-            <div style="text-align:center;"><h3 style="color:var(--gold)">950+</h3><p style="font-size:12px;">Projects</p></div>
-            <div style="text-align:center;"><h3 style="color:var(--gold)">100%</h3><p style="font-size:12px;">Quality</p></div>
+    <div class="about-grid">
+        <div class="about-img" data-aos="fade-right">
+            <img src="https://i.postimg.cc/8CjTqR6t/image-522ea5.jpg" alt="About Akhilesh Chaudhary"> </div>
+        <div class="about-text" data-aos="fade-left">
+            <h4>SINCE 2005</h4>
+            <h2>Expert Work By <br><span>Akhilesh Chaudhary</span></h2>
+            <p>Mr. Akhilesh Chaudhary has built a 21-year legacy in Gurugram, specializing in Italian Marble, Granite, and Luxury Tile fitting. Humari team har project ko apni kala (art) samajh kar karti hai.</p>
+            <p>Chahe wo DLF ke villas hon ya modern apartments, hum laser-perfect leveling aur epoxy grouting mein Gurugram ke top contractor hain.</p>
         </div>
     </div>
 </section>
 
-<section id="services" class="services">
-    <h2 data-aos="fade-up">Professional <span>Services</span></h2>
+<section class="services">
+    <h2>Our Specialities</h2>
     <div class="s-grid">
-        <div class="s-card" data-aos="fade-up">
-            <i class="fas fa-gem"></i>
-            <h3>Italian Marble</h3>
-            <p>Specialized diamond polishing and zero-joint fitting by Akhilesh Chaudhary's expert team.</p>
-        </div>
-        <div class="s-card" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-fill-drip"></i>
-            <h3>Epoxy Grouting</h3>
-            <p>Stain-proof, waterproof gold and silver epoxy joints for long-lasting premium looks.</p>
-        </div>
-        <div class="s-card" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-border-all"></i>
-            <h3>Luxury Tiles</h3>
-            <p>Handling large format 8x4 GVT slabs with professional industrial suction tools.</p>
-        </div>
+        <div class="s-card"><i class="fas fa-gem"></i><h3>Italian Marble</h3><p>Mirror-finish and zero-joint specialist.</p></div>
+        <div class="s-card"><i class="fas fa-brush"></i><h3>Epoxy Grouting</h3><p>Waterproof and stain-free gold/silver joints.</p></div>
+        <div class="s-card"><i class="fas fa-th-large"></i><h3>GVT Tiles</h3><p>8x4 Large slab fitting with precision.</p></div>
     </div>
 </section>
 
 <section class="calc-sec">
-    <h2 data-aos="fade-up">Labour Rate <span>Estimator</span></h2>
-    <div class="calc-box" data-aos="zoom-in">
-        <input type="number" id="sqft" placeholder="Total Area in Sq. Ft.">
-        <select id="workType">
-            <option value="25">Tile Fitting (₹25/sqft)</option>
-            <option value="50">Italian Marble (₹50/sqft)</option>
-            <option value="15">Epoxy Grouting (₹15/sqft)</option>
-            <option value="40">Granite Fitting (₹40/sqft)</option>
+    <h2>Project <span>Estimator</span></h2>
+    <div class="calc-box">
+        <input type="number" id="sqft" placeholder="Total Sq. Ft. Area">
+        <select id="rate">
+            <option value="25">Tiles (₹25/sqft)</option>
+            <option value="50">Marble (₹50/sqft)</option>
+            <option value="15">Epoxy (₹15/sqft)</option>
         </select>
-        <button class="calc-btn" onclick="calc()">GET ESTIMATE</button>
-        <h2 id="ans" style="margin-top:25px; color:var(--gold);">Estimate: ₹0</h2>
+        <button class="calc-btn" onclick="calc()">CALCULATE ESTIMATE</button>
+        <h3 id="ans" style="margin-top:20px; color:var(--gold);">Estimate: ₹0</h3>
     </div>
 </section>
 
 <section id="work" class="gallery">
-    <img src="https://i.postimg.cc/L83R76D1/image-522ec3.jpg" data-aos="fade-up">
-    <img src="https://i.postimg.cc/mD83W38X/image-522ee1.jpg" data-aos="fade-up" data-aos-delay="100">
-    <img src="https://i.postimg.cc/Ssd5FjR1/image-522e63.jpg" data-aos="fade-up" data-aos-delay="200">
-    <img src="https://i.postimg.cc/85M2pYg6/image-522f1c.jpg" data-aos="fade-up" data-aos-delay="300">
-</section>
+    <img src="https://i.postimg.cc/L83R76D1/image-522ec3.jpg" data-aos="fade-up"> <img src="https://i.postimg.cc/mD83W38X/image-522ee1.jpg" data-aos="fade-up"> <img src="https://i.postimg.cc/Ssd5FjR1/image-522e63.jpg" data-aos="fade-up"> <img src="https://i.postimg.cc/85M2pYg6/image-522f1c.jpg" data-aos="fade-up"> </section>
 
 <footer>
-    <h2 style="color:var(--gold);">CHAUDHARY TILES & STONE</h2>
-    <p>Founder: Mr. Akhilesh Chaudhary</p>
-    <div class="social-links">
+    <h2>Akhilesh Chaudhary</h2>
+    <p>Chaudhary Tiles & Stone | Sector 28, Gurugram</p>
+    <div class="socials">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
     </div>
-    <p style="font-size:12px; opacity:0.6;">© 2026 Akhilesh Chaudhary. All Rights Reserved.<br>Sector 28, Gurugram, Haryana</p>
+    <p style="margin-top:20px; font-size:12px; opacity:0.6;">© 2026 All Rights Reserved.</p>
 </footer>
 
 <div class="sticky-bar">
-    <a href="tel:+917827692023" class="call"><i class="fas fa-phone"></i> CALL NOW</a>
+    <a href="tel:+917827692023" class="call"><i class="fas fa-phone"></i> CALL</a>
     <a href="https://wa.me/917827692023" class="wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 1000, once: true });
+    AOS.init();
     function calc() {
         let s = document.getElementById('sqft').value;
-        let w = document.getElementById('workType').value;
-        document.getElementById('ans').innerText = "Estimate: ₹" + (s * w).toLocaleString();
+        let r = document.getElementById('rate').value;
+        document.getElementById('ans').innerText = "Estimate: ₹" + (s * r).toLocaleString();
     }
 </script>
 </body>
