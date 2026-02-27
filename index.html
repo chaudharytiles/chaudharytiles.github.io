@@ -70,6 +70,22 @@
         .price-card .price { font-size: 24px; color: var(--gold); font-weight: 700; }
         .price-card.highlight { border: 2px solid var(--gold); background: #fffdf5; }
 
+        /* --- REVIEWS --- */
+        .reviews-section { padding: 80px 10%; background: var(--light); text-align: center; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+        .review-card { background: white; padding: 30px; border-radius: 15px; text-align: left; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .review-card .stars { color: #f1c40f; margin-bottom: 15px; }
+        .review-card h4 { margin-top: 15px; font-size: 16px; color: var(--dark); }
+        .review-card p.address { font-size: 12px; color: #777; }
+
+        /* --- MAP & FOOTER INFO --- */
+        .map-container { width: 100%; height: 400px; filter: grayscale(1); transition: 0.5s; }
+        .map-container:hover { filter: grayscale(0); }
+        
+        .footer-bottom-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 60px 10%; background: #0a0a0a; color: white; text-align: left; border-top: 1px solid #222; }
+        .info-box h3 { color: var(--gold); margin-bottom: 15px; font-size: 18px; }
+        .info-box p { font-size: 14px; opacity: 0.7; }
+
         /* --- STATS COUNTER --- */
         .stats-section { background: #111; padding: 60px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; color: white; }
         .stat-box h2 { font-size: 45px; color: var(--gold); margin-bottom: 5px; }
@@ -77,11 +93,8 @@
 
         /* --- ABOUT & OTHER STYLES --- */
         .about-section { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: center; }
-        .about-img { width: 100%; border-radius: 15px; border-bottom: 8px solid var(--gold); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 60px 10%; background: var(--light); }
-        .service-box { padding: 40px; background: var(--white); border-radius: 10px; transition: 0.3s; border: 1px solid #ddd; }
-        .service-box i { font-size: 40px; color: var(--gold); margin-bottom: 20px; }
-
+        .about-img { width: 100%; border-radius: 15px; border-bottom: 8px solid var(--gold); height: 400px; object-fit: cover; }
+        
         .calc-box { max-width: 500px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .calc-box input, .calc-box select { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; }
         .calc-box button { width: 100%; padding: 15px; background: var(--gold); border: none; font-weight: bold; cursor: pointer; }
@@ -89,7 +102,7 @@
         .booking-form { max-width: 600px; margin: 40px auto; text-align: left; }
         .booking-form input, .booking-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; }
         
-        footer { background: #000; color: white; padding: 50px 10%; text-align: center; }
+        footer { background: #000; color: white; padding: 40px 10%; text-align: center; border-top: 1px solid #222; }
         .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; }
         .sticky-call { position: fixed; bottom: 20px; left: 20px; background: #ff3b30; color: white; padding: 12px 25px; border-radius: 30px; font-weight: bold; z-index: 1000; text-decoration: none; }
 
@@ -114,7 +127,7 @@
         <nav>
             <a href="#about">About</a>
             <a href="#rates">Rates</a>
-            <a href="#services">Services</a>
+            <a href="#reviews">Reviews</a>
             <a href="#calculator">Calculator</a>
             <a href="#booking">Contact</a>
         </nav>
@@ -151,11 +164,36 @@
 </section>
 
 <section id="about" class="about-section reveal">
-    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="Work" class="about-img">
+    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=800&q=80" alt="Tile Installation Work" class="about-img">
     <div class="about-text">
         <h2>About Mr. Akhilesh Chaudhary</h2>
         <p>Founded in 2005, <b>Chaudhary Tiles & Stone</b> has become Gurugram's most trusted name for high-end floor and wall finishes. Led by <b>Mr. Akhilesh Chaudhary</b>, we focus on providing skilled labor for premium stone and tile installation.</p>
         <p>We use modern techniques and tools to ensure that your material is handled with care and installed with perfection. Whether it's complex epoxy work or complete plumbing, our labor team is trained for excellence.</p>
+    </div>
+</section>
+
+<section id="reviews" class="reviews-section reveal">
+    <h2>Customer Testimonials</h2>
+    <p>Trusted by homeowners across Gurugram</p>
+    <div class="review-grid">
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Excellent work quality. The tile alignment in my hall is perfect. Akhilesh ji and his team are very professional."</p>
+            <h4>Sandeep Sharma</h4>
+            <p class="address">DLF Phase 3, Gurugram</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Best service for Italian marble polishing. They made my old floor look brand new. Highly recommended!"</p>
+            <h4>Vikram Singh</h4>
+            <p class="address">Sushant Lok 1, Gurugram</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Used their labor for bathroom renovation and waterproofing. No leakage issues since then. Great job!"</p>
+            <h4>Mrs. Anjali Gupta</h4>
+            <p class="address">Sector 56, Gurugram</p>
+        </div>
     </div>
 </section>
 
@@ -179,8 +217,12 @@
     </div>
 </section>
 
+<section id="map">
+    <iframe class="map-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112222.84534139824!2d76.9531792!3d28.4594965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5e408ecda4466!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
 <section id="booking" class="booking-section reveal">
-    <h2>Book Your Site Visit</h2>
+    <h2 style="text-align: center;">Book Your Site Visit</h2>
     <div class="booking-form">
         <input type="text" id="user-name" placeholder="Your Name" required>
         <input type="tel" id="user-phone" placeholder="Phone Number" required>
@@ -188,6 +230,21 @@
         <button onclick="handleBooking()" style="width: 100%; background: #000; color: gold; padding: 15px; border: none; font-weight: bold; cursor: pointer;">SUBMIT ENQUIRY</button>
     </div>
 </section>
+
+<div class="footer-bottom-info">
+    <div class="info-box">
+        <h3>Why Choose Us?</h3>
+        <p>With over 21 years of field experience, we guarantee zero-gap tile alignment and long-lasting waterproofing solutions in Gurugram.</p>
+    </div>
+    <div class="info-box">
+        <h3>Service Areas</h3>
+        <p>DLF Phases, Sushant Lok, Golf Course Road, Sector 56, Sohna Road, and all major areas in Gurugram.</p>
+    </div>
+    <div class="info-box">
+        <h3>Contact Info</h3>
+        <p>📞 +91 78276 92023<br>📍 Gurugram, Haryana</p>
+    </div>
+</div>
 
 <footer>
     <p>© 2026 Chaudhary Tiles & Stone | Gurugram</p>
@@ -198,7 +255,6 @@
 <a href="https://wa.me/917827692023" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-    // Animations & Counter (Same logic as before)
     window.onscroll = function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
