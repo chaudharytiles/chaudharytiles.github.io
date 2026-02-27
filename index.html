@@ -1,392 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaudhary Tiles & Stone | Professional Contractor Gurugram</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<title>Chaudhary Tiles & Stone | Premium Tile Contractor Gurugram</title>
+    <style>
+        /* CSS RESET & THEME */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background: #fff; color: #111; padding-top: 80px; overflow-x: hidden; }
+        .dark-mode { background: #111; color: #fff; }
+        
+        /* HEADER */
+        header { background: #111; color: #fff; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 90%; margin: auto; }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-box img { height: 50px; }
+        nav a { color: white; margin-left: 15px; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: gold; }
+        .toggle-btn { background: gold; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-left: 15px; }
 
-<meta name="title" content="Chaudhary Tiles & Stone | Tile Work in Gurugram">
-<meta name="description" content="Professional Tile Fitting, Stone Installation, Waterproofing & Plumbing Services in Gurugram. Affordable and Trusted Experts.">
-<meta name="author" content="Chaudhary Tiles & Stone">
-<meta name="robots" content="index, follow">
+        /* HERO SECTION - LARGE LOGO BLACK BG */
+        .hero { background: #000; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .hero-logo-container { background: #000; padding: 30px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 0 50px rgba(255,215,0,0.2); }
+        .hero-logo { width: 650px; max-width: 90%; filter: brightness(1.2); }
+        .hero h1 { color: gold; font-size: 45px; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { color: #fff; font-size: 20px; margin-bottom: 20px; }
+        .gold-btn { background: gold; color: #000; padding: 15px 35px; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.4s; }
+        .gold-btn:hover { background: #fff; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,215,0,0.3); }
 
-<meta name="google-site-verification" content="mZBSTdvTJR7xCXj8LDgAKwtT6PWKPz3TOstrsNYee2g" />
-  
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<meta name="keywords" content="Tiles, Tile Contractor, Marble, Granite, Gurugram, Bathroom Renovation, Epoxy, Waterproofing">
+        /* GOLDEN BADGE */
+        .badge { margin-top: 30px; background: linear-gradient(135deg, #FFD700, #BF953F); color: #000; padding: 12px 30px; border-radius: 50px; font-weight: 800; animation: pulse 2s infinite; border: 2px solid #fff; }
+        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.05);} 100% {transform: scale(1);} }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        /* COUNTER */
+        .counter-section { display: flex; justify-content: space-around; background: #0a0a0a; color: #fff; padding: 60px 20px; flex-wrap: wrap; gap: 30px; }
+        .counter-box h2 { font-size: 50px; color: gold; display: block; }
+        .counter-box p { font-size: 18px; color: #ccc; }
 
-<style>
+        /* SECTION TITLES */
+        .sec-title { text-align: center; font-size: 32px; margin-bottom: 40px; padding-top: 60px; position: relative; }
+        .sec-title::after { content: ''; width: 60px; height: 3px; background: gold; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
 
-/* GLOBAL */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
-body{background:#fff;color:#111;transition:0.3s;line-height:1.6;padding-top:90px;}
-a{text-decoration:none;}
-h1,h2,h3{font-weight:600;}
-button{cursor:pointer;font-family:'Poppins',sans-serif;}
+        /* SERVICES GRID */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 90%; margin: auto; }
+        .service-card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid gold; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card i { font-size: 40px; color: gold; margin-bottom: 15px; }
 
-.dark-mode{background:#111;color:#fff;}
+        /* RATES/PRICING */
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; width: 90%; margin: auto; }
+        .price-card { background: #f9f9f9; padding: 25px; border-radius: 12px; border: 1px solid #eee; transition: 0.3s; }
+        .price-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .price-val { color: goldenrod; font-weight: 700; font-size: 22px; }
+        .highlight-card { background: #fff; border: 2px solid gold; transform: scale(1.05); }
 
-/* HEADER */
-header{background:#111;color:#fff;padding:15px 50px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;z-index:1000;}
-.header-container{display:flex;align-items:center;justify-content:space-between;width:95%;margin:auto;flex-wrap:wrap;}
-.logo-box{display:flex;align-items:center;gap:10px;}
-.header-logo{height:55px;}
-nav a{color:white;margin:0 10px;font-size:16px;transition:0.3s;}
-nav a:hover{color:gold;}
-.toggle-btn{background:gold;border:none;padding:6px 10px;border-radius:5px;}
+        /* INQUIRY FORM */
+        .inquiry-container { max-width: 800px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-grid input, .form-grid select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; font-size: 15px; }
+        .full-width { grid-column: span 2; }
 
-/* HERO - UPDATED (Black Background + Big Logo) */
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#000;text-align:center;padding:0 20px;}
-.hero-logo-box { background: #000; padding: 20px; border-radius: 20px; box-shadow: 0 0 30px rgba(255, 215, 0, 0.2); margin-bottom: 20px; }
-.hero-logo{width:650px; max-width:95%; filter: brightness(1.1);}
-.hero h1{font-size:48px;color:gold;margin-bottom:15px;}
-.hero p{font-size:20px;color:white;margin-bottom:20px;max-width:700px;}
-.gold-btn{background:gold;color:black;padding:14px 30px;border-radius:40px;font-weight:bold;display:inline-block;transition:0.3s;box-shadow:0 0 15px rgba(255,215,0,0.6);}
-.gold-btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,215,0,0.9);}
+        /* GALLERY */
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 20px; }
+        .gallery img { width: 300px; height: 220px; object-fit: cover; border-radius: 15px; transition: 0.4s; cursor: pointer; }
+        .gallery img:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* GOLDEN BADGE ANIMATED */
-.badge{
-    margin-top:25px;
-    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-    color:black; padding:12px 25px; border-radius:30px; font-weight:bold;
-    box-shadow: 0 4px 15px rgba(255,215,0,0.4);
-    animation: shine 3s infinite linear;
-}
-@keyframes shine { 0% {filter: brightness(1);} 50% {filter: brightness(1.3); transform: scale(1.02);} 100% {filter: brightness(1);} }
+        /* MAP */
+        .map-box { width: 90%; margin: 40px auto; border-radius: 20px; overflow: hidden; height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-/* COUNTER */
-.counter-section{display:flex;justify-content:center;gap:60px;padding:60px 20px;background:#111;color:white;text-align:center;}
-.counter-box h2{font-size:42px;color:gold;}
-.counter-box p{font-size:18px;}
+        /* FOOTER */
+        footer { background: #111; color: #fff; padding: 40px 20px; text-align: center; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1001; }
+        .call-float { position: fixed; bottom: 90px; right: 20px; background: #ff0000; color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold; text-decoration: none; z-index: 1001; }
 
-/* SECTIONS */
-section{padding:70px 20px;text-align:center;}
-#about h2{font-size:36px;margin-bottom:20px;}
-#about p{max-width:700px;margin:auto;}
-
-/* SERVICES GRID */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 90%; margin: 30px auto; }
-.service-box { padding: 30px; background: #f9f9f9; border-radius: 15px; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.service-box i { font-size: 40px; color: gold; margin-bottom: 15px; }
-
-/* PRICING */
-.pricing-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;width:90%;margin:auto;}
-.price-card{background:#f4f4f4;padding:25px;border-radius:10px;transition:0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.05);}
-.price-card:hover{transform:translateY(-8px);}
-.highlight{border:3px solid gold;}
-.price{color:goldenrod;font-weight:bold;font-size:20px;margin-top:10px;}
-
-/* INQUIRY FORM SECTION */
-.inquiry-section { background: #fdfdfd; padding: 60px 20px; }
-.inquiry-box { max-width: 700px; margin: auto; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: left; }
-.inquiry-box h2 { text-align: center; margin-bottom: 25px; }
-.form-group { margin-bottom: 15px; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; }
-
-/* GALLERY */
-.gallery img{width:250px;height:200px;object-fit:cover;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition:0.4s;margin:10px;}
-.gallery img:hover{transform:scale(1.05);}
-
-/* WHY CHOOSE US */
-.why-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 90%; margin: auto; }
-.why-box { padding: 20px; background: #fff; border: 1px solid #eee; border-radius: 10px; }
-
-/* REVIEWS */
-.review-card{background:#f4f4f4;padding:20px;margin:15px auto;width:80%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.05);}
-
-/* BOOKING */
-.booking-form input,.booking-form textarea{padding:12px;border-radius:8px;border:1px solid #ccc;width:100%;margin-bottom:10px;}
-.booking-form button{padding:12px;background:gold;border:none;border-radius:30px;font-weight:bold; width: 100%;}
-
-/* FOOTER */
-footer{background:#111;color:white;padding:25px;text-align:center;}
-
-/* FLOATING */
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;font-size:22px; z-index: 2000;}
-.sticky-call{position:fixed;bottom:90px;right:20px;background:red;color:white;padding:12px 20px;border-radius:30px;font-weight:bold; z-index: 2000;}
-
-/* MOBILE */
-@media(max-width:768px){
-.hero-logo{width:100%;}
-.hero h1{font-size:32px;}
-.counter-section{flex-direction:column;gap:30px;}
-nav { display: none; }
-}
-
-</style>
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 30px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-<div class="header-container">
-<div class="logo-box">
-<img src="logo.png" class="header-logo">
-<h1>Chaudhary Tiles & Stone</h1>
-</div>
-<nav>
-<a href="#about">About</a>
-<a href="#services-grid">Services</a>
-<a href="#services">Rates</a>
-<a href="#gallery">Work</a>
-<a href="#calculator">Calculator</a>
-<a href="#booking">Booking</a>
-</nav>
-<button class="toggle-btn" onclick="toggleMode()">🌙</button>
-</div>
+    <div class="nav-container">
+        <div class="logo-box">
+            <img src="logo.png" alt="Logo">
+            <h2 style="font-size: 18px;">Chaudhary Tiles</h2>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#rates">Rates</a>
+            <a href="#gallery">Our Work</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="toggle-btn" onclick="toggleDark()">🌙</button>
+    </div>
 </header>
 
 <section class="hero">
-<div class="hero-logo-box" data-aos="zoom-in">
-    <img src="logo.png" class="hero-logo">
-</div>
-<h1 data-aos="fade-up">Chaudhary Tiles & Stone</h1>
-<p data-aos="fade-up" data-aos-delay="200">Professional Tile Contractor – <strong>Mr. Akhilesh Chaudhary</strong></p>
-<p data-aos="fade-up" data-aos-delay="300">Providing Quality Tiles & Stone Work in Gurugram</p>
-<a href="#booking" class="gold-btn" data-aos="fade-up" data-aos-delay="400">Get Free Estimate</a>
-<div class="badge" data-aos="flip-up" data-aos-delay="500">🏆 Since 2005 | 21+ Years Experience | 950+ Projects Completed</div>
+    <div class="hero-logo-container" data-aos="zoom-in">
+        <img src="logo.png" class="hero-logo" alt="Main Logo">
+    </div>
+    <h1 data-aos="fade-up">Chaudhary Tiles & Stone</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Expert Labor Contractor: <strong>Mr. Akhilesh Chaudhary</strong></p>
+    <a href="#inquiry" class="gold-btn" data-aos="fade-up" data-aos-delay="400">Get Free Quotation</a>
+    <div class="badge" data-aos="flip-up" data-aos-delay="600">
+        🏆 SINCE 2005 | 21+ YEARS EXPERIENCE | 950+ PROJECTS DONE
+    </div>
 </section>
 
 <section class="counter-section">
-<div class="counter-box" data-aos="fade-up">
-    <h2 class="counter" data-target="21">0</h2>
-    <p>Years Experience</p>
-</div>
-<div class="counter-box" data-aos="fade-up" data-aos-delay="200">
-    <h2 class="counter" data-target="950">0</h2>
-    <p>Projects Completed</p>
-</div>
-<div class="counter-box" data-aos="fade-up" data-aos-delay="400">
-    <h2 class="counter" data-target="100">0</h2>
-    <p>% Satisfaction</p>
-</div>
+    <div class="counter-box" data-aos="fade-up">
+        <h2 class="counter" data-target="21">0</h2>
+        <p>Years of Experience</p>
+    </div>
+    <div class="counter-box" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="counter" data-target="950">0</h2>
+        <p>Projects Completed</p>
+    </div>
+    <div class="counter-box" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="counter" data-target="100">0</h2>
+        <p>% Client Satisfaction</p>
+    </div>
 </section>
 
-<section id="about" data-aos="fade-up">
-<h2>About Us</h2>
-<p>Established in 2005 by <strong>Mr. Akhilesh Chaudhary</strong>, we provide premium tile fitting, marble flooring, granite installation and waterproofing services in Gurugram.</p>
+<section id="about" style="padding: 80px 20px; text-align: center;">
+    <h2 class="sec-title" data-aos="fade-up">About Our Company</h2>
+    <p style="max-width: 800px; margin: auto; font-size: 17px; line-height: 1.8;" data-aos="fade-up">
+        Founded in <strong>2005</strong> by <strong>Mr. Akhilesh Chaudhary</strong>, we have been providing top-notch tile, marble, and stone installation services across Gurugram. With over 2 decades of hands-on experience, we guarantee precision and quality in every square inch.
+    </p>
 </section>
 
-<section id="services-grid">
-  <h2 class="section-title" data-aos="fade-up">Our Professional Services</h2>
-  <div class="services-grid">
-    <div class="service-box" data-aos="zoom-in">
-      <i class="fas fa-border-all"></i>
-      <h3>Floor Tile Installation</h3>
-      <p>High-quality tile fitting with perfect finishing and durability.</p>
-    </div>
-    <div class="service-box" data-aos="zoom-in" data-aos-delay="100">
-      <i class="fas fa-th-large"></i>
-      <h3>Wall Cladding</h3>
-      <p>Modern wall cladding solutions for interior and exterior spaces.</p>
-    </div>
-    <div class="service-box" data-aos="zoom-in" data-aos-delay="200">
-      <i class="fas fa-gem"></i>
-      <h3>Marble Polishing</h3>
-      <p>Professional marble polishing for long-lasting shine.</p>
-    </div>
-    <div class="service-box" data-aos="zoom-in" data-aos-delay="300">
-      <i class="fas fa-mountain"></i>
-      <h3>Granite Work</h3>
-      <p>Expert granite installation for kitchen and commercial areas.</p>
-    </div>
-    <div class="service-box" data-aos="zoom-in" data-aos-delay="400">
-      <i class="fas fa-bath"></i>
-      <h3>Modular Bathroom</h3>
-      <p>Complete modular bathroom setup with plumbing & tiling.</p>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-<h2 data-aos="fade-up">Our Rates</h2>
-<div class="pricing-container">
-<div class="price-card" data-aos="flip-left"><h3>Tile Fitting</h3><p class="price">₹45/sq.ft</p></div>
-<div class="price-card" data-aos="flip-left" data-aos-delay="100"><h3>Kitchen Stone</h3><p class="price">₹200/sq.ft</p></div>
-<div class="price-card" data-aos="flip-left" data-aos-delay="200"><h3>Window Stone</h3><p class="price">₹250/sq.ft</p></div>
-<div class="price-card" data-aos="flip-left" data-aos-delay="300"><h3>Waterproofing</h3><p class="price">₹80/sq.ft</p></div>
-<div class="price-card" data-aos="flip-left" data-aos-delay="400"><h3>Epoxy Work</h3><p class="price">₹20/sq.ft</p></div>
-<div class="price-card highlight" data-aos="zoom-in" data-aos-delay="500"><h3>Bathroom Plumbing</h3><p class="price">₹15,000</p></div>
-</div>
-</section>
-
-<section class="inquiry-section" id="inquiry">
-    <div class="inquiry-box" data-aos="fade-up">
-        <h2>Service Inquiry</h2>
-        <div class="form-group">
-            <input type="text" id="inq_name" placeholder="Your Name">
+<section id="services" style="background: #fbfbfb; padding-bottom: 80px;">
+    <h2 class="sec-title" data-aos="fade-up">Our Special Services</h2>
+    <div class="services-grid">
+        <div class="service-card" data-aos="zoom-in">
+            <i class="fas fa-layer-group"></i>
+            <h3>Floor Tile Fitting</h3>
+            <p>Perfect leveling and spacing for all types of floor tiles.</p>
         </div>
-        <div class="form-group">
-            <input type="tel" id="inq_phone" placeholder="Your Mobile Number">
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-gem"></i>
+            <h3>Marble Polishing</h3>
+            <p>Mirror-finish marble polishing and diamond grinding.</p>
         </div>
-        <div class="form-group">
-            <select id="inq_service">
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-sink"></i>
+            <h3>Kitchen Granite</h3>
+            <p>Expert granite slab cutting and moulding for countertops.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fas fa-tint-slash"></i>
+            <h3>Waterproofing</h3>
+            <p>100% leakage protection for bathrooms and terraces.</p>
+        </div>
+    </div>
+</section>
+
+<section id="rates">
+    <h2 class="sec-title" data-aos="fade-up">Our Labour Rates</h2>
+    <div class="price-grid">
+        <div class="price-card" data-aos="flip-left"><h3>Tile Fitting</h3><p class="price-val">₹45/sq.ft</p></div>
+        <div class="price-card" data-aos="flip-left" data-aos-delay="100"><h3>Kitchen Stone</h3><p class="price-val">₹200/sq.ft</p></div>
+        <div class="price-card" data-aos="flip-left" data-aos-delay="200"><h3>Window Stone</h3><p class="price-val">₹250/sq.ft</p></div>
+        <div class="price-card" data-aos="flip-left" data-aos-delay="300"><h3>Waterproofing</h3><p class="price-val">₹80/sq.ft</p></div>
+        <div class="price-card" data-aos="flip-left" data-aos-delay="400"><h3>Epoxy Grouting</h3><p class="price-val">₹20/sq.ft</p></div>
+        <div class="price-card highlight-card" data-aos="zoom-in" data-aos-delay="500">
+            <h3>Bathroom Plumbing</h3><p class="price-val">₹15,000 (Fixed)</p>
+        </div>
+    </div>
+</section>
+
+<section id="inquiry" style="background: #f4f4f4; padding: 60px 0;">
+    <h2 class="sec-title">Quick Inquiry</h2>
+    <div class="inquiry-container" data-aos="fade-up">
+        <div class="form-grid">
+            <input type="text" id="inq_name" placeholder="Full Name">
+            <input type="tel" id="inq_phone" placeholder="Phone Number">
+            <select id="inq_service" class="full-width">
                 <option value="Tile Fitting">Tile Fitting</option>
                 <option value="Marble Polishing">Marble Polishing</option>
                 <option value="Waterproofing">Waterproofing</option>
-                <option value="Kitchen Granite">Kitchen Granite</option>
+                <option value="Complete Renovation">Complete Renovation</option>
             </select>
+            <textarea id="inq_msg" placeholder="Tell us about your project area..." class="full-width" rows="4"></textarea>
+            <button class="gold-btn full-width" onclick="sendInquiry()" style="border:none; cursor:pointer;">Send Inquiry on WhatsApp</button>
         </div>
-        <div class="form-group">
-            <textarea id="inq_msg" rows="3" placeholder="Additional Details"></textarea>
-        </div>
-        <button class="gold-btn" style="width: 100%; border: none; color: #000;" onclick="sendInquiry()">Send Inquiry</button>
     </div>
 </section>
 
 <section id="gallery">
-<h2 data-aos="fade-up">Our Work</h2>
-<div class="gallery" data-aos="fade-up">
-<img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=400&q=80" alt="Project 1">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Project 2">
-<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=80" alt="Project 3">
-</div>
+    <h2 class="sec-title" data-aos="fade-up">Our Work Images</h2>
+    <div class="gallery" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=500" alt="Work 1">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500" alt="Work 2">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=500" alt="Work 3">
+        <img src="https://images.unsplash.com/photo-1600607687940-47a0f9259d47?auto=format&fit=crop&w=500" alt="Work 4">
+    </div>
 </section>
 
-<section class="why-section">
-  <h2 class="section-title" data-aos="fade-up">Why Choose Us</h2>
-  <div class="why-container">
-    <div class="why-box" data-aos="zoom-in">
-      <h3>21+ Years Experience</h3>
-      <p>Trusted tile & stone work under guidance of <strong>Mr. Akhilesh Chaudhary</strong>.</p>
+<section id="calculator">
+    <h2 class="sec-title">Cost Estimator</h2>
+    <div style="text-align: center; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 90%; margin: auto; max-width: 500px;">
+        <select id="calc_rate" style="padding: 10px; margin-bottom: 10px; width: 80%;">
+            <option value="45">Tile Fitting (₹45)</option>
+            <option value="200">Kitchen Stone (₹200)</option>
+            <option value="80">Waterproofing (₹80)</option>
+        </select><br>
+        <input type="number" id="calc_area" placeholder="Enter Area in sq.ft" style="padding: 10px; margin-bottom: 10px; width: 80%;"><br>
+        <button onclick="calcResult()" class="gold-btn" style="border:none;">Calculate Now</button>
+        <h3 id="result" style="margin-top: 20px; color: goldenrod;"></h3>
     </div>
-    <div class="why-box" data-aos="zoom-in" data-aos-delay="100">
-      <h3>Skilled Team</h3>
-      <p>Professional installation with modern tools and techniques.</p>
-    </div>
-    <div class="why-box" data-aos="zoom-in" data-aos-delay="200">
-      <h3>Transparent Pricing</h3>
-      <p>No hidden charges. Clear cost calculation before work starts.</p>
-    </div>
-    <div class="why-box" data-aos="zoom-in" data-aos-delay="300">
-      <h3>On Time Delivery</h3>
-      <p>We complete projects within committed timeline.</p>
-    </div>
-  </div>
-</section>
-
-<section id="reviews">
-<h2 data-aos="fade-up">Google Reviews ⭐⭐⭐⭐⭐</h2>
-<div class="review-card" data-aos="fade-right">⭐⭐⭐⭐⭐<p>"Excellent tile fitting under supervision of <strong>Mr. Akhilesh Chaudhary</strong>"</p><h4>- Rajesh Sharma</h4></div>
-<div class="review-card" data-aos="fade-left">⭐⭐⭐⭐⭐<p>"Professional team and timely completion, managed personally by <strong>Mr. Akhilesh Chaudhary</strong>."</p><h4>- Sandeep Kumar</h4></div>
-</section>
-
-<section id="calculator" class="calculator-section">
-  <h2 class="section-title" data-aos="fade-up">Service Cost Calculator</h2>
-  <div class="calc-box" data-aos="zoom-in">
-    <select id="calc_service" onchange="toggleInputs()" style="width: 200px; padding: 10px; margin: 10px; border-radius: 5px;">
-      <option value="">Select Service</option>
-      <option value="45">Tile Fitting (₹45 / sq.ft)</option>
-      <option value="200">Kitchen Stone (₹200 / sq.ft)</option>
-      <option value="250">Window Stone (₹250 / sq.ft)</option>
-      <option value="80">Waterproofing (₹80 / sq.ft)</option>
-      <option value="15000">Bathroom Plumbing (Fixed)</option>
-    </select>
-    <div id="input-group">
-        <input type="number" id="calc_l" placeholder="Length (ft)" style="padding: 10px; border-radius: 5px;">
-        <input type="number" id="calc_w" placeholder="Width (ft)" style="padding: 10px; border-radius: 5px;">
-    </div>
-    <button onclick="calculateCost()" class="gold-btn" style="border: none; margin-top: 10px;">Calculate</button>
-    <div id="calc_result" style="margin-top: 15px; font-weight: bold;"></div>
-  </div>
-</section>
-
-<section id="booking">
-<h2 data-aos="fade-up">Book Free Site Visit</h2>
-<div class="booking-form" style="max-width: 600px; margin: auto;" data-aos="fade-up">
-<input type="text" id="name" placeholder="Full Name" required>
-<input type="tel" id="phone" placeholder="Mobile Number" required>
-<input type="date" id="date" required>
-<input type="time" id="time" required>
-<textarea id="details" placeholder="Work Details"></textarea>
-<button onclick="sendBooking()">Book Now</button>
-<p style="margin-top: 15px;">Contact directly: <strong>Mr. Akhilesh Chaudhary</strong> 📞 +91 7827692023</p>
-</div>
 </section>
 
 <section id="contact">
-<h2 data-aos="fade-up">Our Location</h2>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14032.531235659223!2d77.0682!3d28.4485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18f509200001%3A0x6739600e704689b7!2sSector%2028%2C%20Gurugram!5e0!3m2!1sen!2sin!4v1620000000000" width="100%" height="300" style="border:0; border-radius: 15px;"></iframe>
-<p class="contact-info">📍 Sector 28, Gurugram <br> 📞 +91 7827692023</p>
+    <h2 class="sec-title">Our Location</h2>
+    <div class="map-box" data-aos="zoom-in">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14028.123456789!2d77.08!3d28.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI4JzEyLjAiTiA3N8KwMDQnNDguMCJF!5e0!3m2!1sen!2sin!4v123456789" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <p style="text-align: center; font-size: 18px;">📍 Sector 28, Gurugram, Haryana | 📞 +91 7827692023</p>
 </section>
 
 <footer>
-<p>© 2026 Chaudhary Tiles & Stone | Founded by <strong>Mr. Akhilesh Chaudhary</strong></p>
+    <p>© 2026 Chaudhary Tiles & Stone | Managed by <strong>Mr. Akhilesh Chaudhary</strong></p>
+    <div style="margin-top: 15px;">
+        <i class="fab fa-facebook" style="margin: 0 10px; cursor: pointer;"></i>
+        <i class="fab fa-instagram" style="margin: 0 10px; cursor: pointer;"></i>
+        <i class="fab fa-whatsapp" style="margin: 0 10px; cursor: pointer;"></i>
+    </div>
 </footer>
 
-<a href="tel:917827692023" class="sticky-call">📞 Call Now</a>
-<a href="https://wa.me/917827692023" class="whatsapp" target="_blank">💬</a>
+<a href="tel:917827692023" class="call-float">📞 Call Expert</a>
+<a href="https://wa.me/917827692023" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1000, once: true });
 
-/* DARK MODE */
-function toggleMode(){document.body.classList.toggle("dark-mode");}
+    function toggleDark() { document.body.classList.toggle('dark-mode'); }
 
-/* ANIMATED COUNTER */
-const counters=document.querySelectorAll(".counter");
-const startCounters = () => {
-    counters.forEach(counter=>{
-        counter.innerText="0";
-        const updateCounter=()=>{
-            const target=+counter.getAttribute("data-target");
-            const c=+counter.innerText;
-            const inc=target/100;
-            if(c<target){
-                counter.innerText=Math.ceil(c+inc);
-                setTimeout(updateCounter,20);
-            } else {
-                counter.innerText=target + (target === 100 ? "%" : "+");
-            }
-        };
-        updateCounter();
-    });
-}
+    // COUNTER SCRIPT
+    const counters = document.querySelectorAll('.counter');
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const updateCount = () => {
+                const count = +counter.innerText;
+                const inc = target / 80;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target + (target === 100 ? "%" : "+");
+                }
+            };
+            updateCount();
+        });
+    };
 
-// Start counter when visible
-let observer = new IntersectionObserver((entries) => {
-    if(entries[0].isIntersecting) startCounters();
-}, { threshold: 0.5 });
-observer.observe(document.querySelector('.counter-section'));
+    // Trigger counter on scroll
+    let observer = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting) animateCounters();
+    }, { threshold: 0.5 });
+    observer.observe(document.querySelector('.counter-section'));
 
-/* CALCULATOR */
-function toggleInputs() {
-    let service = document.getElementById("calc_service").value;
-    document.getElementById("input-group").style.display = (service == "15000") ? "none" : "block";
-}
+    function calcResult() {
+        let r = document.getElementById('calc_rate').value;
+        let a = document.getElementById('calc_area').value;
+        if(a) { document.getElementById('result').innerText = "Estimated Cost: ₹" + (r * a); }
+    }
 
-function calculateCost() {
-    let rate = parseFloat(document.getElementById("calc_service").value);
-    let l = parseFloat(document.getElementById("calc_l").value);
-    let w = parseFloat(document.getElementById("calc_w").value);
-    let res = document.getElementById("calc_result");
-    if(!rate) { alert("Select Service"); return; }
-    if(rate == 15000) { res.innerHTML = "Total Cost: ₹15,000 (Fixed)"; }
-    else if(l && w) { res.innerHTML = "Estimated Cost: ₹" + (l*w*rate).toLocaleString(); }
-    else { alert("Enter dimensions"); }
-}
-
-/* BOOKING & INQUIRY */
-function sendBooking(){
-    let name=document.getElementById("name").value;
-    let phone=document.getElementById("phone").value;
-    if(!name || !phone) { alert("Please fill Name and Phone"); return; }
-    window.open(`https://wa.me/917827692023?text=New Booking Request%0AName: ${name}%0APhone: ${phone}`, "_blank");
-}
-
-function sendInquiry(){
-    let n=document.getElementById("inq_name").value;
-    let s=document.getElementById("inq_service").value;
-    if(!n) { alert("Please enter name"); return; }
-    window.open(`https://wa.me/917827692023?text=Service Inquiry for ${s}%0AName: ${n}`, "_blank");
-}
+    function sendInquiry() {
+        let n = document.getElementById('inq_name').value;
+        let p = document.getElementById('inq_phone').value;
+        let s = document.getElementById('inq_service').value;
+        let m = document.getElementById('inq_msg').value;
+        if(n && p) {
+            let url = `https://wa.me/917827692023?text=Service: ${s}%0AName: ${n}%0APhone: ${p}%0ADetails: ${m}`;
+            window.open(url, '_blank');
+        } else { alert("Please fill Name and Phone"); }
+    }
 </script>
 
 </body>
