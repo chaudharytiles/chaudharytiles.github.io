@@ -1,32 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Tile Installation Blog - Gurugram</title>
-<meta name="description" content="Best tile installation and marble work services in Gurugram.">
-<meta name="keywords" content="Tile contractor in Gurugram, marble work, floor tile installation">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Tips & Blogs | Chaudhary Tiles & Stone</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root { --gold: #FFD700; --dark: #111; --grey: #f8f8f8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--grey); color: #333; padding-top: 80px; }
+
+        /* HEADER */
+        header { background: #000; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 2px solid var(--gold); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 90%; margin: auto; }
+        .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+        .logo-box img { height: 45px; }
+        nav a { color: white; margin-left: 20px; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--gold); }
+
+        /* BLOG HERO */
+        .blog-hero { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1523413555809-0fb8a4a2c727?auto=format&fit=crop&w=1200'); background-size: cover; background-position: center; color: #fff; padding: 100px 20px; text-align: center; }
+        .blog-hero h1 { font-size: 45px; color: var(--gold); margin-bottom: 10px; }
+
+        /* BLOG GRID */
+        .blog-container { width: 90%; max-width: 1200px; margin: 50px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .blog-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .blog-card:hover { transform: translateY(-10px); }
+        .blog-img { width: 100%; height: 220px; object-fit: cover; }
+        .blog-content { padding: 25px; }
+        .blog-tag { background: var(--gold); color: #000; padding: 5px 12px; font-size: 12px; font-weight: bold; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
+        .blog-content h3 { margin-bottom: 15px; font-size: 22px; color: var(--dark); }
+        .blog-content p { color: #666; font-size: 14px; margin-bottom: 20px; line-height: 1.6; }
+        .read-btn { color: var(--dark); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 5px; transition: 0.3s; }
+        .read-btn:hover { letter-spacing: 1px; }
+
+        /* SIDEBAR / NEWSLETTER */
+        .newsletter { background: var(--dark); color: #fff; padding: 60px 5%; text-align: center; border-radius: 30px; margin: 80px auto; width: 90%; }
+        .newsletter input { padding: 15px; width: 300px; border-radius: 10px; border: none; outline: none; margin-right: 10px; }
+        .newsletter button { padding: 15px 30px; border-radius: 10px; border: none; background: var(--gold); font-weight: bold; cursor: pointer; }
+
+        /* FOOTER */
+        footer { background: #000; color: #fff; padding: 50px 20px; text-align: center; margin-top: 50px; }
+
+        @media (max-width: 768px) { .newsletter input { width: 100%; margin-bottom: 15px; } }
+    </style>
 </head>
 <body>
 
-<h1>Best Tile Contractor in Gurugram</h1>
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo-box">
+            <img src="logo.png" alt="Logo">
+            <h2>Chaudhary Tiles</h2>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#rates">Rates</a>
+            <a href="blog.html" style="color: gold;">Blog</a>
+        </nav>
+    </div>
+</header>
 
-<p>
-If you are looking for the best tile contractor in Gurugram, 
-Chaudhary Tiles & Marble Work provides professional tile installation 
-services for homes and offices.
-</p>
+<section class="blog-hero">
+    <h1 data-aos="fade-down">Expert Tiles & Stone Blog</h1>
+    <p data-aos="fade-up">Professional tips from 21+ years of experience in Gurugram</p>
+</section>
 
-<h2>Our Services</h2>
-<ul>
-<li>Floor Tile Installation</li>
-<li>Bathroom Tile Fitting</li>
-<li>Kitchen Tiling</li>
-<li>Marble Work Services</li>
-</ul>
+<div class="blog-container">
+    <article class="blog-card" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600" class="blog-img" alt="Epoxy Grouting">
+        <div class="blog-content">
+            <span class="blog-tag">Maintenance</span>
+            <h3>Why Choose Epoxy Grouting?</h3>
+            <p>Traditional white cement cracks and turns black over time. Learn why Epoxy is the only solution for lifetime waterproof joints...</p>
+            <a href="#" class="read-btn">Read More</a>
+        </div>
+    </article>
 
-<p>
-We provide affordable and high-quality tile fitting services 
-across Gurugram and nearby areas.
-</p>
+    <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" class="blog-img" alt="Kitchen Stone">
+        <div class="blog-content">
+            <span class="blog-tag">Kitchen Design</span>
+            <h3>Best Granite for Kitchen Tops</h3>
+            <p>Gurugram's water can stain light marbles. Discover the top 5 durable granites that look premium and are easy to maintain...</p>
+            <a href="#" class="read-btn">Read More</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1516533075015-a3838414c3cb?auto=format&fit=crop&w=600" class="blog-img" alt="Tile Leveling">
+        <div class="blog-content">
+            <span class="blog-tag">Expert Tips</span>
+            <h3>Common Tiling Mistakes</h3>
+            <p>Hollow sounds under tiles? Uneven edges? Learn what to check while your contractor is working to avoid future repairs...</p>
+            <a href="#" class="read-btn">Read More</a>
+        </div>
+    </article>
+</div>
+
+<section class="newsletter" data-aos="zoom-in">
+    <h2>Subscribe to Work Gallery</h2>
+    <p style="margin-bottom: 25px; color: #aaa;">Get latest site photos and labour rate updates directly.</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Join Now</button>
+</section>
+
+<footer>
+    <p>© 2026 Chaudhary Tiles & Stone | Gurugram Professional Contractor</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
 
 </body>
 </html>
