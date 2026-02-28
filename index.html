@@ -164,6 +164,31 @@ body.dark-mode .map-section iframe {
 nav a {
     color: #ffffff !important;
 }
+        .counter-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px 10%;
+    background: var(--light-bg);
+    text-align: center;
+}
+
+.counter-item h2 {
+    font-size: 45px;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.counter-item p {
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .counter-wrapper { flex-direction: column; gap: 30px; }
+}
     </style>
 </head>
 
@@ -207,6 +232,20 @@ nav a {
         <a href="#rates" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--gold);">RATES</a>
         <a href="#calculator" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--gold);">CALCULATOR</a>
     </div>
+    <div class="counter-wrapper">
+    <div class="counter-item">
+        <h2 class="count" data-target="21">0</h2>
+        <p>Years Experience</p>
+    </div>
+    <div class="counter-item">
+        <h2 class="count" data-target="950">0</h2>
+        <p>Projects Completed</p>
+    </div>
+    <div class="counter-item">
+        <h2 class="count" data-target="100%">0</h2>
+        <p>Happy Clients</p>
+    </div>
+</div>
 </section>
 
 <section id="services" class="reveal">
