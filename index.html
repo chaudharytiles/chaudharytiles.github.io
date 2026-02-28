@@ -402,6 +402,119 @@ nav a {
     .booking-info { text-align: center; }
     .h-item { justify-content: center; }
 }
+        /* Reviews Section Main */
+.reviews-section {
+    padding: 100px 8%;
+    background: var(--light-bg);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.gold-label {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.gold-text { color: var(--gold); }
+
+.reviews-header h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 15px;
+}
+
+/* Grid for Cards */
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Review Card Styling */
+.review-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: left;
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+}
+
+.stars {
+    color: var(--gold);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.client-info strong {
+    display: block;
+    font-size: 18px;
+    color: var(--gold);
+}
+
+.client-info span {
+    font-size: 13px;
+    opacity: 0.7;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Review Button Styling */
+.add-review-box {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.add-review-box p {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.review-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.review-btn i { margin-right: 10px; }
+
+.review-btn:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reviews-section { padding: 60px 5%; }
+}
     </style>
 </head>
 
@@ -574,6 +687,49 @@ nav a {
     <div class="faq-item">
         <h4>How much time for one room? <i class="fas fa-plus"></i></h4>
         <p style="margin-top:10px; color:#888;">Typically, a standard room takes 2-3 days for perfect tile fitting and grouting.</p>
+    </div>
+</section>
+    <section id="reviews" class="reviews-section reveal">
+    <div class="reviews-header">
+        <span class="gold-label">TESTIMONIALS</span>
+        <h2>What Our <span class="gold-text">Elite Clients</span> Say</h2>
+        <p style="max-width: 600px; margin: 0 auto 50px; opacity: 0.8;">Trusted by homeowners across Gurugram for over 20 years for precision and luxury finishing.</p>
+    </div>
+
+    <div class="reviews-container">
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"The finishing of Italian marble in my living room is flawless. <strong>Mr. Akhilesh Chaudhary</strong> personally supervised the work. Highly recommended in Gurgaon!"</p>
+            <div class="client-info">
+                <strong>Sandeep Rao</strong>
+                <span>DLF Phase 5, Gurugram</span>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Best tile contractor in Gurugram. The team is very professional and they completed the kitchen granite work on time. Great experience with Chaudhary Tiles."</p>
+            <div class="client-info">
+                <strong>Anjali Sharma</strong>
+                <span>Sushant Lok 1, Gurugram</span>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"I was worried about my expensive tiles, but <strong>Akhilesh Ji's</strong> expertise saved the day. The 'Zero-Error' fitting is actually real. 5 stars!"</p>
+            <div class="client-info">
+                <strong>Vikram Mehra</strong>
+                <span>Golf Course Road, Gurugram</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-review-box">
+        <p>Had a great experience with Akhilesh Ji?</p>
+        <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" class="review-btn">
+            <i class="fab fa-google"></i> WRITE A GOOGLE REVIEW
+        </a>
     </div>
 </section>
 
