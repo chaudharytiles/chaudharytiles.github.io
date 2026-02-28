@@ -10,33 +10,37 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
-        .map-section {
-    width: 100%;
-    background: #000;
+   /* Sabhi sections ke liye common background aur text color fix */
+section, .company-profile, .map-section, footer {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    transition: 0.3s ease;
 }
 
-/* Dark Mode mein map ko black & gold theme dene ke liye */
+/* Map Section Fix */
+.map-section {
+    padding: 40px 0;
+    background: var(--light-bg);
+}
+
+/* Map Filter: Sirf Dark Mode mein black dikhega, Light mein normal */
 body.dark-mode .map-section iframe {
-    filter: grayscale(1) invert(0.9) hue-rotate(180deg) brightness(0.8);
+    filter: grayscale(1) invert(0.9) contrast(1.2);
 }
-        :root {
-            --gold: #D4AF37;
-            --dark-bg: #000000;
-            --light-bg: #ffffff;
-            --text-color: #333333;
-            --card-bg: #f9f9f9;
-            --header-bg: #000000;
-        }
 
-        body.dark-mode {
-            --light-bg: #0a0a0a;
-            --text-color: #eeeeee;
-            --card-bg: #1a1a1a;
-        }
+/* Hero Section Text Visibility Fix */
+.hero h1, .hero p {
+    color: #ffffff !important; /* Hero ka text hamesha white rahega kyunki background black hai */
+}
 
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
-        body { background: var(--light-bg); color: var(--text-color); line-height: 1.6; padding-top: 80px; overflow-x: hidden; transition: 0.3s; }
+/* Nav links visibility fix jab light mode on ho */
+body:not(.dark-mode) header {
+    background: #000000; /* Header ko hamesha black rakhein taaki white text dikhe */
+}
 
+body:not(.dark-mode) .logo-text {
+    color: #ffffff !important;
+}
      /* Hero section ko poora black aur clean karne ke liye */
 .hero { 
     height: 100vh; 
@@ -148,6 +152,32 @@ body.dark-mode .map-section iframe {
         .reveal.active { opacity: 1; transform: translateY(0); }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @media(max-width: 768px) { nav { display: none; } }
+        /* --- DARK/LIGHT MODE & MAP STYLING --- */
+
+/* Ye line ensure karegi ki light mode dabane par bottom area white ho jaye */
+section, .company-profile, .map-section, footer, .calc-section {
+    background-color: var(--light-bg) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Map ko sahi dikhane ke liye */
+.map-section iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    transition: 0.5s filter;
+}
+
+/* Jab website Dark Mode mein ho, sirf tabhi map black dikhega */
+body.dark-mode .map-section iframe {
+    filter: grayscale(1) invert(0.9) contrast(1.2);
+}
+
+/* Header ke links hamesha white rahenge taaki wo black header mein dikhte rahein */
+nav a {
+    color: #ffffff !important;
+}
     </style>
 </head>
 
@@ -170,14 +200,27 @@ body.dark-mode .map-section iframe {
     </div>
 </header>
 
-<section class="hero">
+<section class="hero" style="background: #000 !important;">
     <div class="hero-logo-container">
-    <img src="logo.png" alt="Chaudhary Tiles Logo" class="main-big-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972130.png'">
-</div>
-    <div class="exp-badge">🏆 21+ Years Experience</div>
-    <h1 style="font-size: clamp(30px, 8vw, 60px); color: var(--gold);">GURUGRAM'S NO.1 TILE EXPERT</h1>
-    <p>We transform floors into masterpieces with precision and care.</p>
-    <a href="#booking" style="margin-top:25px; background:var(--gold); color:#000; padding:15px 35px; text-decoration:none; font-weight:bold; border-radius:5px;">BOOK FREE SITE VISIT</a>
+        <img src="logo.png" class="main-big-logo" alt="Logo">
+    </div>
+    
+    <div class="exp-badge" style="color: #000; background: var(--gold); padding: 5px 20px; border-radius: 20px; font-weight: bold; margin-bottom: 15px;">
+        🏆 21+ Years Experience
+    </div>
+    
+    <h1 style="color: var(--gold) !important; font-size: clamp(30px, 6vw, 55px); text-align: center; margin-bottom: 10px;">
+        LUXURY STONE & TILE CRAFTSMANSHIP
+    </h1>
+    
+    <p style="color: #ffffff !important; opacity: 0.9; text-align: center;">
+        Bringing World-Class Elegance to Your Floors & Walls.
+    </p>
+    
+    <div class="hero-links" style="margin-top: 25px;">
+        <a href="#rates" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--gold);">RATES</a>
+        <a href="#calculator" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--gold);">CALCULATOR</a>
+    </div>
 </section>
 
 <section id="services" class="reveal">
