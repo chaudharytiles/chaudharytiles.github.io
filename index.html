@@ -672,28 +672,42 @@ nav a {
     margin-bottom: 0;
     color: #2ecc71; /* Green checkmark for trust */
 }
-        .process-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
-    position: relative;
-}
-
-.process-card {
+     .process-card {
     text-align: center;
     padding: 40px 20px;
-    background: #f9f9f9;
+    background: var(--card-bg); /* Dark mode ke liye card ka apna color */
+    border: 1px solid rgba(212, 175, 55, 0.1);
     border-radius: 20px;
     position: relative;
-    transition: 0.3s ease;
-    border-bottom: 3px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.process-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--text-color); /* Title hamesha readable rahega */
+    font-weight: 700;
+}
+
+.process-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color); /* Description readable rahega */
+    opacity: 0.9;
 }
 
 .process-card:hover {
     transform: translateY(-10px);
-    background: #fff;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    border-bottom: 3px solid var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Icons aur Numbers ki visibility */
+.process-icon {
+    font-size: 40px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
 }
 
 .step-number {
@@ -702,49 +716,16 @@ nav a {
     left: 50%;
     transform: translateX(-50%);
     background: var(--gold);
-    color: #fff;
-    width: 40px;
-    height: 40px;
+    color: #000; /* Number ko dark rakha hai gold par taaki chamke */
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 14px;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    font-weight: 800;
+    z-index: 2;
 }
-
-.process-icon {
-    font-size: 40px;
-    color: var(--gold);
-    margin-bottom: 20px;
-}
-
-.process-card h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.process-card p {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.8;
-}
-
-/* Tablet/Desktop par icons ke beech choti spacing */
-@media (min-width: 768px) {
-    .process-container::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 10%;
-        right: 10%;
-        height: 1px;
-        background: rgba(212, 175, 55, 0.2);
-        z-index: 0;
-    }
 }
     </style>
 </head>
@@ -907,14 +888,14 @@ nav a {
     </div>
 </section>
 
-<section class="process-section reveal">
-  <section id="process" class="reveal" style="padding: 100px 8%; background: #ffffff;">
+<section id="process" class="reveal" style="padding: 100px 8%; background: var(--light-bg); transition: 0.3s;">
     <div style="text-align: center; margin-bottom: 60px;">
         <span class="gold-label">HOW WE WORK</span>
-        <h2 style="font-size: clamp(28px, 4vw, 40px);">Our Professional <span class="gold-text">Workflow</span></h2>
-        <p style="opacity: 0.7; margin-top: 10px;">Transparency and precision from the first measurement to the final polish.</p>
+        <h2 style="font-size: clamp(28px, 4vw, 40px); color: var(--text-color);">Our Professional <span class="gold-text">Workflow</span></h2>
+        <p style="color: var(--text-color); opacity: 0.8; margin-top: 10px;">Transparency and precision from the first measurement to the final polish.</p>
     </div>
 
+    <div class="process-container">
         <div class="process-card">
             <div class="step-number">01</div>
             <div class="process-icon"><i class="fas fa-ruler-combined"></i></div>
@@ -943,11 +924,12 @@ nav a {
             <p>7-step diamond polishing or epoxy grouting for that signature "mirror-like" shine.</p>
         </div>
     </div>
-            <div style="text-align: center; margin-top: 50px;">
-    <a href="https://wa.me/917827692023" class="cta-button" style="background: var(--gold); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">
-        Book a Free Site Visit
-    </a>
-</div>
+
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="https://wa.me/917827692023" class="cta-button" style="display: inline-block; background: var(--gold); color: #fff; padding: 16px 35px; text-decoration: none; border-radius: 8px; font-weight: 700; transition: 0.3s; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);">
+            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Book a Free Site Visit
+        </a>
+    </div>
 </section>
 
 <section id="calculator" class="calc-section reveal">
