@@ -726,21 +726,42 @@ nav a {
     font-weight: 800;
     z-index: 2;
 }
+.faq-item {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    margin-bottom: 5px;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-answer {
+    display: none; /* Yeh line answers ko hide rakhegi */
+    padding: 0 20px 20px 20px;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Jab active class lagegi tabhi dikhega */
 .faq-item.active .faq-answer {
-    max-height: 500px; /* Isse badha dein taaki lamba answer bhi dikhe */
-    padding: 10px 20px 20px 20px;
+    display: block;
 }
 
-/* Question ke saath ek "+" icon dikhane ke liye */
-.faq-question::after {
-    content: '+';
-    font-size: 22px;
-    transition: 0.3s;
+.faq-item.active .icon {
+    transform: rotate(45deg);
     color: var(--gold);
-}
-
-.faq-item.active .faq-question::after {
-    transform: rotate(45deg); /* "+" ko "x" bana dega */
 }
     </style>
 </head>
@@ -1018,42 +1039,26 @@ nav a {
     </div>
 
     <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
-        
         <div class="faq-item">
-            <button class="faq-question">What types of stones do you specialize in?</button>
+            <button class="faq-question">What types of stones do you specialize in? <span class="icon">+</span></button>
             <div class="faq-answer">
                 <p>We specialize in Italian Marble, Granite, Quartz, and all types of premium GVT/PGVT Tiles. Our expertise lies in precision cutting and seamless joints.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">Do you provide labor-only services or material too?</button>
+            <button class="faq-question">Do you provide labor-only services or material too? <span class="icon">+</span></button>
             <div class="faq-answer">
-                <p>We primarily provide expert craftsmanship (labor) under the personal supervision of Mr. Akhilesh Chaudhary. However, we can assist you in selecting the best materials from trusted vendors in Gurugram.</p>
+                <p>We primarily provide expert craftsmanship (labor) under the personal supervision of Mr. Akhilesh Chaudhary. We also assist in material selection from trusted vendors.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">What is "Zero-Error" craftsmanship?</button>
+            <button class="faq-question">What is "Zero-Error" craftsmanship? <span class="icon">+</span></button>
             <div class="faq-answer">
-                <p>It means we use laser-leveling tools and spacers to ensure 100% straight lines, zero hollow sounds under tiles, and perfectly matched marble grains.</p>
+                <p>It means we use laser-leveling tools and spacers to ensure 100% straight lines, zero hollow sounds, and perfectly matched marble grains.</p>
             </div>
         </div>
-
-        <div class="faq-item">
-            <button class="faq-question">How do you handle epoxy grouting?</button>
-            <div class="faq-answer">
-                <p>We use high-grade waterproof epoxy to fill joints. This prevents dirt accumulation, makes the floor anti-bacterial, and ensures the joints never crack or change color.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">Do you take projects outside of Gurugram?</button>
-            <div class="faq-answer">
-                <p>Currently, our primary focus is providing premium services in Gurugram (DLF, Golf Course Road, Sohna Road) to ensure daily personal supervision on every site.</p>
-            </div>
-        </div>
-
     </div>
 </section>
     <section id="reviews" class="reviews-section reveal">
@@ -1325,26 +1330,23 @@ window.onload = function() {
         alert("Please fill in your name and phone number.");
     }
 }
-</script>
-document.addEventListener('DOMContentLoaded', () => {
-    const faqQuestions = document.querySelectorAll('.faq-question');
+<script>
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        
+        // Toggle current item
+        faqItem.classList.toggle('active');
 
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const item = question.parentElement;
-            
-            // Doosre saare khule hue FAQs ko band karne ke liye (Optional)
-            document.querySelectorAll('.faq-item').forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
-
-            // Current waale ko kholne ya band karne ke liye
-            item.classList.toggle('active');
+        // Close other items (Optional: agar ek waqt mein ek hi kholna ho)
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== faqItem) {
+                otherItem.classList.remove('active');
+            }
         });
     });
 });
+</script>
 </script>
 </body>
 </html>
