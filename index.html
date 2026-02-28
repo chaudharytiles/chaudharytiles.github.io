@@ -565,7 +565,7 @@ nav a {
 
 <div class="counter-wrapper">
     <div class="counter-item">
-        <h2 class="count" data-target="21+">0</h2>
+        <h2 class="count" data-target="21">0</h2>
         <p>Years Experience</p>
     </div>
     <div class="counter-item">
@@ -573,7 +573,7 @@ nav a {
         <p>Projects Completed</p>
     </div>
     <div class="counter-item">
-        <h2 class="count" data-target="950">0</h2>
+        <h2 class="count" data-target="900">0</h2>
         <p>Happy Clients</p>
     </div>
 </div>
@@ -743,6 +743,47 @@ nav a {
 </div>
 </section>
 
+    <section id="rates" class="rates-section reveal">
+    <div class="rates-container">
+        <div class="rates-header">
+            <span class="gold-label">TRANSPARENT PRICING</span>
+            <h2>Our Service <span class="gold-text">Rate Card</span></h2>
+            <p>Premium fitting services in Gurugram at competitive prices. Quality guaranteed by Mr. Akhilesh Chaudhary.</p>
+        </div>
+
+        <div class="rates-grid">
+            <div class="rate-card">
+                <div class="rate-icon">T</div>
+                <h3>Floor Tiles</h3>
+                <div class="price">₹45 <span>/ sq.ft</span></div>
+                <p>Standard & Large format tiles</p>
+            </div>
+
+            <div class="rate-card featured">
+                <div class="rate-icon">G</div>
+                <h3>Granite Slab</h3>
+                <div class="price">₹200 <span>/ sq.ft</span></div>
+                <p>Kitchen & Staircase specialist</p>
+            </div>
+
+            <div class="rate-card">
+                <div class="rate-icon">I</div>
+                <h3>Italian Marble</h3>
+                <div class="price">₹250 <span>/ sq.ft</span></div>
+                <p>High-end luxury polishing & fitting</p>
+            </div>
+
+            <div class="rate-card">
+                <div class="rate-icon">E</div>
+                <h3>Epoxy Work</h3>
+                <div class="price">₹20 <span>/ sq.ft</span></div>
+                <p>Stain-proof joint filling</p>
+            </div>
+        </div>
+        
+        <p class="rates-disclaimer">*Rates are for labor/fitting only. Materials excluded. Prices may vary based on site conditions.</p>
+    </div>
+</section>
 <section id="booking" class="contact-container reveal">
     <div class="contact-info">
         <h2>Ready to Start?</h2>
@@ -880,7 +921,7 @@ window.onload = function() {
                     counter.innerText = Math.ceil(count + increment);
                     setTimeout(updateCount, 10);
                 } else {
-                    counter.innerText = target + (target >= 950 ? "+" : "");
+                    counter.innerText = target + (target >= 900 ? "+" : "");
                 }
             };
             updateCount();
