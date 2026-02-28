@@ -407,5 +407,43 @@ nav a {
     }
 </script>
 
+    // ... aapka purana javascript code yahan hoga ...
+
+    // --- AB ISKE NICHE COUNTER WALA CODE PASTE KAREIN ---
+    const counters = document.querySelectorAll('.count');
+
+    const runCounter = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const speed = target / 100;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + speed);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target + (target == 950 || target == 500 ? "+" : "");
+                }
+            };
+            updateCount();
+        });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting) {
+            runCounter();
+            observer.disconnect();
+        }
+    }, { threshold: 0.5 });
+
+    // Important: Ye line check karti hai ki counter-wrapper screen par aaya ya nahi
+    const counterWrapper = document.querySelector('.counter-wrapper');
+    if(counterWrapper) {
+        observer.observe(counterWrapper);
+    }
+    // ------------------------------------------------
+</script>
+</body>
 </body>
 </html>
