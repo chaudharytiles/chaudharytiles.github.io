@@ -515,6 +515,86 @@ nav a {
 @media (max-width: 768px) {
     .reviews-section { padding: 60px 5%; }
 }
+        .rates-section {
+    padding: 100px 8%;
+    background: #0d0d0d; /* Deep black for luxury feel */
+    color: #fff;
+    text-align: center;
+}
+
+.rates-header { margin-bottom: 50px; }
+
+.rates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.rate-card {
+    background: #1a1a1a;
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: 0.4s;
+}
+
+.rate-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
+}
+
+.rate-card.featured {
+    border: 2px solid var(--gold);
+    position: relative;
+}
+
+.rate-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    color: #000;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.rate-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.price span {
+    font-size: 14px;
+    color: #888;
+}
+
+.rate-card p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.rates-disclaimer {
+    margin-top: 40px;
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .rates-section { padding: 60px 5%; }
+}
     </style>
 </head>
 
