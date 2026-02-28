@@ -189,6 +189,111 @@ nav a {
 @media (max-width: 768px) {
     .counter-wrapper { flex-direction: column; gap: 30px; }
 }
+        .about-section {
+    padding: 100px 8%;
+    background: var(--light-bg);
+}
+
+.about-container {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.main-about-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 15px 15px 0px var(--gold);
+    transition: 0.4s ease;
+}
+
+.experience-badge-big {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background: var(--gold);
+    color: #000;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.exp-year { font-size: 28px; font-weight: 800; display: block; }
+.exp-text { font-size: 12px; font-weight: 600; text-transform: uppercase; }
+
+.about-content { flex: 1.2; }
+
+.gold-label {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about-content h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.main-p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.secondary-p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.feat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.feat-item i { color: var(--gold); font-size: 20px; }
+
+.about-cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #000;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid var(--gold);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.about-cta-btn:hover { background: var(--gold); color: #000; }
+
+@media (max-width: 968px) {
+    .about-container { flex-direction: column; text-align: center; }
+    .about-features { justify-items: center; }
+    .feat-item { align-items: center; }
+}
     </style>
 </head>
 
@@ -249,6 +354,47 @@ nav a {
         <p>Happy Clients</p>
     </div>
 </div>
+    <section id="about" class="about-section reveal">
+    <div class="about-container">
+        <div class="about-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Tile Craftsmanship" class="main-about-img">
+            <div class="experience-badge-big">
+                <span class="exp-year">2005</span>
+                <span class="exp-text">Since</span>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <span class="gold-label">THE LEGACY OF CHAUDHARY TILES</span>
+            <h2>Crafting Excellence Under the Vision of <span class="gold-text">Mr. Akhilesh Chaudhary</span></h2>
+            
+            <p class="main-p">
+                With a rich heritage dating back to 2005, <strong>Chaudhary Tiles & Stone</strong> has been a cornerstone of premium craftsmanship in Gurugram. We don't just lay tiles; we build the foundation of your dreams with precision and elegance.
+            </p>
+
+            <p class="secondary-p">
+                Founded by <strong>Mr. Akhilesh Chaudhary</strong>, our firm brings over 20 years of hands-on expertise to every project. Specializing in Italian Marble, Granite, and high-end Tile installations, we are committed to delivering "Zero-Error" finishes that stand the test of time.
+            </p>
+
+            <div class="about-features">
+                <div class="feat-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>Premium Quality</span>
+                </div>
+                <div class="feat-item">
+                    <i class="fas fa-user-check"></i>
+                    <span>Expert Supervision</span>
+                </div>
+                <div class="feat-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Timely Delivery</span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/917827692023" class="about-cta-btn">GET A FREE CONSULTATION</a>
+        </div>
+    </div>
+</section>
 </section>
 
 <section id="services" class="reveal">
