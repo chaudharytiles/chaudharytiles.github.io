@@ -573,7 +573,7 @@ nav a {
         <p>Projects Completed</p>
     </div>
     <div class="counter-item">
-        <h2 class="count" data-target="100%">0</h2>
+        <h2 class="count" data-target="950">0</h2>
         <p>Happy Clients</p>
     </div>
 </div>
@@ -727,12 +727,20 @@ nav a {
         </div>
     </div>
 
-    <div class="add-review-box">
-        <p"Satisfied with our 21+ years of expertise and premium tile finishing? Share your experience with Mr. Akhilesh Chaudhary."</p>
-        <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" class="review-btn">
-            <i class="fab fa-google"></i> WRITE A GOOGLE REVIEW
-        </a>
-    </div>
+   <div class="add-review-box" style="text-align: center; margin-top: 50px; padding: 30px; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+    
+    <p style="color: #ffffff; font-size: 18px; margin-bottom: 10px;">
+        Satisfied with our <b>21+ years of expertise</b> and <b>premium tile finishing</b>?
+    </p>
+    
+    <p style="color: #d4af37; font-size: 14px; margin-bottom: 25px; opacity: 0.9;">
+        Share your experience with Mr. Akhilesh Chaudhary
+    </p>
+
+    <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" class="review-btn" style="display: inline-block; padding: 12px 30px; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s;">
+        <i class="fab fa-google"></i> WRITE A GOOGLE REVIEW
+    </a>
+</div>
 </section>
 
 <section id="booking" class="contact-container reveal">
@@ -872,7 +880,7 @@ window.onload = function() {
                     counter.innerText = Math.ceil(count + increment);
                     setTimeout(updateCount, 10);
                 } else {
-                    counter.innerText = target + (target >= 100% ? "+" : "");
+                    counter.innerText = target + (target >= 950 ? "+" : "");
                 }
             };
             updateCount();
