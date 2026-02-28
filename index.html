@@ -52,10 +52,20 @@ body.dark-mode .map-section iframe {
     color: white; 
     padding: 20px;
 }
-@media (max-width: 768px) {
+.main-big-logo {
+    width: 80%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: brightness(1.2);
+    mix-blend-mode: lighten;
+}
+@media (max-width: 480px) {
     .main-big-logo {
-        width: 250px !important;
+        max-width: 220px;
     }
+}
 }
         /* --- HEADER & LOGO --- */
         header { background: var(--header-bg); color: #fff; padding: 12px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.5); }
