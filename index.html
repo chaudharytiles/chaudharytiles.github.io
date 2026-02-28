@@ -726,48 +726,21 @@ nav a {
     font-weight: 800;
     z-index: 2;
 }
-.faq-item {
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    margin-bottom: 10px;
+.faq-item.active .faq-answer {
+    max-height: 500px; /* Isse badha dein taaki lamba answer bhi dikhe */
+    padding: 10px 20px 20px 20px;
 }
 
-.faq-question {
-    width: 100%;
-    padding: 20px;
-    background: none;
-    border: none;
-    text-align: left;
-    color: var(--text-color);
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Question ke saath ek "+" icon dikhane ke liye */
+.faq-question::after {
+    content: '+';
+    font-size: 22px;
     transition: 0.3s;
-}
-
-.faq-question:hover {
     color: var(--gold);
 }
 
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    padding: 0 20px;
-}
-
-.faq-answer p {
-    padding-bottom: 20px;
-    color: var(--text-color);
-    opacity: 0.8;
-    line-height: 1.6;
-}
-
-/* Jab active ho tab answer dikhe */
-.faq-item.active .faq-answer {
-    max-height: 200px;
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg); /* "+" ko "x" bana dega */
 }
     </style>
 </head>
@@ -1318,11 +1291,25 @@ window.onload = function() {
     }
 }
 </script>
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        faqItem.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            
+            // Doosre saare khule hue FAQs ko band karne ke liye (Optional)
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Current waale ko kholne ya band karne ke liye
+            item.classList.toggle('active');
+        });
     });
 });
+</script>
 </body>
 </html>
