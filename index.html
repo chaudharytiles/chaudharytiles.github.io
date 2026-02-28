@@ -37,34 +37,50 @@ body.dark-mode .map-section iframe {
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
         body { background: var(--light-bg); color: var(--text-color); line-height: 1.6; padding-top: 80px; overflow-x: hidden; transition: 0.3s; }
 
-       .hero { 
-    width: 400px !important;
-    height: auto; 
-    display: block;
-    filter: brightness(1.2); 
-    mix-blend-mode: lighten;
+     /* Hero section ko poora black aur clean karne ke liye */
+.hero { 
+    height: 100vh; 
+    width: 100%;
+    display: flex; 
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    /* Yahan maine sirf color gradient rakha hai, purana logo image hata diya hai */
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)); 
+    /* Yahan se purani sari images hat jayengi */
+    background: #000000 !important; 
+    background-image: none !important; 
     text-align: center; 
     color: white; 
     padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
+
+/* Front Logo ki settings */
+.hero-logo-container {
+    margin-bottom: 20px;
+    z-index: 10;
+}
+
 .main-big-logo {
-    width: 80%;
-    max-width: 350px;
+    width: 90vw;            /* Mobile par screen ke hisaab se */
+    max-width: 450px;      /* Laptop par maximum size */
     height: auto;
     display: block;
-    margin: 0 auto;
-    filter: brightness(1.2);
-    mix-blend-mode: lighten;
+    filter: brightness(1.2); 
+    mix-blend-mode: lighten; /* Black background ke saath merge karne ke liye */
+    animation: fadeIn 1.5s ease-in;
 }
-@media (max-width: 480px) {
-    .main-big-logo {
-        max-width: 220px;
-    }
+
+/* Text aur Buttons ko center karne ke liye */
+.hero h1, .hero p, .hero a {
+    position: relative;
+    z-index: 10;
+    margin-left: 0 !important; /* Agar koi purana margin left hai to wo hat jayega */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 }
         /* --- HEADER & LOGO --- */
