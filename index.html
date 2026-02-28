@@ -726,6 +726,48 @@ nav a {
     font-weight: 800;
     z-index: 2;
 }
+.faq-item {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    color: var(--gold);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 20px;
+}
+
+.faq-answer p {
+    padding-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Jab active ho tab answer dikhe */
+.faq-item.active .faq-answer {
+    max-height: 200px;
 }
     </style>
 </head>
@@ -961,15 +1003,49 @@ nav a {
     </div>
 </section>
 
-<section class="faq-section reveal">
-    <h2 style="text-align:center; margin-bottom:40px;">Common Questions</h2>
-    <div class="faq-item">
-        <h4>Do you provide material? <i class="fas fa-plus"></i></h4>
-        <p style="margin-top:10px; color:#888;">We primarily provide expert labor, but we can assist in material selection and procurement if needed.</p>
+<section id="faq" class="reveal" style="padding: 100px 8%; background: var(--bg-color);">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <span class="gold-label">QUESTIONS</span>
+        <h2 style="color: var(--text-color);">Frequently Asked <span class="gold-text">Questions</span></h2>
     </div>
-    <div class="faq-item">
-        <h4>How much time for one room? <i class="fas fa-plus"></i></h4>
-        <p style="margin-top:10px; color:#888;">Typically, a standard room takes 2-3 days for perfect tile fitting and grouting.</p>
+
+    <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+        
+        <div class="faq-item">
+            <button class="faq-question">What types of stones do you specialize in?</button>
+            <div class="faq-answer">
+                <p>We specialize in Italian Marble, Granite, Quartz, and all types of premium GVT/PGVT Tiles. Our expertise lies in precision cutting and seamless joints.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Do you provide labor-only services or material too?</button>
+            <div class="faq-answer">
+                <p>We primarily provide expert craftsmanship (labor) under the personal supervision of Mr. Akhilesh Chaudhary. However, we can assist you in selecting the best materials from trusted vendors in Gurugram.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What is "Zero-Error" craftsmanship?</button>
+            <div class="faq-answer">
+                <p>It means we use laser-leveling tools and spacers to ensure 100% straight lines, zero hollow sounds under tiles, and perfectly matched marble grains.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How do you handle epoxy grouting?</button>
+            <div class="faq-answer">
+                <p>We use high-grade waterproof epoxy to fill joints. This prevents dirt accumulation, makes the floor anti-bacterial, and ensures the joints never crack or change color.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Do you take projects outside of Gurugram?</button>
+            <div class="faq-answer">
+                <p>Currently, our primary focus is providing premium services in Gurugram (DLF, Golf Course Road, Sohna Road) to ensure daily personal supervision on every site.</p>
+            </div>
+        </div>
+
     </div>
 </section>
     <section id="reviews" class="reviews-section reveal">
@@ -1242,6 +1318,11 @@ window.onload = function() {
     }
 }
 </script>
-</body>
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle('active');
+    });
+});
 </body>
 </html>
