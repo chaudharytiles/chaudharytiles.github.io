@@ -727,43 +727,53 @@ nav a {
     z-index: 2;
 }
 .faq-item {
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    margin-bottom: 5px;
+    background: var(--card-bg);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    overflow: hidden;
 }
 
 .faq-question {
-    width: 100%;
     padding: 20px;
-    background: none;
-    border: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--text-color);
-    font-size: 18px;
-    font-weight: 600;
     cursor: pointer;
-    text-align: left;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    background: rgba(212, 175, 55, 0.05);
 }
 
 .faq-answer {
-    display: none; /* Yeh line answers ko hide rakhegi */
-    padding: 0 20px 20px 20px;
+    display: grid;
+    grid-template-rows: 0fr; /* Default band rahega */
+    transition: grid-template-rows 0.3s ease-out;
+    padding: 0 20px;
+}
+
+.faq-content {
+    overflow: hidden;
     color: var(--text-color);
     opacity: 0.8;
+    font-size: 15px;
     line-height: 1.6;
 }
 
-/* Jab active class lagegi tabhi dikhega */
+/* Jab active class ho tab khul jaye */
 .faq-item.active .faq-answer {
-    display: block;
+    grid-template-rows: 1fr;
+    padding-bottom: 20px;
 }
 
-.faq-item.active .icon {
+.faq-item.active .fa-plus {
     transform: rotate(45deg);
     color: var(--gold);
 }
-    </style>
 </head>
 
 <body class="dark-mode">
@@ -1039,26 +1049,43 @@ nav a {
     </div>
 
     <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+        
         <div class="faq-item">
-            <button class="faq-question">What types of stones do you specialize in? <span class="icon">+</span></button>
+            <div class="faq-question">
+                <span>What types of stones do you specialize in?</span>
+                <i class="fas fa-plus"></i>
+            </div>
             <div class="faq-answer">
-                <p>We specialize in Italian Marble, Granite, Quartz, and all types of premium GVT/PGVT Tiles. Our expertise lies in precision cutting and seamless joints.</p>
+                <div class="faq-content">
+                    We specialize in Italian Marble, Granite, Quartz, and all types of premium GVT/PGVT Tiles. Our expertise lies in precision cutting and seamless joints.
+                </div>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">Do you provide labor-only services or material too? <span class="icon">+</span></button>
+            <div class="faq-question">
+                <span>Do you provide labor-only services or material too?</span>
+                <i class="fas fa-plus"></i>
+            </div>
             <div class="faq-answer">
-                <p>We primarily provide expert craftsmanship (labor) under the personal supervision of Mr. Akhilesh Chaudhary. We also assist in material selection from trusted vendors.</p>
+                <div class="faq-content">
+                    We primarily provide expert craftsmanship (labor) under the personal supervision of Mr. Akhilesh Chaudhary. We also assist in material selection from trusted vendors.
+                </div>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">What is "Zero-Error" craftsmanship? <span class="icon">+</span></button>
+            <div class="faq-question">
+                <span>What is "Zero-Error" craftsmanship?</span>
+                <i class="fas fa-plus"></i>
+            </div>
             <div class="faq-answer">
-                <p>It means we use laser-leveling tools and spacers to ensure 100% straight lines, zero hollow sounds, and perfectly matched marble grains.</p>
+                <div class="faq-content">
+                    It means we use laser-leveling tools and spacers to ensure 100% straight lines, zero hollow sounds, and perfectly matched marble grains.
+                </div>
             </div>
         </div>
+
     </div>
 </section>
     <section id="reviews" class="reviews-section reveal">
@@ -1331,18 +1358,23 @@ window.onload = function() {
     }
 }
 <script>
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        
-        // Toggle current item
-        faqItem.classList.toggle('active');
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
 
-        // Close other items (Optional: agar ek waqt mein ek hi kholna ho)
-        document.querySelectorAll('.faq-item').forEach(otherItem => {
-            if (otherItem !== faqItem) {
-                otherItem.classList.remove('active');
-            }
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Doosre saare band karne ke liye
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Current toggle karein
+            item.classList.toggle('active');
         });
     });
 });
