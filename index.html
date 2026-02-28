@@ -294,6 +294,114 @@ nav a {
     .about-features { justify-items: center; }
     .feat-item { align-items: center; }
 }
+        .booking-section {
+    padding: 100px 8%;
+    background: var(--light-bg);
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.booking-info h2 {
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+.contact-highlights {
+    margin-top: 30px;
+}
+
+.h-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.h-item i {
+    color: var(--gold);
+    font-size: 20px;
+}
+
+/* Form Card Styling */
+.booking-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 15px;
+    background: var(--light-bg);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--gold);
+    outline: none;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* Premium Button */
+.premium-submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: #000;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.premium-submit-btn:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+.form-note {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+    opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+    .booking-container { grid-template-columns: 1fr; }
+    .booking-info { text-align: center; }
+    .h-item { justify-content: center; }
+}
     </style>
 </head>
 
@@ -476,11 +584,48 @@ nav a {
         <p style="margin-top:20px;"><strong>Phone:</strong> +91 78276 92023</p>
         <p><strong>Email:</strong> info@chaudharytiles.com</p>
     </div>
-    <div class="contact-form">
-        <input type="text" id="name" placeholder="Name" style="width:100%; padding:12px; margin-bottom:10px; background:var(--card-bg); border:1px solid #444; color:var(--text-color);">
-        <input type="tel" id="phone" placeholder="Phone" style="width:100%; padding:12px; margin-bottom:10px; background:var(--card-bg); border:1px solid #444; color:var(--text-color);">
-        <textarea id="msg" placeholder="Tell us about your project" style="width:100%; padding:12px; height:100px; background:var(--card-bg); border:1px solid #444; color:var(--text-color);"></textarea>
-        <button onclick="handleLead()" class="submit-btn">SUBMIT REQUEST</button>
+    <section id="booking" class="booking-section reveal">
+    <div class="booking-container">
+        <div class="booking-info">
+            <span class="gold-label">WORK WITH THE BEST</span>
+            <h2>Book Your Premium <br><span class="gold-text">Site Inspection</span></h2>
+            <p>Ready to transform your space? Fill out the form below, and our expert team, led by <strong>Mr. Akhilesh Chaudhary</strong>, will get in touch with you for a professional measurement and quotation.</p>
+            
+            <div class="contact-highlights">
+                <div class="h-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 78276 92023</span>
+                </div>
+                <div class="h-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Available across Gurugram & Delhi NCR</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-card">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="user-name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="user-phone" placeholder="Enter mobile number">
+            </div>
+            <div class="form-group">
+                <label>Type of Service</label>
+                <select id="service-type">
+                    <option value="Italian Marble">Italian Marble Installation</option>
+                    <option value="Drawing Room Tiles">Drawing Room Tiles</option>
+                    <option value="Kitchen Granite">Kitchen Granite</option>
+                    <option value="Marble Polishing">Marble Polishing</option>
+                </select>
+            </div>
+            <button onclick="handleBooking()" class="premium-submit-btn">
+                SEND REQUEST <i class="fab fa-whatsapp"></i>
+            </button>
+            <p class="form-note">*Get a response within 24 hours</p>
+        </div>
     </div>
 </section>
 <section class="map-section reveal">
@@ -592,6 +737,18 @@ window.onload = function() {
         }
     });
 };
+     function handleBooking() {
+    let name = document.getElementById("user-name").value;
+    let phone = document.getElementById("user-phone").value;
+    let service = document.getElementById("service-type").value;
+
+    if(name && phone) {
+        let message = `Hello Akhilesh Ji,%0A%0AI want to book a site visit.%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}`;
+        window.open(`https://wa.me/917827692023?text=${message}`, "_blank");
+    } else {
+        alert("Please fill in your name and phone number.");
+    }
+}
 </script>
 </body>
 </body>
