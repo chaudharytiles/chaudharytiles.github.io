@@ -10,37 +10,23 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
-   /* Sabhi sections ke liye common background aur text color fix */
-section, .company-profile, .map-section, footer {
-    background-color: var(--light-bg);
-    color: var(--text-color);
-    transition: 0.3s ease;
-}
+  :root {
+            --gold: #D4AF37;
+            --dark-bg: #000000;
+            --light-bg: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f9f9f9;
+            --header-bg: #000000;
+        }
 
-/* Map Section Fix */
-.map-section {
-    padding: 40px 0;
-    background: var(--light-bg);
-}
+        body.dark-mode {
+            --light-bg: #0a0a0a;
+            --text-color: #eeeeee;
+            --card-bg: #1a1a1a;
+        }
 
-/* Map Filter: Sirf Dark Mode mein black dikhega, Light mein normal */
-body.dark-mode .map-section iframe {
-    filter: grayscale(1) invert(0.9) contrast(1.2);
-}
-
-/* Hero Section Text Visibility Fix */
-.hero h1, .hero p {
-    color: #ffffff !important; /* Hero ka text hamesha white rahega kyunki background black hai */
-}
-
-/* Nav links visibility fix jab light mode on ho */
-body:not(.dark-mode) header {
-    background: #000000; /* Header ko hamesha black rakhein taaki white text dikhe */
-}
-
-body:not(.dark-mode) .logo-text {
-    color: #ffffff !important;
-}
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
+        body { background: var(--light-bg); color: var(--text-color); line-height: 1.6; padding-top: 80px; overflow-x: hidden; transition: 0.3s; }
      /* Hero section ko poora black aur clean karne ke liye */
 .hero { 
     height: 100vh; 
