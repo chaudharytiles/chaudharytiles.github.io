@@ -37,6 +37,27 @@ body.dark-mode .map-section iframe {
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
         body { background: var(--light-bg); color: var(--text-color); line-height: 1.6; padding-top: 80px; overflow-x: hidden; transition: 0.3s; }
 
+        .hero-logo-container {
+    background: #000000;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    display: inline-block;
+}
+
+.main-big-logo {
+    width: 250px;
+    height: auto;
+    display: block;
+    filter: brightness(1.1);
+    mix-blend-mode: lighten;
+}
+@media (max-width: 480px) {
+    .main-big-logo {
+        width: 180px;
+    }
+}
         /* --- HEADER & LOGO --- */
         header { background: var(--header-bg); color: #fff; padding: 12px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.5); }
         .header-container { display: flex; align-items: center; justify-content: space-between; width: 92%; margin: auto; }
@@ -125,6 +146,9 @@ body.dark-mode .map-section iframe {
 </header>
 
 <section class="hero">
+    <div class="hero-logo-container">
+    <img src="logo.png" alt="Chaudhary Tiles Logo" class="main-big-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972130.png'">
+</div>
     <div class="exp-badge">🏆 21+ Years Experience</div>
     <h1 style="font-size: clamp(30px, 8vw, 60px); color: var(--gold);">GURUGRAM'S NO.1 TILE EXPERT</h1>
     <p>We transform floors into masterpieces with precision and care.</p>
