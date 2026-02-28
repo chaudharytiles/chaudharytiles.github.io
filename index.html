@@ -37,25 +37,24 @@ body.dark-mode .map-section iframe {
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
         body { background: var(--light-bg); color: var(--text-color); line-height: 1.6; padding-top: 80px; overflow-x: hidden; transition: 0.3s; }
 
-        .hero-logo-container {
-    background: #000000;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-    display: inline-block;
-}
-
-.main-big-logo {
-    width: 250px;
-    height: auto;
+       .hero { 
+    width: 400px !important;
+    height: auto; 
     display: block;
-    filter: brightness(1.1);
+    filter: brightness(1.2); 
     mix-blend-mode: lighten;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    /* Yahan maine sirf color gradient rakha hai, purana logo image hata diya hai */
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)); 
+    text-align: center; 
+    color: white; 
+    padding: 20px;
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .main-big-logo {
-        width: 180px;
+        width: 250px !important;
     }
 }
         /* --- HEADER & LOGO --- */
