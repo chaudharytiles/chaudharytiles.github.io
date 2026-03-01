@@ -995,22 +995,31 @@ body:not(.dark-mode) {
     </div>
 
 </section>
-
-<div class="counter-row">
-    <div class="stat">
-        <div class="num-box"><h3 class="counter-value" data-target="21">0</h3><span>+</span></div>
+<div class="counter-container">
+    <div class="counter-item">
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="21">0</h3>
+            <span class="counter-suffix">+</span>
+        </div>
         <p>YEARS OF EXPERIENCE</p>
     </div>
-    <div class="stat">
-        <div class="num-box"><h3 class="counter-value" data-target="950">0</h3><span>+</span></div>
+    <div class="counter-item">
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="950">0</h3>
+            <span class="counter-suffix">+</span>
+        </div>
         <p>PROJECTS COMPLETED</p>
     </div>
-    <div class="stat">
-        <div class="num-box"><h3 class="counter-value" data-target="100">0</h3><span>%</span></div>
+    <div class="counter-item">
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="100">0</h3>
+            <span class="counter-suffix">%</span>
+        </div>
         <p>HAPPY CLIENTS</p>
     </div>
 </div>
     </section>
+    
     <section id="about" class="about-section reveal">
     <div class="about-container">
         <div class="about-image-wrapper">
@@ -1501,37 +1510,28 @@ body:not(.dark-mode) {
     });
 </script>
     <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll('.counter-value');
-    
-    const animate = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        const speed = 100; // Isse counting ki raftaar control hogi
-        const increment = target / speed;
-
-        const updateCount = () => {
-            const count = +counter.innerText;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 20);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    };
-
-    // Intersection Observer: Scrolling detect karne ke liye
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animate(entry.target);
-                observer.unobserve(entry.target); // Sirf ek baar chalega
+                const el = entry.target;
+                const target = +el.getAttribute('data-target');
+                let count = 0;
+                const inc = target / 50;
+                const update = () => {
+                    if (count < target) {
+                        count += inc;
+                        el.innerText = Math.ceil(count);
+                        setTimeout(update, 30);
+                    } else { el.innerText = target; }
+                };
+                update();
+                observer.unobserve(el);
             }
         });
     }, { threshold: 0.5 });
-
-    counters.forEach(c => observer.observe(c));
+    document.querySelectorAll('.counter-value').forEach(c => observer.observe(c));
 });
 </script>
 </body>
