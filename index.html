@@ -13,6 +13,38 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
+        /* Counter ko ek line mein laane ke liye */
+.counter-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding: 20px !important;
+    width: 100% !important;
+}
+
+.num-box {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.counter-value, .num-box span {
+    color: #d4af37 !important; /* Golden */
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    margin: 0 2px !important;
+}
+
+.stat p {
+    color: #000 !important; /* Light mode mein text dikhega */
+    font-weight: bold;
+}
+
+/* Navigation Buttons Golden */
+nav a, .nav-links a {
+    color: #d4af37 !important;
+}
 :root {
 --bg-color: #ffffff;
 --card-bg: #f9f9f9;
@@ -902,40 +934,6 @@ body:not(.dark-mode) {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
-
-/* Saare sections ka background aur text color fix */
-body:not(.dark-mode) section, 
-body:not(.dark-mode) header, 
-body:not(.dark-mode) footer,
-body:not(.dark-mode) .about,
-body:not(.dark-mode) .services,
-body:not(.dark-mode) .contact,
-body:not(.dark-mode) .work {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* Saare headings aur paragraphs ko black karne ke liye */
-body:not(.dark-mode) h1, 
-body:not(.dark-mode) h2, 
-body:not(.dark-mode) h3:not(.counter-value), 
-body:not(.dark-mode) h4, 
-body:not(.dark-mode) p, 
-body:not(.dark-mode) span:not(.counter-suffix),
-body:not(.dark-mode) li {
-    color: #000000 !important;
-}
-
-/* Counter Numbers aur Symbols ko Golden hi rakhne ke liye */
-body:not(.dark-mode) .counter-value,
-body:not(.dark-mode) .counter-suffix {
-    color: #d4af37 !important;
-}
-
-/* Nav Buttons ko Golden rakhne ke liye */
-body:not(.dark-mode) nav ul li a {
-    color: #d4af37 !important;
-}
 </style>
         
 <header>
@@ -982,28 +980,17 @@ body:not(.dark-mode) nav ul li a {
 
 </section>
 
-<div class="counter-container">
-    <div class="counter-item">
-        <div class="counter-number-group">
-            <h3 class="counter-value" data-target="21">0</h3>
-            <span class="counter-suffix">+</span>
-        </div>
+<div class="counter-row">
+    <div class="stat">
+        <div class="num-box"><h3 class="counter-value" data-target="21">0</h3><span>+</span></div>
         <p>YEARS OF EXPERIENCE</p>
     </div>
-
-    <div class="counter-item">
-        <div class="counter-number-group">
-            <h3 class="counter-value" data-target="950">0</h3>
-            <span class="counter-suffix">+</span>
-        </div>
+    <div class="stat">
+        <div class="num-box"><h3 class="counter-value" data-target="950">0</h3><span>+</span></div>
         <p>PROJECTS COMPLETED</p>
     </div>
-
-    <div class="counter-item">
-        <div class="counter-number-group">
-            <h3 class="counter-value" data-target="100">0</h3>
-            <span class="counter-suffix">%</span>
-        </div>
+    <div class="stat">
+        <div class="num-box"><h3 class="counter-value" data-target="100">0</h3><span>%</span></div>
         <p>HAPPY CLIENTS</p>
     </div>
 </div>
