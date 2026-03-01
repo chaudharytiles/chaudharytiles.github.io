@@ -844,30 +844,25 @@ nav ul li a:hover,
 body:not(.dark-mode) nav ul li a {
     color: #d4af37 !important;
 }
-.counter-container {
+/* Number aur Symbol (+, %) ko ek line mein laane ke liye */
+.counter-number-group {
     display: flex !important;
+    flex-direction: row !important; /* Force Horizontal Line */
+    align-items: baseline !important; /* Dono ko ek base level par rakhega */
     justify-content: center !important;
-    gap: 40px !important;
-    text-align: center !important;
-    padding: 20px !important;
+    margin-bottom: 5px;
 }
 
-.counter-item h3 {
-    color: #d4af37 !important; /* Golden Color */
-    font-size: 2.5rem !important;
-    margin-bottom: 5px !important;
-    font-weight: bold !important;
+.counter-value {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
 }
 
-.counter-item p {
-    color: #ffffff; /* Dark mode ke liye white text */
-    font-size: 14px !important;
-    text-transform: uppercase;
-}
-
-/* Light mode mein text kaala dikhne ke liye */
-body:not(.dark-mode) .counter-item p {
-    color: #000000 !important;
+.counter-suffix {
+    margin-left: 2px !important; /* Number aur + ke beech thoda gap */
+    display: inline-block !important;
+    vertical-align: middle;
 }
 </style>
         
@@ -915,30 +910,28 @@ body:not(.dark-mode) .counter-item p {
 
 </section>
 
-<div class="counter-container">
-    <div class="counter-item">
-        <div class="counter-number-group">
-            <h3 class="counter-value" data-target="21">0</h3>
-            <span class="counter-suffix">+</span>
-        </div>
-        <p>YEARS OF EXPERIENCE</p>
+<<div class="counter-item">
+    <div class="counter-number-group">
+        <h3 class="counter-value" data-target="21">0</h3>
+        <span class="counter-suffix">+</span>
     </div>
+    <p>YEARS OF EXPERIENCE</p>
+</div>
 
-    <div class="counter-item">
-        <div class="counter-number-group">
-            <h3 class="counter-value" data-target="950">0</h3>
-            <span class="counter-suffix">+</span>
-        </div>
-        <p>PROJECTS COMPLETED</p>
+<div class="counter-item">
+    <div class="counter-number-group">
+        <h3 class="counter-value" data-target="950">0</h3>
+        <span class="counter-suffix">+</span>
     </div>
+    <p>PROJECTS COMPLETED</p>
+</div>
 
-    <div class="counter-item">
-        <div class="counter-number-group">
-            <h3 class="counter-value" data-target="100">0</h3>
-            <span class="counter-suffix">%</span>
-        </div>
-        <p>HAPPY CLIENTS</p>
+<div class="counter-item">
+    <div class="counter-number-group">
+        <h3 class="counter-value" data-target="100">0</h3>
+        <span class="counter-suffix">%</span>
     </div>
+    <p>HAPPY CLIENTS</p>
 </div>
     <section id="about" class="about-section reveal">
     <div class="about-container">
