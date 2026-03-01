@@ -45,24 +45,40 @@
 nav a, .nav-links a {
     color: #d4af37 !important;
 }
+/* LIGHT MODE COLORS (Default) */
 :root {
---bg-color: #ffffff;
---card-bg: #f9f9f9;
---text-color: #1a1a1a;
---light-bg: #f4f4f4;
+    --bg-color: #ffffff;
+    --card-bg: #f9f9f9;
+    --text-color: #1a1a1a; /* Ye black hona chahiye */
+    --light-bg: #ffffff;
+    --gold: #d4af37;
+    --header-bg: #000000;
 }
 
+/* DARK MODE COLORS */
 body.dark-mode {
---bg-color: #111111;
---card-bg: #1a1a1a;
---text-color: #ffffff;
---light-bg: #000000;
+    --bg-color: #111111;
+    --card-bg: #1a1a1a;
+    --text-color: #ffffff; /* Dark mode mein white */
+    --light-bg: #000000;
 }
 
+/* Global Fix */
 body {
-background-color: var(--bg-color);
-color: var(--text-color);
-transition: 0.3s;
+    background-color: var(--bg-color);
+    color: var(--text-color); /* Isse baaki saare sections ka text wapas aa jayenge */
+    transition: 0.3s;
+}
+
+/* Specific Sections Fix */
+section, .about-section, .booking-section, .process-section, .calc-section {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* Paragraphs aur Headings ka color fix */
+p, h2, h3:not(.counter-value), h4, span:not(.counter-suffix) {
+    color: var(--text-color) !important;
 }
         /* Rate Card Fix */
 .rate-card {
