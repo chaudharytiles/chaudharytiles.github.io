@@ -726,12 +726,14 @@ nav a {
     font-weight: 800;
     z-index: 2;
 }
+/* FAQ Style Fixed */
 .faq-item {
     background: var(--card-bg);
     margin-bottom: 15px;
     border-radius: 10px;
     border: 1px solid rgba(212, 175, 55, 0.1);
     overflow: hidden;
+    transition: 0.3s;
 }
 
 .faq-question {
@@ -742,32 +744,34 @@ nav a {
     cursor: pointer;
     color: var(--text-color);
     font-weight: 600;
-    transition: 0.3s;
-}
-
-.faq-question:hover {
-    background: rgba(212, 175, 55, 0.05);
 }
 
 .faq-answer {
     display: grid;
-    grid-template-rows: 0fr; /* Default band rahega */
+    grid-template-rows: 0fr; /* Band rehne ke liye */
     transition: grid-template-rows 0.3s ease-out;
     padding: 0 20px;
 }
 
 .faq-content {
     overflow: hidden;
-    color: var(--text-color);
-    opacity: 0.8;
-    font-size: 15px;
-    line-height: 1.6;
+    padding-bottom: 0;
+    transition: 0.3s;
+    opacity: 0; /* Shuru mein halka */
 }
 
-/* Jab active class ho tab khul jaye */
+/* Jab 'active' class add hogi tab ye chalega */
+.faq-item.active {
+    border-color: var(--gold);
+}
+
 .faq-item.active .faq-answer {
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr; /* Khulne ke liye */
     padding-bottom: 20px;
+}
+
+.faq-item.active .faq-content {
+    opacity: 1;
 }
 
 .faq-item.active .fa-plus {
@@ -1041,7 +1045,7 @@ nav a {
     </div>
 </section>
 
-<section id="faq" class="reveal" style="padding: 100px 8%; background: var(--bg-color);">
+<section id="faq" class="reveal" style="padding: 80px 8%; background: var(--light-bg);">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">QUESTIONS</span>
         <h2 style="color: var(--text-color);">Frequently Asked <span class="gold-text">Questions</span></h2>
@@ -1358,25 +1362,26 @@ window.onload = function() {
 }
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // FAQ Selection
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         
         question.addEventListener('click', () => {
-            // Doosre saare band karne ke liye
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            
-            // Current toggle karein
-            item.classList.toggle('active');
+            // Pehle check karo agar ye pehle se khula hai
+            const isOpen = item.classList.contains('active');
+
+            // Doosre saare band karo
+            faqItems.forEach(i => i.classList.remove('active'));
+
+            // Agar pehle band tha, toh ab khol do
+            if (!isOpen) {
+                item.classList.add('active');
+            }
         });
     });
 });
-</script>
 </script>
 </body>
 </html>
