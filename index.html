@@ -13,6 +13,27 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
+        /* Light Mode (Default) Fix */
+body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* Saare sections ke liye text color fix */
+section, p, h2, h1, h4, span:not(.counter-suffix), li, .about-content, .service-content h3 {
+    color: var(--text-color) !important;
+}
+
+/* Counter aur Navigation hamesha Golden rahenge */
+.counter-value, .counter-suffix, nav a, .nav-links a {
+    color: var(--gold) !important;
+}
+
+/* Dark mode mein header aur footer ko black hi rakhna hai to */
+header, footer {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
       /* --- 1. Sab kuch dikhane ke liye Master Fix --- */
 :root {
     --bg-color: #ffffff;
@@ -882,64 +903,6 @@ nav ul li a:hover,
 /* Light Mode mein bhi golden hi rahega */
 body:not(.dark-mode) nav ul li a {
     color: #d4af37 !important;
-}
-/* Poore section ko ek line mein laane ke liye */
-.counter-container {
-    display: flex !important;
-    flex-direction: row !important; /* Force Horizontal Row */
-    justify-content: center !important;
-    align-items: flex-start !important;
-    gap: 60px !important; /* Items ke beech ka gap */
-    width: 100% !important;
-    padding: 40px 0 !important;
-    flex-wrap: nowrap !important; /* Mobile par bhi line na toote */
-}
-
-/* Har ek item (Number + Text) ka container */
-.counter-item {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-/* Number aur Symbol ko ek line mein laane wala group */
-.counter-number-group {
-    display: flex !important;
-    flex-direction: row !important; /* Isse + aur % bagal mein aayenge */
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.counter-value, .counter-suffix {
-    color: #d4af37 !important; /* Gold Color */
-    font-size: 3rem !important;
-    font-weight: 800 !important;
-    margin: 0 !important;
-    line-height: 1 !important;
-}
-
-.counter-suffix {
-    margin-left: 5px !important; /* Number aur Sign ke beech thoda sa gap */
-}
-
-/* Niche wala text (YEARS OF EXPERIENCE, etc.) */
-.counter-item p {
-    margin-top: 10px !important;
-    font-size: 14px !important;
-    font-weight: bold;
-    color: inherit;
-    text-align: center;
-}
-/* Jab Dark Mode OFF ho (Light Mode) */
-body:not(.dark-mode) {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* Jab Dark Mode OFF ho (Light Mode) */
-body:not(.dark-mode) {
-    background-color: #ffffff !important;
-    color: #000000 !important;
 }
 </style>
         
