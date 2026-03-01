@@ -844,72 +844,6 @@ nav ul li a:hover,
 body:not(.dark-mode) nav ul li a {
     color: #d4af37 !important;
 }
-/* Number aur Symbol (+, %) ko ek line mein laane ke liye */
-.counter-number-group {
-    display: flex !important;
-    flex-direction: row !important; /* Force Horizontal Line */
-    align-items: baseline !important; /* Dono ko ek base level par rakhega */
-    justify-content: center !important;
-    margin-bottom: 5px;
-}
-
-.counter-value {
-    margin: 0 !important;
-    padding: 0 !important;
-    display: inline-block !important;
-}
-
-.counter-suffix {
-    margin-left: 2px !important; /* Number aur + ke beech thoda gap */
-    display: inline-block !important;
-    vertical-align: middle;
-}
-</style>
-        
-<header>
-    <div class="header-container">
-        <div class="logo-box">
-            <img src="logo.png" alt="Logo" class="header-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972130.png'">
-            <div class="logo-text">CHAUDHARY<br><span style="font-size: 12px; color: var(--gold);">TILES & STONE</span></div>
-        </div>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#rates">Rates</a>
-            <a href="blog.html">Blog</a> <a href="#calculator">Calculator</a>
-            <a href="#calculator">Calculator</a>
-            <a href="#work">Work</a>
-            <a href="#booking">Contact</a>
-            <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
-        </nav>
-    </div>
-</header>
-
-<section class="hero" style="background: #000 !important; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 20px;">
-    
-    <div class="hero-logo-container">
-        <img src="logo.png" class="main-big-logo" alt="Logo">
-    </div>
-    
-    <div class="exp-badge" style="color: #000; background: #d4af37; padding: 8px 25px; border-radius: 30px; font-weight: bold; margin-bottom: 25px; display: inline-block;">
-        🏆 21+ Years Experience
-    </div>
-    
-    <h1 style="color: #ffffff; font-size: 45px; line-height: 1.2; margin-bottom: 20px;">
-        Premium Tile & Italian <br>
-        <span class="gold-text" style="color: #d4af37;">Marble Expert in Gurugram</span>
-    </h1>
-    
-    <p style="color: #ffffff !important; opacity: 0.9; max-width: 600px; margin: 0 auto;">
-        Bringing World-Class Elegance to Your Floors & Walls. Led by Mr. Akhilesh Chaudhary.
-    </p>
-    
-    <div class="hero-links" style="margin-top: 30px;">
-        <a href="#rates" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 2px solid #d4af37; padding-bottom: 5px;">RATES</a>
-        <a href="#calculator" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 2px solid #d4af37; padding-bottom: 5px;">CALCULATOR</a>
-    </div>
-
-</section>
-
 /* Poore section ko ek line mein laane ke liye */
 .counter-container {
     display: flex !important;
@@ -957,6 +891,78 @@ body:not(.dark-mode) nav ul li a {
     color: inherit;
     text-align: center;
 }
+}
+</style>
+        
+<header>
+    <div class="header-container">
+        <div class="logo-box">
+            <img src="logo.png" alt="Logo" class="header-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972130.png'">
+            <div class="logo-text">CHAUDHARY<br><span style="font-size: 12px; color: var(--gold);">TILES & STONE</span></div>
+        </div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#rates">Rates</a>
+            <a href="blog.html">Blog</a> <a href="#calculator">Calculator</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#work">Work</a>
+            <a href="#booking">Contact</a>
+            <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" style="background: #000 !important; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 20px;">
+    
+    <div class="hero-logo-container">
+        <img src="logo.png" class="main-big-logo" alt="Logo">
+    </div>
+    
+    <div class="exp-badge" style="color: #000; background: #d4af37; padding: 8px 25px; border-radius: 30px; font-weight: bold; margin-bottom: 25px; display: inline-block;">
+        🏆 21+ Years Experience
+    </div>
+    
+    <h1 style="color: #ffffff; font-size: 45px; line-height: 1.2; margin-bottom: 20px;">
+        Premium Tile & Italian <br>
+        <span class="gold-text" style="color: #d4af37;">Marble Expert in Gurugram</span>
+    </h1>
+    
+    <p style="color: #ffffff !important; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+        Bringing World-Class Elegance to Your Floors & Walls. Led by Mr. Akhilesh Chaudhary.
+    </p>
+    
+    <div class="hero-links" style="margin-top: 30px;">
+        <a href="#rates" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 2px solid #d4af37; padding-bottom: 5px;">RATES</a>
+        <a href="#calculator" style="color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600; border-bottom: 2px solid #d4af37; padding-bottom: 5px;">CALCULATOR</a>
+    </div>
+
+</section>
+
+<div class="counter-container">
+    <div class="counter-item">
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="21">0</h3>
+            <span class="counter-suffix">+</span>
+        </div>
+        <p>YEARS OF EXPERIENCE</p>
+    </div>
+
+    <div class="counter-item">
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="950">0</h3>
+            <span class="counter-suffix">+</span>
+        </div>
+        <p>PROJECTS COMPLETED</p>
+    </div>
+
+    <div class="counter-item">
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="100">0</h3>
+            <span class="counter-suffix">%</span>
+        </div>
+        <p>HAPPY CLIENTS</p>
+    </div>
+</div>
     <section id="about" class="about-section reveal">
     <div class="about-container">
         <div class="about-image-wrapper">
