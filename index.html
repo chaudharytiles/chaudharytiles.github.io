@@ -882,15 +882,43 @@ color: #ffffff !important;
 body:not(.dark-mode) nav ul li a:hover {
 color: #d4af37 !important;
 }
-        .counter-item h3 {
-    display: inline-block;
+/* 1. Counter ke saare items ko ek line mein laane ke liye /
+.counter-container, .counters-wrapper, .stats-section {
+display: flex !important;
+flex-wrap: wrap !important; / Mobile par apne aap niche aa jayenge /
+justify-content: center !important;
+gap: 30px !important; / Beech ka gap */
+padding: 40px 20px !important;
+text-align: center !important;
 }
+
+/* 2. Har ek counter item ki width set karne ke liye /
+.counter-item {
+flex: 1;
+min-width: 200px; / Isse items ek dusre ke upar nahi chadhenge */
+}
+
+/* 3. Number aur Symbol (+, %) ko ek hi line mein rakhne ke liye /
+.counter-item h3, .counter-value {
+display: inline-block !important;
+margin: 0 !important;
+font-size: 2.5rem !important;
+color: #d4af37 !important; / Gold Color */
+}
+
 .counter-suffix {
-    display: inline-block;
-    font-size: 1.5rem; /* Aap apne hisab se chhota-bada kar sakte hain */
-    color: #d4af37;    /* Gold color */
-    font-weight: bold;
-    margin-left: 2px;
+display: inline-block !important;
+font-size: 2rem !important;
+color: #d4af37 !important;
+margin-left: 5px;
+}
+
+/* 4. Text (Years of Experience etc.) ko thoda gap dene ke liye */
+.counter-item p {
+margin-top: 10px !important;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
 }
 </style>
         
@@ -938,19 +966,19 @@ color: #d4af37 !important;
 
 </section>
 
-<div class="counter-item">
-    <h3 class="counter-value" data-target="21">0</h3>
-    <span class="counter-suffix">+</span>
-    <p>Years of Experience</p>
-</div>
+<div class="counter-container">
     <div class="counter-item">
-        <h2 class="count" data-target="950">0</h2>
-        <p>Projects Completed</p>
+        <h3 class="counter-value" data-target="21">0</h3><span class="counter-suffix">+</span>
+        <p>YEARS OF EXPERIENCE</p>
     </div>
-   <div class="counter-item">
-    <h3 class="counter-value" data-target="100">0</h3>
-    <span class="counter-suffix">%</span>
-    <p>Happy Clients</p>
+    <div class="counter-item">
+        <h3 class="counter-value" data-target="500">0</h3>
+        <p>PROJECTS COMPLETED</p>
+    </div>
+    <div class="counter-item">
+        <h3 class="counter-value" data-target="100">0</h3><span class="counter-suffix">%</span>
+        <p>HAPPY CLIENTS</p>
+    </div>
 </div>
 </div>
     <section id="about" class="about-section reveal">
