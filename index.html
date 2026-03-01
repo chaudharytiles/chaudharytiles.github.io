@@ -37,23 +37,17 @@ header, footer {
       /* --- 1. Sab kuch dikhane ke liye Master Fix --- */
 :root {
     --bg-color: #ffffff;
-    --text-color: #1a1a1a;
+    --text-color: #1a1a1a; /* Light mode mein text BLACK rahega */
+    --card-bg: #f9f9f9;
+    --light-bg: #ffffff;  /* Isko define karna zaroori tha */
     --gold: #d4af37;
 }
 
 body.dark-mode {
     --bg-color: #111111;
-    --text-color: #ffffff;
-}
-
-body {
-    background-color: var(--bg-color) !important;
-    color: var(--text-color) !important;
-}
-
-/* Saare sections ka text visible karne ke liye */
-section, p, h2, h3:not(.counter-value), span:not(.counter-suffix), li {
-    color: var(--text-color) !important;
+    --text-color: #ffffff; /* Dark mode mein text WHITE ho jayega */
+    --card-bg: #1a1a1a;
+    --light-bg: #111111;
 }
 
 /* --- 2. Counter ko Horizontal line mein laane ke liye --- */
@@ -159,7 +153,6 @@ filter: grayscale(1) invert(0.9) contrast(1.2) !important; /* Dark mode mein bla
 @keyframes fadeIn
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
-}
 }
         /* --- HEADER & LOGO --- */
         header { background: var(--header-bg); color: #fff; padding: 12px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.5); }
