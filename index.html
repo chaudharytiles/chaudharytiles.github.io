@@ -823,77 +823,60 @@ text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); / Halka sa chamak */
 body:not(.dark-mode) .stars {
 color: #d4af37 !important;
 }
-        /* FINAL FIX FOR LIGHT MODE BUTTONS */
-
-/* 1. Jab Light Mode ho (body par dark-mode class NA ho) /
-body:not(.dark-mode) nav ul li a,
-body:not(.dark-mode) .nav-links a,
-body:not(.dark-mode) header a {
-color: #000000 !important; / Text ko kaala karega /
-font-weight: 800 !important; / Thoda bold taaki saaf dikhe */
-opacity: 1 !important;
+       /* HEADER NAVIGATION BUTTONS GOLDEN */
+nav ul li a, 
+.nav-links a, 
+header a {
+    color: #d4af37 !important; /* Premium Gold Color */
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: 0.3s ease;
 }
 
-/* 2. Moon/Sun Icon ko kaala karne ke liye */
-body:not(.dark-mode) .theme-toggle i,
-body:not(.dark-mode) #theme-toggle i {
-color: #000000 !important;
+/* Hover karne par thoda aur chamkega */
+nav ul li a:hover, 
+.nav-links a:hover {
+    color: #ffffff !important; 
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
 }
 
-/* 3. Logo Box Fix: Agar logo ke peeche ka dabba kaala hi rakhna hai */
-body:not(.dark-mode) .logo-container {
-background-color: #000000 !important;
-padding: 10px;
-border-radius: 5px;
+/* Light Mode mein bhi golden hi rahega */
+body:not(.dark-mode) nav ul li a {
+    color: #d4af37 !important;
+}
+/* COUNTER ALIGNMENT FIX */
+.counter-container {
+    display: flex !important;
+    flex-direction: row !important; /* Ek line mein laane ke liye */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 50px !important; /* Items ke beech ka gap */
+    width: 100% !important;
+    padding: 20px 0;
 }
 
-/* 4. Logo ke andar ka text "CHAUDHARY" white hi rahega */
-body:not(.dark-mode) .logo-container h1,
-body:not(.dark-mode) .logo-container span {
-color: #ffffff !important;
-}
-
-/* 5. Hover karne par Gold color aaye */
-body:not(.dark-mode) nav ul li a:hover {
-color: #d4af37 !important;
-}
-/* 1. Counter ke saare items ko ek line mein laane ke liye /
-.counter-container, .counters-wrapper, .stats-section {
-display: flex !important;
-flex-wrap: wrap !important; / Mobile par apne aap niche aa jayenge /
-justify-content: center !important;
-gap: 30px !important; / Beech ka gap */
-padding: 40px 20px !important;
-text-align: center !important;
-}
-
-/* 2. Har ek counter item ki width set karne ke liye /
 .counter-item {
-flex: 1;
-min-width: 200px; / Isse items ek dusre ke upar nahi chadhenge */
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
-/* 3. Number aur Symbol (+, %) ko ek hi line mein rakhne ke liye /
-.counter-item h3, .counter-value {
-display: inline-block !important;
-margin: 0 !important;
-font-size: 2.5rem !important;
-color: #d4af37 !important; / Gold Color */
+/* Number aur Sign (+ / %) ko ek saath jodne ke liye */
+.counter-item h3 {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #d4af37 !important;
+    font-size: 2.5rem !important;
+    margin: 0 !important;
 }
 
-.counter-suffix {
-display: inline-block !important;
-font-size: 2rem !important;
-color: #d4af37 !important;
-margin-left: 5px;
-}
-
-/* 4. Text (Years of Experience etc.) ko thoda gap dene ke liye */
 .counter-item p {
-margin-top: 10px !important;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 1px;
+    margin-top: 5px !important;
+    font-size: 0.9rem !important;
+    font-weight: bold;
 }
 </style>
         
