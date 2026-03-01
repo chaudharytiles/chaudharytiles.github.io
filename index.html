@@ -798,6 +798,43 @@ nav a {
 </head>
 
 <body class="dark-mode">
+        /* 1. BUTTON KA RANG SAHI KARNE KE LIYE */
+.premium-submit-btn {
+background-color: #d4af37 !important;
+color: #000000 !important;
+width: 100%;
+padding: 15px;
+border: none;
+border-radius: 8px;
+font-weight: 700;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+transition: 0.3s;
+}
+
+/* 2. LIGHT MODE MEIN BUTTON BLACK DIKHEGA */
+body:not(.dark-mode) .premium-submit-btn {
+background-color: #1a1a1a !important;
+color: #ffffff !important;
+}
+
+/* 3. LIGHT MODE MEIN FORM KA BACKGROUND WHITE KARNE KE LIYE */
+body:not(.dark-mode) .booking-card {
+background-color: #ffffff !important;
+color: #000000 !important;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* 4. INPUT BOXES KO LIGHT MODE MEIN SAHI DIKHANE KE LIYE */
+body:not(.dark-mode) .form-group input,
+body:not(.dark-mode) .form-group select {
+background-color: #f4f4f4 !important;
+color: #000000 !important;
+border: 1px solid #ddd !important;
+}
 </style>
         
 <header>
