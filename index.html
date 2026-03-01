@@ -891,28 +891,48 @@ body:not(.dark-mode) nav ul li a {
     color: inherit;
     text-align: center;
 }
-/* LIGHT MODE TEXT VISIBILITY FIX */
-
-/* 1. Pure page ka text black karne ke liye (Hero section ko chhod kar) */
-body:not(.dark-mode) section:not(.hero),
-body:not(.dark-mode) p,
-body:not(.dark-mode) h2,
-body:not(.dark-mode) h3:not(.counter-value),
-body:not(.dark-mode) span:not(.counter-suffix) {
+/* Jab Dark Mode OFF ho (Light Mode) */
+body:not(.dark-mode) {
+    background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* 2. Background color fix agar pura page white ho gaya hai */
+/* Jab Dark Mode OFF ho (Light Mode) */
 body:not(.dark-mode) {
     background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
-/* 3. Sabhi Sections (About, Services, Contact) ka background check */
-body:not(.dark-mode) section {
+/* Saare sections ka background aur text color fix */
+body:not(.dark-mode) section, 
+body:not(.dark-mode) header, 
+body:not(.dark-mode) footer,
+body:not(.dark-mode) .about,
+body:not(.dark-mode) .services,
+body:not(.dark-mode) .contact,
+body:not(.dark-mode) .work {
     background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
-/* 4. Navigation Links ko Golden rakhne ke liye */
+/* Saare headings aur paragraphs ko black karne ke liye */
+body:not(.dark-mode) h1, 
+body:not(.dark-mode) h2, 
+body:not(.dark-mode) h3:not(.counter-value), 
+body:not(.dark-mode) h4, 
+body:not(.dark-mode) p, 
+body:not(.dark-mode) span:not(.counter-suffix),
+body:not(.dark-mode) li {
+    color: #000000 !important;
+}
+
+/* Counter Numbers aur Symbols ko Golden hi rakhne ke liye */
+body:not(.dark-mode) .counter-value,
+body:not(.dark-mode) .counter-suffix {
+    color: #d4af37 !important;
+}
+
+/* Nav Buttons ko Golden rakhne ke liye */
 body:not(.dark-mode) nav ul li a {
     color: #d4af37 !important;
 }
