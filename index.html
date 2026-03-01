@@ -891,6 +891,30 @@ body:not(.dark-mode) nav ul li a {
     color: inherit;
     text-align: center;
 }
+/* LIGHT MODE TEXT VISIBILITY FIX */
+
+/* 1. Pure page ka text black karne ke liye (Hero section ko chhod kar) */
+body:not(.dark-mode) section:not(.hero),
+body:not(.dark-mode) p,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3:not(.counter-value),
+body:not(.dark-mode) span:not(.counter-suffix) {
+    color: #000000 !important;
+}
+
+/* 2. Background color fix agar pura page white ho gaya hai */
+body:not(.dark-mode) {
+    background-color: #ffffff !important;
+}
+
+/* 3. Sabhi Sections (About, Services, Contact) ka background check */
+body:not(.dark-mode) section {
+    background-color: #ffffff !important;
+}
+
+/* 4. Navigation Links ko Golden rakhne ke liye */
+body:not(.dark-mode) nav ul li a {
+    color: #d4af37 !important;
 }
 </style>
         
