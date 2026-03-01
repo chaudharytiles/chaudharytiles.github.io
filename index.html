@@ -835,11 +835,18 @@ background-color: #f4f4f4 !important;
 color: #000000 !important;
 border: 1px solid #ddd !important;
 }
-        /* 1. STARS KO GOLDEN KARNE KA CODE */
-.fa-star, .stars i, .review-card i {
-color: #FFD700 !important;
-text-shadow: 0 0 8px rgba(255, 215, 0, 0.4) !important;
--webkit-text-fill-color: #FFD700 !important;
+        /* KEYBOARD STARS KO GOLDEN KARNE KA CODE /
+.stars {
+color: #FFD700 !important; / Premium Gold /
+font-size: 22px;           / Stars ka size thoda bada karne ke liye /
+letter-spacing: 2px;       / Stars ke beech thoda gap /
+display: inline-block;
+text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); / Halka sa chamak */
+}
+
+/* Agar aap chahte hain ki light mode mein bhi golden hi rahein */
+body:not(.dark-mode) .stars {
+color: #d4af37 !important;
 }
 </style>
         
