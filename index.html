@@ -844,39 +844,30 @@ nav ul li a:hover,
 body:not(.dark-mode) nav ul li a {
     color: #d4af37 !important;
 }
-/* COUNTER ALIGNMENT FIX */
 .counter-container {
     display: flex !important;
-    flex-direction: row !important; /* Ek line mein laane ke liye */
     justify-content: center !important;
-    align-items: center !important;
-    gap: 50px !important; /* Items ke beech ka gap */
-    width: 100% !important;
-    padding: 20px 0;
-}
-
-.counter-item {
+    gap: 40px !important;
     text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    padding: 20px !important;
 }
 
-/* Number aur Sign (+ / %) ko ek saath jodne ke liye */
 .counter-item h3 {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #d4af37 !important;
+    color: #d4af37 !important; /* Golden Color */
     font-size: 2.5rem !important;
-    margin: 0 !important;
+    margin-bottom: 5px !important;
+    font-weight: bold !important;
 }
 
 .counter-item p {
-    margin-top: 5px !important;
-    font-size: 0.9rem !important;
-    font-weight: bold;
+    color: #ffffff; /* Dark mode ke liye white text */
+    font-size: 14px !important;
+    text-transform: uppercase;
+}
+
+/* Light mode mein text kaala dikhne ke liye */
+body:not(.dark-mode) .counter-item p {
+    color: #000000 !important;
 }
 </style>
         
@@ -1414,30 +1405,6 @@ body:not(.dark-mode) nav ul li a {
         }
     }
 
- <script>
-// Ye script kisi bhi number ko 0 se uske target tak le jayegi
-function animateCounters() {
-    // 1. Apne numbers ko yahan manually set karein
-    const targets = [21, 950, 100]; 
-    const elements = document.querySelectorAll('.your-number-class-here'); // Yahan apni class ka naam likhein
-
-    elements.forEach((el, index) => {
-        let start = 0;
-        let end = targets[index];
-        let duration = 2000; // 2 seconds
-        
-        let timer = setInterval(() => {
-            start += Math.ceil(end / 50);
-            if (start >= end) {
-                el.innerText = end;
-                clearInterval(timer);
-            } else {
-                el.innerText = start;
-            }
-        }, 30);
-    });
-}
-window.onload = animateCounters;
 </script>
 
         // 5. FAQ Accordion Click Logic
