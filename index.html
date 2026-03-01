@@ -1249,18 +1249,18 @@ nav a {
     </div>
 </section>
 <footer>
+   <footer>
     <div class="footer-grid">
-        <div class="footer-col">
-            <h3>Chaudhary Tiles</h3>
-            <p>21+ years of trust in stone and tile craftsmanship across Gurugram.</p>
-            <a href="blog.html" style="color: var(--gold); font-weight: bold; margin-top:10px; display:block;">READ OUR BLOG</a>
-        </div>
         <div class="footer-col">
             <h3>Quick Links</h3>
             <a href="#services">Our Services</a>
             <a href="#rates">Price List</a>
+            <a href="blog.html" style="color: var(--gold); font-weight: bold;">READ OUR BLOG</a>
             <a href="#booking">Contact Us</a>
-            <a href="#calculator">Estimator</a>
+        </div>
+        <div class="footer-col">
+            <h3>Chaudhary Tiles</h3>
+            <p>21+ years of trust in stone and tile craftsmanship across Gurugram.</p>
         </div>
         <div class="footer-col">
             <h3>Service Areas</h3>
@@ -1277,7 +1277,7 @@ nav a {
 </div>
 
 <script>
-    // 1. Theme Toggle (Dark/Light Mode)
+    // 1. Theme Toggle
     function toggleTheme() {
         document.body.classList.toggle('dark-mode');
         const icon = document.querySelector('#theme-toggle i');
@@ -1300,11 +1300,11 @@ nav a {
         }
     }
 
-    // 3. WhatsApp Booking Function
+    // 3. WhatsApp Lead/Booking
     function handleBooking() {
-        let name = document.getElementById("user-name").value;
-        let phone = document.getElementById("user-phone").value;
-        let service = document.getElementById("service-type").value;
+        let name = document.getElementById("user-name") ? document.getElementById("user-name").value : "";
+        let phone = document.getElementById("user-phone") ? document.getElementById("user-phone").value : "";
+        let service = document.getElementById("service-type") ? document.getElementById("service-type").value : "General Inquiry";
 
         if(name && phone) {
             let message = `Hello Akhilesh Ji,%0A%0AI want to book a site visit.%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}`;
@@ -1314,10 +1314,11 @@ nav a {
         }
     }
 
-    // 4. Scroll Reveal & Counters
-    window.onload = function() {
+    // 4. Combined OnScroll and OnLoad Logic
+    window.addEventListener('DOMContentLoaded', () => {
         const counters = document.querySelectorAll('.count');
         const speed = 200;
+        let activated = false;
 
         const runCounter = () => {
             counters.forEach(counter => {
@@ -1337,14 +1338,16 @@ nav a {
             });
         };
 
-        let activated = false;
+        // Scroll Effects
         window.addEventListener('scroll', () => {
-            // Scroll Reveal logic
+            // FAQ & Section Reveal
             document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
+                if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+                    el.classList.add('active');
+                }
             });
 
-            // Counter trigger
+            // Trigger Counter
             const counterSection = document.querySelector('.counter-wrapper');
             if (counterSection && !activated) {
                 if (counterSection.getBoundingClientRect().top < window.innerHeight) {
@@ -1353,18 +1356,18 @@ nav a {
                 }
             }
         });
-    };
 
-    // 5. FAQ Accordion Logic
-    document.addEventListener('DOMContentLoaded', function() {
+        // 5. FAQ Accordion Click Logic
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isOpen = item.classList.contains('active');
-                faqItems.forEach(i => i.classList.remove('active'));
-                if (!isOpen) item.classList.add('active');
-            });
+            if(question) {
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isOpen) item.classList.add('active');
+                });
+            }
         });
     });
 </script>
