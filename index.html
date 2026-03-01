@@ -917,20 +917,28 @@ body:not(.dark-mode) .counter-item p {
 
 <div class="counter-container">
     <div class="counter-item">
-        <h3>21+</h3>
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="21">0</h3>
+            <span class="counter-suffix">+</span>
+        </div>
         <p>YEARS OF EXPERIENCE</p>
     </div>
 
     <div class="counter-item">
-        <h3>950+</h3>
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="950">0</h3>
+            <span class="counter-suffix">+</span>
+        </div>
         <p>PROJECTS COMPLETED</p>
     </div>
 
     <div class="counter-item">
-        <h3>100%</h3>
+        <div class="counter-number-group">
+            <h3 class="counter-value" data-target="100">0</h3>
+            <span class="counter-suffix">%</span>
+        </div>
         <p>HAPPY CLIENTS</p>
     </div>
-</div>
 </div>
     <section id="about" class="about-section reveal">
     <div class="about-container">
@@ -1420,6 +1428,40 @@ body:not(.dark-mode) .counter-item p {
             }
         });
     });
+</script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll('.counter-value');
+    
+    const animate = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const speed = 100; // Isse counting ki raftaar control hogi
+        const increment = target / speed;
+
+        const updateCount = () => {
+            const count = +counter.innerText;
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    };
+
+    // Intersection Observer: Scrolling detect karne ke liye
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animate(entry.target);
+                observer.unobserve(entry.target); // Sirf ek baar chalega
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => observer.observe(c));
+});
 </script>
 </body>
 </html>
