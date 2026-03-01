@@ -1251,17 +1251,15 @@ nav a {
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
-        <h3>Quick Links</h3>
-            <a href="#services">Our Services</a>
-            <a href="#rates">Price List</a>
-            <a href="blog.html" style="color: var(--gold); font-weight: bold;">READ OUR BLOG</a> <a href="#booking">Contact Us</a>
             <h3>Chaudhary Tiles</h3>
             <p>21+ years of trust in stone and tile craftsmanship across Gurugram.</p>
+            <a href="blog.html" style="color: var(--gold); font-weight: bold; margin-top:10px; display:block;">READ OUR BLOG</a>
         </div>
         <div class="footer-col">
             <h3>Quick Links</h3>
-            <a href="#services">Services</a>
-            <a href="#rates">Rate Chart</a>
+            <a href="#services">Our Services</a>
+            <a href="#rates">Price List</a>
+            <a href="#booking">Contact Us</a>
             <a href="#calculator">Estimator</a>
         </div>
         <div class="footer-col">
@@ -1269,7 +1267,7 @@ nav a {
             <p>DLF Phase 1-5, Sohna Road, Golf Course, New Gurugram, South Delhi.</p>
         </div>
     </div>
-    <hr style="border:0; border-top:1px solid #222; margin-bottom:20px;">
+    <hr style="border:0; border-top:1px solid #222; margin: 20px 0;">
     <p style="text-align:center; color:#555;">© 2026 Chaudhary Tiles & Stone | Designed for Excellence</p>
 </footer>
 
@@ -1279,109 +1277,96 @@ nav a {
 </div>
 
 <script>
+    // 1. Theme Toggle (Dark/Light Mode)
     function toggleTheme() {
         document.body.classList.toggle('dark-mode');
         const icon = document.querySelector('#theme-toggle i');
-        icon.classList.toggle('fa-moon'); icon.classList.toggle('fa-sun');
+        if(icon) {
+            icon.classList.toggle('fa-moon'); 
+            icon.classList.toggle('fa-sun');
+        }
     }
 
+    // 2. Pricing Calculator
     function calculate() {
         const rate = document.getElementById('calc-service').value;
         const area = document.getElementById('calc-area').value;
+        const resBox = document.getElementById('res-box');
         if(area > 0) {
             document.getElementById('total-val').innerText = (rate * area).toLocaleString('en-IN');
-            document.getElementById('res-box').style.display = 'block';
-        } else { document.getElementById('res-box').style.display = 'none'; }
-    }
-
-    window.onscroll = function() {
-        document.querySelectorAll('.reveal').forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
-        });
-    };
-
-    function handleLead() {
-        let n = document.getElementById("name").value;
-        let p = document.getElementById("phone").value;
-        let m = document.getElementById("msg").value;
-        if(!n || !p) return alert("Please fill details.");
-        window.open(`https://wa.me/917827692023?text=Lead from Site:%0AName: ${n}%0APhone: ${p}%0AWork: ${m}`, "_blank");
-    }
-</script>
-
- <script>
-window.onload = function() {
-    const counters = document.querySelectorAll('.count');
-    const speed = 200; // Isse speed control hogi
-
-    const runCounter = () => {
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const increment = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 10);
-                } else {
-                    counter.innerText = target + (target >= 900 ? "+" : "");
-                }
-            };
-            updateCount();
-        });
-    };
-
-    // Scroll detect karne ka asaan tarika
-    const counterSection = document.querySelector('.counter-wrapper');
-    let activated = false;
-
-    window.addEventListener('scroll', () => {
-        if (counterSection) {
-            const sectionPos = counterSection.getBoundingClientRect().top;
-            const screenPos = window.innerHeight;
-
-            if (sectionPos < screenPos && !activated) {
-                runCounter();
-                activated = true;
-            }
+            resBox.style.display = 'block';
+        } else { 
+            resBox.style.display = 'none'; 
         }
-    });
-};
-     function handleBooking() {
-    let name = document.getElementById("user-name").value;
-    let phone = document.getElementById("user-phone").value;
-    let service = document.getElementById("service-type").value;
-
-    if(name && phone) {
-        let message = `Hello Akhilesh Ji,%0A%0AI want to book a site visit.%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}`;
-        window.open(`https://wa.me/917827692023?text=${message}`, "_blank");
-    } else {
-        alert("Please fill in your name and phone number.");
     }
-}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // FAQ Selection
-    const faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-            // Pehle check karo agar ye pehle se khula hai
-            const isOpen = item.classList.contains('active');
+    // 3. WhatsApp Booking Function
+    function handleBooking() {
+        let name = document.getElementById("user-name").value;
+        let phone = document.getElementById("user-phone").value;
+        let service = document.getElementById("service-type").value;
 
-            // Doosre saare band karo
-            faqItems.forEach(i => i.classList.remove('active'));
+        if(name && phone) {
+            let message = `Hello Akhilesh Ji,%0A%0AI want to book a site visit.%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}`;
+            window.open(`https://wa.me/917827692023?text=${message}`, "_blank");
+        } else {
+            alert("Please fill in your name and phone number.");
+        }
+    }
 
-            // Agar pehle band tha, toh ab khol do
-            if (!isOpen) {
-                item.classList.add('active');
+    // 4. Scroll Reveal & Counters
+    window.onload = function() {
+        const counters = document.querySelectorAll('.count');
+        const speed = 200;
+
+        const runCounter = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const updateCount = () => {
+                    const increment = target / speed;
+                    if (count < target) {
+                        count += increment;
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target + (target >= 900 ? "+" : "");
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        let activated = false;
+        window.addEventListener('scroll', () => {
+            // Scroll Reveal logic
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
+            });
+
+            // Counter trigger
+            const counterSection = document.querySelector('.counter-wrapper');
+            if (counterSection && !activated) {
+                if (counterSection.getBoundingClientRect().top < window.innerHeight) {
+                    runCounter();
+                    activated = true;
+                }
             }
         });
+    };
+
+    // 5. FAQ Accordion Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isOpen) item.classList.add('active');
+            });
+        });
     });
-});
 </script>
 </body>
 </html>
