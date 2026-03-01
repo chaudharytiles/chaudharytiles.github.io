@@ -13,72 +13,63 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
-        /* Counter ko ek line mein laane ke liye */
-.counter-row {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    gap: 40px !important;
-    padding: 20px !important;
-    width: 100% !important;
-}
-
-.num-box {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.counter-value, .num-box span {
-    color: #d4af37 !important; /* Golden */
-    font-size: 2.5rem !important;
-    font-weight: bold !important;
-    margin: 0 2px !important;
-}
-
-.stat p {
-    color: #000 !important; /* Light mode mein text dikhega */
-    font-weight: bold;
-}
-
-/* Navigation Buttons Golden */
-nav a, .nav-links a {
-    color: #d4af37 !important;
-}
-/* LIGHT MODE COLORS (Default) */
+      /* --- 1. Sab kuch dikhane ke liye Master Fix --- */
 :root {
     --bg-color: #ffffff;
-    --card-bg: #f9f9f9;
-    --text-color: #1a1a1a; /* Ye black hona chahiye */
-    --light-bg: #ffffff;
+    --text-color: #1a1a1a;
     --gold: #d4af37;
-    --header-bg: #000000;
 }
 
-/* DARK MODE COLORS */
 body.dark-mode {
     --bg-color: #111111;
-    --card-bg: #1a1a1a;
-    --text-color: #ffffff; /* Dark mode mein white */
-    --light-bg: #000000;
+    --text-color: #ffffff;
 }
 
-/* Global Fix */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color); /* Isse baaki saare sections ka text wapas aa jayenge */
-    transition: 0.3s;
-}
-
-/* Specific Sections Fix */
-section, .about-section, .booking-section, .process-section, .calc-section {
     background-color: var(--bg-color) !important;
     color: var(--text-color) !important;
 }
 
-/* Paragraphs aur Headings ka color fix */
-p, h2, h3:not(.counter-value), h4, span:not(.counter-suffix) {
+/* Saare sections ka text visible karne ke liye */
+section, p, h2, h3:not(.counter-value), span:not(.counter-suffix), li {
     color: var(--text-color) !important;
+}
+
+/* --- 2. Counter ko Horizontal line mein laane ke liye --- */
+.counter-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 60px !important;
+    width: 100% !important;
+    padding: 50px 0 !important;
+    flex-wrap: wrap !important;
+}
+
+.counter-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.counter-number-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
+.counter-value, .counter-suffix {
+    color: var(--gold) !important;
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    margin: 0 2px !important;
+}
+
+/* --- 3. Navigation Buttons Golden --- */
+nav a, .nav-links a {
+    color: var(--gold) !important;
+    font-weight: 700 !important;
 }
         /* Rate Card Fix */
 .rate-card {
