@@ -102,6 +102,60 @@
             .grid-2 { grid-template-columns: 1fr; text-align: center; }
             .nav-links { display: none; }
         }
+        .rate-table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.premium-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.premium-table thead {
+    background: #000;
+    color: #fff;
+}
+
+.premium-table th, .premium-table td {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.premium-table th {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.premium-table tr:hover {
+    background: rgba(212, 175, 55, 0.03);
+}
+
+.premium-table td strong {
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.premium-table td small {
+    color: var(--text-muted);
+}
+
+.premium-table td.gold-text {
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 600px) {
+    .premium-table th:nth-child(3), .premium-table td:nth-child(3) {
+        display: none; /* Hide 'Unit' column on small phones to keep it clean */
+    }
+}
     </style>
 </head>
 <body>
@@ -153,6 +207,62 @@
             </div>
         </div>
     </section>
+    <section id="rates" class="section-padding reveal" style="background: var(--card-bg-light);">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <span class="gold-label">Pricing Guide</span>
+        <h2 style="font-size: 2.5rem;">Transparent <span class="gold-text">Service Rates</span></h2>
+        <p style="color: var(--text-muted); margin-top: 10px;">Premium labor charges for high-end stone and tile works in Gurugram.</p>
+    </div>
+
+    <div class="rate-table-container">
+        <table class="premium-table">
+            <thead>
+                <tr>
+                    <th>Service Description</th>
+                    <th>Standard Rate</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Premium Tile Installation</strong><br>
+                        <small>GVT/PGVT Tiles with zero-hollow sound guarantee.</small>
+                    </td>
+                    <td class="gold-text">₹45</td>
+                    <td>per Sq.Ft</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Italian Marble Laying</strong><br>
+                        <small>Precision cutting and leveling for luxury flooring.</small>
+                    </td>
+                    <td class="gold-text">₹250</td>
+                    <td>per Sq.Ft</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Granite Slab Work</strong><br>
+                        <small>Kitchen countertops and stairs with molding.</small>
+                    </td>
+                    <td class="gold-text">₹200</td>
+                    <td>per Sq.Ft</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Epoxy Grouting</strong><br>
+                        <small>Waterproof and stain-resistant joint filling.</small>
+                    </td>
+                    <td class="gold-text">₹20</td>
+                    <td>per Sq.Ft</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-top: 20px; font-size: 12px; color: var(--text-muted); text-align: right;">
+            * Rates are for labor charges only. Material to be provided by the client.
+        </div>
+    </div>
+</section>
 
     <section id="calculator" class="section-padding" style="background: #000; color: #fff;">
         <div style="text-align: center; margin-bottom: 50px;">
