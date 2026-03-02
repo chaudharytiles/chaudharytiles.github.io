@@ -244,3 +244,49 @@ padding:70px 5%;
 }
 
 }
+.counter-section{
+background:#0f0f0f;
+color:#fff;
+padding:80px 8%;
+text-align:center;
+}
+
+.counter-container{
+display:flex;
+justify-content:center;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.counter-box h3{
+font-size:45px;
+color:#d4af37;
+}
+
+.counter-box p{
+opacity:0.8;
+}
+.calc-section{
+padding:100px 8%;
+background:#f9f9f9;
+text-align:center;
+}
+
+.calc-section select,
+.calc-section input{
+padding:12px;
+margin:10px;
+width:250px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(212,175,55,0.3);
+transition:0.3s;
+}
+
+.navbar{
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+}
