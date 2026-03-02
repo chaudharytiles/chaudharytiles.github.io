@@ -235,51 +235,33 @@ body.dark-mode .advantage-card:hover {
     opacity: 0.15;
 }
 
-/* Professional Logo Style */
-.logo-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-icon-sq {
-    width: 35px;
-    height: 35px;
-    background: var(--gold);
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 18px;
-    border-radius: 4px;
-}
-        /* Logo styling */
-.logo-img {
-    height: 55px; /* Perfect size for professional headers */
+/* Header Logo Styling */
+.logo-img-header {
+    height: 45px;
     width: auto;
     object-fit: contain;
 }
 
-/* 21 Years Experience Badge */
-.exp-badge-gold {
-    width: 140px;
-    height: 140px;
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 30px;
-    background: rgba(212, 175, 55, 0.05);
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
-    animation: floatBadge 4s ease-in-out infinite;
+/* Big Hero Logo Styling */
+.hero-logo-large {
+    width: 180px; /* Adjust this to make it bigger or smaller */
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+    animation: fadeInDown 1.2s ease-out;
 }
 
-@keyframes floatBadge {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+.logo-text-header {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
         .services-grid {
     display: grid;
@@ -382,43 +364,46 @@ body.dark-mode .advantage-card:hover {
 </head>
 <body>
 
-  <header class="navbar" style="background: #000; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+ <header class="navbar">
     <div class="logo-box">
-        <img src="https://raw.githubusercontent.com/chaudharytiles/chaudharytiles.github.io/main/logo.png" alt="Chaudhary Tiles" class="logo-img">
+        <img src="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main/logo.png" alt="Logo" class="logo-img-header">
+        <div class="logo-text-header">CHAUDHARY <span class="gold-text">TILES & STONE</span></div>
     </div>
     <nav>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Founder</a></li>
-            <li><a href="#rates">Service Rates</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#calculator">Estimator</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
 
-<section class="premium-hero" id="home" style="background: #000; padding: 100px 0; text-align: center;">
+<section class="premium-hero" id="home">
     <div class="hero-content">
         
+        <img src="https://raw.githubusercontent.com/chaudharytiles/chaudharytiles.github.io/main/logo.png" alt="Chaudhary Tiles & Stone" class="hero-logo-large">
+
         <div class="exp-badge-gold">
-            <span style="font-size: 2.8rem; font-weight: 800; color: var(--gold); line-height: 1;">21</span>
-            <span style="font-size: 10px; text-transform: uppercase; color: #fff; letter-spacing: 2px;">Years of</span>
-            <span style="font-size: 10px; text-transform: uppercase; color: var(--gold); font-weight: 700; letter-spacing: 2px;">Legacy</span>
+            <span class="num">21</span>
+            <span class="txt">Years of</span>
+            <span class="txt" style="color:var(--gold); font-weight:700;">Legacy</span>
         </div>
 
-        <span class="gold-label" style="letter-spacing: 4px;">Premium Stone Contractor</span>
-        <h1 style="font-size: clamp(30px, 6vw, 60px); color: #fff; font-weight: 800; text-transform: uppercase; margin: 20px 0;">
-            Mastering the Art of <br><span class="gold-text">Luxury Surfaces</span>
-        </h1>
+        <span class="gold-label">Gurugram's Premier Stone Specialist</span>
+        <h1>Exquisite <span class="gold-text">Marble & Tile</span><br>Craftsmanship</h1>
         
-        <p style="max-width: 700px; margin: 0 auto 40px; color: #aaa; font-size: 1.1rem;">
-            Specializing in high-end Italian Marble, Granite, and precision Tile installation in Gurugram.
+        <p style="max-width: 750px; margin: 25px auto 40px; color: #bbb; font-size: 1.1rem;">
+            Expert installation of Italian Marble, Granite, and GVT Tiles. 
+            Mirror-finish perfection delivered since 2005.
         </p>
-
+        
         <div class="hero-buttons">
-            <a href="https://wa.me/917827692023" class="hero-btn primary-btn" style="background: var(--gold); color: #000; padding: 15px 30px; font-weight: 700;">
-                <i class="fab fa-whatsapp"></i> FREE CONSULTATION
+            <a href="https://wa.me/917827692023" class="hero-btn primary-btn">
+                <i class="fab fa-whatsapp"></i> BOOK FREE SITE VISIT
             </a>
+            <a href="#services" class="hero-btn secondary-btn">OUR SERVICES</a>
         </div>
     </div>
 </section>
