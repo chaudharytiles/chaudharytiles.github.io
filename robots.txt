@@ -1,4 +1,9 @@
+# Chaudhary Tiles & Stone - Robots.txt
 User-agent: *
 Allow: /
 
+# Sitemaps
 Sitemap: https://chaudharytiles.github.io/sitemap.xml
+
+# Privacy and common crawl settings
+Crawl-delay: 10
