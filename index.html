@@ -165,40 +165,7 @@ footer a:hover {
     color: var(--gold) !important;
     padding-left: 5px;
 }
-        /* Light Mode (Default) - No Filter */
-#map-iframe {
-    filter: none;
-    transition: filter 0.5s ease;
-}
-
-/* Dark Mode - Invert Filter */
-body.dark-mode #map-iframe {
-    filter: grayscale(100%) invert(92%) contrast(85%);
-}
-        <style>
-    /* Ye hissa map ko light/dark control karega */
-    #map-iframe {
-        filter: none; /* Light mode mein normal rahega */
-        transition: filter 0.5s ease;
-        border: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* Jab body par 'dark-mode' class hogi, tab map dark ho jayega */
-    body.dark-mode #map-iframe {
-        filter: grayscale(100%) invert(92%) contrast(85%);
-    }
-
-    .map-container {
-        width: 100%; 
-        height: 450px; 
-        border-top: 1px solid rgba(212, 175, 55, 0.3); 
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
-        position: relative;
-        background: #eee; /* Loading ke waqt halka color dikhega 
-    }
-    </style>
+ </style>
 </head>
 <body>
 
