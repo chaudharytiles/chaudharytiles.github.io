@@ -152,39 +152,6 @@ footer a:hover {
     color: var(--gold) !important;
     padding-left: 5px;
 }
-        /* --- HORIZONTAL MAP STYLING --- */
-.map-full-container {
-width: 100%;
-height: 450px;
-margin-top: 30px;
-border-top: 2px solid #D4AF37;
-border-bottom: 2px solid #D4AF37;
-position: relative;
-overflow: hidden;
-}
-
-.map-full-container iframe {
-width: 100%;
-height: 100%;
-border: 0;
-filter: var(--map-filter);
-transition: filter 0.5s ease;
-}
-
-/* --- DARK MODE LOGIC --- */
-:root {
---map-filter: none;
-}
-
-body.dark-mode {
---map-filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
-}
-
-@media (max-width: 768px) {
-.map-full-container {
-height: 300px;
-}
-}
     </style>
 </head>
 <body>
@@ -435,16 +402,6 @@ height: 300px;
             <p><i class="fas fa-phone gold-text"></i> +91 78276 92023</p>
             <p style="margin-top: 10px;"><i class="fas fa-envelope gold-text"></i> info@chaudharytiles.com</p>
         </div>
-        <section id="location-map" style="width: 100%; background: var(--light-bg); padding-top: 60px;">
-<div style="text-align: center; margin-bottom: 20px;">
-<span style="color: #D4AF37; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase;">Our Location</span>
-<h2 style="font-size: 2.5rem;">Visit Our <span style="color: #D4AF37;">Workshop</span></h2>
-<p style="margin-top: 10px; opacity: 0.7;">
-<i class="fas fa-map-marker-alt" style="color: #D4AF37;"></i> Sector 28, Gurugram, Haryana 122002
-</p>
-</div>
-
-</section>
 
 <footer style="background: #000; color: #fff; padding: 80px 8% 20px; border-top: 1px solid rgba(212, 175, 55, 0.3);">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: left; margin-bottom: 50px;">
