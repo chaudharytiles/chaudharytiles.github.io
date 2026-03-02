@@ -145,6 +145,13 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; text-align: center; } .nav-links { display: none; } }
+        footer a {
+    transition: 0.3s;
+}
+footer a:hover {
+    color: var(--gold) !important;
+    padding-left: 5px;
+}
     </style>
 </head>
 <body>
@@ -402,16 +409,56 @@
     </div>
 </section>
 
-<footer style="background: #000; color: #fff; padding: 60px 8% 20px; text-align: center;">
-    <div class="logo">CHAUDHARY <span>TILES & STONE</span></div>
-    <p style="margin: 20px 0; opacity: 0.6;">Redefining Flooring Luxury since 2005.</p>
-    <p style="font-size: 11px; opacity: 0.4;">© 2026 Chaudhary Tiles & Stone | Gurugram, India</p>
-</footer>
+<footer style="background: #000; color: #fff; padding: 80px 8% 20px; border-top: 1px solid rgba(212, 175, 55, 0.3);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: left; margin-bottom: 50px;">
+        
+        <div>
+            <div class="logo-text-header" style="margin-bottom: 20px;">CHAUDHARY <span class="gold-text">TILES</span></div>
+            <p style="font-size: 14px; color: #aaa; line-height: 1.8;">
+                Gurugram's leading specialists in Italian Marble & Premium Tile installation. Delivering mirror-finish perfection since 2005.
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 15px;">
+                <a href="#" class="gold-text"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="gold-text"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="gold-text"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
 
-<div class="floating-btns">
-    <a href="tel:+917827692023" class="f-btn f-call"><i class="fas fa-phone"></i></a>
-    <a href="https://wa.me/917827692023" class="f-btn f-whatsapp"><i class="fab fa-whatsapp"></i></a>
-</div>
+        <div>
+            <h4 style="margin-bottom: 20px; font-size: 18px;">Quick Links</h4>
+            <ul style="font-size: 14px; color: #aaa;">
+                <li style="margin-bottom: 10px;"><a href="#home">Home</a></li>
+                <li style="margin-bottom: 10px;"><a href="#services">Our Services</a></li>
+                <li style="margin-bottom: 10px;"><a href="#rates">Price List</a></li>
+                <li style="margin-bottom: 10px;"><a href="#calculator">Cost Estimator</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 style="margin-bottom: 20px; font-size: 18px;">Working Hours</h4>
+            <ul style="font-size: 14px; color: #aaa;">
+                <li style="margin-bottom: 10px;">Mon - Sat: 9:00 AM - 8:00 PM</li>
+                <li style="margin-bottom: 10px;">Sunday: 10:00 AM - 4:00 PM</li>
+                <li style="margin-bottom: 10px;" class="gold-text"><i class="fas fa-clock"></i> 24/7 Support Available</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 style="margin-bottom: 20px; font-size: 18px;">Trusted By</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; opacity: 0.7;">
+                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">ISO 9001:2015</div>
+                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">GST REGISTERED</div>
+                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">MSME CERTIFIED</div>
+                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">GURUGRAM NO.1</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="border-top: 1px solid #222; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; font-size: 12px; color: #666;">
+        <p>© 2026 Chaudhary Tiles & Stone. All Rights Reserved.</p>
+        <p>Crafted for Excellence <i class="fas fa-heart gold-text"></i></p>
+    </div>
+</footer>
 
 <script>
     function calcPrice() {
