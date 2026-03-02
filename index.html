@@ -11,6 +11,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ye zaroori variables hain jo aapke code ko color dete hain */
+        :root {
+            --gold: #D4AF37;
+            --text-color: #333;
+            --light-bg: #ffffff;
+            --card-bg: #f9f9f9;
+            --header-bg: #000000;
+        }
+
+        body.dark-mode {
+            --text-color: #f1f1f1;
+            --light-bg: #121212;
+            --card-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            transition: 0.3s;
+        }
 
 <header>
     <div class="header-container">
