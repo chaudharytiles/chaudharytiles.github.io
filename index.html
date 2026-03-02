@@ -178,27 +178,38 @@
     </section>
 
     <section id="about" class="about-section reveal">
-        <div class="about-container">
-            <div class="about-img-box">
-                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Workmanship">
-                <div class="exp-badge">
-                    <span style="font-size: 24px; font-weight: 800; display: block;">2005</span>
-                    <span style="font-size: 10px; text-transform: uppercase;">Established</span>
-                </div>
-            </div>
-            <div class="about-content">
-                <span class="gold-label">About the Expert</span>
-                <h2>Mr. Akhilesh <span class="gold-text">Chaudhary</span></h2>
-                <p>Bringing high-end craftsmanship to Gurugram's finest homes. We specialize in Zero-Gap tile installation and 7-step diamond marble polishing.</p>
-                <ul style="margin-top: 20px;">
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle gold-text"></i> Personal Supervision on Every Site</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle gold-text"></i> Laser-Level Precision Alignment</li>
-                    <li><i class="fas fa-check-circle gold-text"></i> Lifetime Durability & Waterproof Grouting</li>
-                </ul>
+    <div class="about-container">
+        <div class="about-img-box">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Premium Workmanship">
+            <div class="exp-badge">
+                <span style="font-size: 28px; font-weight: 800; display: block; color: var(--gold);">21+</span>
+                <span style="font-size: 10px; text-transform: uppercase; color: #fff;">Years of Legacy</span>
             </div>
         </div>
-    </section>
-
+        <div class="about-content">
+            <span class="gold-label">The Master Craftsman</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Setting the Gold Standard in <span class="gold-text">Stone Artistry</span></h2>
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px;">
+                Founded by <strong>Mr. Akhilesh Chaudhary</strong> in 2005, we have transformed over 950+ premium residences across Gurugram. We don't just lay tiles; we engineer surfaces that last a lifetime.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="about-feature">
+                    <i class="fas fa-microscope gold-text"></i>
+                    <h4 style="margin-top:10px;">Precision</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">Laser-guided alignment for perfect 0.5mm joints.</p>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-shield-alt gold-text"></i>
+                    <h4 style="margin-top:10px;">Durability</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">High-performance chemical adhesives only.</p>
+                </div>
+            </div>
+            <p style="margin-top: 30px; border-left: 3px solid var(--gold); padding-left: 20px; font-style: italic;">
+                "Quality is not an act, it is a habit. We treat your home like our own masterpiece."
+            </p>
+        </div>
+    </div>
+</section>
     <section id="services" class="services-section reveal">
         <span class="gold-label">Our Expertise</span>
         <h2>High-End <span class="gold-text">Solutions</span></h2>
@@ -221,26 +232,45 @@
         </div>
     </section>
 
-    <section id="calculator" class="calc-section reveal">
-        <span class="gold-label">Estimator</span>
-        <h2>Labor Cost <span class="gold-text">Calculator</span></h2>
-        <div class="calc-container">
+   <section id="calculator" class="calc-section reveal" style="background: var(--card-bg-light);">
+    <span class="gold-label">Instant Quotation</span>
+    <h2>Advanced <span class="gold-text">Project Estimator</span></h2>
+    <div class="calc-container" style="max-width: 800px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left;">
+        
+        <div class="calc-inputs">
             <div class="input-group">
-                <label>Type of Work</label>
+                <label><i class="fas fa-hammer"></i> Service Type</label>
                 <select id="calc-service" onchange="calcPrice()">
-                    <option value="45">Tile Fitting (₹45/sq.ft)</option>
-                    <option value="200">Granite Slab (₹200/sq.ft)</option>
-                    <option value="250">Italian Marble (₹250/sq.ft)</option>
-                    <option value="20">Epoxy Grouting (₹20/sq.ft)</option>
+                    <option value="50">Premium Vitrified Tiles (₹50/sq.ft)</option>
+                    <option value="250">Italian Marble Laying (₹250/sq.ft)</option>
+                    <option value="180">Granite Kitchen Platform (₹180/sq.ft)</option>
+                    <option value="35">Wall Cladding (₹35/sq.ft)</option>
                 </select>
             </div>
             <div class="input-group">
-                <label>Area Size (Sq.Ft)</label>
-                <input type="number" id="calc-area" placeholder="e.g. 500" oninput="calcPrice()">
+                <label><i class="fas fa-ruler-combined"></i> Total Area (Sq. Ft.)</label>
+                <input type="number" id="calc-area" placeholder="e.g. 1200" oninput="calcPrice()">
             </div>
-            <div id="res-box">Estimate: ₹<span id="total-val">0</span></div>
+            <div class="input-group">
+                <label><i class="fas fa-magic"></i> Finish Level</label>
+                <select id="calc-finish" onchange="calcPrice()">
+                    <option value="1">Standard (Machine Polish)</option>
+                    <option value="1.2">Premium (7-Step Diamond Polish)</option>
+                    <option value="1.5">Elite (Mirror Finish + Nano Coating)</option>
+                </select>
+            </div>
         </div>
-    </section>
+
+        <div class="calc-result-display" style="background: #000; padding: 30px; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 2px solid var(--gold);">
+            <h4 style="color: #fff; margin-bottom: 10px;">Estimated Labor Cost</h4>
+            <div id="res-box" style="display: block; background: transparent; padding: 0;">
+                <span style="font-size: 48px; color: var(--gold); display: block;">₹<span id="total-val">0</span></span>
+            </div>
+            <p style="color: #666; font-size: 11px; margin-top: 15px; text-align: center;">*Includes basic leveling & labor. Materials extra. Final quote after site visit.</p>
+            <a href="#contact" class="hero-btn primary-btn" style="margin-top: 20px; font-size: 12px; padding: 10px 20px;">GET OFFICIAL QUOTE</a>
+        </div>
+    </div>
+</section>
 
     <section class="reviews-section reveal">
         <span class="gold-label">Client Feedback</span>
@@ -264,6 +294,16 @@
         <p style="margin-bottom: 30px;">Send a message on WhatsApp for instant quote.</p>
         <a href="https://wa.me/917827692023?text=Hello%20Akhilesh%20Ji,%20I%20want%20to%20book%20a%20site%20visit." class="hero-btn primary-btn"><i class="fab fa-whatsapp"></i> MESSAGE ON WHATSAPP</a>
     </section>
+    <section id="location" class="reveal" style="padding: 80px 8%; text-align: center;">
+    <span class="gold-label">Find Us</span>
+    <h2 style="margin-bottom: 40px;">Our <span class="gold-text">Service Area</span></h2>
+    <div style="width: 100%; height: 400px; border-radius: 20px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112222.1812809071!2d76.94050731473138!3d28.473581729606216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5de8c5fd1184!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709360000000!5m2!1sen!2sin" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+</section>
 
     <footer>
         <div class="logo">CHAUDHARY <span>TILES</span></div>
@@ -286,22 +326,19 @@
             icon.classList.toggle('fa-sun');
         });
 
-        // 2. Pricing Calculator
-        function calcPrice() {
-            const rate = document.getElementById('calc-service').value;
-            const area = document.getElementById('calc-area').value;
-            const resBox = document.getElementById('res-box');
-            const totalVal = document.getElementById('total-val');
+       function calcPrice() {
+    const rate = document.getElementById('calc-service').value;
+    const area = document.getElementById('calc-area').value;
+    const multiplier = document.getElementById('calc-finish').value;
+    const totalVal = document.getElementById('total-val');
 
-            if(area > 0) {
-                const total = rate * area;
-                totalVal.innerText = total.toLocaleString('en-IN');
-                resBox.style.display = 'block';
-            } else {
-                resBox.style.display = 'none';
-            }
-        }
-
+    if(area > 0) {
+        let total = (rate * area) * multiplier;
+        totalVal.innerText = Math.round(total).toLocaleString('en-IN');
+    } else {
+        totalVal.innerText = "0";
+    }
+}
         // 3. Scroll Reveal Animation
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
