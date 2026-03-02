@@ -165,6 +165,51 @@ footer a:hover {
     color: var(--gold) !important;
     padding-left: 5px;
 }
+        /* --- MAP STYLING START --- */
+.map-container {
+    width: 100%; 
+    height: 450px; 
+    border-top: 1px solid rgba(212, 175, 55, 0.3); 
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
+    position: relative;
+    overflow: hidden;
+    background: #1a1a1a; /* Loading ke waqt dark base */
+}
+
+#map-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    vertical-align: middle;
+    /* Smooth transition jab mode badle */
+    transition: filter 0.5s ease-in-out; 
+}
+
+/* Light Mode (Default) */
+body #map-iframe {
+    filter: none;
+}
+
+/* Dark Mode Magic: Inverts colors of the map */
+body.dark-mode #map-iframe {
+    filter: grayscale(100%) invert(92%) contrast(83%);
+}
+
+/* Map ke upar wala floating label dark mode mein bhi sahi dikhe */
+.map-label {
+    position: absolute; 
+    bottom: 20px; 
+    right: 20px; 
+    background: rgba(0,0,0,0.85); 
+    padding: 12px 20px; 
+    border: 1px solid #D4AF37; 
+    border-radius: 8px; 
+    color: #fff; 
+    font-size: 13px; 
+    z-index: 10;
+    pointer-events: none; /* Map scroll karne mein problem na ho */
+}
+/* --- MAP STYLING END --- */
  </style>
 </head>
 <body>
@@ -455,15 +500,16 @@ footer a:hover {
             id="map-iframe"
             width="100%" 
             height="100%" 
-            style="border:0; vertical-align: middle;" 
-            loading="lazy" 
-            allowfullscreen 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d112224.22384666066!2d76.92482591873117!3d28.47924734562483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf304854871039c!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709412345678!5m2!1sen!2sin">
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            src="https://maps.google.com/maps?q=Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed">
         </iframe>
         
-        <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.85); padding: 12px 20px; border: 1px solid #D4AF37; border-radius: 8px; color: #fff; font-size: 13px; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.85); padding: 12px 20px; border: 1px solid #D4AF37; border-radius: 8px; color: #fff; font-size: 13px; z-index: 10;">
             <i class="fas fa-map-marker-alt" style="color: #D4AF37; margin-right: 8px;"></i> 
-            <b>Chaudhary Tiles:</b> Serving All Gurugram Sectors
+            <b>Chaudhary Tiles:</b> Gurugram Specialists
         </div>
     </div>
 </section>
