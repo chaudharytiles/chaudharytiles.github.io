@@ -8,7 +8,23 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 
+    <script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LocalBusiness",
+ "name":"Chaudhary Tiles & Stone",
+ "address":{
+   "@type":"PostalAddress",
+   "addressLocality":"Gurugram",
+   "addressRegion":"HR",
+   "addressCountry":"IN"
+ },
+ "telephone":"+917827692023",
+ "priceRange":"₹₹"
+}
+</script>
 </head>
 <body>
 
@@ -55,6 +71,26 @@
 <p class="section-desc">We deliver high-quality tiles and marble installation services with perfection and finishing.</p>
 </section>
 
+    <section class="counter-section">
+  <div class="counter-container">
+
+    <div class="counter-box">
+      <h3><span class="counter" data-target="21">0</span>+</h3>
+      <p>Years Experience</p>
+    </div>
+
+    <div class="counter-box">
+      <h3><span class="counter" data-target="480">0</span>+</h3>
+      <p>Projects Completed</p>
+    </div>
+
+    <div class="counter-box">
+      <h3><span class="counter" data-target="100">0</span>%</h3>
+      <p>Satisfied Clients</p>
+    </div>
+
+  </div>
+</section>
 <!-- SERVICES -->
 
 <section id="services">
@@ -81,6 +117,24 @@
 </div>
 
 </div>
+</section>
+    <section class="calc-section">
+<h2>Project Cost Calculator</h2>
+
+<select id="service">
+<option value="45">Tiles ₹45</option>
+<option value="200">Granite ₹200</option>
+<option value="250">Marble ₹250</option>
+<option value="20">Epoxy work ₹250</option>
+</select>
+
+<input type="number" id="area" placeholder="Enter Area (Sq Ft)">
+
+<label>
+<input type="checkbox" id="gst"> Include GST 18%
+</label>
+
+<h3>Total: ₹<span id="total">0</span></h3>
 </section>
 
 <!-- CONTACT -->
@@ -111,8 +165,8 @@
 <!-- FLOATING BUTTONS -->
 
 <div class="floating-btns">
-<a href="tel:+91XXXXXXXXXX" class="call-btn"><i class="fa fa-phone"></i></a>
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+917827692023" class="call-btn"><i class="fa fa-phone"></i></a>
+<a href="https://wa.me/917827692023" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 </div>
 
 <script>
@@ -120,6 +174,6 @@ document.getElementById("darkToggle").onclick = function(){
 document.body.classList.toggle("dark-mode");
 }
 </script>
-
+<script src="script.js"></script>
 </body>
 </html>
