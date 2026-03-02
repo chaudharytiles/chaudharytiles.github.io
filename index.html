@@ -260,12 +260,12 @@
         <div class="inputs">
             <div class="input-group" style="margin-bottom: 30px;">
                 <label style="color: #fff; font-size: 0.9rem; opacity: 0.8;">CHOOSE SERVICE</label>
-                <select id="calc-service" onchange="calcPrice()" style="background: transparent; border: none; border-bottom: 1px solid var(--gold); color: #fff; border-radius: 0; padding: 15px 0; font-size: 1.2rem;">
-                    <option value="50" style="color: #000;">GVT/PGVT Tile Installation</option>
-                    <option value="250" style="color: #000;">Italian Marble (Laying + Mirror Polish)</option>
-                    <option value="180" style="color: #000;">Granite Countertop Work</option>
-                    <option value="40" style="color: #000;">Nano Polishing / Maintenance</option>
-                </select>
+                  <select id="calc-service" onchange="calcPrice()" style="background: transparent; border: none; border-bottom: 1px solid var(--gold); color: #fff; border-radius: 0; padding: 15px 0; font-size: 1.2rem; width: 100%;">
+    <option value="45" style="color: #000;">Standard Tile Fitting (₹45/sq.ft)</option>
+    <option value="250" style="color: #000;">Italian Marble Installation (₹250/sq.ft)</option>
+    <option value="200" style="color: #000;">Granite Slab Work (₹200/sq.ft)</option>
+    <option value="20" style="color: #000;">Epoxy Grouting (₹20/sq.ft)</option>
+</select>
             </div>
             <div class="input-group">
                 <label style="color: #fff; font-size: 0.9rem; opacity: 0.8;">AREA SIZE (SQ. FT.)</label>
@@ -342,20 +342,28 @@
             icon.classList.toggle('fa-sun');
         });
 
-       function calcPrice() {
+     function calcPrice() {
+    // 1. Rate uthao select box se
     const rate = document.getElementById('calc-service').value;
+    // 2. Area uthao input box se
     const area = document.getElementById('calc-area').value;
-    const multiplier = document.getElementById('calc-finish').value;
+    // 3. Result wala element
     const totalVal = document.getElementById('total-val');
+    const resBox = document.getElementById('res-box');
 
     if(area > 0) {
-        let total = (rate * area) * multiplier;
-        totalVal.innerText = Math.round(total).toLocaleString('en-IN');
+        // Simple calculation: Rate multiplied by Area
+        let total = rate * area;
+        
+        // Isse number Indian format mein dikhega (e.g., 50,000)
+        totalVal.innerText = total.toLocaleString('en-IN');
+        
+        // Show the result with a smooth fade or display
+        resBox.style.opacity = "1";
     } else {
         totalVal.innerText = "0";
     }
-}
-        // 3. Scroll Reveal Animation
+}  // 3. Scroll Reveal Animation
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
