@@ -132,6 +132,30 @@
             .about-container { grid-template-columns: 1fr; text-align: center; }
             .about-img-box img { box-shadow: 10px 10px 0 var(--gold); }
         }
+        /* Naya spacing aur layout rules */
+.section-padding { padding: 120px 10%; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+/* Calculator ka Premium Look */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+/* Map Styling */
+.map-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    filter: grayscale(100%) invert(90%) contrast(90%); /* Dark/Silver Map Look */
+    transition: 0.5s;
+}
+.map-container:hover { filter: grayscale(0%); }
     </style>
 </head>
 <body>
@@ -177,36 +201,30 @@
         </div>
     </section>
 
-    <section id="about" class="about-section reveal">
-    <div class="about-container">
-        <div class="about-img-box">
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Premium Workmanship">
-            <div class="exp-badge">
-                <span style="font-size: 28px; font-weight: 800; display: block; color: var(--gold);">21+</span>
-                <span style="font-size: 10px; text-transform: uppercase; color: #fff;">Years of Legacy</span>
-            </div>
+   <section id="about" class="section-padding reveal">
+    <div class="grid-2">
+        <div class="about-visual" style="position: relative;">
+            <div style="border: 2px solid var(--gold); position: absolute; width: 100%; height: 100%; top: 20px; left: -20px; border-radius: 20px; z-index: -1;"></div>
+            <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800" alt="Workmanship" style="width:100%; border-radius: 20px; display: block;">
         </div>
-        <div class="about-content">
-            <span class="gold-label">The Master Craftsman</span>
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Setting the Gold Standard in <span class="gold-text">Stone Artistry</span></h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px;">
-                Founded by <strong>Mr. Akhilesh Chaudhary</strong> in 2005, we have transformed over 950+ premium residences across Gurugram. We don't just lay tiles; we engineer surfaces that last a lifetime.
-            </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="about-feature">
-                    <i class="fas fa-microscope gold-text"></i>
-                    <h4 style="margin-top:10px;">Precision</h4>
-                    <p style="font-size: 13px; color: var(--text-muted);">Laser-guided alignment for perfect 0.5mm joints.</p>
-                </div>
-                <div class="about-feature">
-                    <i class="fas fa-shield-alt gold-text"></i>
-                    <h4 style="margin-top:10px;">Durability</h4>
-                    <p style="font-size: 13px; color: var(--text-muted);">High-performance chemical adhesives only.</p>
-                </div>
+        <div class="about-text">
+            <span class="gold-label">The Legacy Since 2005</span>
+            <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 25px;">Mastering the Art of <br><span class="gold-text">Stone & Surface</span></h2>
+            <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-muted);">Mr. Akhilesh Chaudhary ne Gurugram mein stone installation ka ek naya standard set kiya hai. Hamara focus sirf fitting par nahi, balki long-lasting perfection par hota hai.</p>
+            
+            <div style="display: flex; gap: 30px; margin-top: 40px;">
+                <div><h3 class="gold-text" style="font-size: 2.5rem;">21+</h3><p>Years</p></div>
+                <div style="width: 1px; background: #ddd;"></div>
+                <div><h3 class="gold-text" style="font-size: 2.5rem;">950+</h3><p>Villas Done</p></div>
             </div>
-            <p style="margin-top: 30px; border-left: 3px solid var(--gold); padding-left: 20px; font-style: italic;">
-                "Quality is not an act, it is a habit. We treat your home like our own masterpiece."
-            </p>
+            
+            <p style="margin-top: 40px; font-weight: 600;">Technical Specialization:</p>
+            <ul style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <li><i class="fas fa-check gold-text"></i> Zero-Gap Cutting</li>
+                <li><i class="fas fa-check gold-text"></i> Epoxy Dust-Proofing</li>
+                <li><i class="fas fa-check gold-text"></i> Laser Alignment</li>
+                <li><i class="fas fa-check gold-text"></i> Italian Chemical Filling</li>
+            </ul>
         </div>
     </div>
 </section>
@@ -232,46 +250,37 @@
         </div>
     </section>
 
-   <section id="calculator" class="calc-section reveal" style="background: var(--card-bg-light);">
-    <span class="gold-label">Instant Quotation</span>
-    <h2>Advanced <span class="gold-text">Project Estimator</span></h2>
-    <div class="calc-container" style="max-width: 800px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left;">
-        
-        <div class="calc-inputs">
-            <div class="input-group">
-                <label><i class="fas fa-hammer"></i> Service Type</label>
-                <select id="calc-service" onchange="calcPrice()">
-                    <option value="50">Premium Vitrified Tiles (₹50/sq.ft)</option>
-                    <option value="250">Italian Marble Laying (₹250/sq.ft)</option>
-                    <option value="180">Granite Kitchen Platform (₹180/sq.ft)</option>
-                    <option value="35">Wall Cladding (₹35/sq.ft)</option>
+   <section id="calculator" class="section-padding" style="background: #000; color: #fff;">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <span class="gold-label">Smart Estimation</span>
+        <h2 style="font-size: 2.8rem;">Calculate Your <span class="gold-text">Investment</span></h2>
+    </div>
+
+    <div class="glass-card" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px;">
+        <div class="inputs">
+            <div class="input-group" style="margin-bottom: 30px;">
+                <label style="color: #fff; font-size: 0.9rem; opacity: 0.8;">CHOOSE SERVICE</label>
+                <select id="calc-service" onchange="calcPrice()" style="background: transparent; border: none; border-bottom: 1px solid var(--gold); color: #fff; border-radius: 0; padding: 15px 0; font-size: 1.2rem;">
+                    <option value="50" style="color: #000;">GVT/PGVT Tile Installation</option>
+                    <option value="250" style="color: #000;">Italian Marble (Laying + Mirror Polish)</option>
+                    <option value="180" style="color: #000;">Granite Countertop Work</option>
+                    <option value="40" style="color: #000;">Nano Polishing / Maintenance</option>
                 </select>
             </div>
             <div class="input-group">
-                <label><i class="fas fa-ruler-combined"></i> Total Area (Sq. Ft.)</label>
-                <input type="number" id="calc-area" placeholder="e.g. 1200" oninput="calcPrice()">
-            </div>
-            <div class="input-group">
-                <label><i class="fas fa-magic"></i> Finish Level</label>
-                <select id="calc-finish" onchange="calcPrice()">
-                    <option value="1">Standard (Machine Polish)</option>
-                    <option value="1.2">Premium (7-Step Diamond Polish)</option>
-                    <option value="1.5">Elite (Mirror Finish + Nano Coating)</option>
-                </select>
+                <label style="color: #fff; font-size: 0.9rem; opacity: 0.8;">AREA SIZE (SQ. FT.)</label>
+                <input type="number" id="calc-area" placeholder="Enter Area" oninput="calcPrice()" style="background: transparent; border: none; border-bottom: 1px solid var(--gold); color: #fff; border-radius: 0; padding: 15px 0; font-size: 1.5rem;">
             </div>
         </div>
 
-        <div class="calc-result-display" style="background: #000; padding: 30px; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 2px solid var(--gold);">
-            <h4 style="color: #fff; margin-bottom: 10px;">Estimated Labor Cost</h4>
-            <div id="res-box" style="display: block; background: transparent; padding: 0;">
-                <span style="font-size: 48px; color: var(--gold); display: block;">₹<span id="total-val">0</span></span>
-            </div>
-            <p style="color: #666; font-size: 11px; margin-top: 15px; text-align: center;">*Includes basic leveling & labor. Materials extra. Final quote after site visit.</p>
-            <a href="#contact" class="hero-btn primary-btn" style="margin-top: 20px; font-size: 12px; padding: 10px 20px;">GET OFFICIAL QUOTE</a>
+        <div style="text-align: center; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 50px;">
+            <p style="letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">TOTAL ESTIMATE</p>
+            <h2 id="res-box" style="display: block; font-size: 3.5rem; color: var(--gold);">₹<span id="total-val">0</span></h2>
+            <p style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 30px;">*Taxes and materials not included</p>
+            <a href="https://wa.me/917827692023" class="hero-btn primary-btn" style="width: 100%; border-radius: 50px;">GET EXPERT ADVICE</a>
         </div>
     </div>
 </section>
-
     <section class="reviews-section reveal">
         <span class="gold-label">Client Feedback</span>
         <h2>What People <span class="gold-text">Say</span></h2>
@@ -294,14 +303,21 @@
         <p style="margin-bottom: 30px;">Send a message on WhatsApp for instant quote.</p>
         <a href="https://wa.me/917827692023?text=Hello%20Akhilesh%20Ji,%20I%20want%20to%20book%20a%20site%20visit." class="hero-btn primary-btn"><i class="fab fa-whatsapp"></i> MESSAGE ON WHATSAPP</a>
     </section>
-    <section id="location" class="reveal" style="padding: 80px 8%; text-align: center;">
-    <span class="gold-label">Find Us</span>
-    <h2 style="margin-bottom: 40px;">Our <span class="gold-text">Service Area</span></h2>
-    <div style="width: 100%; height: 400px; border-radius: 20px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112222.1812809071!2d76.94050731473138!3d28.473581729606216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5de8c5fd1184!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709360000000!5m2!1sen!2sin" 
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
+  <section id="contact-map" class="section-padding">
+    <div class="grid-2">
+        <div class="contact-info">
+            <span class="gold-label">Contact Us</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Visit Our <span class="gold-text">Office</span></h2>
+            <p><i class="fas fa-map-marker-alt gold-text"></i> DLF Phase 3, Gurugram, Haryana 122002</p>
+            <p style="margin: 15px 0;"><i class="fas fa-phone gold-text"></i> +91 78276 92023</p>
+            <p><i class="fas fa-envelope gold-text"></i> info@chaudharytiles.com</p>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112211.77708304135!2d76.969185!3d28.4819445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5b485571ad34!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1677600000000!5m2!1sen!2sin" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
     </div>
 </section>
 
