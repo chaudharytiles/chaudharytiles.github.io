@@ -152,6 +152,39 @@ footer a:hover {
     color: var(--gold) !important;
     padding-left: 5px;
 }
+        /* --- HORIZONTAL MAP STYLING --- */
+.map-full-container {
+width: 100%;
+height: 450px;
+margin-top: 30px;
+border-top: 2px solid #D4AF37;
+border-bottom: 2px solid #D4AF37;
+position: relative;
+overflow: hidden;
+}
+
+.map-full-container iframe {
+width: 100%;
+height: 100%;
+border: 0;
+filter: var(--map-filter);
+transition: filter 0.5s ease;
+}
+
+/* --- DARK MODE LOGIC --- */
+:root {
+--map-filter: none;
+}
+
+body.dark-mode {
+--map-filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+@media (max-width: 768px) {
+.map-full-container {
+height: 300px;
+}
+}
     </style>
 </head>
 <body>
@@ -402,11 +435,15 @@ footer a:hover {
             <p><i class="fas fa-phone gold-text"></i> +91 78276 92023</p>
             <p style="margin-top: 10px;"><i class="fas fa-envelope gold-text"></i> info@chaudharytiles.com</p>
         </div>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14028.534842183244!2d77.09062331599557!3d28.483015486518712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1938597394d1%3A0x6a08466b043c7271!2sDLF%20Phase%203%2C%20Sector%2024%2C%20Gurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709380000000!5m2!1sen!2sin" 
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
+        <section id="location-map" style="width: 100%; background: var(--light-bg); padding-top: 60px;">
+<div style="text-align: center; margin-bottom: 20px;">
+<span style="color: #D4AF37; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase;">Our Location</span>
+<h2 style="font-size: 2.5rem;">Visit Our <span style="color: #D4AF37;">Workshop</span></h2>
+<p style="margin-top: 10px; opacity: 0.7;">
+<i class="fas fa-map-marker-alt" style="color: #D4AF37;"></i> Sector 28, Gurugram, Haryana 122002
+</p>
+</div>
+
 </section>
 
 <footer style="background: #000; color: #fff; padding: 80px 8% 20px; border-top: 1px solid rgba(212, 175, 55, 0.3);">
