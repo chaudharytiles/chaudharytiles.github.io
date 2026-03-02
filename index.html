@@ -175,6 +175,51 @@ footer a:hover {
 body.dark-mode #map-iframe {
     filter: grayscale(100%) invert(92%) contrast(85%);
 }
+        <style>
+    /* Ye hissa map ko light/dark control karega */
+    #map-iframe {
+        filter: none; /* Light mode mein normal rahega */
+        transition: filter 0.5s ease;
+        border: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Jab body par 'dark-mode' class hogi, tab map dark ho jayega */
+    body.dark-mode #map-iframe {
+        filter: grayscale(100%) invert(92%) contrast(85%);
+    }
+
+    .map-container {
+        width: 100%; 
+        height: 450px; 
+        border-top: 1px solid rgba(212, 175, 55, 0.3); 
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
+        position: relative;
+        background: #eee; /* Loading ke waqt halka color dikhega */
+    }
+</style>
+
+<section id="map-section" style="padding: 60px 0; background: transparent;">
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span class="gold-label">Our Service Region</span>
+        <h2 style="color: var(--text-main, #fff);">Serving All of <span class="gold-text">Gurugram</span></h2>
+        <p style="color: #888; margin-top: 10px;">DLF Phase 1-5 | Golf Course Road | Sohna Road | Palam Vihar</p>
+    </div>
+    
+    <div class="map-container">
+        <iframe 
+            id="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112235.15112048598!2d76.953504!3d28.4594965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5b868612f0edc!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709400000000!5m2!1sen!2sin"
+            loading="lazy" 
+            allowfullscreen>
+        </iframe>
+        
+        <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.8); padding: 10px 20px; border: 1px solid #D4AF37; border-radius: 5px; color: #fff; font-size: 12px; z-index: 10;">
+            <i class="fas fa-map-marker-alt" style="color: #D4AF37;"></i> On-Site Services across Gurugram
+        </div>
+    </div>
+</section>
     </style>
 </head>
 <body>
@@ -461,7 +506,7 @@ body.dark-mode #map-iframe {
         <p style="color: var(--text-muted); margin-top: 10px;">DLF Phase 1-5 | Golf Course Road | Sohna Road | Palam Vihar</p>
     </div>
     
-    <div style="width: 100%; height: 400px; border-top: 1px solid rgba(212, 175, 55, 0.3); border-bottom: 1px solid rgba(212, 175, 55, 0.3); position: relative;">
+    <div style="width: 100%; height: 450px; border-top: 1px solid rgba(212, 175, 55, 0.3); border-bottom: 1px solid rgba(212, 175, 55, 0.3); position: relative;">
         <iframe 
             id="map-iframe"
             width="100%" 
@@ -469,10 +514,10 @@ body.dark-mode #map-iframe {
             style="border:0;" 
             loading="lazy" 
             allowfullscreen 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m10!1m3!1d112253.30833118182!2d76.94273822187317!3d28.45204481355416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf3048548710450!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709400000000!5m2!1sen!2sin">
+            src="https://maps.google.com/maps?q=Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed">
         </iframe>
         
-        <div style="position: absolute; bottom: 20px; right: 20px; background: var(--card-bg-light); padding: 10px 20px; border: 1px solid var(--gold); border-radius: 5px; color: var(--text-main); font-size: 12px; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.8); padding: 10px 20px; border: 1px solid var(--gold); border-radius: 5px; color: #fff; font-size: 12px; z-index: 10;">
             <i class="fas fa-map-marker-alt gold-text"></i> On-Site Services across Gurugram
         </div>
     </div>
