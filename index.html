@@ -330,48 +330,44 @@ footer a:hover {
         </div>
     </div>
 </section>
-    <section id="booking" class="section-padding reveal" style="background: #0a0a0a; color: #fff;">
+  <section id="booking" class="section-padding reveal" style="background: #000; border-top: 1px solid #222;">
     <div style="text-align: center; margin-bottom: 50px;">
-        <span class="gold-label">Get a Quote</span>
-        <h2>Book Your <span class="gold-text">Site Inspection</span></h2>
-        <p style="color: #888;">Fill the form below, our expert will contact you within 24 hours.</p>
+        <span class="gold-label">Inquiry Form</span>
+        <h2 style="color: #fff; font-size: 2.5rem;">Request a <span class="gold-text">Site Visit</span></h2>
     </div>
 
-    <div class="glass-card" style="max-width: 800px; margin: 0 auto;">
-        <form id="bookingForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            
-            <div class="input-group">
-                <label>FULL NAME</label>
-                <input type="text" id="custName" placeholder="Enter your name" required style="width:100%; padding:12px; background:rgba(255,255,255,0.05); border:1px solid #444; color:#fff; border-radius:5px;">
+    <div class="glass-card" style="max-width: 850px; margin: 0 auto; background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
+        <form id="bookingForm">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div class="input-group">
+                    <label>YOUR NAME</label>
+                    <input type="text" id="custName" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <label>PHONE NUMBER</label>
+                    <input type="tel" id="custPhone" placeholder="Mobile Number" required>
+                </div>
+                <div class="input-group">
+                    <label>SELECT SERVICE</label>
+                    <select id="custService">
+                        <option>Italian Marble Laying</option>
+                        <option>Premium Tile Fitting</option>
+                        <option>Granite Countertop</option>
+                        <option>Mirror Polishing</option>
+                        <option>Epoxy Grouting</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>PROJECT LOCATION</label>
+                    <input type="text" id="custAddr" placeholder="e.g. DLF Phase 5, Gurugram" required>
+                </div>
             </div>
-
-            <div class="input-group">
-                <label>PHONE NUMBER</label>
-                <input type="tel" id="custPhone" placeholder="Enter mobile number" required style="width:100%; padding:12px; background:rgba(255,255,255,0.05); border:1px solid #444; color:#fff; border-radius:5px;">
-            </div>
-
-            <div class="input-group" style="grid-column: span 2;">
-                <label>SELECT SERVICE</label>
-                <select id="custService" style="width:100%; padding:12px; background:rgba(255,255,255,0.05); border:1px solid #444; color:#fff; border-radius:5px;">
-                    <option value="Italian Marble">Italian Marble Installation</option>
-                    <option value="Tile Fitting">Premium Tile Fitting</option>
-                    <option value="Granite Work">Granite Countertops</option>
-                    <option value="Polishing">Mirror Polishing Service</option>
-                </select>
-            </div>
-
-            <div class="input-group" style="grid-column: span 2;">
-                <label>PROJECT ADDRESS (GURUGRAM)</label>
-                <textarea id="custAddr" rows="3" placeholder="Enter your site location" style="width:100%; padding:12px; background:rgba(255,255,255,0.05); border:1px solid #444; color:#fff; border-radius:5px;"></textarea>
-            </div>
-
-            <button type="submit" class="hero-btn primary-btn" style="grid-column: span 2; margin: 0; cursor: pointer;">
-                CONFIRM BOOKING <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+            <button type="submit" class="hero-btn primary-btn" style="width: 100%; margin-top: 30px; cursor: pointer; border: none;">
+                SEND BOOKING REQUEST VIA WHATSAPP <i class="fab fa-whatsapp" style="margin-left: 10px;"></i>
             </button>
         </form>
     </div>
 </section>
-
 <section id="reviews" class="section-padding reveal">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">Testimonials</span>
@@ -506,26 +502,23 @@ footer a:hover {
             if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add("active");
         });
     });
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
-
-    // Data nikalna
+    
     const name = document.getElementById('custName').value;
     const phone = document.getElementById('custPhone').value;
     const service = document.getElementById('custService').value;
-    const address = document.getElementById('custAddr').value;
+    const location = document.getElementById('custAddr').value;
 
-    // WhatsApp Message tayyar karna
-    const message = `*NEW SERVICE BOOKING*%0A` +
+    const message = `*NEW SITE VISIT REQUEST*%0A` +
                     `--------------------------%0A` +
-                    `*Name:* ${name}%0A` +
+                    `*Client:* ${name}%0A` +
                     `*Phone:* ${phone}%0A` +
                     `*Service:* ${service}%0A` +
-                    `*Location:* ${address}%0A` +
+                    `*Location:* ${location}%0A` +
                     `--------------------------%0A` +
-                    `Sent from Chaudhary Tiles Website`;
+                    `Sent from ChaudharyTiles.com`;
 
-    // WhatsApp par redirect karna (Aapka Number)
     window.open(`https://wa.me/917827692023?text=${message}`, '_blank');
 });
 </script>
