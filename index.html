@@ -318,6 +318,60 @@ body.dark-mode #map-iframe {
     z-index: 99999; /* Sabse upar dikhne ke liye */
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
+        .google-badge-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.google-card {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #f0f0f0;
+    transition: 0.3s;
+}
+
+.google-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212,175,55,0.2);
+}
+
+.stars {
+    color: #fbbc05;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.rating-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.review-btn {
+    background: #4285F4;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .google-card {
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+    }
+}
  </style>
 </head>
 <body>
@@ -752,6 +806,20 @@ body.dark-mode #map-iframe {
         </div>
     </div>
 </section>
+    <section style="padding: 40px 0; background: var(--light-bg); text-align: center; border-top: 1px solid rgba(212,175,55,0.1);">
+    <div class="google-badge-container">
+        <div class="google-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Reference_icon.svg" alt="Google" width="30">
+            <div class="rating-info">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p><strong>5.0 Rating</strong> on Google Business</p>
+            </div>
+            <a href="https://g.page/r/CdLlAuKhaVzvEBM/review" target="_blank" class="review-btn">Write a Review</a>
+        </div>
+    </div>
+</section>
 <footer style="background: #000; color: #fff; padding: 80px 8% 20px; border-top: 1px solid rgba(212, 175, 55, 0.3); font-family: 'Poppins', sans-serif; clear: both; width: 100%;">
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
@@ -782,7 +850,7 @@ body.dark-mode #map-iframe {
         <div>
             <h4 style="margin-bottom: 20px; font-size: 18px; color: #fff;">Working Hours</h4>
             <ul style="font-size: 14px; color: #aaa; list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;">Mon - Sat: 9:00 AM - 8:00 PM</li>
+                <li style="margin-bottom: 10px;">Mon - Sat: 9:00 AM - 5:30 PM</li>
                 <li style="margin-bottom: 10px;">Sunday: 10:00 AM - 4:00 PM</li>
                 <li style="margin-bottom: 10px;" class="gold-text"><i class="fas fa-clock"></i> 24/7 Support Available</li>
             </ul>
