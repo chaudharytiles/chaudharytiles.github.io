@@ -282,6 +282,26 @@ body.dark-mode #map-iframe {
     .work-grid { grid-auto-rows: 250px; }
     .work-item.tall { grid-row: span 1; }
 }
+        .counter {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 10px 0;
+    line-height: 1;
+}
+.counter::after {
+    content: "+";
+    color: var(--gold);
+    font-size: 2.5rem;
+    vertical-align: top;
+}
+.stat-card {
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+.stat-card:hover {
+    transform: translateY(-10px);
+}
  </style>
 </head>
 <body>
@@ -349,6 +369,35 @@ body.dark-mode #map-iframe {
                 <div><h3 class="gold-text">950+</h3><p>Projects Completed</p></div>
             </div>
         </div>
+    </div>
+</section>
+  <section class="stats-section" style="padding: 80px 8%; background: #111; border-top: 1px solid #222; border-bottom: 1px solid #222;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+        
+        <div class="stat-card">
+            <i class="fas fa-history" style="font-size: 2rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h2 class="counter" data-target="21">0</h2>
+            <p style="color: #aaa; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 600;">Years of Legacy</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-th-large" style="font-size: 2rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h2 class="counter" data-target="950">0</h2>
+            <p style="color: #aaa; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 600;">Projects Finished</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-users" style="font-size: 2rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h2 class="counter" data-target="25">0</h2>
+            <p style="color: #aaa; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 600;">Expert Artisans</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-smile-beam" style="font-size: 2rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h2 class="counter" data-target="100">0</h2>
+            <p style="color: #aaa; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 600;">Customer Satisfaction %</p>
+        </div>
+
     </div>
 </section>
 
@@ -734,6 +783,36 @@ body.dark-mode #map-iframe {
 
     window.open(`https://wa.me/917827692023?text=${message}`, '_blank');
 });
+</script>
+    <script>
+    const counters = document.querySelectorAll('.counter');
+    const speed = 100; // Speed control
+
+    const animate = (counter) => {
+        const value = +counter.getAttribute('data-target');
+        const data = +counter.innerText;
+        const time = value / speed;
+
+        if (data < value) {
+            counter.innerText = Math.ceil(data + time);
+            setTimeout(() => animate(counter), 20);
+        } else {
+            counter.innerText = value;
+        }
+    }
+
+    // Scroll hone par start karne ke liye logic
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetCounter = entry.target;
+                animate(targetCounter);
+                observer.unobserve(targetCounter); // Ek hi baar animate hoga
+            }
+        });
+    }, { threshold: 0.8 });
+
+    counters.forEach(c => observer.observe(c));
 </script>
 </body>
 </html>
