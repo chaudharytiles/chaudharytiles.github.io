@@ -302,6 +302,23 @@ body.dark-mode #map-iframe {
 .stat-card:hover {
     transform: translateY(-10px);
 }
+        #backToTop {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Right side par WhatsApp buttons hain, isliye ise Left rakha hai */
+    width: 45px;
+    height: 45px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50%;
+    display: none; /* Shuruat me hidden rahega */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2000;
+    transition: 0.3s;
+}
+#backToTop:hover { background: #fff; }
  </style>
 </head>
 <body>
@@ -519,6 +536,34 @@ body.dark-mode #map-iframe {
 </div>
     </div>
 </section>
+    <section class="section-padding" style="background: #000; color: #fff;">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <span class="gold-label">How We Work</span>
+        <h2>Our Professional <span class="gold-text">Process</span></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center;">
+        <div>
+            <div class="gold-text" style="font-size: 2rem; margin-bottom: 15px;">01</div>
+            <h4>Site Inspection</h4>
+            <p style="font-size: 13px; color: #888;">Free measurement and stone quality check.</p>
+        </div>
+        <div>
+            <div class="gold-text" style="font-size: 2rem; margin-bottom: 15px;">02</div>
+            <h4>Detailed Quote</h4>
+            <p style="font-size: 13px; color: #888;">Transparent pricing with no hidden costs.</p>
+        </div>
+        <div>
+            <div class="gold-text" style="font-size: 2rem; margin-bottom: 15px;">03</div>
+            <h4>Laser Execution</h4>
+            <p style="font-size: 13px; color: #888;">Precision installation using laser levels.</p>
+        </div>
+        <div>
+            <div class="gold-text" style="font-size: 2rem; margin-bottom: 15px;">04</div>
+            <h4>Final Polish</h4>
+            <p style="font-size: 13px; color: #888;">Mirror-finish touch and site cleanup.</p>
+        </div>
+    </div>
+</section>
 
 <section id="rates" class="section-padding reveal" style="background: var(--card-bg-light);">
     <div style="text-align: center; margin-bottom: 60px;">
@@ -565,6 +610,26 @@ body.dark-mode #map-iframe {
             <p style="font-size: 12px; letter-spacing: 2px;">ESTIMATED LABOR TOTAL</p>
             <h2 style="font-size: 3.5rem; color: var(--gold); margin: 10px 0;">₹<span id="total-val">0</span></h2>
         </div>
+    </div>
+</section>
+    <section id="faq" class="section-padding" style="background: var(--light-bg);">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <span class="gold-label">Information</span>
+        <h2>Common <span class="gold-text">Questions</span></h2>
+    </div>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <details style="padding: 20px; border-bottom: 1px solid #eee; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--gold);">Do you provide materials or only labor?</summary>
+            <p style="margin-top: 10px; color: var(--text-muted);">We primarily provide expert labor services, but we can assist in material selection to ensure high-quality results.</p>
+        </details>
+        <details style="padding: 20px; border-bottom: 1px solid #eee; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--gold);">How much time does Italian Marble polishing take?</summary>
+            <p style="margin-top: 10px; color: var(--text-muted);">A standard 7-step mirror polish usually takes 5-7 days depending on the area size.</p>
+        </details>
+        <details style="padding: 20px; border-bottom: 1px solid #eee; cursor: pointer;">
+            <summary style="font-weight: 700; color: var(--gold);">Do you work outside of Gurugram?</summary>
+            <p style="margin-top: 10px; color: var(--text-muted);">Currently, our premium services are focused exclusively on Gurugram (DLF, Golf Course Road, Sohna Road) to maintain strict supervision.</p>
+        </details>
     </div>
 </section>
   <section id="booking" class="section-padding reveal" style="background: #000; border-top: 1px solid #222;">
@@ -814,5 +879,17 @@ body.dark-mode #map-iframe {
 
     counters.forEach(c => observer.observe(c));
 </script>
+    window.addEventListener('scroll', function() {
+    var btn = document.getElementById("backToTop");
+    if (window.scrollY > 400) { // Agar 400px se zyada niche gaye
+        btn.style.display = "flex";
+    } else {
+        btn.style.display = "none";
+    }
+});
+</script>
+    <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+</div>
 </body>
 </html>
