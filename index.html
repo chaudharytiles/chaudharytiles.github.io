@@ -302,23 +302,22 @@ body.dark-mode #map-iframe {
 .stat-card:hover {
     transform: translateY(-10px);
 }
-        #backToTop {
+#backToTop {
     position: fixed;
     bottom: 30px;
-    left: 30px; /* Right side par WhatsApp buttons hain, isliye ise Left rakha hai */
-    width: 45px;
-    height: 45px;
-    background: var(--gold);
-    color: #000;
+    left: 30px; 
+    width: 50px;
+    height: 50px;
+    background-color: #D4AF37 !important; /* Gold color force */
+    color: #000 !important;
     border-radius: 50%;
-    display: none; /* Shuruat me hidden rahega */
+    display: none; /* JS isse show karega */
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 2000;
-    transition: 0.3s;
+    z-index: 99999; /* Sabse upar dikhne ke liye */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
-#backToTop:hover { background: #fff; }
  </style>
 </head>
 <body>
@@ -878,10 +877,10 @@ body.dark-mode #map-iframe {
     }, { threshold: 0.8 });
 
     counters.forEach(c => observer.observe(c));
-</script>
-    window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function() {
     var btn = document.getElementById("backToTop");
-    if (window.scrollY > 400) { // Agar 400px se zyada niche gaye
+    console.log(window.scrollY); // Check karne ke liye ki scroll kaam kar raha hai
+    if (window.scrollY > 100) { 
         btn.style.display = "flex";
     } else {
         btn.style.display = "none";
