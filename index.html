@@ -373,16 +373,6 @@ body.dark-mode #map-iframe {
         text-align: center;
     }
 }
-        /* Puri body ko shuru mein chhupa do */
-body {
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-/* Jab page load ho jaye, tab dheere se dikhao */
-body.loaded {
-    opacity: 1;
-}
  </style>
 </head>
 <body>
@@ -966,10 +956,6 @@ window.addEventListener('scroll', function() {
         btn.style.display = "none";
     }
 });
-        <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.body.classList.add('loaded');
-    });
 </script>
 </body>
 </body>
