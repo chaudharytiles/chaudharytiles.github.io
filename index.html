@@ -20,7 +20,8 @@
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content="Chaudhary Tiles & Stone Gurugram">
 <meta property="twitter:description" content="Premium Marble & Tile installation with 21 years of legacy.">
-    
+
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -375,6 +376,11 @@ body.dark-mode #map-iframe {
  </style>
 </head>
 <body>
+    <div id="loader" style="position: fixed; width: 100%; height: 100vh; background: #000; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease;">
+    <div style="color: #D4AF37; font-family: 'Poppins', sans-serif; font-size: 24px; border: 2px solid #D4AF37; padding: 15px 30px; letter-spacing: 5px; font-weight: bold; text-transform: uppercase;">
+        CHAUDHARY TILES...
+    </div>
+</div>
 
 <header class="navbar">
     <div class="logo-box">
@@ -960,6 +966,15 @@ window.addEventListener('scroll', function() {
     <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     <i class="fas fa-arrow-up"></i>
 </div>
+    <script>
+    window.onload = function() {
+        const loader = document.getElementById('loader');
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500); // 0.5 second baad screen hat jayegi
+    };
+</script>
 </body>
 </body>
 </html>
