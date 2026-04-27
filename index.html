@@ -444,6 +444,9 @@ body.dark-mode #map-iframe {
         </ul>
         <a href="#booking" style="background: var(--gold); color: #000; padding: 8px 18px; border-radius: 5px; font-weight: 700; font-size: 13px; text-transform: uppercase; transition: 0.3s;">Book Now</a>
         <button id="darkToggle" style="margin-left: 10px;"><i class="fas fa-moon"></i></button>
+        <button onclick="toggleHinglish()" id="langBtn" style="background: var(--gold); color: #000; border: none; padding: 6px 15px; border-radius: 50px; cursor: pointer; font-weight: 700; font-family: 'Poppins', sans-serif; margin-left: 15px; font-size: 12px; transition: 0.3s; border: 1px solid transparent;">
+  HINDI ME DEKHEIN
+</button>
     </nav>
 </header>
 
@@ -1010,6 +1013,40 @@ window.addEventListener('scroll', function() {
         btn.style.display = "none";
     }
 });
+        <script>
+function toggleHinglish() {
+    const btn = document.getElementById('langBtn');
+    
+    // Mapping: English Word -> Hinglish Word
+    const translations = {
+        "OUR SERVICES": "HAMARI SERVICES",
+        "PRICE LIST": "RATE LIST",
+        "GET A QUOTE": "RATE PUCHEIN",
+        "Excellent": "Bohot Badhiya",
+        "Leave a Review": "Feedback Karein",
+        "SUBMIT REVIEW": "REVIEW BHEJEIN",
+        "Serving All of Gurugram": "Poore Gurugram me Service",
+        "Latest Blogs": "Naye Blogs",
+        "YOUR NAME": "AAPKA NAAM",
+        "YOUR EXPERIENCE": "AAPKA EXPERIENCE"
+    };
+
+    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+
+    if (btn.innerText === "HINDI ME DEKHEIN") {
+        while (node = walk.nextNode()) {
+            const text = node.nodeValue.trim();
+            if (translations[text]) {
+                node.nodeValue = translations[text];
+            }
+        }
+        btn.innerText = "ENGLISH ME DEKHEIN";
+        btn.style.background = "#fff"; // Button color change taaki pata chale mode on hai
+    } else {
+        location.reload(); // Wapas English ke liye refresh
+    }
+}
 </script>
 </body>
 </html>
