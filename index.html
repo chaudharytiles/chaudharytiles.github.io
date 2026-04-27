@@ -180,6 +180,16 @@
         .service-points li { font-size: 0.85rem; color: var(--gold); margin-bottom: 8px; display: inline-block; margin-right: 15px; }
         .service-link { color: var(--gold); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .service-link:hover { letter-spacing: 2px; }
+        .service-card {
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Card thoda upar uthega */
+    border-color: var(--gold); /* Gold border dikhega */
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
+}
 
         /* RATES TABLE */
         .rate-table-container { max-width: 1000px; margin: 0 auto; background: var(--light-bg); padding: 20px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
@@ -440,13 +450,9 @@ body.dark-mode #map-iframe {
             <li><a href="blog.html">Blog</a></li> <li><a href="#services">Services</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#calculator">Estimator</a></li>
-            <li><a href="recommended.html" style="color: var(--gold); font-weight: 700;"><i class="fas fa-shopping-cart"></i> Shop Tools</a></li>
         </ul>
         <a href="#booking" style="background: var(--gold); color: #000; padding: 8px 18px; border-radius: 5px; font-weight: 700; font-size: 13px; text-transform: uppercase; transition: 0.3s;">Book Now</a>
         <button id="darkToggle" style="margin-left: 10px;"><i class="fas fa-moon"></i></button>
-        <button onclick="toggleHinglish()" id="langBtn" style="background: var(--gold); color: #000; border: none; padding: 6px 15px; border-radius: 50px; cursor: pointer; font-weight: 700; font-family: 'Poppins', sans-serif; margin-left: 15px; font-size: 12px; transition: 0.3s; border: 1px solid transparent;">
-  HINDI ME DEKHEIN
-</button>
     </nav>
 </header>
 
@@ -1013,40 +1019,6 @@ window.addEventListener('scroll', function() {
         btn.style.display = "none";
     }
 });
-        <script>
-function toggleHinglish() {
-    const btn = document.getElementById('langBtn');
-    
-    // Mapping: English Word -> Hinglish Word
-    const translations = {
-        "OUR SERVICES": "HAMARI SERVICES",
-        "PRICE LIST": "RATE LIST",
-        "GET A QUOTE": "RATE PUCHEIN",
-        "Excellent": "Bohot Badhiya",
-        "Leave a Review": "Feedback Karein",
-        "SUBMIT REVIEW": "REVIEW BHEJEIN",
-        "Serving All of Gurugram": "Poore Gurugram me Service",
-        "Latest Blogs": "Naye Blogs",
-        "YOUR NAME": "AAPKA NAAM",
-        "YOUR EXPERIENCE": "AAPKA EXPERIENCE"
-    };
-
-    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-    let node;
-
-    if (btn.innerText === "HINDI ME DEKHEIN") {
-        while (node = walk.nextNode()) {
-            const text = node.nodeValue.trim();
-            if (translations[text]) {
-                node.nodeValue = translations[text];
-            }
-        }
-        btn.innerText = "ENGLISH ME DEKHEIN";
-        btn.style.background = "#fff"; // Button color change taaki pata chale mode on hai
-    } else {
-        location.reload(); // Wapas English ke liye refresh
-    }
-}
 </script>
 </body>
 </html>
