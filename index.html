@@ -436,6 +436,64 @@ body.dark-mode #map-iframe {
         text-align: center;
     }
 }
+        /* --- Brands Section CSS --- */
+.brands-section {
+    padding: 80px 8%;
+    background: #000;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.brands-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.brand-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: 0.4s;
+}
+
+.brand-logo {
+    width: 130px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: 0.4s;
+}
+
+.brand-item:hover .brand-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.brand-label {
+    font-size: 10px;
+    color: #D4AF37; /* Gold color */
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.specialist-box {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: center;
+    background: rgba(212, 175, 55, 0.05);
+}
+
+@media (max-width: 768px) {
+    .brands-container { gap: 30px; }
+    .brand-logo { width: 100px; }
+}
  </style>
 </head>
 <body>
@@ -880,6 +938,35 @@ body.dark-mode #map-iframe {
                 <p><strong>5.0 Rating</strong> on Google Business</p>
             </div>
             <a href="https://g.page/r/CdLlAuKhaVzvEBM/review" target="_blank" class="review-btn">Write a Review</a>
+        </div>
+    </div>
+</section>
+    <section id="brands" class="brands-section">
+    <div style="margin-bottom: 40px;">
+        <span class="brand-label">Premium Quality Materials</span>
+        <h2 style="color: #fff; font-size: 2rem; margin-top: 10px;">Brands We <span style="color: #D4AF37;">Trust & Use</span></h2>
+    </div>
+
+    <div class="brands-container">
+        <div class="brand-item">
+            <img src="https://www.myklaticrete.com/wp-content/themes/myklaticrete/images/logo.png" alt="MYK Laticrete" class="brand-logo">
+            <span class="brand-label">Adhesives & Epoxy</span>
+        </div>
+
+        <div class="brand-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Kajaria_Ceramics_logo.png/640px-Kajaria_Ceramics_logo.png" alt="Kajaria" class="brand-logo">
+            <span class="brand-label">Vitrified Tiles</span>
+        </div>
+
+        <div class="brand-item">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b3/Asian_Paints_logo.svg/1200px-Asian_Paints_logo.svg.png" alt="Asian Paints" class="brand-logo">
+            <span class="brand-label">Polishing Partner</span>
+        </div>
+
+        <div class="specialist-box">
+            <i class="fas fa-certificate" style="color: #D4AF37; font-size: 24px; margin-bottom: 10px;"></i>
+            <div style="font-weight: 700; font-size: 14px; color: #fff;">VITRIFIED EXPERT</div>
+            <div style="font-size: 10px; color: #aaa; margin-top: 5px;">GVT | PGVT | FULL BODY</div>
         </div>
     </div>
 </section>
