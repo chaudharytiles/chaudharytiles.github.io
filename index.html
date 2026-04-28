@@ -869,38 +869,64 @@ body.dark-mode #map-iframe {
         <h2 style="color: #fff; font-size: 2.5rem;">Request a <span class="gold-text">Site Visit</span></h2>
     </div>
 
-    <div class="glass-card" style="max-width: 850px; margin: 0 auto; background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
-        <form id="bookingForm">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-                <div class="input-group">
-                    <label>YOUR NAME</label>
-                    <input type="text" id="custName" placeholder="Full Name" required>
-                </div>
-                <div class="input-group">
-                    <label>PHONE NUMBER</label>
-                    <input type="tel" id="custPhone" placeholder="Mobile Number" required>
-                </div>
-                <div class="input-group">
-                    <label>SELECT SERVICE</label>
-                    <select id="custService">
-                        <option>Italian Marble Laying</option>
-                        <option>Premium Tile Fitting</option>
-                        <option>Granite Countertop</option>
-                        <option>Mirror Polishing</option>
-                        <option>Epoxy Grouting</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>PROJECT LOCATION</label>
-                    <input type="text" id="custAddr" placeholder="e.g. DLF Phase 5, Gurugram" required>
-                </div>
+   <section id="contact" class="section-padding reveal" style="background: #000; color: #fff; padding: 80px 8%;">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <span class="gold-label">Inquiry Form</span>
+        <h2 style="font-size: 2.5rem; margin-top: 10px;">Request a <span class="gold-text">Site Visit</span></h2>
+    </div>
+
+    <div style="max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.03); padding: 40px; border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            
+            <div>
+                <label style="display: block; color: var(--gold); margin-bottom: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Your Name</label>
+                <input type="text" id="name-input" placeholder="Full Name" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid #333; border-radius: 8px; color: #fff; outline: none;">
             </div>
-            <button type="submit" class="hero-btn primary-btn" style="width: 100%; margin-top: 30px; cursor: pointer; border: none;">
-                SEND BOOKING REQUEST VIA WHATSAPP <i class="fab fa-whatsapp" style="margin-left: 10px;"></i>
-            </button>
-        </form>
+
+            <div>
+                <label style="display: block; color: var(--gold); margin-bottom: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Phone Number</label>
+                <input type="tel" id="phone-input" placeholder="Mobile Number" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid #333; border-radius: 8px; color: #fff; outline: none;">
+            </div>
+
+            <div>
+                <label style="display: block; color: var(--gold); margin-bottom: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Select or Type Service</label>
+                <input list="services" id="service-input" placeholder="e.g. Italian Marble Laying" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid #333; border-radius: 8px; color: #fff; outline: none;">
+                <datalist id="services">
+                    <option value="Italian Marble Laying">
+                    <option value="Italian Marble Polishing">
+                    <option value="Premium Tile Installation">
+                    <option value="Granite Slab Work">
+                    <option value="Epoxy Grouting">
+                </datalist>
+            </div>
+
+            <div>
+                <label style="display: block; color: var(--gold); margin-bottom: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Project Location</label>
+                <input type="text" id="location-input" placeholder="e.g. DLF Phase 5, Golf Course Road, Gurugram" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid #333; border-radius: 8px; color: #fff; outline: none;">
+            </div>
+
+        </div>
+
+        <button onclick="sendToWhatsApp()" style="width: 100%; margin-top: 30px; padding: 18px; background: #D4AF37; color: #000; border: none; border-radius: 10px; font-weight: 700; font-size: 16px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            Send Booking Request Via WhatsApp <i class="fab fa-whatsapp"></i>
+        </button>
     </div>
 </section>
+
+<script>
+function sendToWhatsApp() {
+    const name = document.getElementById('name-input').value;
+    const phone = document.getElementById('phone-input').value;
+    const service = document.getElementById('service-input').value;
+    const location = document.getElementById('location-input').value;
+
+    const myNumber = "917827692023"; 
+
+    const message = `Hello Chaudhary Tiles,%0a%0aI want to request a site visit.%0a%0a*Name:* ${name}%0a*Phone:* ${phone}%0a*Service:* ${service}%0a*Location:* ${location}`;
+    
+    window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
+}
+</script>
 <section id="reviews" class="section-padding reveal">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">Testimonials</span>
