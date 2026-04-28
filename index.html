@@ -190,6 +190,21 @@
     border-color: var(--gold); /* Gold border dikhega */
     box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
 }
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Ye side wala faltu space khatam kar dega */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
 
         /* RATES TABLE */
         .rate-table-container { max-width: 1000px; margin: 0 auto; background: var(--light-bg); padding: 20px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
@@ -493,6 +508,37 @@ body.dark-mode #map-iframe {
 @media (max-width: 768px) {
     .brands-container { gap: 30px; }
     .brand-logo { width: 100px; }
+}
+        @media (max-width: 768px) {
+    /* Sections ki padding kam karein */
+    .section-padding {
+        padding: 40px 5% !important;
+    }
+
+    /* Grid ko single column karein */
+    .grid-2, .glass-card, .advantage-grid, footer div {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Calculator aur Forms ki width mobile ke hisab se */
+    .glass-card, .rate-table-container {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+    }
+
+    /* Calculator ka divider mobile par hata dein */
+    .glass-card div {
+        border-left: none !important;
+        padding-left: 0 !important;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+    }
+
+    h2 {
+        font-size: 1.8rem !important; /* Mobile par badi heading choti karein */
+    }
 }
  </style>
 </head>
