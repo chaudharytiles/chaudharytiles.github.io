@@ -494,6 +494,24 @@ body.dark-mode #map-iframe {
     .brands-container { gap: 30px; }
     .brand-logo { width: 100px; }
 }
+        #lang-btn {
+    position: fixed;
+    bottom: 100px; /* WhatsApp button ke upar */
+    right: 30px;
+    background: #D4AF37; /* Gold color */
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+#lang-btn:hover { transform: scale(1.1); background: #fff; }
  </style>
 </head>
 <body>
@@ -967,11 +985,19 @@ body.dark-mode #map-iframe {
 
     </div>
 </section>
-    <section style="padding: 80px 8%; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('your-floor-image.jpg'); background-size: cover; border-top: 2px solid var(--gold);">
-    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Transform Your <span class="gold-text">Floors?</span></h2>
-    <p style="margin-bottom: 30px; color: #ccc;">Get a free site inspection and expert consultation in Gurugram today.</p>
-    <a href="https://wa.me/917827692023" style="background: var(--gold); color: #000; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem; display: inline-block;">GET FREE QUOTE NOW</a>
-</section>
+    <button id="lang-btn" onclick="toggleLanguage()">Hinglish Mein Padhein</button>
+
+<h1 class="lang-text" 
+    data-en="Premium Italian Marble Polishing" 
+    data-hi="Premium Italian Marble Polishing Experts">
+    Premium Italian Marble Polishing
+</h1>
+
+<p class="lang-text" 
+    data-en="We use Laticrete chemicals for best results." 
+    data-hi="Hum best results ke liye Laticrete chemicals use karte hain.">
+    We use Laticrete chemicals for best results.
+</p>
 <footer style="background: #000; color: #fff; padding: 80px 8% 20px; border-top: 1px solid rgba(212, 175, 55, 0.3); font-family: 'Poppins', sans-serif; clear: both; width: 100%;">
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
@@ -1108,6 +1134,29 @@ window.addEventListener('scroll', function() {
         btn.style.display = "none";
     }
 });
+        function toggleLanguage() {
+    const btn = document.getElementById('lang-btn');
+    const elements = document.querySelectorAll('.lang-text');
+    
+    // Check karein abhi kya likha hai button par
+    let currentLang = btn.getAttribute('data-current') || 'en';
+
+    if (currentLang === 'en') {
+        // Hinglish Apply Karein
+        elements.forEach(el => {
+            el.innerHTML = el.getAttribute('data-hi');
+        });
+        btn.innerText = "Read in English";
+        btn.setAttribute('data-current', 'hi');
+    } else {
+        // English Apply Karein
+        elements.forEach(el => {
+            el.innerHTML = el.getAttribute('data-en');
+        });
+        btn.innerText = "Hinglish Mein Padhein";
+        btn.setAttribute('data-current', 'en');
+    }
+}
 </script>
 </body>
 </html>
