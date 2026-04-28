@@ -812,16 +812,19 @@ body.dark-mode #map-iframe {
         </a>
     </div>
 </section>
-<section id="calculator" class="section-padding" style="background: #000; color: #fff;">
+<section id="calculator" class="section-padding" style="background: #000; color: #fff; padding: 80px 8%;">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">Investment Guide</span>
-        <h2>Labor Cost <span class="gold-text">Estimator</span></h2>
+        <h2 style="font-size: 2.5rem;">Labour <span class="gold-text">Cost Estimator</span></h2>
+        <p style="color: #888; font-size: 14px; margin-top: 10px;">Apne area ke hisab se andaza lagaiye</p>
     </div>
-    <div class="glass-card" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px;">
+
+    <div class="glass-card" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; background: rgba(255,255,255,0.03); padding: 40px; border: 1px solid rgba(212,175,55,0.1); border-radius: 20px;">
+        
         <div>
-            <div class="input-group">
-                <label>SELECT SERVICE</label>
-                <select id="calc-service" onchange="calcPrice()">
+            <div class="input-group" style="margin-bottom: 25px;">
+                <label style="display: block; color: var(--gold); font-size: 12px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px;">SELECT SERVICE</label>
+                <select id="calc-service" onchange="calcPrice()" style="width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 8px; outline: none; cursor: pointer;">
                     <option value="45">Tile Fitting (₹45/sq.ft)</option>
                     <option value="250">Italian Marble Installation (₹250/sq.ft)</option>
                     <option value="200">Granite Slab Work (₹200/sq.ft)</option>
@@ -829,16 +832,40 @@ body.dark-mode #map-iframe {
                 </select>
             </div>
             <div class="input-group">
-                <label>AREA SIZE (SQ. FT.)</label>
-                <input type="number" id="calc-area" placeholder="e.g. 1000" oninput="calcPrice()">
+                <label style="display: block; color: var(--gold); font-size: 12px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px;">AREA SIZE (SQ. FT.)</label>
+                <input type="number" id="calc-area" placeholder="e.g. 1000" oninput="calcPrice()" style="width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 8px; outline: none;">
             </div>
         </div>
-        <div style="text-align: center; border-left: 1px solid #333; padding-left: 40px; display: flex; flex-direction: column; justify-content: center;">
-            <p style="font-size: 12px; letter-spacing: 2px;">ESTIMATED LABOR TOTAL</p>
-            <h2 style="font-size: 3.5rem; color: var(--gold); margin: 10px 0;">₹<span id="total-val">0</span></h2>
+
+        <div style="text-align: center; border-left: 1px solid #333; padding-left: 40px; display: flex; flex-direction: column; justify-content: center; min-height: 200px;">
+            <p style="font-size: 12px; letter-spacing: 2px; color: #aaa;">ESTIMATED LABOR TOTAL</p>
+            <h2 style="font-size: 4rem; color: #D4AF37; margin: 10px 0;">₹<span id="total-val">0</span></h2>
+            
+            <p style="font-size: 12px; color: #d9534f; background: rgba(217, 83, 79, 0.1); padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 10px;">
+                <i class="fas fa-info-circle"></i> Only Labour Cost (Material Extra)
+            </p>
         </div>
     </div>
+
+    <p style="text-align: center; margin-top: 30px; font-size: 13px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+        *Note: Ye sirf ek approximate andaza hai. Stairs, Molding aur Design ke hisab se rates site visit par finalize honge.
+    </p>
 </section>
+
+<script>
+function calcPrice() {
+    const rate = document.getElementById('calc-service').value;
+    const area = document.getElementById('calc-area').value;
+    const totalDisplay = document.getElementById('total-val');
+    
+    if (area && area > 0) {
+        const total = rate * area;
+        totalDisplay.innerText = total.toLocaleString('en-IN');
+    } else {
+        totalDisplay.innerText = '0';
+    }
+}
+</script>
    <section id="faq" class="section-padding" style="background: var(--light-bg); padding: 80px 8%;">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label" style="color: var(--gold); letter-spacing: 2px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Zaroori Jaankari</span>
