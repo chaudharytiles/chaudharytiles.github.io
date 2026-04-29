@@ -619,6 +619,73 @@ body.dark-mode #map-iframe {
         margin-bottom: 10px;
     }
 }
+        /* Expert Tips Section Styling */
+.tips-container {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.tip-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-bottom: 4px solid #ccaa00; /* Gold touch for premium feel */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.tip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    background: #fffdf2;
+}
+
+.tip-card i {
+    font-size: 40px;
+    color: #ccaa00;
+    margin-bottom: 15px;
+}
+
+.tip-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.tip-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Animation Class */
+.show-tip {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.section-subtitle {
+    color: #888;
+    font-weight: 300;
+}
  </style>
 </head>
 <body>
@@ -1060,6 +1127,52 @@ function calcPrice() {
 
     </div>
 </section>
+    <section class="tips-container">
+    <h2 class="section-title">Chaudhary Expert Tips</h2>
+    <p class="section-subtitle">Apne ghar ko behtar banane ke liye kuch zaroori baatein</p>
+
+    <div class="tips-grid">
+        <div class="tip-card">
+            <h3>📦 Lot Number Check</h3>
+            <p>Tiles kharidte waqt hamesha box par 'Lot Number' check karein. Alag lot mein shade ka farak ho sakta hai.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>💧 Epoxy Grouting</h3>
+            <p>Bathrooms aur Kitchen mein hamesha Epoxy Grout use karein. Ye waterproof hota hai aur seepage se bachata hai.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>🛡️ Anti-Skid Protection</h3>
+            <p>Bathroom aur Balcony mein hamesha 'Matte Finish' tiles hi lagwayein taaki fisalne ka dar na rahe.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>✨ Italian Marble Care</h3>
+            <p>Marble par kabhi Acid ya Harpic use na karein. Sirf pH-neutral cleaner se hi safai karein.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>📐 Extra Stock</h3>
+            <p>Hamesha 5-10% extra tiles mangwayein. Future mein agar koi tile toot jaye, toh waisa hi shade milna mushkil hota hai.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>🧱 Leveling Spacer</h3>
+            <p>Badi tiles (2x4 ya upar) lagwaate waqt 'Levelling Spacers' ka use zaroor karein taaki tiles ke beech thokar na bane.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>🧼 Kitchen Dado</h3>
+            <p>Kitchen slab ke upar hamesha 'High Gloss' tiles lagayein, taaki tel aur masale ke daag asani se saaf ho sakein.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>☀️ Outdoor Tiles</h3>
+            <p>Terrace ya parking mein hamesha 'Full Body Vitrified' tiles hi lagayein, ye dhoop aur heavy load jhel sakti hain.</p>
+        </div>
+    </div>
+</section>
    <section id="contact" class="section-padding reveal" style="background: #000; color: #fff; padding: 80px 8%;">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">Inquiry Form</span>
@@ -1437,6 +1550,16 @@ window.addEventListener('scroll', function() {
         btn.style.display = "none";
     }
 });
+        <script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show-tip');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.tip-card').forEach((el) => observer.observe(el));
 </script>
 </body>
 </html>
