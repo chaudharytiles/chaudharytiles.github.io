@@ -595,6 +595,30 @@ body.dark-mode #map-iframe {
         font-size: 1.8rem !important; /* Mobile par badi heading choti karein */
     }
 }
+        @media (max-width: 600px) {
+    /* Header ki height thodi badhayein taaki content dabbe nahi */
+    header {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        display: flex;
+        flex-direction: column; /* Naam aur Button ko ek ke niche ek karne ke liye */
+        align-items: center;
+        gap: 15px; /* Dono ke beech 15px ka gap */
+    }
+
+    /* Logo/Naam ka margin sahi karein */
+    .logo-text-header {
+        margin-top: 10px !important;
+        font-size: 20px !important; /* Mobile ke liye thoda chota size */
+    }
+
+    /* Book Now button ki position fix karein */
+    .book-now-btn {
+        position: relative !important;
+        top: 0 !important;
+        margin-bottom: 10px;
+    }
+}
  </style>
 </head>
 <body>
