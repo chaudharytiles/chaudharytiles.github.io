@@ -1292,6 +1292,45 @@ function sendToWhatsApp() {
     .footer-bottom { justify-content: center; flex-direction: column; gap: 10px; text-align: center; }
 }
 </style>
+    @media (max-width: 600px) {
+    /* Footer ki main padding kam karein */
+    .main-footer { padding: 30px 5% 15px !important; }
+
+    /* Saare sections ko 2-2 columns mein karein */
+    .footer-grid { 
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 15px !important; 
+        margin-bottom: 20px !important;
+    }
+
+    /* Trusted By boxes ko chota aur 2 line mein karein */
+    .trusted-grid { 
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* 2 boxes ek line mein */
+        gap: 5px !important; 
+    }
+
+    .trust-box { 
+        padding: 5px 2px !important; /* Box ki height kam ki */
+        font-size: 8px !important;   /* Font thoda chota kiya */
+        letter-spacing: 0px !important;
+        border: 1px solid #444 !important;
+    }
+
+    /* Heading ka size chota karein */
+    .footer-heading { 
+        font-size: 14px !important; 
+        margin-bottom: 10px !important; 
+    }
+
+    /* Logo section ko center se hata kar left hi rehne dein (Space bachane ke liye) */
+    .footer-section:first-child { 
+        grid-column: span 2; 
+        text-align: left;
+        border-bottom: 1px solid #222;
+        padding-bottom: 15px;
+    }
+}
 
 <script>
     function calcPrice() {
