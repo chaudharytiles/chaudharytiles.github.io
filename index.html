@@ -641,33 +641,17 @@ body.dark-mode #map-iframe {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
-    border-bottom: 4px solid #ccaa00; /* Gold touch for premium feel */
-    opacity: 0;
-    transform: translateY(20px);
+    border-bottom: 4px solid #ccaa00;
+    /* Opacity: 0 ko hata diya taaki cards hamesha dikhein */
+    opacity: 1 !important; 
+    transform: translateY(0) !important;
+    margin-bottom: 20px;
 }
 
 .tip-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) !important;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     background: #fffdf2;
-}
-
-.tip-card i {
-    font-size: 40px;
-    color: #ccaa00;
-    margin-bottom: 15px;
-}
-
-.tip-card h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 12px;
-}
-
-.tip-card p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
 }
 
 /* Animation Class */
