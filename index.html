@@ -1196,60 +1196,102 @@ function sendToWhatsApp() {
     </div>
 </section>
    
-<footer style="background: #000; color: #fff; padding: 80px 8% 20px; border-top: 1px solid rgba(212, 175, 55, 0.3); font-family: 'Poppins', sans-serif; clear: both; width: 100%;">
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
-        
-        <div>
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-section">
             <div class="logo-text-header" style="margin-bottom: 20px;">CHAUDHARY <span class="gold-text">TILES</span></div>
             <p style="font-size: 14px; color: #aaa; line-height: 1.8;">
-                Gurugram's leading specialists in Italian Marble & Premium Tile installation. Delivering mirror-finish perfection since 2005.
+                Gurugram's leading specialists in Italian Marble & Premium Tile installation.
             </p>
-            <div style="margin-top: 20px; display: flex; gap: 15px;">
+            <div class="social-icons">
                 <a href="#" class="gold-text"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="gold-text"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="gold-text"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
 
-        <div>
-            <h4 style="margin-bottom: 20px; font-size: 18px; color: #fff;">Quick Links</h4>
-            <ul style="font-size: 14px; color: #aaa; list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="#home" style="text-decoration: none; color: inherit;">Home</a></li>
-                <li style="margin-bottom: 10px;"><a href="blog.html" style="text-decoration: none; color: inherit;">Latest Blogs</a></li> 
-                <li style="margin-bottom: 10px;"><a href="#services" style="text-decoration: none; color: inherit;">Our Services</a></li>
-                <li style="margin-bottom: 10px;"><a href="#rates" style="text-decoration: none; color: inherit;">Price List</a></li>
-                <li style="margin-bottom: 10px;"><a href="#calculator" style="text-decoration: none; color: inherit;">Cost Estimator</a></li>
+        <div class="footer-section">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="blog.html">Latest Blogs</a></li> 
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#rates">Price List</a></li>
+                <li><a href="#calculator">Estimator</a></li>
             </ul>
         </div>
 
-        <div>
-            <h4 style="margin-bottom: 20px; font-size: 18px; color: #fff;">Get In Touch</h4>
-            <ul style="font-size: 14px; color: #aaa; list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><i class="fas fa-clock" style="margin-right: 8px;"></i> Mon - Sat: 9 AM - 5:30 PM</li>
-                <li style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: #D4AF37; margin-right: 8px;"></i> 
-                    <a href="mailto:chaudharytilesofficial0@gmail.com" style="text-decoration: none; color: #D4AF37; font-weight: 500;">chaudharytilesofficial0@gmail.com</a>
+        <div class="footer-section">
+            <h4 class="footer-heading">Get In Touch</h4>
+            <ul class="footer-list">
+                <li><i class="fas fa-clock"></i> Mon-Sat: 9-5:30</li>
+                <li><i class="fas fa-envelope gold-text"></i> 
+                    <a href="mailto:chaudharytilesofficial0@gmail.com" class="footer-email">Email Us</a>
                 </li>
-                <li style="margin-bottom: 10px;" class="gold-text"><i class="fas fa-headset"></i> 24/7 Support Available</li>
+                <li class="gold-text"><i class="fas fa-headset"></i> 24/7 Support</li>
             </ul>
         </div>
 
-        <div>
-            <h4 style="margin-bottom: 20px; font-size: 18px; color: #fff;">Trusted By</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; opacity: 0.7;">
-                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">ISO 9001:2015</div>
-                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">GST REGISTERED</div>
-                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">MSME CERTIFIED</div>
-                <div style="border: 1px solid #333; padding: 5px; text-align: center; font-size: 10px;">GURUGRAM NO.1</div>
+        <div class="footer-section">
+            <h4 class="footer-heading">Trusted By</h4>
+            <div class="trusted-grid">
+                <div class="trust-box">ISO 9001:2015</div>
+                <div class="trust-box">GST REGISTERED</div>
+                <div class="trust-box">MSME CERTIFIED</div>
+                <div class="trust-box">GURUGRAM NO.1</div>
             </div>
         </div>
     </div>
 
-    <div style="border-top: 1px solid #222; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; font-size: 12px; color: #666;">
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Chaudhary Tiles & Stone. All Rights Reserved.</p>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Chaudhary Tiles & Stone.</p>
         <p>Crafted for Excellence <i class="fas fa-heart gold-text"></i></p>
     </div>
 </footer>
+
+<style>
+/* Base Styles */
+.main-footer {
+    background: #000; 
+    color: #fff; 
+    padding: 60px 8% 20px; 
+    border-top: 1px solid rgba(212, 175, 55, 0.3); 
+    font-family: 'Poppins', sans-serif;
+}
+.footer-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 40px; 
+    margin-bottom: 40px;
+}
+.footer-heading { margin-bottom: 20px; font-size: 18px; color: #fff; }
+.footer-list { font-size: 14px; color: #aaa; list-style: none; padding: 0; }
+.footer-list li { margin-bottom: 10px; }
+.footer-list a { text-decoration: none; color: inherit; transition: 0.3s; }
+.footer-list a:hover { color: #D4AF37; }
+.social-icons { margin-top: 20px; display: flex; gap: 15px; }
+.trusted-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; opacity: 0.7; }
+.trust-box { border: 1px solid #333; padding: 8px; text-align: center; font-size: 10px; text-transform: uppercase; }
+.footer-bottom { border-top: 1px solid #222; padding-top: 20px; display: flex; justify-content: space-between; font-size: 12px; color: #666; flex-wrap: wrap; }
+.footer-email { text-decoration: none; color: #D4AF37 !important; font-weight: 500; font-size: 12px; }
+
+/* Mobile Specific Fixes */
+@media (max-width: 600px) {
+    .main-footer { padding: 40px 5% 20px; }
+    .footer-grid { 
+        grid-template-columns: 1fr 1fr; /* Do columns mein divide kar diya */
+        gap: 20px; 
+    }
+    .footer-section:first-child { 
+        grid-column: span 2; /* Logo section poori width lega */
+        text-align: center;
+    }
+    .footer-section:first-child .social-icons { justify-content: center; }
+    .footer-heading { font-size: 16px; margin-bottom: 15px; }
+    .footer-list li { font-size: 12px; margin-bottom: 8px; }
+    .footer-bottom { justify-content: center; flex-direction: column; gap: 10px; text-align: center; }
+}
+</style>
 
 <script>
     function calcPrice() {
