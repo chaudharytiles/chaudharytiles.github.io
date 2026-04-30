@@ -1579,18 +1579,26 @@ function sendToWhatsApp() {
     const counters = document.querySelectorAll('.counter');
     const speed = 100;
 
-    const animateCounter = (counter) => {
-        const value = +counter.getAttribute('data-target');
-        const data = +counter.innerText.replace('+', ''); // Purane '+' ko hatane ke liye
-        const time = value / speed;
+ const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    // InnerText se purane symbols hata kar sirf number nikalna
+    const currentCount = +counter.innerText.replace(/[^\d]/g, '') || 0;
+    
+    const speed = 100; // Speed control
+    const increment = target / speed;
 
-        if (data < value) {
-            counter.innerText = Math.ceil(data + time);
-            setTimeout(() => animateCounter(counter), 20);
+    if (currentCount < target) {
+        counter.innerText = Math.ceil(currentCount + increment);
+        setTimeout(() => animateCounter(counter), 20);
+    } else {
+        // Final Display Logic
+        if (target === 100) {
+            counter.innerText = "100%"; // Sirf Satisfied wale ke liye percent
         } else {
-            counter.innerText = value + "+"; // Final value ke saath '+' lagane ke liye
+            counter.innerText = target + "+"; // Baki sab ke liye ek single plus
         }
     }
+}
 
     // 2. Intersection Observer (Dono Counter aur Tips ke liye ek hi logic)
     const generalObserver = new IntersectionObserver((entries) => {
