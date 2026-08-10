@@ -84,33 +84,40 @@
     font-weight: bold;
 }
 </style>
-    <style>
-/* Header ka background white aur text dark karne ke liye */
+<style>
+/* 1. Header background and logo text for light theme */
 header, nav, .navbar, .header {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* 2. Logo ke andar ka text dark gray/black karne ke liye (taaki CHAUDHARY text dikhne lage) */
+header .logo, header .logo span, header h1, header h2, .navbar-brand {
     color: #111111 !important;
 }
 
-/* Header links (Home, Blog, Services, etc.) ka color dark karne ke liye */
-header a, nav a, .navbar a, .nav-link {
+/* 3. Navigation links ka color dark karne ke liye */
+header a:not(.btn), nav a:not(.btn), .navbar a:not(.btn) {
     color: #222222 !important;
 }
 
-header a:hover, nav a:hover {
-    color: #d4af37 !important; /* Hover karne par Gold color */
+/* 4. DARK MODE FIX: Jab dark mode active ho, tab styles wapas black background par set ho jayein */
+body.dark-mode header, 
+body.dark-mode nav, 
+body.dark-mode .navbar, 
+[data-theme="dark"] header, 
+[data-theme="dark"] nav, 
+[data-theme="dark"] .navbar {
+    background-color: #0e0e0e !important;
+    color: #ffffff !important;
 }
 
-/* Hero section ka background dark se white karne ke liye */
-.hero, section:first-of-type, .main-banner {
-    background-color: #f9f9f9 !important;
-    background: #f9f9f9 !important;
-    color: #111111 !important;
-}
-
-/* Hero section ke andar ke text readable banane ke liye */
-.hero p, section:first-of-type p {
-    color: #444444 !important;
+body.dark-mode header .logo, 
+body.dark-mode header .logo span, 
+body.dark-mode header a, 
+[data-theme="dark"] header .logo, 
+[data-theme="dark"] header a {
+    color: #ffffff !important;
 }
 </style>
 </head>
