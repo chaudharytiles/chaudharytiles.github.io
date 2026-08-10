@@ -85,38 +85,44 @@
 }
 </style>
 <style>
-/* 1. Header background and logo text for light theme */
+/* Default (Light Theme) Header Styling */
 header, nav, .navbar, .header {
-    background-color: #ffffff;
-    color: #111111;
+    background-color: #ffffff !important;
+    transition: background-color 0.3s ease;
 }
 
-/* 2. Logo ke andar ka text dark gray/black karne ke liye (taaki CHAUDHARY text dikhne lage) */
-header .logo, header .logo span, header h1, header h2, .navbar-brand {
+/* Light Mode mein Logo aur Text color fix */
+header .logo, header .logo-text, header h1, header h2, .navbar-brand {
     color: #111111 !important;
 }
 
-/* 3. Navigation links ka color dark karne ke liye */
+/* Light Mode mein Nav Links ka color */
 header a:not(.btn), nav a:not(.btn), .navbar a:not(.btn) {
     color: #222222 !important;
+    transition: color 0.3s ease;
 }
 
-/* 4. DARK MODE FIX: Jab dark mode active ho, tab styles wapas black background par set ho jayein */
+/* Gold accent color for TILES/Highlight text */
+header .logo span, header .gold-text {
+    color: #d4af37 !important;
+}
+
+/* DARK MODE FIX: Toggle click hote hi Black Theme active hoga */
 body.dark-mode header, 
 body.dark-mode nav, 
-body.dark-mode .navbar, 
+body.dark-mode .navbar,
 [data-theme="dark"] header, 
 [data-theme="dark"] nav, 
 [data-theme="dark"] .navbar {
-    background-color: #0e0e0e !important;
-    color: #ffffff !important;
+    background-color: #000000 !important;
 }
 
 body.dark-mode header .logo, 
-body.dark-mode header .logo span, 
-body.dark-mode header a, 
+body.dark-mode header .logo-text, 
+body.dark-mode header a:not(.btn),
 [data-theme="dark"] header .logo, 
-[data-theme="dark"] header a {
+[data-theme="dark"] header .logo-text, 
+[data-theme="dark"] header a:not(.btn) {
     color: #ffffff !important;
 }
 </style>
