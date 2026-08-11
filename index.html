@@ -85,38 +85,57 @@
 }
 </style>
 <style>
-/* 1. Header & Hero Ko White Background Dena */
+/* 1. Header & Hero Section Background - White */
 body:not(.dark-mode) header, 
 body:not(.dark-mode) nav, 
+body:not(.dark-mode) .navbar,
 body:not(.dark-mode) .hero, 
+body:not(.dark-mode) #hero, 
+body:not(.dark-mode) .hero-section,
 body:not(.dark-mode) section:first-of-type {
     background-color: #ffffff !important;
     background: #ffffff !important;
 }
 
-/* 2. LOGO TEXT FORCE FIX: Logo ke har tag, text aur span ko dark color dena */
-body:not(.dark-mode) header *, 
-body:not(.dark-mode) .logo *, 
-body:not(.dark-mode) .logo-text *, 
+/* 2. Top Header / Logo Fix - CHAUDHARY ko Black karna */
+body:not(.dark-mode) header .logo, 
 body:not(.dark-mode) header a, 
-body:not(.dark-mode) header span {
+body:not(.dark-mode) header span:not(.gold-text) {
     color: #111111 !important;
 }
 
-/* 3. Gold Accent Text Maintain Rakhna (TILES Text Ke Liye) */
+/* 3. Hero Section Heading Fix - PREMIUM, FITTING, MARBLE & TILE */
+body:not(.dark-mode) .hero h1,
+body:not(.dark-mode) section:first-of-type h1,
+body:not(.dark-mode) .hero h1 *,
+body:not(.dark-mode) section:first-of-type h1 * {
+    color: #111111 !important; /* PREMIUM aur FITTING bilkul Pure Black dikhega */
+}
+
+/* Gold text (MARBLE & TILE aur 21 YEARS OF LEGACY) ko Gold hi rakhna */
+body:not(.dark-mode) .hero .gold-text,
+body:not(.dark-mode) section:first-of-type .gold-text,
 body:not(.dark-mode) header .gold-text,
-body:not(.dark-mode) header [class*="gold"],
-body:not(.dark-mode) header [class*="accent"] {
+body:not(.dark-mode) .gold {
     color: #d4af37 !important;
 }
 
-/* 4. Particles (Snowfall) Visibility Fix */
+/* 4. Description Text Fix - Jo Gray ho gaya tha usse Pure Black karna */
+body:not(.dark-mode) .hero p, 
+body:not(.dark-mode) section:first-of-type p,
+body:not(.dark-mode) .hero span,
+body:not(.dark-mode) section:first-of-type span {
+    color: #111111 !important;
+    font-weight: 500 !important; /* Text ko thoda sharp aur bold karne ke liye */
+}
+
+/* 5. 15 August Particles (Snowfall) Visibility Fix */
 .confetti {
     z-index: 99999 !important;
     box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
-/* 5. DARK MODE FIX: Toggle click hone par pure Black background par switch */
+/* 6. DARK MODE TOGGLE FIX - Switch karte hi poora theme Original Black ho jayega */
 body.dark-mode header, 
 body.dark-mode nav, 
 body.dark-mode .hero, 
@@ -126,8 +145,8 @@ body.dark-mode section:first-of-type {
 }
 
 body.dark-mode header *, 
-body.dark-mode .logo *, 
-body.dark-mode header a {
+body.dark-mode .hero *, 
+body.dark-mode section:first-of-type * {
     color: #ffffff !important;
 }
 </style>
