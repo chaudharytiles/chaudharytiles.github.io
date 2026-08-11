@@ -1243,19 +1243,19 @@ body.dark-mode #map-iframe {
         </a>
     </div>
 </section>
-<section id="calculator" class="section-padding" style="background: #000; color: #fff; padding: 80px 8%;">
+<section id="calculator" class="section-padding custom-calc-section">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">Investment Guide</span>
-        <h2 style="font-size: 2.5rem;">Labour <span class="gold-text">Cost Estimator</span></h2>
-        <p style="color: #888; font-size: 14px; margin-top: 10px;">Estimate based on your area.</p>
+        <h2 style="font-size: 2.5rem;" class="calc-main-title">Labour <span class="gold-text">Cost Estimator</span></h2>
+        <p class="calc-sub-text" style="font-size: 14px; margin-top: 10px;">Estimate based on your area.</p>
     </div>
 
-    <div class="glass-card" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; background: rgba(255,255,255,0.03); padding: 40px; border: 1px solid rgba(212,175,55,0.1); border-radius: 20px;">
+    <div class="glass-card calc-card-box" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 40px; border-radius: 20px;">
         
         <div>
             <div class="input-group" style="margin-bottom: 25px;">
-                <label style="display: block; color: var(--gold); font-size: 12px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px;">SELECT SERVICE</label>
-                <select id="calc-service" onchange="calcPrice()" style="width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 8px; outline: none; cursor: pointer;">
+                <label style="display: block; font-size: 12px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px;" class="gold-label">SELECT SERVICE</label>
+                <select id="calc-service" onchange="calcPrice()" class="calc-input-field" style="width: 100%; padding: 15px; border-radius: 8px; outline: none; cursor: pointer;">
                     <option value="45">Tile Fitting (₹45/sq.ft)</option>
                     <option value="250">Italian Marble Installation (₹250/sq.ft)</option>
                     <option value="200">Granite Slab Work (₹200/sq.ft)</option>
@@ -1263,13 +1263,13 @@ body.dark-mode #map-iframe {
                 </select>
             </div>
             <div class="input-group">
-                <label style="display: block; color: var(--gold); font-size: 12px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px;">AREA SIZE (SQ. FT.)</label>
-                <input type="number" id="calc-area" placeholder="e.g. 1000" oninput="calcPrice()" style="width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 8px; outline: none;">
+                <label style="display: block; font-size: 12px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px;" class="gold-label">AREA SIZE (SQ. FT.)</label>
+                <input type="number" id="calc-area" placeholder="e.g. 1000" oninput="calcPrice()" class="calc-input-field" style="width: 100%; padding: 15px; border-radius: 8px; outline: none;">
             </div>
         </div>
 
-        <div style="text-align: center; border-left: 1px solid #333; padding-left: 40px; display: flex; flex-direction: column; justify-content: center; min-height: 200px;">
-            <p style="font-size: 12px; letter-spacing: 2px; color: #aaa;">ESTIMATED LABOR TOTAL</p>
+        <div class="calc-right-box" style="text-align: center; border-left: 1px solid #ccc; padding-left: 40px; display: flex; flex-direction: column; justify-content: center; min-height: 200px;">
+            <p style="font-size: 12px; letter-spacing: 2px;" class="calc-est-label">ESTIMATED LABOR TOTAL</p>
             <h2 style="font-size: 4rem; color: #D4AF37; margin: 10px 0;">₹<span id="total-val">0</span></h2>
             
             <p style="font-size: 12px; color: #d9534f; background: rgba(217, 83, 79, 0.1); padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 10px;">
@@ -1278,9 +1278,63 @@ body.dark-mode #map-iframe {
         </div>
     </div>
 
-    <p style="text-align: center; margin-top: 30px; font-size: 13px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <p class="calc-note-text" style="text-align: center; margin-top: 30px; font-size: 13px; max-width: 600px; margin-left: auto; margin-right: auto;">
         *Note: Ye sirf ek approximate andaza hai. Stairs, Molding aur Design ke hisab se rates site visit par finalize honge.
     </p>
+
+    <style>
+    /* Light Mode Default Styling */
+    body:not(.dark-mode) .custom-calc-section {
+        background-color: #ffffff !important;
+        padding: 80px 8%;
+    }
+    body:not(.dark-mode) .calc-main-title {
+        color: #111111 !important;
+    }
+    body:not(.dark-mode) .calc-sub-text,
+    body:not(.dark-mode) .calc-est-label,
+    body:not(.dark-mode) .calc-note-text {
+        color: #444444 !important;
+    }
+    body:not(.dark-mode) .calc-card-box {
+        background: #f8f9fa !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    body:not(.dark-mode) .calc-input-field {
+        background: #ffffff !important;
+        border: 1px solid #cccccc !important;
+        color: #111111 !important;
+    }
+    body:not(.dark-mode) .calc-right-box {
+        border-left: 1px solid #ddd !important;
+    }
+
+    /* Dark Mode Styling (Toggle karne par) */
+    body.dark-mode .custom-calc-section {
+        background-color: #000000 !important;
+        padding: 80px 8%;
+    }
+    body.dark-mode .calc-main-title {
+        color: #ffffff !important;
+    }
+    body.dark-mode .calc-sub-text,
+    body.dark-mode .calc-est-label,
+    body.dark-mode .calc-note-text {
+        color: #888888 !important;
+    }
+    body.dark-mode .calc-card-box {
+        background: rgba(255,255,255,0.03) !important;
+        border: 1px solid rgba(212,175,55,0.1) !important;
+    }
+    body.dark-mode .calc-input-field {
+        background: #111111 !important;
+        border: 1px solid #333333 !important;
+        color: #ffffff !important;
+    }
+    body.dark-mode .calc-right-box {
+        border-left: 1px solid #333333 !important;
+    }
+    </style>
 </section>
 
 <script>
