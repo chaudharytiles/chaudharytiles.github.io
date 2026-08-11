@@ -85,47 +85,55 @@
 }
 </style>
 <style>
-/* 1. Global Background aur Text Light Theme ke liye */
-body:not(.dark-mode), 
-body:not([data-theme="dark"]), 
-body:not(.dark-mode) main, 
-body:not(.dark-mode) section, 
-body:not(.dark-mode) div {
+/* 1. HEADER & HERO SECTION FIX (Dono ko White karna) */
+body:not(.dark-mode) header, 
+body:not(.dark-mode) nav, 
+body:not(.dark-mode) .navbar,
+body:not(.dark-mode) .hero, 
+body:not(.dark-mode) #hero, 
+body:not(.dark-mode) .hero-section,
+body:not(.dark-mode) section:first-of-type {
     background-color: #ffffff !important;
+    background: #ffffff !important;
 }
 
-/* 2. White background par "PREMIUM" aur "FITTING" jaise white text ko Dark Gray/Black karna */
-body:not(.dark-mode) h1, 
-body:not(.dark-mode) h2, 
-body:not(.dark-mode) h3, 
-body:not(.dark-mode) p, 
-body:not(.dark-mode) span:not(.gold-text) {
+/* 2. LOGO & TEXT COLOR FIX */
+body:not(.dark-mode) header .logo, 
+body:not(.dark-mode) header .logo span, 
+body:not(.dark-mode) header a,
+body:not(.dark-mode) .hero h1, 
+body:not(.dark-mode) .hero p,
+body:not(.dark-mode) section:first-of-type h1,
+body:not(.dark-mode) section:first-of-type p {
     color: #111111 !important;
 }
 
-/* 3. Gold headings (MARBLE & TILE / 21 YEARS OF LEGACY) ko readable rakhna */
-body:not(.dark-mode) .gold-text,
-body:not(.dark-mode) h1 span,
-body:not(.dark-mode) h2 span {
-    color: #b8860b !important; /* Slightly darker gold for contrast on white background */
+/* Gold text accent ko maintain rakhna */
+body:not(.dark-mode) header .logo span,
+body:not(.dark-mode) .gold-text {
+    color: #d4af37 !important;
 }
 
-/* 4. DARK MODE FIX: Toggle switch par click karte hi sab wapas original Black ho jaye */
-body.dark-mode, 
-body.dark-mode main, 
-body.dark-mode section, 
-body.dark-mode div,
-[data-theme="dark"], 
-[data-theme="dark"] section {
+/* 3. CONFETTI (SNOWFALL) VISIBILITY FIX */
+/* Isse particles har layer ke upar visible honge aur unhe dark border milega */
+.confetti {
+    z-index: 99999 !important; /* Top priority layer */
+    box-shadow: 0 0 2px rgba(0,0,0,0.3); /* Safed confetti white bg par easily dikhega */
+}
+
+/* 4. DARK MODE TOGGLE FIX (Click karte hi pura header & hero black ho jayega) */
+body.dark-mode header, 
+body.dark-mode nav, 
+body.dark-mode .hero, 
+body.dark-mode section:first-of-type {
     background-color: #000000 !important;
+    background: #000000 !important;
 }
 
-body.dark-mode h1, 
-body.dark-mode h2, 
-body.dark-mode h3, 
-body.dark-mode p,
-[data-theme="dark"] h1, 
-[data-theme="dark"] p {
+body.dark-mode header .logo, 
+body.dark-mode header a, 
+body.dark-mode .hero h1, 
+body.dark-mode .hero p {
     color: #ffffff !important;
 }
 </style>
