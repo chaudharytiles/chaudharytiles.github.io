@@ -1882,6 +1882,46 @@ body {
   padding-top: 40px !important;
 }
 </style>
+    <style>
+/* Counter Section Light Mode Fix */
+body:not(.dark-mode) .counter,
+body:not(.dark-mode) .counters,
+body:not(.dark-mode) .counter-section,
+body:not(.dark-mode) .stats,
+body:not(.dark-mode) [class*="counter"],
+body:not(.dark-mode) [class*="stat"],
+body:not(.dark-mode) section[class*="counter"] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Counter ke labels (YEARS OF LEGACY, etc.) ko Black karna */
+body:not(.dark-mode) [class*="counter"] *,
+body:not(.dark-mode) [class*="stat"] * {
+    color: #111111 !important;
+}
+
+/* Counter Numbers (21+, 950+, etc.) ko Gold rakhna */
+body:not(.dark-mode) [class*="counter"] h2,
+body:not(.dark-mode) [class*="counter"] h3,
+body:not(.dark-mode) [class*="stat"] h2,
+body:not(.dark-mode) [class*="stat"] h3,
+body:not(.dark-mode) [class*="number"] {
+    color: #d4af37 !important;
+}
+
+/* Dark Mode Switch Fix */
+body.dark-mode [class*="counter"],
+body.dark-mode [class*="stat"] {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}
+
+body.dark-mode [class*="counter"] *,
+body.dark-mode [class*="stat"] * {
+    color: #ffffff !important;
+}
+</style>
 </body>
 </style>
 </html>
