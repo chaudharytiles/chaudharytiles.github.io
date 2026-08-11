@@ -84,48 +84,43 @@
     font-weight: bold;
 }
 </style>
-<style>
-/* 1. Force Header Background White (Light Mode) */
-body:not(.dark-mode) header, 
-body:not(.dark-mode) .navbar, 
-body:not([data-theme="dark"]) header, 
-body:not([data-theme="dark"]) .navbar {
-    background-color: #ffffff !important;
-}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Header element ko target karna
+    const header = document.querySelector("header") || document.querySelector("nav") || document.querySelector(".navbar");
+    
+    if (header) {
+        // Light Theme Force
+        if (!document.body.classList.contains("dark-mode") && document.body.getAttribute("data-theme") !== "dark") {
+            header.style.setProperty("background-color", "#ffffff", "important");
+            header.style.setProperty("background", "#ffffff", "important");
 
-/* 2. Force Logo/Header Text to Dark/Black (Light Mode) */
-/* Isse CHAUDHARY text jo gayab ho raha tha, wo Black ho jayega */
-body:not(.dark-mode) header .logo, 
-body:not(.dark-mode) header .logo span, 
-body:not(.dark-mode) header h1, 
-body:not(.dark-mode) header a,
-body:not([data-theme="dark"]) header .logo, 
-body:not([data-theme="dark"]) header a {
-    color: #222222 !important;
-}
+            // Header ke andar jitne bhi text/links hain unhe dark color dena
+            const allElements = header.querySelectorAll("*");
+            allElements.forEach(el => {
+                // Agar text "TILES" nahi hai toh usko black karna
+                if (!el.innerText.includes("TILES")) {
+                    el.style.setProperty("color", "#111111", "important");
+                } else {
+                    el.style.setProperty("color", "#d4af37", "important");
+                }
+            });
+        }
+    }
 
-/* 3. TILES ko Gold hi rakhein (Light Mode) */
-body:not(.dark-mode) header .logo span, 
-body:not([data-theme="dark"]) header .logo span {
-    color: #d4af37 !important;
-}
-
-/* 4. DARK MODE FIX: Toggle click karte hi sab kuch wapas Black/White ho jaye */
-body.dark-mode header, 
-body.dark-mode .navbar,
-[data-theme="dark"] header, 
-[data-theme="dark"] .navbar {
-    background-color: #000000 !important;
-}
-
-body.dark-mode header .logo, 
-body.dark-mode header .logo span, 
-body.dark-mode header a,
-[data-theme="dark"] header .logo, 
-[data-theme="dark"] header a {
-    color: #ffffff !important;
-}
-</style>
+    // Toggle button par listener taaki Toggle click karne par Wapas Dark ho jaye
+    const toggleBtn = document.querySelector(".theme-toggle, #theme-toggle, .dark-mode-toggle");
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", function() {
+            setTimeout(() => {
+                if (document.body.classList.contains("dark-mode") || document.body.getAttribute("data-theme") === "dark") {
+                    location.reload(); // Dark theme activate karne par page reload hokar original black ho jayega
+                }
+            }, 100);
+        });
+    }
+});
+</script>
 </head>
     <style>
         :root {
