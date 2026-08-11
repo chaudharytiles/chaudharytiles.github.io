@@ -1922,8 +1922,9 @@ body.dark-mode [class*="stat"] * {
     color: #ffffff !important;
 }
 </style>
-    <style>
-/* 1. Expertise Section Ka Main Background White Karna */
+ <style>
+/* 1. Outer Section Ka Poora Background White Karna */
+body:not(.dark-mode) section, 
 body:not(.dark-mode) .expertise,
 body:not(.dark-mode) .services,
 body:not(.dark-mode) [class*="expertise"],
@@ -1932,47 +1933,40 @@ body:not(.dark-mode) [class*="service"] {
     background: #ffffff !important;
 }
 
-/* 2. Headings Ka Text Black Karna (Luxury text ko black karna) */
+/* 2. Heading "Luxury" Text ko Black karna */
+body:not(.dark-mode) h1, 
+body:not(.dark-mode) h2, 
+body:not(.dark-mode) h3,
 body:not(.dark-mode) [class*="expertise"] h2,
-body:not(.dark-mode) [class*="expertise"] h3,
-body:not(.dark-mode) [class*="service"] h2,
-body:not(.dark-mode) [class*="service"] h3 {
+body:not(.dark-mode) [class*="service"] h2 {
     color: #111111 !important;
 }
 
-/* 3. Cards Ka Background (Italian Marble & Granite Cards) Off-White/Light Gray Karna */
-body:not(.dark-mode) [class*="expertise"] .card,
-body:not(.dark-mode) [class*="service"] .card,
-body:not(.dark-mode) [class*="expertise"] div[class*="card"],
-body:not(.dark-mode) [class*="service"] div[class*="card"] {
-    background-color: #f8f9fa !important;
-    border: 1px solid #e0e0e0 !important;
+/* 3. Cards ke Niche Ka Gray Text Pure Black Karna (Taaki Clearly Dikhe) */
+body:not(.dark-mode) p, 
+body:not(.dark-mode) span, 
+body:not(.dark-mode) .card p, 
+body:not(.dark-mode) [class*="card"] p,
+body:not(.dark-mode) [class*="card"] span {
+    color: #000000 !important;
+    opacity: 1 !important;
+    font-weight: 500 !important;
 }
 
-/* 4. Cards Ke Andar Ka Text Color Fix */
-body:not(.dark-mode) [class*="expertise"] .card h3,
-body:not(.dark-mode) [class*="expertise"] .card h4,
-body:not(.dark-mode) [class*="expertise"] .card p,
-body:not(.dark-mode) [class*="service"] .card h3,
-body:not(.dark-mode) [class*="service"] .card h4,
-body:not(.dark-mode) [class*="service"] .card p {
-    color: #111111 !important;
-}
-
-/* DARK MODE TOGGLE FIX: Switch dabaate hi ye section aur cards wapas dark ho jayenge */
-body.dark-mode [class*="expertise"],
-body.dark-mode [class*="service"] {
+/* 4. DARK MODE TOGGLE FIX */
+body.dark-mode section,
+body.dark-mode .expertise,
+body.dark-mode .services,
+body.dark-mode [class*="card"] {
     background-color: #000000 !important;
+    background: #000000 !important;
 }
 
-body.dark-mode [class*="expertise"] .card,
-body.dark-mode [class*="service"] .card {
-    background-color: #1a1a1a !important;
-}
-
-body.dark-mode [class*="expertise"] h2,
-body.dark-mode [class*="expertise"] .card h3,
-body.dark-mode [class*="expertise"] .card p {
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p, 
+body.dark-mode span {
     color: #ffffff !important;
 }
 </style>
