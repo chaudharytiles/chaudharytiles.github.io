@@ -2010,35 +2010,39 @@ body.dark-mode [class*="card"] * {
     color: #ffffff !important;
 }
 </style>
-    <style>
-/* 1. Default State: Features list ko pehle hide karna aur position shift karna */
-[class*="card"] ul,
-[class*="card"] .features-list,
-[class*="card"] li {
+<style>
+/* 1. Gallery/Portfolio Cards ke Overlay aur Overlay Text ko Default Hide karna */
+[class*="gallery"] [class*="overlay"],
+[class*="portfolio"] [class*="overlay"],
+[class*="service"] [class*="overlay"],
+[class*="card"] [class*="overlay"],
+[class*="card"] [class*="content"],
+[class*="gallery"] h3, [class*="gallery"] h4, [class*="gallery"] p, [class*="gallery"] span,
+[class*="portfolio"] h3, [class*="portfolio"] h4, [class*="portfolio"] p, [class*="portfolio"] span {
     opacity: 0 !important;
-    transform: translateY(10px);
-    transition: all 0.4s ease-in-out !important;
-    visibility: hidden;
+    visibility: hidden !important;
+    transform: translateY(20px) !important; /* Thoda niche rakhega */
+    transition: all 0.4s ease-in-out !important; /* Smooth animation time */
 }
 
-/* 2. Hover State: Cursor jaane par smoothly animate hokar visible hona */
-[class*="card"]:hover ul,
-[class*="card"]:hover .features-list,
-[class*="card"]:hover li {
+/* 2. Cursor/Hover Jaane par Smooth Slide-Up Animation ke saath Dikhana */
+[class*="gallery"] [class*="card"]:hover [class*="overlay"],
+[class*="portfolio"] [class*="card"]:hover [class*="overlay"],
+[class*="service"] [class*="card"]:hover [class*="overlay"],
+[class*="card"]:hover [class*="overlay"],
+[class*="card"]:hover [class*="content"],
+[class*="card"]:hover h3, [class*="card"]:hover h4, [class*="card"]:hover p, [class*="card"]:hover span,
+[class*="gallery"] div:hover h3, [class*="gallery"] div:hover p {
     opacity: 1 !important;
-    transform: translateY(0);
-    visibility: visible;
+    visibility: visible !important;
+    transform: translateY(0) !important; /* Apni jagah par slide-up ho jayega */
 }
 
-/* 3. Hover hone par text color light/dark mode dono mein clear dikhe */
-body:not(.dark-mode) [class*="card"]:hover li,
-body:not(.dark-mode) [class*="card"]:hover p {
-    color: #111111 !important;
-}
-
-body.dark-mode [class*="card"]:hover li,
-body.dark-mode [class*="card"]:hover p {
-    color: #ffffff !important;
+/* 3. Card ke Background Image/Overlay ko Hover par thoda dark/zoom karna */
+[class*="card"]:hover img,
+[class*="gallery"] div:hover img {
+    transform: scale(1.05) !important; /* Light zoom effect */
+    transition: transform 0.4s ease !important;
 }
 </style>
 </body>
