@@ -2011,38 +2011,34 @@ body.dark-mode [class*="card"] * {
 }
 </style>
 <style>
-/* 1. Gallery/Portfolio Cards ke Overlay aur Overlay Text ko Default Hide karna */
-[class*="gallery"] [class*="overlay"],
-[class*="portfolio"] [class*="overlay"],
-[class*="service"] [class*="overlay"],
-[class*="card"] [class*="overlay"],
-[class*="card"] [class*="content"],
-[class*="gallery"] h3, [class*="gallery"] h4, [class*="gallery"] p, [class*="gallery"] span,
-[class*="portfolio"] h3, [class*="portfolio"] h4, [class*="portfolio"] p, [class*="portfolio"] span {
+/* 1. Direct Parent Grid/Gallery Container ke andar ke saare Text Elements ko Default Hide Karna */
+section div[class*="grid"] > div *,
+section div[class*="gallery"] > div *,
+section div[class*="portfolio"] > div * {
     opacity: 0 !important;
     visibility: hidden !important;
-    transform: translateY(20px) !important; /* Thoda niche rakhega */
-    transition: all 0.4s ease-in-out !important; /* Smooth animation time */
+    transform: translateY(15px) !important;
+    transition: all 0.35s ease-in-out !important;
 }
 
-/* 2. Cursor/Hover Jaane par Smooth Slide-Up Animation ke saath Dikhana */
-[class*="gallery"] [class*="card"]:hover [class*="overlay"],
-[class*="portfolio"] [class*="card"]:hover [class*="overlay"],
-[class*="service"] [class*="card"]:hover [class*="overlay"],
-[class*="card"]:hover [class*="overlay"],
-[class*="card"]:hover [class*="content"],
-[class*="card"]:hover h3, [class*="card"]:hover h4, [class*="card"]:hover p, [class*="card"]:hover span,
-[class*="gallery"] div:hover h3, [class*="gallery"] div:hover p {
+/* 2. Jab Cursor Parent Card par jaaye, tabhi saara Text (Title, Subtitle, Badges) Dikhna */
+section div[class*="grid"] > div:hover *,
+section div[class*="gallery"] > div:hover *,
+section div[class*="portfolio"] > div:hover * {
     opacity: 1 !important;
     visibility: visible !important;
-    transform: translateY(0) !important; /* Apni jagah par slide-up ho jayega */
+    transform: translateY(0) !important;
 }
 
-/* 3. Card ke Background Image/Overlay ko Hover par thoda dark/zoom karna */
-[class*="card"]:hover img,
-[class*="gallery"] div:hover img {
-    transform: scale(1.05) !important; /* Light zoom effect */
+/* 3. Image Hover Zoom Effect (Clean look ke liye) */
+section div[class*="grid"] > div img,
+section div[class*="gallery"] > div img {
     transition: transform 0.4s ease !important;
+}
+
+section div[class*="grid"] > div:hover img,
+section div[class*="gallery"] > div:hover img {
+    transform: scale(1.05) !important;
 }
 </style>
 </body>
