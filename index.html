@@ -84,68 +84,49 @@
     font-weight: bold;
 }
 </style>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Header element ko target karna
-    const header = document.querySelector("header") || document.querySelector("nav") || document.querySelector(".navbar");
-    
-    if (header) {
-        // Light Theme Force
-        if (!document.body.classList.contains("dark-mode") && document.body.getAttribute("data-theme") !== "dark") {
-            header.style.setProperty("background-color", "#ffffff", "important");
-            header.style.setProperty("background", "#ffffff", "important");
-
-            // Header ke andar jitne bhi text/links hain unhe dark color dena
-            const allElements = header.querySelectorAll("*");
-            allElements.forEach(el => {
-                // Agar text "TILES" nahi hai toh usko black karna
-                if (!el.innerText.includes("TILES")) {
-                    el.style.setProperty("color", "#111111", "important");
-                } else {
-                    el.style.setProperty("color", "#d4af37", "important");
-                }
-            });
-        }
-    }
-
-    // Toggle button par listener taaki Toggle click karne par Wapas Dark ho jaye
-    const toggleBtn = document.querySelector(".theme-toggle, #theme-toggle, .dark-mode-toggle");
-    if (toggleBtn) {
-        toggleBtn.addEventListener("click", function() {
-            setTimeout(() => {
-                if (document.body.classList.contains("dark-mode") || document.body.getAttribute("data-theme") === "dark") {
-                    location.reload(); // Dark theme activate karne par page reload hokar original black ho jayega
-                }
-            }, 100);
-        });
-    }
-});
-</script>
-    <style>
-/* Hero section ko light mode mein white/light background dene ke liye */
-body:not(.dark-mode) .hero, 
-body:not(.dark-mode) #hero, 
-body:not(.dark-mode) .hero-section, 
-body:not(.dark-mode) main section:first-of-type {
-    background-color: #fcfcfc !important;
-    background: #fcfcfc !important;
+<style>
+/* 1. Global Background aur Text Light Theme ke liye */
+body:not(.dark-mode), 
+body:not([data-theme="dark"]), 
+body:not(.dark-mode) main, 
+body:not(.dark-mode) section, 
+body:not(.dark-mode) div {
+    background-color: #ffffff !important;
 }
 
-/* Hero section ke andar ke text color ko adjust karne ke liye */
-body:not(.dark-mode) .hero p, 
-body:not(.dark-mode) .hero h1, 
-body:not(.dark-mode) .hero h2, 
-body:not(.dark-mode) .hero span {
-    color: #222222 !important;
+/* 2. White background par "PREMIUM" aur "FITTING" jaise white text ko Dark Gray/Black karna */
+body:not(.dark-mode) h1, 
+body:not(.dark-mode) h2, 
+body:not(.dark-mode) h3, 
+body:not(.dark-mode) p, 
+body:not(.dark-mode) span:not(.gold-text) {
+    color: #111111 !important;
 }
 
-/* Dark mode toggle dabane par wapas original black ho jaye */
-body.dark-mode .hero, 
-body.dark-mode #hero, 
-body.dark-mode .hero-section, 
-body.dark-mode main section:first-of-type {
+/* 3. Gold headings (MARBLE & TILE / 21 YEARS OF LEGACY) ko readable rakhna */
+body:not(.dark-mode) .gold-text,
+body:not(.dark-mode) h1 span,
+body:not(.dark-mode) h2 span {
+    color: #b8860b !important; /* Slightly darker gold for contrast on white background */
+}
+
+/* 4. DARK MODE FIX: Toggle switch par click karte hi sab wapas original Black ho jaye */
+body.dark-mode, 
+body.dark-mode main, 
+body.dark-mode section, 
+body.dark-mode div,
+[data-theme="dark"], 
+[data-theme="dark"] section {
     background-color: #000000 !important;
-    background: #000000 !important;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p,
+[data-theme="dark"] h1, 
+[data-theme="dark"] p {
+    color: #ffffff !important;
 }
 </style>
 </head>
