@@ -85,43 +85,38 @@
 }
 </style>
 <style>
-/* 1. HEADER & HERO SECTION FIX (Dono ko White karna) */
+/* 1. Header & Hero Ko White Background Dena */
 body:not(.dark-mode) header, 
 body:not(.dark-mode) nav, 
-body:not(.dark-mode) .navbar,
 body:not(.dark-mode) .hero, 
-body:not(.dark-mode) #hero, 
-body:not(.dark-mode) .hero-section,
 body:not(.dark-mode) section:first-of-type {
     background-color: #ffffff !important;
     background: #ffffff !important;
 }
 
-/* 2. LOGO & TEXT COLOR FIX */
-body:not(.dark-mode) header .logo, 
-body:not(.dark-mode) header .logo span, 
-body:not(.dark-mode) header a,
-body:not(.dark-mode) .hero h1, 
-body:not(.dark-mode) .hero p,
-body:not(.dark-mode) section:first-of-type h1,
-body:not(.dark-mode) section:first-of-type p {
+/* 2. LOGO TEXT FORCE FIX: Logo ke har tag, text aur span ko dark color dena */
+body:not(.dark-mode) header *, 
+body:not(.dark-mode) .logo *, 
+body:not(.dark-mode) .logo-text *, 
+body:not(.dark-mode) header a, 
+body:not(.dark-mode) header span {
     color: #111111 !important;
 }
 
-/* Gold text accent ko maintain rakhna */
-body:not(.dark-mode) header .logo span,
-body:not(.dark-mode) .gold-text {
+/* 3. Gold Accent Text Maintain Rakhna (TILES Text Ke Liye) */
+body:not(.dark-mode) header .gold-text,
+body:not(.dark-mode) header [class*="gold"],
+body:not(.dark-mode) header [class*="accent"] {
     color: #d4af37 !important;
 }
 
-/* 3. CONFETTI (SNOWFALL) VISIBILITY FIX */
-/* Isse particles har layer ke upar visible honge aur unhe dark border milega */
+/* 4. Particles (Snowfall) Visibility Fix */
 .confetti {
-    z-index: 99999 !important; /* Top priority layer */
-    box-shadow: 0 0 2px rgba(0,0,0,0.3); /* Safed confetti white bg par easily dikhega */
+    z-index: 99999 !important;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
-/* 4. DARK MODE TOGGLE FIX (Click karte hi pura header & hero black ho jayega) */
+/* 5. DARK MODE FIX: Toggle click hone par pure Black background par switch */
 body.dark-mode header, 
 body.dark-mode nav, 
 body.dark-mode .hero, 
@@ -130,10 +125,9 @@ body.dark-mode section:first-of-type {
     background: #000000 !important;
 }
 
-body.dark-mode header .logo, 
-body.dark-mode header a, 
-body.dark-mode .hero h1, 
-body.dark-mode .hero p {
+body.dark-mode header *, 
+body.dark-mode .logo *, 
+body.dark-mode header a {
     color: #ffffff !important;
 }
 </style>
