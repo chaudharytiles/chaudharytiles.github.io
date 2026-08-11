@@ -121,6 +121,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
+    <style>
+/* Hero section ko light mode mein white/light background dene ke liye */
+body:not(.dark-mode) .hero, 
+body:not(.dark-mode) #hero, 
+body:not(.dark-mode) .hero-section, 
+body:not(.dark-mode) main section:first-of-type {
+    background-color: #fcfcfc !important;
+    background: #fcfcfc !important;
+}
+
+/* Hero section ke andar ke text color ko adjust karne ke liye */
+body:not(.dark-mode) .hero p, 
+body:not(.dark-mode) .hero h1, 
+body:not(.dark-mode) .hero h2, 
+body:not(.dark-mode) .hero span {
+    color: #222222 !important;
+}
+
+/* Dark mode toggle dabane par wapas original black ho jaye */
+body.dark-mode .hero, 
+body.dark-mode #hero, 
+body.dark-mode .hero-section, 
+body.dark-mode main section:first-of-type {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}
+</style>
 </head>
     <style>
         :root {
