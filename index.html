@@ -2157,6 +2157,26 @@ body.dark-mode p, body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.
     color: #ffffff !important;
 }
 </style>
+    <script>
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Unhide all AOS hidden elements
+    document.querySelectorAll('[data-aos]').forEach(el => {
+        el.removeAttribute('data-aos');
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.transform = 'none';
+    });
+
+    // 2. Unhide elements stuck with opacity: 0
+    document.querySelectorAll('*').forEach(el => {
+        const computed = window.getComputedStyle(el);
+        if (computed.opacity === '0' || computed.visibility === 'hidden') {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+        }
+    });
+});
+</script>
 </body>
 </style>
 </html>
