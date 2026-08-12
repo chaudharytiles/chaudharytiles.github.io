@@ -2248,6 +2248,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+    <style>
+/* =========================================================
+   CARDS & TEXT VISIBILITY OVERRIDE (EXACT FIX)
+   ========================================================= */
+
+/* 1. Un-hide elements & Force text color to white inside cards */
+div[class*="card"], 
+div[class*="grid"] > div, 
+div[class*="gallery"] > div, 
+div[class*="portfolio"] > div,
+section div[class*="box"] {
+    background-color: #1a1a1a !important;
+}
+
+/* 2. Cards ke andar ka SARA Text Pure White karna */
+div[class*="card"] *, 
+div[class*="grid"] > div *, 
+div[class*="gallery"] > div *, 
+div[class*="portfolio"] > div *,
+section div[class*="box"] * {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 3. Sub-text aur Notes ko Light Gray karna taaki readable rahein */
+div[class*="card"] p, 
+div[class*="grid"] p, 
+div[class*="card"] small, 
+div[class*="card"] span {
+    color: #cccccc !important;
+}
+
+/* 4. Headings aur Gold Elements preserve karna */
+div[class*="card"] h1, 
+div[class*="card"] h2, 
+div[class*="card"] h3, 
+div[class*="card"] h4,
+.gold-text, 
+[class*="gold"] {
+    color: #d4af37 !important;
+}
+
+/* 5. Icons & FontAwesome Boxes Fix (Square Box issue hatane ke liye) */
+i, .fas, .fab, .far {
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", sans-serif !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+</style>
 </body>
 </style>
 </html>
