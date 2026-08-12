@@ -1871,291 +1871,183 @@ document.addEventListener('DOMContentLoaded', () => {
         transform: translateY(100vh) rotate(360deg);
     }
 }
-</style>
-    <!-- Independence Day Banner -->
+<!-- Google Review Badge Section -->
+<section style="padding: 40px 0; background: var(--light-bg); text-align: center; border-top: 1px solid rgba(212,175,55,0.1);">
+    <div class="google-badge-container">
+        <div class="google-card">
+           <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google" width="30" height="30" style="object-fit: contain;">
+            <div class="rating-info">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p><strong>5.0 Rating</strong> on Google Business</p>
+            </div>
+            <a href="https://g.page/r/CdLlAuKhaVzvEBM/review" target="_blank" class="review-btn">Write a Review</a>
+        </div>
+    </div>
+</section>
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <div class="logo-text-header" style="margin-bottom: 20px;">CHAUDHARY <span class="gold-text">TILES</span></div>
+            <p style="font-size: 14px; color: #aaa; line-height: 1.8;">
+                Gurugram's leading specialists in Italian Marble & Premium Tile installation.
+            </p>
+            <div class="social-icons">
+                <a href="#" class="gold-text"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="gold-text"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="gold-text"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="blog.html">Latest Blogs</a></li> 
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#rates">Price List</a></li>
+                <li><a href="#calculator">Estimator</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4 class="footer-heading">Get In Touch</h4>
+            <ul class="footer-list">
+                <li><i class="fas fa-clock"></i> Mon-Sat: 9-5:30</li>
+                <li><i class="fas fa-envelope gold-text"></i> 
+                    <a href="mailto:chaudharytilesofficial0@gmail.com" class="footer-email">Email Us</a>
+                </li>
+                <li class="gold-text"><i class="fas fa-headset"></i> 24/7 Support</li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4 class="footer-heading">Trusted By</h4>
+            <div class="trusted-grid">
+                <div class="trust-box">ISO 9001:2015</div>
+                <div class="trust-box">GST REGISTERED</div>
+                <div class="trust-box">MSME CERTIFIED</div>
+                <div class="trust-box">GURUGRAM NO.1</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Chaudhary Tiles & Stone.</p>
+        <p>Crafted for Excellence <i class="fas fa-heart gold-text"></i></p>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/917827692023?text=Hi%20Chaudhary%20Tiles,%20mujhe%20apne%20home%20ke%20liye%20tiles%20ka%20estimate%20chahiye." 
+   class="whatsapp-footer" 
+   target="_blank">
+    <div class="wa-bubble">Hi! Tiles ka estimate chahiye? 👋</div>
+    <div class="wa-icon">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+</a>
+
+<!-- Independence Day Banner -->
 <div class="i-day-banner">
-  <span>🇮🇳 Happy Independence Day! Special Site Visit Discounts Available This August 15 🇮🇳</span>
+    <span>🇮🇳 Happy Independence Day! Special Site Visit Discounts Available This August 15 🇮🇳</span>
 </div>
 
+<!-- All CSS Styles Combined -->
 <style>
+/* Base Footer Styles */
+.main-footer {
+    background: #000; 
+    color: #fff; 
+    padding: 60px 8% 20px; 
+    border-top: 1px solid rgba(212, 175, 55, 0.3); 
+    font-family: 'Poppins', sans-serif;
+}
+.footer-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 40px; 
+    margin-bottom: 40px;
+}
+.footer-heading { margin-bottom: 20px; font-size: 18px; color: #fff; }
+.footer-list { font-size: 14px; color: #aaa; list-style: none; padding: 0; }
+.footer-list li { margin-bottom: 10px; }
+.footer-list a { text-decoration: none; color: inherit; transition: 0.3s; }
+.footer-list a:hover { color: #D4AF37; }
+.social-icons { margin-top: 20px; display: flex; gap: 15px; }
+.trusted-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; opacity: 0.7; }
+.trust-box { border: 1px solid #333; padding: 8px; text-align: center; font-size: 10px; text-transform: uppercase; }
+.footer-bottom { border-top: 1px solid #222; padding-top: 20px; display: flex; justify-content: space-between; font-size: 12px; color: #666; flex-wrap: wrap; }
+.footer-email { text-decoration: none; color: #D4AF37 !important; font-weight: 500; font-size: 12px; }
+
+/* Responsive Mobile Rules */
+@media (max-width: 600px) {
+    .main-footer { padding: 30px 5% 15px !important; }
+    .footer-grid { 
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 15px !important; 
+        margin-bottom: 20px !important;
+    }
+    .footer-section:first-child { 
+        grid-column: span 2; 
+        text-align: left;
+        border-bottom: 1px solid #222;
+        padding-bottom: 15px;
+    }
+    .trusted-grid { grid-template-columns: 1fr 1fr !important; gap: 5px !important; }
+    .trust-box { padding: 5px 2px !important; font-size: 8px !important; }
+}
+
+/* Independence Day Banner */
 .i-day-banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(135deg, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%);
-  color: #000080;
-  text-align: center;
-  padding: 10px 15px;
-  font-weight: bold;
-  font-size: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-  z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%);
+    color: #000080;
+    text-align: center;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    z-index: 999;
 }
+body { padding-top: 40px !important; }
 
-/* Header/Website ko niche khiskane ke liye */
-body {
-  padding-top: 40px !important;
-}
-</style>
-    <style>
-/* Counter Section Light Mode Fix */
-body:not(.dark-mode) .counter,
-body:not(.dark-mode) .counters,
-body:not(.dark-mode) .counter-section,
-body:not(.dark-mode) .stats,
-body:not(.dark-mode) [class*="counter"],
-body:not(.dark-mode) [class*="stat"],
-body:not(.dark-mode) section[class*="counter"] {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-}
+/* Theme Settings (Light/Dark Mode) */
+body:not(.dark-mode) { background-color: #ffffff; color: #111111; }
+body.dark-mode { background-color: #0a0a0a !important; color: #ffffff !important; }
+body.dark-mode section { background-color: #0a0a0a !important; }
 
-/* Counter ke labels (YEARS OF LEGACY, etc.) ko Black karna */
-body:not(.dark-mode) [class*="counter"] *,
-body:not(.dark-mode) [class*="stat"] * {
-    color: #111111 !important;
-}
+/* Counter Section Formatting */
+body:not(.dark-mode) [class*="counter"], body:not(.dark-mode) [class*="stat"] { background-color: #ffffff !important; }
+body:not(.dark-mode) [class*="counter"] *, body:not(.dark-mode) [class*="stat"] * { color: #111111 !important; }
+body:not(.dark-mode) [class*="counter"] h2, body:not(.dark-mode) [class*="counter"] h3 { color: #d4af37 !important; }
+body.dark-mode [class*="counter"], body.dark-mode [class*="stat"] { background-color: #000000 !important; }
 
-/* Counter Numbers (21+, 950+, etc.) ko Gold rakhna */
-body:not(.dark-mode) [class*="counter"] h2,
-body:not(.dark-mode) [class*="counter"] h3,
-body:not(.dark-mode) [class*="stat"] h2,
-body:not(.dark-mode) [class*="stat"] h3,
-body:not(.dark-mode) [class*="number"] {
-    color: #d4af37 !important;
-}
+/* Accents & Icons */
+.gold-text, .gold-label, [class*="gold"] { color: #d4af37 !important; }
+i, .fas, .fab, .far { font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", sans-serif; display: inline-block; }
 
-/* Dark Mode Switch Fix */
-body.dark-mode [class*="counter"],
-body.dark-mode [class*="stat"] {
-    background-color: #000000 !important;
-    background: #000000 !important;
+/* Confetti */
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 9998;
+    pointer-events: none;
+    animation: fall linear infinite;
 }
+@keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
 
-body.dark-mode [class*="counter"] *,
-body.dark-mode [class*="stat"] * {
-    color: #ffffff !important;
-}
-</style>
-
- <style>
-/* Light/Dark Mode Fix */
-body.dark-mode {
-    background-color: #0a0a0a !important;
-    color: #ffffff !important;
-}
-
-body.dark-mode section {
-    background-color: #0a0a0a !important;
-}
-
-body.dark-mode p, 
-body.dark-mode h1, 
-body.dark-mode h2, 
-body.dark-mode h3, 
-body.dark-mode h4, 
-body.dark-mode span, 
-body.dark-mode li {
-    color: #ffffff !important;
-}
-</style>
-<style>
-    /* Cards ke andar ka text hamesha visible rahega */
-section div[class*="grid"] > div *,
-section div[class*="gallery"] > div *,
-section div[class*="portfolio"] > div * {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-}
-
-/* Base card background clean look */
-.card, [class*="card"], div[class*="grid"] > div {
-    background-color: #111111;
-    color: #ffffff;
-}
-/* 2. Jab Cursor Parent Card par jaaye, tabhi saara Text (Title, Subtitle, Badges) Dikhna */
-section div[class*="grid"] > div:hover *,
-section div[class*="gallery"] > div:hover *,
-section div[class*="portfolio"] > div:hover * {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-}
-
-/* 3. Image Hover Zoom Effect (Clean look ke liye) */
-section div[class*="grid"] > div img,
-section div[class*="gallery"] > div img {
-    transition: transform 0.4s ease !important;
-}
-
-section div[class*="grid"] > div:hover img,
-section div[class*="gallery"] > div:hover img {
-    transform: scale(1.05) !important;
-}
-</style>
-<style>
-/* 1. Header Layout Alignment Protection */
-header, .navbar, nav {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-}
-
-/* 2. Scroll Animation Hidden Fix (Founder, Reviews, Cards ko display karana) */
-[data-aos], .aos-init, [style*="opacity: 0"] {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-}
-
-/* 3. Light Mode Theme Settings (Default View) */
-body:not(.dark-mode) {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-}
-
-body:not(.dark-mode) section:not(footer) {
-    background-color: #ffffff !important;
-}
-
-body:not(.dark-mode) section:not(footer) p,
-body:not(.dark-mode) section:not(footer) span:not(.gold-text):not(.gold-label),
-body:not(.dark-mode) section:not(footer) h1,
-body:not(.dark-mode) section:not(footer) h2,
-body:not(.dark-mode) section:not(footer) h3,
-body:not(.dark-mode) section:not(footer) h4,
-body:not(.dark-mode) section:not(footer) li {
-    color: #111111 !important;
-}
-
-/* 4. Footer Dark Background Protection */
-footer, [class*="footer"] {
-    background-color: #050505 !important;
-}
-
-footer p, footer span, footer a, footer li {
-    color: #cccccc !important;
-}
-
-footer h1, footer h2, footer h3, footer h4, .gold-text {
-    color: #d4af37 !important;
-}
-
-/* 5. Dark Mode Toggle Click States */
-body.dark-mode {
-    background-color: #0a0a0a !important;
-    color: #ffffff !important;
-}
-
-body.dark-mode section {
-    background-color: #0a0a0a !important;
-}
-
-body.dark-mode p, body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode span, body.dark-mode li {
-    color: #ffffff !important;
-}
-</style>
-    <script>
-window.addEventListener('DOMContentLoaded', () => {
-    // 1. Unhide all AOS hidden elements
-    document.querySelectorAll('[data-aos]').forEach(el => {
-        el.removeAttribute('data-aos');
-        el.style.opacity = '1';
-        el.style.visibility = 'visible';
-        el.style.transform = 'none';
-    });
-
-    // 2. Unhide elements stuck with opacity: 0
-    document.querySelectorAll('*').forEach(el => {
-        const computed = window.getComputedStyle(el);
-        if (computed.opacity === '0' || computed.visibility === 'hidden') {
-            el.style.opacity = '1';
-            el.style.visibility = 'visible';
-        }
-    });
-});
-</script>
-    /* PERFECT THEME FIX (Only replace this in your style tag) */
-
-/* 1. Light Mode Default Text & Background */
-body:not(.dark-mode) {
-    background-color: #ffffff;
-    color: #111111;
-}
-
-body:not(.dark-mode) section:not([style*="background: #000"]):not([style*="background: #111"]) {
-    background-color: #ffffff;
-}
-
-/* 2. Dark Mode Toggle State */
-body.dark-mode {
-    background-color: #0a0a0a !important;
-    color: #ffffff !important;
-}
-
-body.dark-mode section {
-    background-color: #0a0a0a !important;
-}
-
-body.dark-mode p, 
-body.dark-mode h1, 
-body.dark-mode h2, 
-body.dark-mode h3, 
-body.dark-mode h4, 
-body.dark-mode span, 
-body.dark-mode li {
-    color: #ffffff !important;
-}
-
-/* 3. Gold Accent Color Preservation */
-.gold-text, .gold-label, [class*="gold"] {
-    color: #d4af37 !important;
-}
-    <!-- COMPLETE UNIVERSAL FIX FOR ALL BLACK SECTIONS & WHATSAPP BUTTON -->
-<style>
-/* 1. Global Visibility Fix - Sabhi hidden/black content ko show karne ke liye */
-[data-aos], .aos-init, [style*="opacity: 0"],
-section *, div *, p, span, h1, h2, h3, h4, li, i {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-}
-
-/* 2. Cards, Stairs, Expert Tips & Founder Box Content Background & Text Fix */
-.card, [class*="card"], 
-div[class*="grid"] > div, 
-div[class*="gallery"] > div,
-.founder-section, .expertise-card, .tip-card, .step-card {
-    background-color: #1a1a1a !important;
-    border: 1px solid #333333 !important;
-    border-radius: 12px !important;
-    padding: 20px !important;
-}
-
-/* Text visibility inside all cards */
-.card *, [class*="card"] *, 
-div[class*="grid"] > div *, 
-div[class*="gallery"] > div *,
-.founder-section *, .expertise-card *, .tip-card *, .step-card * {
-    color: #ffffff !important;
-}
-
-/* Paragraphs & Subtitles ko readable Light Gray banana */
-.card p, [class*="card"] p, 
-div[class*="grid"] p, .founder-section p, 
-.expertise-card p, .tip-card p, small, span {
-    color: #dddddd !important;
-}
-
-/* Gold Text preserve karna */
-.gold-text, [class*="gold"], .badge, h1, h2, h3 {
-    color: #d4af37 !important;
-}
-
-/* 3. WhatsApp Floating Button Fix (No Black Box) */
+/* Floating WhatsApp Fix */
 .whatsapp-footer {
     position: fixed !important;
     bottom: 20px !important;
@@ -2166,11 +2058,7 @@ div[class*="grid"] p, .founder-section p,
     z-index: 99999 !important;
     text-decoration: none !important;
     background: transparent !important;
-    width: auto !important;
-    height: auto !important;
-    box-shadow: none !important;
 }
-
 .wa-bubble {
     background: #ffffff !important;
     color: #111111 !important;
@@ -2179,9 +2067,7 @@ div[class*="grid"] p, .founder-section p,
     font-size: 13px !important;
     font-weight: 600 !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-    white-space: nowrap !important;
 }
-
 .wa-icon {
     width: 48px !important;
     height: 48px !important;
@@ -2192,91 +2078,104 @@ div[class*="grid"] p, .founder-section p,
     justify-content: center !important;
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
 }
-
-.wa-icon i {
-    color: #ffffff !important;
-    font-size: 24px !important;
-}
+.wa-icon i { color: #ffffff !important; font-size: 24px !important; }
 </style>
 
+<!-- Combined Scripts -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Forcefully remove stuck AOS animation classes
-    document.querySelectorAll('*').forEach(el => {
+    // 1. Unhide stuck AOS elements
+    document.querySelectorAll('[data-aos]').forEach(el => {
         el.removeAttribute('data-aos');
-        if (getComputedStyle(el).opacity === '0') {
-            el.style.opacity = '1';
-            el.style.visibility = 'visible';
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.transform = 'none';
+    });
+
+    // 2. Confetti Effect
+    const colors = ['#FF9933', '#FFFFFF', '#138808'];
+    for (let i = 0; i < 25; i++) {
+        let confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        confetti.style.opacity = Math.random();
+        document.body.appendChild(confetti);
+    }
+});
+
+// Price Estimator
+function calcPrice() {
+    const rate = document.getElementById('calc-service')?.value || 0;
+    const area = document.getElementById('calc-area')?.value || 0;
+    const totalVal = document.getElementById('total-val');
+    if(totalVal) {
+        totalVal.innerText = (area > 0) ? (rate * area).toLocaleString('en-IN') : "0";
+    }
+}
+
+// Dark Mode Toggle
+const darkToggle = document.getElementById('darkToggle');
+if(darkToggle) {
+    darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const icon = darkToggle.querySelector('i');
+        if(icon) {
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
         }
     });
-});
-</script>
-    <style>
-/* =========================================================
-   CARDS & TEXT VISIBILITY OVERRIDE (EXACT FIX)
-   ========================================================= */
-
-/* 1. Un-hide elements & Force text color to white inside cards */
-div[class*="card"], 
-div[class*="grid"] > div, 
-div[class*="gallery"] > div, 
-div[class*="portfolio"] > div,
-section div[class*="box"] {
-    background-color: #1a1a1a !important;
 }
 
-/* 2. Cards ke andar ka SARA Text Pure White karna */
-div[class*="card"] *, 
-div[class*="grid"] > div *, 
-div[class*="gallery"] > div *, 
-div[class*="portfolio"] > div *,
-section div[class*="box"] * {
-    color: #ffffff !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
+// Counters Animation Logic
+const counters = document.querySelectorAll('.counter');
+const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const currentCount = +counter.innerText.replace(/[^\d]/g, '') || 0;
+    const increment = target / 100;
 
-/* 3. Sub-text aur Notes ko Light Gray karna taaki readable rahein */
-div[class*="card"] p, 
-div[class*="grid"] p, 
-div[class*="card"] small, 
-div[class*="card"] span {
-    color: #cccccc !important;
-}
+    if (currentCount < target) {
+        counter.innerText = Math.ceil(currentCount + increment);
+        setTimeout(() => animateCounter(counter), 20);
+    } else {
+        counter.innerText = (target === 100) ? "100%" : target + "+";
+    }
+};
 
-/* 4. Headings aur Gold Elements preserve karna */
-div[class*="card"] h1, 
-div[class*="card"] h2, 
-div[class*="card"] h3, 
-div[class*="card"] h4,
-.gold-text, 
-[class*="gold"] {
-    color: #d4af37 !important;
-}
-
-/* 5. Icons & FontAwesome Boxes Fix (Square Box issue hatane ke liye) */
-i, .fas, .fab, .far {
-    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", sans-serif !important;
-    display: inline-block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-</style>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Forcefully fix inline black colors inside all cards
-    const cardElements = document.querySelectorAll('.card, [class*="card"], [class*="grid"] > div, [class*="gallery"] > div, .founder-section, .expertise-card, .tip-card');
-    
-    cardElements.forEach(card => {
-        card.querySelectorAll('*').forEach(el => {
-            // Remove any inline black color
-            el.style.color = '#ffffff';
-            el.style.opacity = '1';
-            el.style.visibility = 'visible';
-        });
+const generalObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (entry.target.classList.contains('counter')) {
+                animateCounter(entry.target);
+                generalObserver.unobserve(entry.target);
+            }
+        }
     });
-});
+}, { threshold: 0.2 });
+
+counters.forEach(c => generalObserver.observe(c));
+
+// Booking Form Handler
+const bookingForm = document.getElementById('bookingForm');
+if(bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('custName')?.value || '';
+        const phone = document.getElementById('custPhone')?.value || '';
+        const service = document.getElementById('custService')?.value || '';
+        const location = document.getElementById('custAddr')?.value || '';
+
+        const message = `*NEW SITE VISIT REQUEST*%0A` +
+                        `--------------------------%0A` +
+                        `*Client:* ${name}%0A` +
+                        `*Phone:* ${phone}%0A` +
+                        `*Service:* ${service}%0A` +
+                        `*Location:* ${location}%0A` +
+                        `--------------------------%0A` +
+                        `Sent from ChaudharyTiles.com`;
+
+        window.open(`https://wa.me/917827692023?text=${message}`, '_blank');
+    });
+}
 </script>
-</body>
-</style>
-</html>
