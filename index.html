@@ -1999,16 +1999,20 @@ body.dark-mode li {
 }
 </style>
 <style>
-/* 1. Direct Parent Grid/Gallery Container ke andar ke saare Text Elements ko Default Hide Karna */
+    /* Cards ke andar ka text hamesha visible rahega */
 section div[class*="grid"] > div *,
 section div[class*="gallery"] > div *,
 section div[class*="portfolio"] > div * {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: translateY(15px) !important;
-    transition: all 0.35s ease-in-out !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
+/* Base card background clean look */
+.card, [class*="card"], div[class*="grid"] > div {
+    background-color: #111111;
+    color: #ffffff;
+}
 /* 2. Jab Cursor Parent Card par jaaye, tabhi saara Text (Title, Subtitle, Badges) Dikhna */
 section div[class*="grid"] > div:hover *,
 section div[class*="gallery"] > div:hover *,
