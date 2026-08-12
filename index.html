@@ -2160,57 +2160,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-    <!-- Font Awesome CDN (Icons ko square box banne se rokne ke liye) -->
+<!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-/* 1. Global Light Mode Background & Text Reset */
+/* 1. Global Light Background Reset */
 body:not(.dark-mode) {
     background-color: #ffffff !important;
     color: #111111 !important;
 }
 
-/* 2. Cards Fix (Light Mode mein Cards ko Light background aur Dark Text dena) */
-body:not(.dark-mode) .card,
-body:not(.dark-mode) [class*="card"],
-body:not(.dark-mode) div[class*="grid"] > div,
-body:not(.dark-mode) div[class*="gallery"] > div,
-body:not(.dark-mode) section div[class*="box"] {
-    background-color: #f8f9fa !important;
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) {
+    background-color: #ffffff !important;
+}
+
+/* 2. All Main Content Cards, Q&A, Rates Section Fix */
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) .card,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="card"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) div[class*="grid"] > div,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) div[class*="gallery"] > div,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="faq"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="rate"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="price"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) .accordion-item {
+    background-color: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
     border-radius: 12px !important;
 }
 
-/* Card ke andar ka Text pure visible karna */
-body:not(.dark-mode) .card *,
-body:not(.dark-mode) [class*="card"] *,
-body:not(.dark-mode) div[class*="grid"] > div *,
-body:not(.dark-mode) section div[class*="box"] * {
+/* 3. Text & Heading Visibility Fix inside Content Sections */
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h1,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h2,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h3,
+body:not(.dark-mode) section:not(.main-footer):not([class*="footer"]) h4,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) p,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) span:not(.gold-text):not(.badge),
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) li,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) div {
     color: #111111 !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* Card Titles aur Paragraphs */
-body:not(.dark-mode) div[class*="grid"] h3,
-body:not(.dark-mode) div[class*="grid"] h4,
-body:not(.dark-mode) [class*="card"] h3 {
-    color: #0d0d0d !important;
-    font-weight: 700 !important;
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) p {
+    color: #444444 !important;
 }
 
-body:not(.dark-mode) div[class*="grid"] p,
-body:not(.dark-mode) [class*="card"] p {
-    color: #555555 !important;
+/* 4. Project Images Unhide & Scale Fix */
+section img, .card img, div[class*="grid"] img, div[class*="gallery"] img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
 }
 
-/* Gold Accent Color Preserve */
+/* 5. Footer Specific Isolation Fix (Resetting Footer Boxes) */
+footer, .main-footer, [class*="footer"] {
+    background-color: #050505 !important;
+    color: #ffffff !important;
+}
+
+footer div, .main-footer div, [class*="footer"] div,
+footer .card, .main-footer .card, [class*="footer"] [class*="card"] {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+footer p, footer a, footer li, footer span, footer h1, footer h2, footer h3, footer h4,
+.main-footer p, .main-footer a, .main-footer li, .main-footer span, .main-footer h1, .main-footer h2, .main-footer h3, .main-footer h4 {
+    color: #cccccc !important;
+}
+
+footer a:hover, .main-footer a:hover {
+    color: #ffffff !important;
+}
+
+/* Gold Accent Preservation */
 .gold-text, .gold-label, [class*="gold"] {
     color: #d4af37 !important;
 }
 
-/* 3. Font Awesome Icon Square Box Fix */
+/* Font Awesome Icon Fix */
 i, .fas, .fab, .far, .fa {
     font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", sans-serif !important;
     font-weight: 900 !important;
@@ -2218,48 +2252,26 @@ i, .fas, .fab, .far, .fa {
     opacity: 1 !important;
     visibility: visible !important;
 }
-
-/* 4. Footer Fixed Dark Mode */
-.main-footer, footer {
-    background-color: #050505 !important;
-}
-
-.main-footer *, footer * {
-    color: #cccccc !important;
-}
-
-.main-footer .gold-text, footer .gold-text {
-    color: #d4af37 !important;
-}
-
-/* 5. Dark Mode Fix (Jab Dark Mode Toggle ON ho) */
-body.dark-mode {
-    background-color: #0a0a0a !important;
-    color: #ffffff !important;
-}
-
-body.dark-mode .card,
-body.dark-mode [class*="card"],
-body.dark-mode div[class*="grid"] > div {
-    background-color: #1a1a1a !important;
-    border: 1px solid #333333 !important;
-}
-
-body.dark-mode .card *,
-body.dark-mode [class*="card"] *,
-body.dark-mode div[class*="grid"] > div * {
-    color: #ffffff !important;
-}
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Unhide elements blocked by stuck AOS or inline styles
+    // 1. Force reveal lazy-loaded images
+    document.querySelectorAll('img').forEach(img => {
+        if (img.getAttribute('data-src')) {
+            img.src = img.getAttribute('data-src');
+        }
+        img.style.opacity = '1';
+        img.style.visibility = 'visible';
+    });
+
+    // 2. Remove stuck AOS animation classes
     document.querySelectorAll('*').forEach(el => {
         if (el.hasAttribute('data-aos')) {
             el.removeAttribute('data-aos');
         }
-        if (window.getComputedStyle(el).opacity === '0') {
+        const computed = window.getComputedStyle(el);
+        if (computed.opacity === '0' || computed.visibility === 'hidden') {
             el.style.opacity = '1';
             el.style.visibility = 'visible';
             el.style.transform = 'none';
@@ -2267,6 +2279,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-
 </body>
 </html>
