@@ -2046,3 +2046,119 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+    <!-- Final Universal Fix Block (File ke sabse end mein Paste Karein) -->
+<style>
+/* 1. Global Reset for Light Mode Sections */
+body:not(.dark-mode) {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+body:not(.dark-mode) section:not(.main-footer):not(footer) {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* 2. Text Visibility Fix for Founder & Upper Cards */
+body:not(.dark-mode) section:not(.main-footer):not(footer) p,
+body:not(.dark-mode) section:not(.main-footer):not(footer) div,
+body:not(.dark-mode) section:not(.main-footer):not(footer) h1,
+body:not(.dark-mode) section:not(.main-footer):not(footer) h2,
+body:not(.dark-mode) section:not(.main-footer):not(footer) h3,
+body:not(.dark-mode) section:not(.main-footer):not(footer) h4,
+body:not(.dark-mode) section:not(.main-footer):not(footer) span:not(.gold-text):not(.gold-label),
+body:not(.dark-mode) section:not(.main-footer):not(footer) li,
+body:not(.dark-mode) .founder-section *,
+body:not(.dark-mode) [class*="founder"] * {
+    color: #111111 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 3. Founder Card Box Background */
+.founder-section, [class*="founder"] {
+    background-color: #f8f9fa !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+}
+
+/* 4. Footer & WhatsApp Styling */
+.main-footer, footer {
+    background-color: #050505 !important;
+    color: #ffffff !important;
+}
+
+.main-footer p, .main-footer a, .main-footer li {
+    color: #cccccc !important;
+}
+
+.gold-text, .gold-label, [class*="gold"] {
+    color: #d4af37 !important;
+}
+
+.whatsapp-footer {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    z-index: 99999 !important;
+    text-decoration: none !important;
+}
+
+.wa-bubble {
+    background: #ffffff !important;
+    color: #111111 !important;
+    padding: 8px 14px !important;
+    border-radius: 20px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+
+.wa-icon {
+    width: 48px !important;
+    height: 48px !important;
+    background-color: #25D366 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.wa-icon i {
+    color: #ffffff !important;
+    font-size: 24px !important;
+}
+
+/* 5. Dark Mode Overrides */
+body.dark-mode, body.dark-mode section:not(.main-footer) {
+    background-color: #0a0a0a !important;
+}
+
+body.dark-mode p, body.dark-mode h1, body.dark-mode h2, 
+body.dark-mode h3, body.dark-mode h4, body.dark-mode span, 
+body.dark-mode div, body.dark-mode li {
+    color: #ffffff !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Unhide all elements blocked by AOS or inline opacity
+    document.querySelectorAll('*').forEach(el => {
+        if (el.hasAttribute('data-aos')) {
+            el.removeAttribute('data-aos');
+        }
+        if (window.getComputedStyle(el).opacity === '0') {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            el.style.transform = 'none';
+        }
+    });
+});
+</script>
+</body>
+</html>
