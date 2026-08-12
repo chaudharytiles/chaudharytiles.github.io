@@ -2096,105 +2096,67 @@ section div[class*="gallery"] > div:hover img {
 }
 </style>
 <style>
-/* 1. Global Animation Overrider - Blank white blocks aur hidden elements ko instantly FORCE DISPLAY karna */
-*, *::before, *::after {
-    animation: none !important;
-    transition: background-color 0.3s ease, color 0.3s ease !important;
+/* 1. Header Layout Alignment Protection */
+header, .navbar, nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
 }
 
-[data-aos], 
-.aos-init, 
-.aos-animate, 
-[style*="opacity: 0"], 
-[style*="visibility: hidden"],
-.sr-only,
-.reveal,
-.lazyload,
-img {
+/* 2. Scroll Animation Hidden Fix (Founder, Reviews, Cards ko display karana) */
+[data-aos], .aos-init, [style*="opacity: 0"] {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
 }
 
-/* 2. Images Display Fix - Founder image, reviews aur baki assets ko force visible karna */
-img {
-    display: inline-block !important;
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/* 3. LIGHT MODE FIX - Founder section, cards, aur content area ko pure white background + dark text dena */
+/* 3. Light Mode Theme Settings (Default View) */
 body:not(.dark-mode) {
     background-color: #ffffff !important;
     color: #111111 !important;
 }
 
-body:not(.dark-mode) section:not(footer),
-body:not(.dark-mode) div:not(footer div):not(.footer-content) {
+body:not(.dark-mode) section:not(footer) {
+    background-color: #ffffff !important;
+}
+
+body:not(.dark-mode) section:not(footer) p,
+body:not(.dark-mode) section:not(footer) span:not(.gold-text):not(.gold-label),
+body:not(.dark-mode) section:not(footer) h1,
+body:not(.dark-mode) section:not(footer) h2,
+body:not(.dark-mode) section:not(footer) h3,
+body:not(.dark-mode) section:not(footer) h4,
+body:not(.dark-mode) section:not(footer) li {
     color: #111111 !important;
 }
 
-body:not(.dark-mode) h1, 
-body:not(.dark-mode) h2, 
-body:not(.dark-mode) h3, 
-body:not(.dark-mode) h4, 
-body:not(.dark-mode) p, 
-body:not(.dark-mode) span:not(.gold-text):not(.gold-label) {
-    color: #111111 !important;
-}
-
-/* 4. FOOTER SPECIFIC FIX - Footer default black hi rahega aur iska text sharp white/gold dikhega */
-footer, 
-footer *, 
-[class*="footer"], 
-[class*="footer"] * {
+/* 4. Footer Dark Background Protection */
+footer, [class*="footer"] {
     background-color: #050505 !important;
-    color: #ffffff !important;
 }
 
-footer p, 
-footer span:not(.gold-text), 
-footer a, 
-footer li {
+footer p, footer span, footer a, footer li {
     color: #cccccc !important;
 }
 
-footer h1, footer h2, footer h3, footer h4, .gold-text, [class*="gold"] {
+footer h1, footer h2, footer h3, footer h4, .gold-text {
     color: #d4af37 !important;
 }
 
-/* 5. DARK MODE SWITCH FIX - Switch click karte hi poori site clean dark ho jayegi */
-body.dark-mode, 
-body.dark-mode section, 
-body.dark-mode div {
+/* 5. Dark Mode Toggle Click States */
+body.dark-mode {
     background-color: #0a0a0a !important;
     color: #ffffff !important;
 }
 
-body.dark-mode h1, 
-body.dark-mode h2, 
-body.dark-mode h3, 
-body.dark-mode h4, 
-body.dark-mode p, 
-body.dark-mode span, 
-body.dark-mode a {
+body.dark-mode section {
+    background-color: #0a0a0a !important;
+}
+
+body.dark-mode p, body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode span, body.dark-mode li {
     color: #ffffff !important;
 }
 </style>
-
-<script>
-// JavaScript Force Unhide - Library scripts se auto-added inline opacity 0 ko clear karne ke liye
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        const hiddenElements = document.querySelectorAll('[style*="opacity"], [data-aos]');
-        hiddenElements.forEach(el => {
-            el.style.opacity = "1";
-            el.style.visibility = "visible";
-            el.style.transform = "none";
-        });
-    }, 300);
-});
-</script>
 </body>
 </style>
 </html>
