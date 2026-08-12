@@ -2159,13 +2159,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+</script>    
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-/* ==========================================
-   1. TOP INDEPENDENCE DAY BANNER RECOVERY
-   ========================================== */
+/* 1. TOP INDEPENDENCE BANNER FIX */
 .i-day-banner {
     position: fixed !important;
     top: 0 !important;
@@ -2188,122 +2187,108 @@ body {
     padding-top: 40px !important;
 }
 
-/* ==========================================
-   2. MAIN BODY & PAGE RESET
-   ========================================== */
-body:not(.dark-mode) {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-}
-
+/* 2. UNIVERSAL LIGHT MODE FOR NON-FOOTER SECTIONS */
+body:not(.dark-mode), 
+body:not(.dark-mode) main, 
 body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) {
     background-color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
-/* ==========================================
-   3. FAQ / QNA & RATES SECTION FIX
-   ========================================== */
-/* QNA Accordion / FAQ Cards Fix */
-body:not(.dark-mode) section [class*="faq"],
-body:not(.dark-mode) section [class*="accordion"],
-body:not(.dark-mode) section [class*="qna"],
-body:not(.dark-mode) div[class*="faq"] > div,
-body:not(.dark-mode) div[class*="accordion"] > div {
-    background-color: #f8f9fa !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 10px !important;
-    color: #111111 !important;
-}
-
-body:not(.dark-mode) section [class*="faq"] *,
-body:not(.dark-mode) section [class*="accordion"] * {
-    color: #111111 !important;
-}
-
-/* Rates & Pricing Table Fix */
-body:not(.dark-mode) table,
-body:not(.dark-mode) [class*="rate"],
-body:not(.dark-mode) [class*="price"],
-body:not(.dark-mode) [class*="table"] {
-    background-color: #ffffff !important;
-    color: #111111 !important;
-    border: 1px solid #e0e0e0 !important;
-}
-
-body:not(.dark-mode) table tr,
-body:not(.dark-mode) table td,
-body:not(.dark-mode) table th,
-body:not(.dark-mode) [class*="rate"] *,
-body:not(.dark-mode) [class*="price"] * {
+/* Force all inner elements inside sections (except footer) to have light background */
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) div,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) article,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) blockquote {
     background-color: transparent !important;
-    color: #111111 !important;
+    box-shadow: none !important;
 }
 
-/* ==========================================
-   4. CARDS & IMAGE HEIGHT / CROP FIX
-   ========================================== */
-body:not(.dark-mode) .card,
-body:not(.dark-mode) [class*="card"],
-body:not(.dark-mode) div[class*="grid"] > div,
-body:not(.dark-mode) div[class*="gallery"] > div {
+/* Re-apply clean light styling to Cards, Containers, and Founder Boxes */
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) .card,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="card"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="box"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="content"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="founder"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="faq"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="rate"],
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) [class*="price"] {
     background-color: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
     border-radius: 12px !important;
-    overflow: hidden !important;
 }
 
-/* Image Cropping Fix */
+/* 3. PHOTO WRAPPER BOX FIX (FOUNDER PHOTO EXTRA BLACK BOX REMOVAL) */
+body:not(.dark-mode) [class*="founder"] figure,
+body:not(.dark-mode) [class*="founder"] .img-container,
+body:not(.dark-mode) [class*="founder"] div:has(> img) {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+body:not(.dark-mode) [class*="founder"] img {
+    border-radius: 12px !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* 4. TEXT CONTRAST & VISIBILITY FIX */
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h1,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h2,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h3,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h4,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h5,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) h6 {
+    color: #111111 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) p,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) li,
+body:not(.dark-mode) section:not(footer):not(.main-footer):not([class*="footer"]) span:not(.gold-text):not(.text-red) {
+    color: #333333 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Preserve Accent Colors */
+.gold-text, [class*="gold"], .gold-label {
+    color: #d4af37 !important;
+}
+
+.text-red, .red-text, [class*="note"], [class*="warning"] {
+    color: #e53935 !important;
+}
+
+/* 5. GALLERY & PORTRAIT IMAGES FIT FIX */
 div[class*="grid"] img, 
 div[class*="gallery"] img, 
 .card img, 
 [class*="card"] img {
     width: 100% !important;
-    height: 220px !important;
-    object-fit: cover !important;
+    height: auto !important;
+    max-height: 500px !important;
+    object-fit: contain !important;
     display: block !important;
-    border-radius: 8px 8px 0 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* Text visibility inside cards */
-body:not(.dark-mode) .card *,
-body:not(.dark-mode) [class*="card"] *,
-body:not(.dark-mode) div[class*="grid"] > div * {
-    color: #111111 !important;
-}
-
-body:not(.dark-mode) .card p,
-body:not(.dark-mode) [class*="card"] p {
-    color: #555555 !important;
-}
-
-/* ==========================================
-   5. FOOTER ISOLATION FIX
-   ========================================== */
+/* 6. FOOTER ISOLATION */
 footer, .main-footer, [class*="footer"] {
-    background-color: #0d0d0d !important;
+    background-color: #080808 !important;
 }
 
 footer *, .main-footer *, [class*="footer"] * {
     color: #cccccc !important;
 }
 
-footer h1, footer h2, footer h3, footer h4,
-.main-footer h1, .main-footer h2, .main-footer h3, .main-footer h4 {
-    color: #ffffff !important;
-}
-
 footer div, .main-footer div, [class*="footer"] div {
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
-}
-
-/* Gold Accents & Utility Fonts */
-.gold-text, .gold-label, [class*="gold"] {
-    color: #d4af37 !important;
 }
 
 i, .fas, .fab, .far, .fa {
@@ -2315,7 +2300,7 @@ i, .fas, .fab, .far, .fa {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Reveal all lazy images & remove stuck animations
+    // 1. Force reveal all images & lazy loaded sources
     document.querySelectorAll('img').forEach(img => {
         if (img.getAttribute('data-src')) {
             img.src = img.getAttribute('data-src');
@@ -2324,14 +2309,23 @@ document.addEventListener('DOMContentLoaded', () => {
         img.style.visibility = 'visible';
     });
 
-    document.querySelectorAll('*').forEach(el => {
-        if (el.hasAttribute('data-aos')) {
-            el.removeAttribute('data-aos');
+    // 2. Remove inline background styles from elements inside body except footer
+    document.querySelectorAll('body:not(.dark-mode) section:not(footer):not(.main-footer) *').forEach(el => {
+        if (el.tagName !== 'FOOTER' && !el.closest('footer')) {
+            const bg = window.getComputedStyle(el).backgroundColor;
+            // If background is dark/black, reset it to white/transparent
+            if (bg.includes('rgb(0, 0, 0)') || bg.includes('rgb(18, 18, 18)') || bg.includes('rgb(15, 15, 15)')) {
+                el.style.backgroundColor = 'transparent';
+            }
         }
-        if (window.getComputedStyle(el).opacity === '0') {
-            el.style.opacity = '1';
-            el.style.visibility = 'visible';
-            el.style.transform = 'none';
+    });
+
+    // 3. Highlight Note/Labour text in red
+    document.querySelectorAll('p, div, span, td').forEach(el => {
+        if (el.textContent.includes('Note:') || el.textContent.includes('Labour')) {
+            if (el.children.length === 0) {
+                el.style.color = '#e53935';
+            }
         }
     });
 });
