@@ -1976,70 +1976,25 @@ body.dark-mode [class*="stat"] * {
     color: #ffffff !important;
 }
 </style>
+
  <style>
-/* 2. Heading "Luxury" Text ko Black karna */
-body:not(.dark-mode) h1, 
-body:not(.dark-mode) h2, 
-body:not(.dark-mode) h3,
-body:not(.dark-mode) [class*="expertise"] h2,
-body:not(.dark-mode) [class*="service"] h2 {
-    color: #111111 !important;
+/* Light/Dark Mode Fix */
+body.dark-mode {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
 }
 
-/* 3. Cards ke Niche Ka Gray Text Pure Black Karna (Taaki Clearly Dikhe) */
-body:not(.dark-mode) p, 
-body:not(.dark-mode) span, 
-body:not(.dark-mode) .card p, 
-body:not(.dark-mode) [class*="card"] p,
-body:not(.dark-mode) [class*="card"] span {
-    color: #000000 !important;
-    opacity: 1 !important;
-    font-weight: 500 !important;
+body.dark-mode section {
+    background-color: #0a0a0a !important;
 }
 
-/* 4. DARK MODE TOGGLE FIX */
-body.dark-mode section,
-body.dark-mode .expertise,
-body.dark-mode .services,
-body.dark-mode [class*="card"] {
-    background-color: #000000 !important;
-    background: #000000 !important;
-}
-
+body.dark-mode p, 
 body.dark-mode h1, 
 body.dark-mode h2, 
 body.dark-mode h3, 
-body.dark-mode p, 
-body.dark-mode span {
-    color: #ffffff !important;
-}
-</style>
-    <style>
-
-
-/* 2. Price label (/ Per Step) aur Note text readable dark gray/black rakhna */
-body:not(.dark-mode) [class*="card"] *,
-body:not(.dark-mode) [class*="price"] *,
-body:not(.dark-mode) [class*="service"] * {
-    color: #111111 !important;
-}
-
-/* 3. Gold badge/accent text ko preserve rakhna */
-body:not(.dark-mode) .gold-text,
-body:not(.dark-mode) [class*="gold"],
-body:not(.dark-mode) .badge,
-body:not(.dark-mode) [class*="badge"] {
-    color: #8a6d3b !important;
-}
-
-/* 4. DARK MODE FIX: Toggle click hone par hi saara text wapas white hoga */
-body.dark-mode div,
-body.dark-mode ul,
-body.dark-mode li,
-body.dark-mode p,
-body.dark-mode span,
-body.dark-mode small,
-body.dark-mode [class*="card"] * {
+body.dark-mode h4, 
+body.dark-mode span, 
+body.dark-mode li {
     color: #ffffff !important;
 }
 </style>
