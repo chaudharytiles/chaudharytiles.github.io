@@ -2160,5 +2160,113 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+    <!-- Font Awesome CDN (Icons ko square box banne se rokne ke liye) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* 1. Global Light Mode Background & Text Reset */
+body:not(.dark-mode) {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* 2. Cards Fix (Light Mode mein Cards ko Light background aur Dark Text dena) */
+body:not(.dark-mode) .card,
+body:not(.dark-mode) [class*="card"],
+body:not(.dark-mode) div[class*="grid"] > div,
+body:not(.dark-mode) div[class*="gallery"] > div,
+body:not(.dark-mode) section div[class*="box"] {
+    background-color: #f8f9fa !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 12px !important;
+}
+
+/* Card ke andar ka Text pure visible karna */
+body:not(.dark-mode) .card *,
+body:not(.dark-mode) [class*="card"] *,
+body:not(.dark-mode) div[class*="grid"] > div *,
+body:not(.dark-mode) section div[class*="box"] * {
+    color: #111111 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Card Titles aur Paragraphs */
+body:not(.dark-mode) div[class*="grid"] h3,
+body:not(.dark-mode) div[class*="grid"] h4,
+body:not(.dark-mode) [class*="card"] h3 {
+    color: #0d0d0d !important;
+    font-weight: 700 !important;
+}
+
+body:not(.dark-mode) div[class*="grid"] p,
+body:not(.dark-mode) [class*="card"] p {
+    color: #555555 !important;
+}
+
+/* Gold Accent Color Preserve */
+.gold-text, .gold-label, [class*="gold"] {
+    color: #d4af37 !important;
+}
+
+/* 3. Font Awesome Icon Square Box Fix */
+i, .fas, .fab, .far, .fa {
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", sans-serif !important;
+    font-weight: 900 !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 4. Footer Fixed Dark Mode */
+.main-footer, footer {
+    background-color: #050505 !important;
+}
+
+.main-footer *, footer * {
+    color: #cccccc !important;
+}
+
+.main-footer .gold-text, footer .gold-text {
+    color: #d4af37 !important;
+}
+
+/* 5. Dark Mode Fix (Jab Dark Mode Toggle ON ho) */
+body.dark-mode {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .card,
+body.dark-mode [class*="card"],
+body.dark-mode div[class*="grid"] > div {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333333 !important;
+}
+
+body.dark-mode .card *,
+body.dark-mode [class*="card"] *,
+body.dark-mode div[class*="grid"] > div * {
+    color: #ffffff !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Unhide elements blocked by stuck AOS or inline styles
+    document.querySelectorAll('*').forEach(el => {
+        if (el.hasAttribute('data-aos')) {
+            el.removeAttribute('data-aos');
+        }
+        if (window.getComputedStyle(el).opacity === '0') {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            el.style.transform = 'none';
+        }
+    });
+});
+</script>
+
 </body>
 </html>
