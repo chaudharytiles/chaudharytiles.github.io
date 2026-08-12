@@ -1977,16 +1977,6 @@ body.dark-mode [class*="stat"] * {
 }
 </style>
  <style>
-/* 1. Outer Section Ka Poora Background White Karna */
-body:not(.dark-mode) section, 
-body:not(.dark-mode) .expertise,
-body:not(.dark-mode) .services,
-body:not(.dark-mode) [class*="expertise"],
-body:not(.dark-mode) [class*="service"] {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-}
-
 /* 2. Heading "Luxury" Text ko Black karna */
 body:not(.dark-mode) h1, 
 body:not(.dark-mode) h2, 
@@ -2025,18 +2015,7 @@ body.dark-mode span {
 }
 </style>
     <style>
-/* 1. Light Mode: Card ke andar ka sabhi list text aur note bilkul dark/black karna */
-body:not(.dark-mode) div,
-body:not(.dark-mode) ul,
-body:not(.dark-mode) li,
-body:not(.dark-mode) p,
-body:not(.dark-mode) span,
-body:not(.dark-mode) small,
-body:not(.dark-mode) i,
-body:not(.dark-mode) em {
-    color: #111111 !important;
-    opacity: 1 !important;
-}
+
 
 /* 2. Price label (/ Per Step) aur Note text readable dark gray/black rakhna */
 body:not(.dark-mode) [class*="card"] *,
@@ -2177,6 +2156,42 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+    /* PERFECT THEME FIX (Only replace this in your style tag) */
+
+/* 1. Light Mode Default Text & Background */
+body:not(.dark-mode) {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+body:not(.dark-mode) section:not([style*="background: #000"]):not([style*="background: #111"]) {
+    background-color: #ffffff;
+}
+
+/* 2. Dark Mode Toggle State */
+body.dark-mode {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode section {
+    background-color: #0a0a0a !important;
+}
+
+body.dark-mode p, 
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode span, 
+body.dark-mode li {
+    color: #ffffff !important;
+}
+
+/* 3. Gold Accent Color Preservation */
+.gold-text, .gold-label, [class*="gold"] {
+    color: #d4af37 !important;
+}
 </body>
 </style>
 </html>
