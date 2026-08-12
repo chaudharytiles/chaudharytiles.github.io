@@ -2095,6 +2095,44 @@ section div[class*="gallery"] > div:hover img {
     transform: scale(1.05) !important;
 }
 </style>
+    <style>
+/* 1. Sabhi normal text, headings aur paragraphs ko default visible aur black rakhna */
+body:not(.dark-mode) p,
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) h4,
+body:not(.dark-mode) span:not(.gold-text),
+body:not(.dark-mode) li,
+body:not(.dark-mode) div {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Light Mode mein text color sharp Black karna */
+body:not(.dark-mode) p,
+body:not(.dark-mode) li,
+body:not(.dark-mode) span:not(.gold-text) {
+    color: #111111 !important;
+}
+
+/* 2. Text/Content over image ya specific cards par opacity reset karna */
+[class*="card"], [class*="gallery"], [class*="portfolio"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 3. Dark Mode Toggle Check */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode span,
+body.dark-mode li {
+    color: #ffffff !important;
+}
+    </style>
+    
 </body>
 </style>
 </html>
