@@ -2151,6 +2151,103 @@ body.dark-mode li {
 .gold-text, .gold-label, [class*="gold"] {
     color: #d4af37 !important;
 }
+    <!-- COMPLETE UNIVERSAL FIX FOR ALL BLACK SECTIONS & WHATSAPP BUTTON -->
+<style>
+/* 1. Global Visibility Fix - Sabhi hidden/black content ko show karne ke liye */
+[data-aos], .aos-init, [style*="opacity: 0"],
+section *, div *, p, span, h1, h2, h3, h4, li, i {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* 2. Cards, Stairs, Expert Tips & Founder Box Content Background & Text Fix */
+.card, [class*="card"], 
+div[class*="grid"] > div, 
+div[class*="gallery"] > div,
+.founder-section, .expertise-card, .tip-card, .step-card {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333333 !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+}
+
+/* Text visibility inside all cards */
+.card *, [class*="card"] *, 
+div[class*="grid"] > div *, 
+div[class*="gallery"] > div *,
+.founder-section *, .expertise-card *, .tip-card *, .step-card * {
+    color: #ffffff !important;
+}
+
+/* Paragraphs & Subtitles ko readable Light Gray banana */
+.card p, [class*="card"] p, 
+div[class*="grid"] p, .founder-section p, 
+.expertise-card p, .tip-card p, small, span {
+    color: #dddddd !important;
+}
+
+/* Gold Text preserve karna */
+.gold-text, [class*="gold"], .badge, h1, h2, h3 {
+    color: #d4af37 !important;
+}
+
+/* 3. WhatsApp Floating Button Fix (No Black Box) */
+.whatsapp-footer {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    z-index: 99999 !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.wa-bubble {
+    background: #ffffff !important;
+    color: #111111 !important;
+    padding: 8px 14px !important;
+    border-radius: 20px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+    white-space: nowrap !important;
+}
+
+.wa-icon {
+    width: 48px !important;
+    height: 48px !important;
+    background-color: #25D366 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
+}
+
+.wa-icon i {
+    color: #ffffff !important;
+    font-size: 24px !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Forcefully remove stuck AOS animation classes
+    document.querySelectorAll('*').forEach(el => {
+        el.removeAttribute('data-aos');
+        if (getComputedStyle(el).opacity === '0') {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+        }
+    });
+});
+</script>
 </body>
 </style>
 </html>
