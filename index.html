@@ -2518,5 +2518,499 @@ document.addEventListener('DOMContentLoaded', function() {
                                                      .replaceAll('□20', '₹20');
 });
 </script>
+    <!-- =========================================================
+     CHAUDHARY TILES — FINAL REPAIR OVERRIDE
+     Existing website/content/SEO ko change nahi karta.
+     Sirf broken styling + counter + Google + WhatsApp repair.
+     ========================================================= -->
+
+<style id="final-repair-override">
+
+/* =========================
+   1. LIGHT MODE BASE
+   ========================= */
+
+body:not(.dark-mode) {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Normal sections white */
+body:not(.dark-mode)
+section:not(.premium-hero)
+:not(.stats-section)
+:not(.main-footer)
+:not(footer) {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* =========================
+   2. DO NOT LET OLD GLOBAL
+      CARD FIXES TURN EVERYTHING DARK
+   ========================= */
+
+body:not(.dark-mode) .card,
+body:not(.dark-mode) [class*="card"],
+body:not(.dark-mode) .founder-card,
+body:not(.dark-mode) .founder-section,
+body:not(.dark-mode) .expertise-card,
+body:not(.dark-mode) .tip-card,
+body:not(.dark-mode) .step-card,
+body:not(.dark-mode) .stat-card {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* Card text */
+body:not(.dark-mode) .card h1,
+body:not(.dark-mode) .card h2,
+body:not(.dark-mode) .card h3,
+body:not(.dark-mode) .card h4,
+body:not(.dark-mode) .card p,
+body:not(.dark-mode) .card li,
+body:not(.dark-mode) .founder-card h1,
+body:not(.dark-mode) .founder-card p,
+body:not(.dark-mode) .founder-card li,
+body:not(.dark-mode) .expertise-card p,
+body:not(.dark-mode) .tip-card p,
+body:not(.dark-mode) .step-card p {
+    color: #111111 !important;
+}
+
+/* =========================
+   3. GOLD — NEVER OVERRIDE
+   ========================= */
+
+.gold-text,
+.gold-label,
+.gold,
+[class*="gold"],
+body:not(.dark-mode) .gold-text,
+body:not(.dark-mode) .gold-label {
+    color: #D4AF37 !important;
+}
+
+/* Gold inside cards also stays gold */
+.card .gold-text,
+.card .gold-label,
+.founder-card .gold-text,
+.founder-card .gold-label,
+.stat-card .gold-text,
+.stat-card .gold-label {
+    color: #D4AF37 !important;
+}
+
+/* =========================
+   4. COUNTERS
+   ========================= */
+
+.stats-section {
+    background: #ffffff !important;
+    border-top: 1px solid #eeeeee !important;
+    border-bottom: 1px solid #eeeeee !important;
+}
+
+.stat-card {
+    background: #ffffff !important;
+}
+
+.stat-card .counter {
+    color: #D4AF37 !important;
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+}
+
+.stat-card p {
+    color: #666666 !important;
+}
+
+/* =========================
+   5. GOOGLE CARD
+   ========================= */
+
+.google-badge-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.google-card {
+    background: #ffffff !important;
+    color: #111111 !important;
+}
+
+/* VERY IMPORTANT:
+   Generic [class*="card"] img rules
+   must NOT enlarge Google logo.
+*/
+
+.google-card img,
+.google-card > img {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    object-fit: contain !important;
+    flex: 0 0 30px !important;
+}
+
+.google-card .stars i {
+    color: #FFB400 !important;
+}
+
+.google-card p {
+    color: #333333 !important;
+}
+
+.google-card .review-btn {
+    background: #D4AF37 !important;
+    color: #000000 !important;
+}
+
+/* =========================
+   6. GALLERY IMAGES
+   ========================= */
+
+/* Keep normal gallery images responsive,
+   but EXCLUDE Google card. */
+
+.gallery-item img,
+div[class*="gallery"] img,
+div[class*="grid"] img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+.google-card img {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/* =========================
+   7. FOUNDER
+   ========================= */
+
+body:not(.dark-mode) .founder-card {
+    background: #ffffff !important;
+    color: #333333 !important;
+}
+
+body:not(.dark-mode) .founder-details h1 {
+    color: #333333 !important;
+}
+
+body:not(.dark-mode) .founder-details h1 span {
+    color: #D4AF37 !important;
+}
+
+body:not(.dark-mode) .bio {
+    color: #666666 !important;
+}
+
+body:not(.dark-mode) .features li {
+    color: #444444 !important;
+}
+
+body:not(.dark-mode) .features i,
+body:not(.dark-mode) .stat-item h3 {
+    color: #D4AF37 !important;
+}
+
+/* =========================
+   8. FAQ
+   ========================= */
+
+body:not(.dark-mode) #faq {
+    background: #ffffff !important;
+    color: #111111 !important;
+}
+
+body:not(.dark-mode) #faq details {
+    background: #ffffff !important;
+    border-color: #dddddd !important;
+}
+
+body:not(.dark-mode) #faq summary {
+    color: #111111 !important;
+}
+
+body:not(.dark-mode) #faq details p {
+    color: #555555 !important;
+}
+
+/* =========================
+   9. EXPERT TIPS
+   ========================= */
+
+body:not(.dark-mode) .tips-container {
+    background: #ffffff !important;
+}
+
+body:not(.dark-mode) .tip-card {
+    background: #ffffff !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+body:not(.dark-mode) .tip-card h3 {
+    color: #D4AF37 !important;
+}
+
+body:not(.dark-mode) .tip-card p {
+    color: #555555 !important;
+}
+
+/* =========================
+   10. FOOTER
+   ORIGINAL BLACK/GOLD THEME
+   ========================= */
+
+.main-footer,
+footer.main-footer {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-top: 1px solid rgba(212,175,55,0.2) !important;
+}
+
+/* Footer headings */
+.main-footer .footer-heading {
+    color: #ffffff !important;
+}
+
+/* Footer normal text */
+.main-footer p,
+.main-footer .footer-list li,
+.main-footer .footer-list a {
+    color: #aaaaaa !important;
+}
+
+/* Footer gold */
+.main-footer .gold-text,
+.main-footer .footer-email,
+.main-footer .social-icons a {
+    color: #D4AF37 !important;
+}
+
+/* Footer icons */
+.main-footer .footer-list i {
+    color: #D4AF37 !important;
+}
+
+/* Footer bottom */
+.main-footer .footer-bottom {
+    border-top: 1px solid #222222 !important;
+    color: #777777 !important;
+}
+
+/* Trusted By */
+.main-footer .trusted-by {
+    background: #050505 !important;
+    border: 1px solid #333333 !important;
+}
+
+/* =========================
+   11. WHATSAPP FLOATING BUTTON
+   ========================= */
+
+.whatsapp-footer {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    z-index: 99999 !important;
+    background: transparent !important;
+    text-decoration: none !important;
+}
+
+.whatsapp-footer .wa-bubble {
+    background: #ffffff !important;
+    color: #111111 !important;
+}
+
+.whatsapp-footer .wa-icon {
+    width: 48px !important;
+    height: 48px !important;
+    background: #25D366 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.whatsapp-footer .wa-icon i {
+    color: #ffffff !important;
+    font-size: 24px !important;
+}
+
+/* =========================
+   12. FONT AWESOME
+   ========================= */
+
+i.fas,
+i.far,
+i.fab,
+i.fa {
+    font-style: normal !important;
+}
+
+/* =========================
+   13. DARK MODE
+   ========================= */
+
+body.dark-mode {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
+/* Dark mode cards */
+body.dark-mode .card,
+body.dark-mode [class*="card"],
+body.dark-mode .founder-card,
+body.dark-mode .founder-section,
+body.dark-mode .expertise-card,
+body.dark-mode .tip-card,
+body.dark-mode .step-card,
+body.dark-mode .stat-card {
+    background: #161616 !important;
+    color: #ffffff !important;
+}
+
+/* Gold remains gold */
+body.dark-mode .gold-text,
+body.dark-mode .gold-label,
+body.dark-mode .gold,
+body.dark-mode [class*="gold"] {
+    color: #D4AF37 !important;
+}
+
+/* Dark counter */
+body.dark-mode .stats-section {
+    background: #111111 !important;
+}
+
+body.dark-mode .stat-card .counter {
+    color: #D4AF37 !important;
+}
+
+/* Footer always original dark */
+body.dark-mode .main-footer,
+body.dark-mode footer.main-footer {
+    background: #000000 !important;
+}
+
+/* =========================
+   14. MOBILE GOOGLE CARD
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .google-card {
+        width: calc(100% - 30px) !important;
+        max-width: 420px !important;
+    }
+
+    .google-card img,
+    .google-card > img {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        max-width: 30px !important;
+    }
+
+    .whatsapp-footer {
+        right: 20px !important;
+        bottom: 20px !important;
+    }
+}
+
+</style>
+
+
+<script id="final-counter-repair">
+
+/* =========================================================
+   FINAL COUNTER REPAIR
+   Existing counter HTML ko change nahi karta.
+   ========================================================= */
+
+(function () {
+
+    function startCounters() {
+
+        const counters = document.querySelectorAll('.counter');
+
+        if (!counters.length) return;
+
+        counters.forEach(counter => {
+
+            if (counter.dataset.finalCounterStarted === 'true') {
+                return;
+            }
+
+            counter.dataset.finalCounterStarted = 'true';
+
+            const target = Number(counter.getAttribute('data-target'));
+
+            if (!Number.isFinite(target)) return;
+
+            const duration = 1800;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+
+                const progress = Math.min(
+                    (currentTime - startTime) / duration,
+                    1
+                );
+
+                const eased =
+                    1 - Math.pow(1 - progress, 3);
+
+                const value =
+                    Math.floor(target * eased);
+
+                if (target === 100) {
+                    counter.textContent = value + '%';
+                } else {
+                    counter.textContent = value + '+';
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    if (target === 100) {
+                        counter.textContent = '100%';
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                }
+            }
+
+            requestAnimationFrame(update);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener(
+            'DOMContentLoaded',
+            startCounters
+        );
+    } else {
+        startCounters();
+    }
+
+    /* If old scripts reset counters to 0,
+       start them again after page settles. */
+
+    window.addEventListener('load', function () {
+        setTimeout(startCounters, 300);
+    });
+
+})();
+
+</script>
 </body>
 </html>
