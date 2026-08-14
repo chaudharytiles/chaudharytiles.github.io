@@ -2174,19 +2174,19 @@ footer span {
         height = canvas.height = window.innerHeight;
     });
 
-    // Subtle Tricolor Colors
+    // Tricolor Colors
     const colors = ['#FF9933', '#FFFFFF', '#138808'];
 
     const flakes = [];
-    const numFlakes = 30; // Kam dots taaki crowd na lage
+    const numFlakes = 45; // Medium quantity
 
     for (let i = 0; i < numFlakes; i++) {
         flakes.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            radius: 2.5, // Sabhi dots ka same chhota size
-            speedY: Math.random() * 0.6 + 0.4, // Slow aur smooth speed
-            speedX: Math.random() * 0.4 - 0.2, // Mild side float
+            radius: 3.5, // Perfect visible size
+            speedY: Math.random() * 1.0 + 0.8, // Normal natural speed
+            speedX: Math.random() * 0.6 - 0.3,
             color: colors[Math.floor(Math.random() * colors.length)]
         });
     }
@@ -2205,8 +2205,17 @@ footer span {
 
             ctx.beginPath();
             ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-            ctx.fillStyle = flake.color;
-            ctx.opacity = 0.8;
+            
+            // White dots ko visible rakhne ke liye outline aur glow
+            if (flake.color === '#FFFFFF') {
+                ctx.fillStyle = '#FFFFFF';
+                ctx.shadowColor = '#888888';
+                ctx.shadowBlur = 4;
+            } else {
+                ctx.fillStyle = flake.color;
+                ctx.shadowBlur = 0;
+            }
+
             ctx.fill();
         });
 
