@@ -1952,6 +1952,28 @@ div[class*="service"] {
     color: #d4af37 !important; /* Gold Color */
     font-weight: bold !important;
 }
+        /* How We Work Section Heading Fix */
+section h2, 
+.process-section h2, 
+.how-we-work h2,
+h2 {
+    color: #1a1a1a !important; /* Main Dark Heading */
+}
+
+/* Heading ke andar ke regular white/grey text target fix */
+section h2 span:not([class*="gold"]), 
+.process-section h2 span:not([class*="gold"]),
+h2 span:first-child {
+    color: #1a1a1a !important;
+    opacity: 1 !important;
+}
+
+/* Gold Part ("Process") Ko Gold Hi Rakhne Ke Liye */
+section h2 span.gold, 
+section h2 .gold-text,
+h2 .text-gold {
+    color: #d4af37 !important;
+}
     
 </style>
 </body>
