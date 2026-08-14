@@ -2176,6 +2176,87 @@ footer span {
     pointer-events: none; /* Isse website ke click aur scroll par koi farak nahi padega */
     z-index: 9999;
 }
+        /* Premium Independence Day Wish Card */
+.iday-wishes-section {
+    width: 100%;
+    padding: 40px 20px;
+    background: #fafafa;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.iday-wish-card {
+    max-width: 950px;
+    width: 100%;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+/* Accent Borders (Tiranga Touch) */
+.iday-wish-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+}
+
+.iday-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 153, 51, 0.1);
+    color: #d97706;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.iday-wish-card h2 {
+    color: #111827 !important;
+    font-size: 26px;
+    font-weight: 800;
+    margin: 10px 0 15px 0;
+    letter-spacing: -0.5px;
+}
+
+.iday-wish-card p {
+    color: #4b5563 !important;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 800px;
+    font-weight: 400;
+}
+
+.iday-decor-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9933, #138808);
+    margin: 20px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Bottom Section Divider */
+.section-divider {
+    border: none;
+    height: 1px;
+    background: #e5e7eb;
+    margin: 0;
+    width: 100%;
+}
 </style>
 <!-- Clean & Subtle Tri-color Snowfall Canvas -->
 <canvas id="snowfall-canvas"></canvas>
