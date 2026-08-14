@@ -1802,6 +1802,32 @@ main > section:first-of-type {
 .hero-section h1, .hero-section h2, .hero-section p {
     color: #1a1a1a !important;
 }
+    /* Hero Main Section Background & Text Color Fix */
+body, 
+main, 
+.hero, 
+#hero, 
+section:first-of-type,
+div[class*="hero"] {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #1a1a1a !important;
+}
+
+/* Hero Section ke andhar ka Text Fix */
+.hero *, 
+#hero *, 
+section:first-of-type * {
+    color: inherit;
+}
+
+/* Gold Text ko Gold hi rakhne ke liye */
+[class*="gold"], 
+[style*="gold"],
+.gold-text,
+.circle-badge {
+    color: #d4af37 !important;
+}
 </style>
 </body>
 </html>
