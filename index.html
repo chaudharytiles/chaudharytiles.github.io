@@ -1974,6 +1974,40 @@ section h2 .gold-text,
 h2 .text-gold {
     color: #d4af37 !important;
 }
+        /* Pricing & Feature List Items Visibility Fix */
+ul li, 
+ol li, 
+.pricing-card li, 
+.feature-list li, 
+div[class*="price"] li,
+div[class*="pricing"] li {
+    color: #222222 !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+}
+
+/* List ke inner text aur span elements fix */
+ul li *, 
+ol li * {
+    color: #222222 !important;
+    opacity: 1 !important;
+}
+
+/* Icons ko gold rakhne ke liye */
+ul li i, 
+ul li svg, 
+.feature-list i {
+    color: #d4af37 !important;
+}
+
+/* Bottom Note Text Fix */
+p[class*="note"], 
+.note, 
+small, 
+em {
+    color: #4a4a4a !important;
+    opacity: 1 !important;
+}
     
 </style>
 </body>
