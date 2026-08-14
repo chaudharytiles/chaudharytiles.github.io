@@ -1762,6 +1762,7 @@ header {
     background-color: #ffffff !important;
     border-bottom: 1px solid #eeeeee !important;
 }
+</style>
 <style>
 /* 1. Header & Navigation White Background */
 header, nav, .navbar, .site-header {
@@ -2032,6 +2033,36 @@ select::placeholder {
 select option {
     background-color: #ffffff !important;
     color: #1a1a1a !important;
+}
+        /* Footer Text Visibility Fix (Dark Background Theme) */
+footer, .footer, footer * {
+    opacity: 1 !important;
+}
+
+/* Footer Description & Links Bright Color */
+footer p, 
+footer a, 
+footer li, 
+footer span, 
+.footer a, 
+.footer p, 
+.footer li {
+    color: #e0e0e0 !important; /* Soft White / Light Gray for clear reading */
+}
+
+/* Footer Hover State */
+footer a:hover, .footer a:hover {
+    color: #d4af37 !important; /* Gold on Hover */
+}
+
+/* Footer Headings & Gold Links */
+footer h3, footer h4, .footer h3, .footer h4 {
+    color: #ffffff !important;
+}
+
+/* Copyright & Bottom Text Fix */
+footer .copyright, footer small, footer [class*="bottom"] {
+    color: #aaaaaa !important;
 }
     
 </style>
