@@ -915,23 +915,21 @@ header, .navbar {
         </div>
     </div>
 </section>
-    <!-- Independence Day Special Wishing Banner -->
+<!-- Short, Stylish & Festive Wishes -->
 <section class="iday-wishes-section">
     <div class="iday-wish-card">
         <div class="iday-badge">
-            <span class="flag-icon">🇮🇳</span> SWATANTRATA DIWAS SPECIAL
+            <span class="flag-wave">🇮🇳</span> 15th AUGUST SPECIAL
         </div>
         
-        <h2>Warm Wishes From Chaudhary Tiles & Stone</h2>
-        
-        <p>
-            Aap sabhi ko Swatantrata Diwas ki hardik shubhkamnayein! Jis tarah hamara desh mazbooti aur khubsurti ke saath aage badh raha hai, waise hi hum vaada karte hain aapke sapno ke ghar ko hamesha mazboot, aakarshak aur behtareen banae rakhne ka.
-        </p>
+        <h2 class="iday-title">Building Stronger Foundations for a Stronger Nation.</h2>
+        <p class="iday-text">Aap sabhi ko Swatantrata Diwas ki hardik shubhkamnayein!</p>
 
         <div class="iday-decor-line"></div>
     </div>
 </section>
 
+<hr class="section-divider">
 <!-- Section Divider (Taaki agla section clean dikhe) -->
 <hr class="section-divider">
    
@@ -2176,37 +2174,38 @@ footer span {
     pointer-events: none; /* Isse website ke click aur scroll par koi farak nahi padega */
     z-index: 9999;
 }
-        /* Premium Independence Day Wish Card */
+/* Festive Independence Day Wishes Card */
 .iday-wishes-section {
     width: 100%;
-    padding: 40px 20px;
-    background: #fafafa;
+    padding: 35px 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #fffdfa 100%);
     display: flex;
     justify-content: center;
     box-sizing: border-box;
 }
 
 .iday-wish-card {
-    max-width: 950px;
+    max-width: 800px;
     width: 100%;
-    background: #ffffff;
-    padding: 35px 30px;
+    /* Tricolor Gradient Glow Background */
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.08) 0%, #ffffff 50%, rgba(19, 136, 8, 0.08) 100%);
+    padding: 30px 25px;
     border-radius: 16px;
     text-align: center;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f0f0f0;
+    box-shadow: 0 8px 25px rgba(255, 153, 51, 0.12), 0 8px 25px rgba(19, 136, 8, 0.12);
+    border: 1px solid rgba(255, 153, 51, 0.2);
     overflow: hidden;
 }
 
-/* Accent Borders (Tiranga Touch) */
+/* Top Tricolor Strip */
 .iday-wish-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 5px;
     background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
 }
 
@@ -2214,42 +2213,44 @@ footer span {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 153, 51, 0.1);
+    background: #ffffff;
     color: #d97706;
-    padding: 6px 16px;
+    padding: 6px 14px;
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border-radius: 50px;
-    margin-bottom: 15px;
-}
-
-.iday-wish-card h2 {
-    color: #111827 !important;
-    font-size: 26px;
     font-weight: 800;
-    margin: 10px 0 15px 0;
-    letter-spacing: -0.5px;
+    letter-spacing: 1.2px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #fce7f3;
 }
 
-.iday-wish-card p {
-    color: #4b5563 !important;
+.iday-title {
+    background: linear-gradient(90deg, #d97706, #111827, #15803d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 8px 0 10px 0;
+    letter-spacing: -0.3px;
+}
+
+.iday-text {
+    color: #374151 !important;
     font-size: 16px;
-    line-height: 1.7;
-    margin: 0 auto;
-    max-width: 800px;
-    font-weight: 400;
+    font-weight: 600;
+    margin: 0;
 }
 
 .iday-decor-line {
-    width: 80px;
+    width: 60px;
     height: 3px;
     background: linear-gradient(90deg, #FF9933, #138808);
-    margin: 20px auto 0 auto;
-    border-radius: 2px;
+    margin: 15px auto 0 auto;
+    border-radius: 10px;
 }
 
-/* Bottom Section Divider */
+/* Bottom Divider */
 .section-divider {
     border: none;
     height: 1px;
