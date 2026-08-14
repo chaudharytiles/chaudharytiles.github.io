@@ -1732,31 +1732,65 @@ function sendToWhatsApp() {
     </div>
 </a>
 
-<style>
-/* Header & Navigation White Background */
-header, nav, .navbar, .site-header {
+/* 1. Complete Hero Section & Container Background Fix */
+#hero, 
+.hero, 
+section.hero, 
+.hero-section, 
+.hero-wrapper, 
+main > section:first-of-type {
+    background: #ffffff !important;
     background-color: #ffffff !important;
     background-image: none !important;
-    border-bottom: 1px solid #e5e5e5 !important;
 }
 
-/* Header Links Color (For Visibility on White) */
-header a, nav a, .navbar a, .nav-link {
+/* 2. Fix 'CHAUDHARY' Logo Text Visibility on White Header */
+.logo, 
+.brand-name, 
+header .logo, 
+.navbar-brand,
+header a[class*="logo"] {
     color: #1a1a1a !important;
 }
 
-/* Main Hero Section White Background */
-.hero, .hero-section, main > section:first-of-type {
+/* Specific text fix if CHAUDHARY is inside a span/div */
+header *, nav * {
+    color: inherit;
+}
+
+header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #eeeeee !important;
+}
+    /* 1. Complete Hero Section & Container Background Fix */
+#hero, 
+.hero, 
+section.hero, 
+.hero-section, 
+.hero-wrapper, 
+main > section:first-of-type {
+    background: #ffffff !important;
     background-color: #ffffff !important;
     background-image: none !important;
+}
+
+/* 2. Fix 'CHAUDHARY' Logo Text Visibility on White Header */
+.logo, 
+.brand-name, 
+header .logo, 
+.navbar-brand,
+header a[class*="logo"] {
     color: #1a1a1a !important;
 }
 
-/* Heading/Subtitle Text inside Hero */
-.hero h1, .hero h2, .hero p, 
-.hero-section h1, .hero-section h2, .hero-section p {
-    color: #1a1a1a !important;
+/* Specific text fix if CHAUDHARY is inside a span/div */
+header *, nav * {
+    color: inherit;
 }
-</style>
+
+header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #eeeeee !important;
+}
 </body>
 </html>
