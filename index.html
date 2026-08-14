@@ -816,26 +816,32 @@ body.dark-mode #map-iframe {
         background: transparent !important;
     }
 }
-        /* 1. Top Independence Day Banner Styling */
-.i-day-banner {
+   /* Independence Day Full-Width Tiranga Top Bar */
+body::before {
+    content: "🇮🇳 Happy Independence Day! Celebrating 21 Years of Trust & Quality 🇮🇳";
+    display: block;
+    width: 100%;
     background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
     color: #000000 !important;
     text-align: center;
-    padding: 8px 15px;
+    padding: 8px 10px;
     font-weight: 600;
     font-size: 14px;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-/* 2. Header Ke Upar Tiranga Line */
+/* Header ki split borders ko completely clean karne ke liye */
 header, .navbar {
-    border-top: 4px solid;
-    border-image: linear-gradient(to right, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%) 1 !important;
+    border-top: none !important;
+    border-image: none !important;
 }
  </style>
 </head>
 <body>
+    <div class="i-day-banner">
+    🇮🇳 Happy Independence Day! Celebrating 21 Years of Legacy & Excellence 🇮🇳
+</div>
 <header class="navbar">
     <div class="logo-box">
         <img src="https://raw.githubusercontent.com/chaudharytiles/chaudharytiles.github.io/main/logo.png" alt="Logo" class="logo-img-header">
