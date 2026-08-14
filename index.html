@@ -1762,35 +1762,46 @@ header {
     background-color: #ffffff !important;
     border-bottom: 1px solid #eeeeee !important;
 }
-    /* 1. Complete Hero Section & Container Background Fix */
+<style>
+/* 1. Header & Navigation White Background */
+header, nav, .navbar, .site-header {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+
+/* 2. Logo Text Fix - 'CHAUDHARY' Visible on White */
+header .logo, 
+header a, 
+.navbar-brand, 
+.logo-text, 
+[class*="logo"] {
+    color: #000000 !important;
+}
+
+/* 3. Navigation Links Color */
+header nav a, .nav-link, .menu-item a {
+    color: #1a1a1a !important;
+}
+
+/* 4. Complete Hero Section White Background */
 #hero, 
 .hero, 
 section.hero, 
 .hero-section, 
 .hero-wrapper, 
+main, 
 main > section:first-of-type {
     background: #ffffff !important;
     background-color: #ffffff !important;
     background-image: none !important;
 }
 
-/* 2. Fix 'CHAUDHARY' Logo Text Visibility on White Header */
-.logo, 
-.brand-name, 
-header .logo, 
-.navbar-brand,
-header a[class*="logo"] {
+/* 5. Hero Text Visibility Fix */
+.hero h1, .hero h2, .hero p, 
+.hero-section h1, .hero-section h2, .hero-section p {
     color: #1a1a1a !important;
 }
-
-/* Specific text fix if CHAUDHARY is inside a span/div */
-header *, nav * {
-    color: inherit;
-}
-
-header {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #eeeeee !important;
-}
+</style>
 </body>
 </html>
