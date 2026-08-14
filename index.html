@@ -845,6 +845,8 @@ header, .navbar {
         <img src="https://raw.githubusercontent.com/chaudharytiles/chaudharytiles.github.io/main/logo.png" alt="Logo" class="logo-img-header">
         <div class="logo-text-header">CHAUDHARY <span class="gold-text">TILES</span></div>
     </div>
+    <!-- Logo ya Brand Name ke theek baad paste karein -->
+<span class="logo-festive-tag">🇮🇳 15th Aug Edition</span>
     <nav style="display: flex; align-items: center; gap: 20px;">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -1609,6 +1611,10 @@ function sendToWhatsApp() {
         <p>&copy; 2026 Chaudhary Tiles & Stone.</p>
         <p>Crafted for Excellence <i class="fas fa-heart gold-text"></i></p>
     </div>
+    <!-- Footer Section ke andar Copyright text ke niche paste karein -->
+<div class="footer-patriotic-text">
+    Proudly Serving Nation's Homes | Happy Independence Day 🇮🇳
+</div>
 </footer>
 
 <style>
@@ -2279,74 +2285,16 @@ footer span {
                  4px 0 12px rgba(19, 136, 8, 0.6) !important;
     transform: translateY(-2px);
 }
+        /* Footer Patriotic Text Style */
+.footer-patriotic-text {
+    font-size: 13px;
+    color: #9ca3af; /* Subdued clean text color */
+    margin-top: 8px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
 </style>
-<!-- Clean & Subtle Tri-color Snowfall Canvas -->
-<canvas id="snowfall-canvas"></canvas>
-
-<script>
-(function() {
-    const canvas = document.getElementById('snowfall-canvas');
-    const ctx = canvas.getContext('2d');
-
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    });
-
-    // Tricolor Colors
-    const colors = ['#FF9933', '#FFFFFF', '#138808'];
-
-    const flakes = [];
-    const numFlakes = 45; // Medium quantity
-
-    for (let i = 0; i < numFlakes; i++) {
-        flakes.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            radius: 3.5, // Perfect visible size
-            speedY: Math.random() * 1.0 + 0.8, // Normal natural speed
-            speedX: Math.random() * 0.6 - 0.3,
-            color: colors[Math.floor(Math.random() * colors.length)]
-        });
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        flakes.forEach(flake => {
-            flake.y += flake.speedY;
-            flake.x += flake.speedX;
-
-            if (flake.y > height) {
-                flake.y = -10;
-                flake.x = Math.random() * width;
-            }
-
-            ctx.beginPath();
-            ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-            
-            // White dots ko visible rakhne ke liye outline aur glow
-            if (flake.color === '#FFFFFF') {
-                ctx.fillStyle = '#FFFFFF';
-                ctx.shadowColor = '#888888';
-                ctx.shadowBlur = 4;
-            } else {
-                ctx.fillStyle = flake.color;
-                ctx.shadowBlur = 0;
-            }
-
-            ctx.fill();
-        });
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-})();
-</script>
     <!-- Auto-Remove Independence Day Theme After 16th August -->
 <script>
 (function() {
@@ -2374,6 +2322,20 @@ footer span {
         document.body.classList.add('hide-iday-theme');
     }
 })();
+    /* Logo Festive Tag Style */
+.logo-festive-tag {
+    font-size: 11px;
+    background: #fff3e0;
+    color: #d97706;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #fde68a;
+    font-weight: 700;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+}
 </script>
 
 <style>
