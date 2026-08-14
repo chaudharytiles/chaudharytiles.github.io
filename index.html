@@ -1887,11 +1887,34 @@ html, body, main, section, .hero, .hero-section, .container, .wrapper {
     font-weight: 500 !important;
 }
 
-/* 3. Book Now Button Ka Text Wapas Dikhane Ke Liye */
-.hero .btn, .hero button, a[class*="btn"], .book-now, button {
-    color: #000000 !important; /* Button text visible */
-    opacity: 1 !important;
+/* 1. BOOK NOW Button Text Fix */
+.btn, 
+button, 
+a.btn, 
+a[href*="book"], 
+.book-now-btn,
+header .btn {
+    color: #000000 !important; /* Text color forced to Black */
+    font-weight: bold !important;
 }
+
+/* Button ke andar agar koi span ya text element hai */
+.btn *, button * {
+    color: #000000 !important;
+}
+
+/* 2. Laptop / Desktop Full Width Fix */
+@media screen and (min-width: 992px) {
+    html, body, main, header, section, .hero, .container, .wrapper {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+    }
+}
+    
 </style>
 </body>
 </html>
