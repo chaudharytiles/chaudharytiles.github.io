@@ -777,6 +777,44 @@ body.dark-mode #map-iframe {
         padding: 30px;
     }
 }
+        /* Laptop & Desktop Screen Full-Width Blending Fix */
+@media screen and (min-width: 992px) {
+    /* 1. Page Body & Main Wrapper Stretch */
+    html, body, main, #app, #root, .site-wrapper {
+        background-color: #ffffff !important;
+        background-image: none !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. Hero Section Full Screen Stretch */
+    .hero, 
+    #hero, 
+    .hero-section, 
+    section:first-of-type,
+    div[class*="hero"] {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* 3. Hero Inner Content Container (Text Centered Raho Par Side Blending Clear Ho) */
+    .hero .container, 
+    #hero .container,
+    section:first-of-type .container {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        background: transparent !important;
+    }
+}
  </style>
 </head>
 <body>
