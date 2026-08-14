@@ -927,6 +927,10 @@ header, .navbar {
 
         <div class="iday-decor-line"></div>
     </div>
+    <!-- Top Banner With Live Countdown -->
+<div class="i-day-banner">
+    🇮🇳 Happy Independence Day! | <span id="iday-timer">Countdown Loading...</span> 🇮🇳
+</div>
 </section>
 
 <hr class="section-divider">
@@ -2257,6 +2261,27 @@ footer span {
     margin: 0;
     width: 100%;
 }
+        /* Timer Text Style */
+#iday-timer {
+    font-weight: 800;
+    color: #b91c1c;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+/* 4th Feature: Tricolor Glow on Hover for All Buttons */
+.btn, button, .btn-primary, .booking-btn {
+    transition: all 0.3s ease-in-out !important;
+}
+
+.btn:hover, button:hover, .btn-primary:hover, .booking-btn:hover {
+    box-shadow: -4px 0 12px rgba(255, 153, 51, 0.6), 
+                 0 4px 12px rgba(255, 255, 255, 0.8), 
+                 4px 0 12px rgba(19, 136, 8, 0.6) !important;
+    transform: translateY(-2px);
+}
 </style>
 <!-- Clean & Subtle Tri-color Snowfall Canvas -->
 <canvas id="snowfall-canvas"></canvas>
@@ -2325,5 +2350,44 @@ footer span {
     animate();
 })();
 </script>
+    <!-- Auto-Remove Independence Day Theme After 16th August -->
+<script>
+(function() {
+    // Expiry Date: 17th August 2026 (00:00:00 AM)
+    const expiryDate = new Date('August 17, 2026 00:00:00');
+    const currentDate = new Date();
+
+    if (currentDate >= expiryDate) {
+        // 1. Top Banner Remove
+        const banner = document.querySelector('.i-day-banner');
+        if (banner) banner.style.display = 'none';
+
+        // 2. Snowfall Canvas Remove
+        const canvas = document.getElementById('snowfall-canvas');
+        if (canvas) canvas.remove();
+
+        // 3. Wishes Section Remove
+        const wishSection = document.querySelector('.iday-wishes-section');
+        if (wishSection) wishSection.style.display = 'none';
+
+        const divider = document.querySelector('.section-divider');
+        if (divider) divider.style.display = 'none';
+
+        // 4. CSS-based Body Banner Remove
+        document.body.classList.add('hide-iday-theme');
+    }
+})();
+</script>
+
+<style>
+/* Auto-Expiry CSS Reset */
+body.hide-iday-theme::before {
+    display: none !important;
+}
+body.hide-iday-theme .btn:hover, 
+body.hide-iday-theme button:hover {
+    box-shadow: none !important;
+}
+</style>
 </body>
 </html>
