@@ -1828,6 +1828,44 @@ section:first-of-type * {
 .circle-badge {
     color: #d4af37 !important;
 }
+    /* 1. Remove Outer Body Background & Margins */
+html, body {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+}
+
+/* 2. Make Inner Hero Container Full Screen Width */
+.container, 
+.wrapper, 
+.hero-container, 
+.hero, 
+section {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+}
+    /* Hero Subtitle Text Visibility Fix */
+.hero p, 
+.hero-section p, 
+.hero .subtitle, 
+.hero-subtitle,
+main p {
+    color: #222222 !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+}
 </style>
 </body>
 </html>
