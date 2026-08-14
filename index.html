@@ -2158,7 +2158,7 @@ footer span {
     z-index: 9999;
 }
 </style>
-    <!-- Snowfall Canvas -->
+<!-- Clean & Subtle Tri-color Snowfall Canvas -->
 <canvas id="snowfall-canvas"></canvas>
 
 <script>
@@ -2174,19 +2174,19 @@ footer span {
         height = canvas.height = window.innerHeight;
     });
 
-    // Tricolor Palette (Orange, White, Green)
+    // Subtle Tricolor Colors
     const colors = ['#FF9933', '#FFFFFF', '#138808'];
 
     const flakes = [];
-    const numFlakes = 60; // Snowfall particles count
+    const numFlakes = 30; // Kam dots taaki crowd na lage
 
     for (let i = 0; i < numFlakes; i++) {
         flakes.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            radius: Math.random() * 4 + 2,
-            speedY: Math.random() * 1.5 + 0.8,
-            speedX: Math.random() * 1 - 0.5,
+            radius: 2.5, // Sabhi dots ka same chhota size
+            speedY: Math.random() * 0.6 + 0.4, // Slow aur smooth speed
+            speedX: Math.random() * 0.4 - 0.2, // Mild side float
             color: colors[Math.floor(Math.random() * colors.length)]
         });
     }
@@ -2198,7 +2198,6 @@ footer span {
             flake.y += flake.speedY;
             flake.x += flake.speedX;
 
-            // Reset flake once it touches bottom
             if (flake.y > height) {
                 flake.y = -10;
                 flake.x = Math.random() * width;
@@ -2207,8 +2206,7 @@ footer span {
             ctx.beginPath();
             ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
             ctx.fillStyle = flake.color;
-            ctx.shadowBlur = 4;
-            ctx.shadowColor = flake.color;
+            ctx.opacity = 0.8;
             ctx.fill();
         });
 
