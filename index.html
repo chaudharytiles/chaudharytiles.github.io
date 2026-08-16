@@ -2672,40 +2672,53 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
-    <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
     const counterElement = document.getElementById("bathroom-price-counter");
     if (!counterElement) return;
 
-    // Sequence of numbers for fluctuation effect
+    // Dramatic Steps: 1 -> Peak 1.5 Lakh -> Fluctuation -> Lock 1 Lakh
     const priceSteps = [
-        1, 15000, 35000, 60000, 85000, 120000, 
-        95000, 110000, 98000, 105000, 100000
+        { val: 1, delay: 0 },
+        { val: 25000, delay: 350 },
+        { val: 75000, delay: 350 },
+        { val: 120000, delay: 400 },
+        { val: 150000, delay: 550 }, // MAX PEAK: 1.5 Lakh!
+        { val: 110000, delay: 450 }, // Drop down
+        { val: 130000, delay: 400 }, // Slight bump back up
+        { val: 95000, delay: 450 },  // Slight dip below target
+        { val: 100000, delay: 800 }  // GRAND REVEAL: 1 Lakh!
     ];
 
-    let stepIndex = 0;
-
-    // Function to run when counter is visible on screen
-    const startCounterAnimation = () => {
-        const interval = setInterval(() => {
-            if (stepIndex < priceSteps.length) {
-                counterElement.innerText = priceSteps[stepIndex].toLocaleString('en-IN');
-                stepIndex++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 120); // Speed of number change (120ms)
+    const runCarLaunchAnimation = () => {
+        let totalDelay = 0;
+        
+        priceSteps.forEach((step, index) => {
+            totalDelay += step.delay;
+            setTimeout(() => {
+                counterElement.innerText = step.val.toLocaleString('en-IN');
+                
+                // Final step pulse effect
+                if (index === priceSteps.length - 1) {
+                    counterElement.style.transition = "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+                    counterElement.style.transform = "scale(1.2)";
+                    setTimeout(() => {
+                        counterElement.style.transform = "scale(1)";
+                    }, 300);
+                }
+            }, totalDelay);
+        });
     };
 
-    // Intersection Observer to trigger animation when user scrolls to it
+    // Scroll Trigger
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                startCounterAnimation();
-                observer.disconnect(); // Runs only once
+                runCarLaunchAnimation();
+                observer.disconnect();
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.6 });
 
     observer.observe(counterElement);
 });
