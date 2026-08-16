@@ -1239,6 +1239,30 @@ header, .navbar {
             <i class="fab fa-whatsapp"></i> WhatsApp par Rate List lein
         </a>
     </div>
+    <!-- Bathroom Construction Package Card -->
+<div class="bathroom-pkg-card">
+    <div class="pkg-badge">LABOUR & WORKMANSHIP PACKAGE</div>
+    <h3>Full Bathroom Construction & Renovation 🚽</h3>
+    <div class="pkg-price">₹1,00,000 <span>/ Standard Bathroom (Labour Only)</span></div>
+    <p class="pkg-subtitle">Complete Civil Work, Electrical, Plumbing, Plaster, Tiles & Paint Labour</p>
+    
+    <div class="pkg-divider"></div>
+
+    <h4 class="pkg-section-title">🛠️ What We Provide (Our Scope of Work):</h4>
+    <ul class="pkg-features">
+        <li>✔️ <strong>Tiles Fitting:</strong> Full Wall Tiles (Chhat tak / Ceiling height) & Floor Tiles fitting</li>
+        <li>✔️ <strong>Complete Plumbing:</strong> Internal Concealed Piping, Drain Points & Water Supply Lines</li>
+        <li>✔️ <strong>Complete Electrical Work:</strong> Concealed Wiring, Conduit Piping, Switch Boxes & Fitting</li>
+        <li>✔️ <strong>Civil Plaster & Levelling:</strong> Wall Plastering, Base Waterproofing & Surface Preparation</li>
+        <li>✔️ <strong>Painting Work:</strong> Wall & Ceiling Paint Work</li>
+        <li>✔️ <strong>Sanitary Fixture Installation:</strong> Seat Mounting, Basin, Taps & Shower Fittings</li>
+    </ul>
+
+    <div class="pkg-note-box">
+        <strong>📌 Client Material Requirement:</strong><br>
+        Tiles, Sanitary Seat (Commode/Indian), Taps, Shower, Valves, aur Light Fixtures <strong>Client (Party) ke dwara provide ki jayengi</strong>. Hum pure professional labour work aur high-quality finishing ki guarantee dete hain.
+    </div>
+</div>
 </section>
 <section id="calculator" class="section-padding" style="background: #000; color: #fff; padding: 80px 8%;">
     <div style="text-align: center; margin-bottom: 50px;">
@@ -2362,6 +2386,115 @@ body.dark-mode .expertise-card h3 {
 body.dark-mode .expertise-card p,
 body.dark-mode .expertise-card .sub-text {
     color: #d1d5db !important;
+}
+        /* Package Card Base Styling */
+.bathroom-pkg-card {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 30px 0;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.pkg-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #d97706; /* Gold/Amber Theme */
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.bathroom-pkg-card h3 {
+    font-size: 22px;
+    color: #111827;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.pkg-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #059669; /* Solid Green Price */
+    margin-bottom: 4px;
+}
+
+.pkg-price span {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.pkg-subtitle {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.pkg-divider {
+    height: 1px;
+    background-color: #f3f4f6;
+    margin: 16px 0;
+}
+
+.pkg-section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.pkg-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+}
+
+.pkg-features li {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.pkg-note-box {
+    font-size: 13px;
+    color: #4b5563;
+    background-color: #fffbe3;
+    border-left: 4px solid #d97706;
+    padding: 12px 16px;
+    border-radius: 6px;
+    line-height: 1.6;
+}
+
+/* Dark Mode Support */
+body.dark-mode .bathroom-pkg-card {
+    background: #1e1e1e !important;
+    border-color: #333333 !important;
+}
+
+body.dark-mode .bathroom-pkg-card h3,
+body.dark-mode .pkg-section-title {
+    color: #ffffff !important;
+}
+
+body.dark-mode .pkg-features li,
+body.dark-mode .pkg-subtitle {
+    color: #d1d5db !important;
+}
+
+body.dark-mode .pkg-note-box {
+    background-color: #2b2612 !important;
+    color: #fef08a !important;
+    border-left-color: #f59e0b !important;
 }
 </style>
     <!-- Auto-Remove Independence Day Theme After 16th August -->
