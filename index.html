@@ -1232,58 +1232,59 @@ header, .navbar {
             *Extra kaam jaise Molding aur Skirting ka rate site visit ke baad finalize kiya jayega.
         </p>
     </div>
-<!-- Ultra-Premium Bathroom Construction Package Card -->
-<div class="bathroom-pkg-card-premium">
+<!-- Clean Light Card with Gold Highlights -->
+<div class="bathroom-pkg-card-gold">
     <div class="pkg-badge-gold">
         <span class="badge-sparkle">✦</span> VIP LABOUR & WORKMANSHIP PACKAGE
     </div>
     
     <div class="pkg-header-content">
-        <h3>Full Bathroom Construction & Renovation 🚽</h3>
-        <p class="pkg-subtitle">Complete Civil Work, Electrical, Plumbing, Plaster, Tiles & Paint Labour</p>
+        <h3 class="card-title-black">Full Bathroom Construction & Renovation 🚽</h3>
+        <p class="pkg-subtitle-gray">Complete Civil Work, Electrical, Plumbing, Plaster, Tiles & Paint Labour</p>
         
- <div class="pkg-price-wrapper">
-    <span class="pkg-currency-gold">₹</span>
-    <span class="gold-counter-display" id="car-launch-counter">1</span>
-    <span class="pkg-unit-gold">/ Standard Bathroom (Labour Only)</span>
-</div>
-        
+        <div class="pkg-price-wrapper">
+            <span class="gold-price-text">₹</span>
+            <span class="gold-price-text counter-number" id="car-launch-counter">1</span>
+            <span class="pkg-unit-gray">/ Standard Bathroom (Labour Only)</span>
+        </div>
+    </div>
+    
     <div class="pkg-divider-gold"></div>
 
     <div class="pkg-body-content">
-        <h4 class="pkg-section-title">🛠️ Included Services & Scope of Work:</h4>
+        <h4 class="pkg-section-title-black">🛠️ Included Services & Scope of Work:</h4>
         <ul class="pkg-features-grid">
             <li>
-                <span class="check-icon">✓</span>
-                <div><strong>Full Tiles Fitting:</strong> Wall Tiles (Chhat tak / Ceiling height) & Floor Tiles</div>
+                <span class="check-icon-green">✓</span>
+                <div><strong class="gold-highlight">Full Tiles Fitting:</strong> Wall Tiles (Chhat tak) & Floor Tiles</div>
             </li>
             <li>
-                <span class="check-icon">✓</span>
-                <div><strong>Complete Plumbing:</strong> Internal Concealed Piping, Drain Points & Supply Lines</div>
+                <span class="check-icon-green">✓</span>
+                <div><strong class="gold-highlight">Complete Plumbing:</strong> Internal Concealed Piping & Drain Points</div>
             </li>
             <li>
-                <span class="check-icon">✓</span>
-                <div><strong>Electrical Work:</strong> Concealed Wiring, Conduit Piping & Switch Box Fitting</div>
+                <span class="check-icon-green">✓</span>
+                <div><strong class="gold-highlight">Electrical Work:</strong> Concealed Wiring, Conduit Piping & Switch Boxes</div>
             </li>
             <li>
-                <span class="check-icon">✓</span>
-                <div><strong>Civil Plaster & Base:</strong> Wall Plastering, Levelling & Surface Preparation</div>
+                <span class="check-icon-green">✓</span>
+                <div><strong class="gold-highlight">Civil Plaster & Base:</strong> Wall Plastering & Surface Preparation</div>
             </li>
             <li>
-                <span class="check-icon">✓</span>
-                <div><strong>Painting Work:</strong> Premium Ceiling & Wall Paint Finishing</div>
+                <span class="check-icon-green">✓</span>
+                <div><strong class="gold-highlight">Painting Work:</strong> Ceiling & Wall Paint Finishing</div>
             </li>
             <li>
-                <span class="check-icon">✓</span>
-                <div><strong>Sanitary Fixture Fitting:</strong> Seat Mounting, Basin, Taps & Shower Fittings</div>
+                <span class="check-icon-green">✓</span>
+                <div><strong class="gold-highlight">Sanitary Fitting:</strong> Seat Mounting, Basin, Taps & Shower</div>
             </li>
         </ul>
     </div>
 
-    <div class="pkg-note-card">
+    <div class="pkg-note-card-gold">
         <div class="note-icon">📌</div>
-        <div class="note-text">
-            <strong>Client Material Requirement:</strong> Tiles, Sanitary Seat (Commode/Indian), Taps, Shower, Valves, aur Light Fixtures <span>Client (Party) ke dwara provide ki jayengi</span>. Hum high-end professional labour & precision finishing ki guarantee dete hain.
+        <div class="note-text-dark">
+            <strong class="gold-highlight">Client Material Requirement:</strong> Tiles, Sanitary Seat (Commode/Indian), Taps, Shower, Valves, aur Lights <span class="gold-highlight">Client (Party) provide karegi</span>. Hum high-end professional finishing ki guarantee dete hain.
         </div>
     </div>
 </div>
@@ -2615,6 +2616,131 @@ body.dark-mode .pkg-note-card {
 
 body.dark-mode .note-text span {
     color: #fef08a !important;
+}
+        /* =========================================================
+   COMPLETE GOLDEN ACCENT STYLING (FIX FOR BLACK TEXT)
+   ========================================================= */
+
+/* Main Heading Title */
+.bathroom-pkg-card-gold h3,
+.card-title-black {
+    font-size: 24px !important;
+    color: #b45309 !important; /* Rich Dark Gold */
+    margin-bottom: 6px !important;
+    font-weight: 800 !important;
+}
+
+/* Subtitle under Title */
+.pkg-subtitle-gray {
+    font-size: 14px !important;
+    color: #6b7280 !important;
+    margin-bottom: 20px !important;
+    font-weight: 500 !important;
+}
+
+/* 1,00,000 Price & Rupee Symbol (Pure Golden Fix) */
+.pkg-price-wrapper {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 6px !important;
+    margin-bottom: 20px !important;
+}
+
+.gold-price-text,
+.pkg-currency-gold,
+.gold-counter-display,
+#car-launch-counter {
+    font-size: 38px !important;
+    font-weight: 900 !important;
+    color: #d97706 !important; /* Pure Bright Amber Gold */
+    letter-spacing: 0.5px !important;
+}
+
+.pkg-unit-gray {
+    font-size: 13px !important;
+    color: #6b7280 !important;
+    font-weight: 600 !important;
+    margin-left: 6px !important;
+}
+
+/* Included Services Title Header */
+.pkg-section-title-black {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #d97706 !important; /* Golden Section Title */
+    margin-bottom: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Feature Grid Box Styling */
+.pkg-features-grid {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 24px 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 12px !important;
+}
+
+.pkg-features-grid li {
+    font-size: 14px !important;
+    color: #4b5563 !important; /* Soft Readable Gray for Descriptions */
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    line-height: 1.5 !important;
+    background: #ffffff !important;
+    padding: 12px 14px !important;
+    border-radius: 8px !important;
+    border: 1px solid #fed7aa !important; /* Subtle Golden Border */
+}
+
+/* Grid Titles Highlight (e.g. Full Tiles Fitting, Complete Plumbing) */
+.gold-highlight,
+.pkg-features-grid li strong {
+    color: #b45309 !important; /* Golden-Brown Highlight */
+    font-weight: 700 !important;
+}
+
+/* Green Check Icons */
+.check-icon-green {
+    color: #059669 !important;
+    font-weight: 900 !important;
+    font-size: 16px !important;
+}
+
+/* Bottom Note Box */
+.pkg-note-card-gold {
+    display: flex !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+    font-size: 13px !important;
+    background: #fffdf2 !important;
+    border: 1px solid #fef08a !important;
+    border-left: 4px solid #d97706 !important;
+    padding: 14px 16px !important;
+    border-radius: 8px !important;
+    line-height: 1.6 !important;
+}
+
+.note-text-dark {
+    color: #374151 !important;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .card-title-black,
+body.dark-mode .pkg-section-title-black,
+body.dark-mode .gold-price-text,
+body.dark-mode .gold-highlight,
+body.dark-mode .pkg-features-grid li strong {
+    color: #f59e0b !important; /* Neon Golden in Dark Mode */
+}
+
+body.dark-mode .pkg-features-grid li {
+    background: #1f1f23 !important;
+    border-color: #3f3f46 !important;
+    color: #d4d4d8 !important;
 }
 </style>
     <!-- Auto-Remove Independence Day Theme After 16th August -->
