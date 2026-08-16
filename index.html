@@ -1242,11 +1242,9 @@ header, .navbar {
         <h3>Full Bathroom Construction & Renovation 🚽</h3>
         <p class="pkg-subtitle">Complete Civil Work, Electrical, Plumbing, Plaster, Tiles & Paint Labour</p>
         
-      <div class="pkg-price-wrapper">
+ <div class="pkg-price-wrapper">
     <span class="pkg-currency-gold">₹</span>
-    <div class="gold-counter-display" id="car-launch-counter">
-        <!-- Golden digits will render dynamically -->
-    </div>
+    <span class="gold-counter-display" id="car-launch-counter">1</span>
     <span class="pkg-unit-gold">/ Standard Bathroom (Labour Only)</span>
 </div>
         
@@ -2420,7 +2418,7 @@ body.dark-mode .expertise-card .sub-text {
     color: #d1d5db !important;
 }
 /* =========================================================
-   ULTRA-PREMIUM BATHROOM CARD & GOLDEN REEL COUNTER STYLES
+   COMPLETE ULTRA-PREMIUM BATHROOM CARD & GOLDEN PRICE STYLES
    ========================================================= */
 
 /* Main Card Container */
@@ -2481,7 +2479,7 @@ body.dark-mode .expertise-card .sub-text {
     font-weight: 500;
 }
 
-/* Golden Price Counter Wrapper */
+/* Clean Solid Golden Price Display */
 .pkg-price-wrapper {
     display: flex;
     align-items: baseline;
@@ -2492,66 +2490,33 @@ body.dark-mode .expertise-card .sub-text {
 .pkg-currency-gold {
     font-size: 32px;
     font-weight: 900;
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 50%, #92400e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #d97706; /* Solid Amber Gold */
 }
 
 .gold-counter-display {
-    display: inline-flex;
-    align-items: center;
-    font-family: 'Segoe UI', Roboto, monospace, sans-serif;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 900;
-    letter-spacing: 1px;
-    background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #b45309 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 8px rgba(217, 119, 6, 0.3));
+    color: #b45309; /* Deep Gold for High Contrast */
+    letter-spacing: 0.5px;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
 }
 
 .pkg-unit-gold {
     font-size: 13px;
-    color: #b45309;
-    font-weight: 700;
-    margin-left: 8px;
+    color: #6b7280;
+    font-weight: 600;
+    margin-left: 6px;
 }
 
-/* Mechanical Slot Machine Reel Effect */
-.digit-box {
-    display: inline-block;
-    height: 1.2em;
-    line-height: 1.2em;
-    overflow: hidden;
-    position: relative;
-    vertical-align: middle;
-}
-
-.digit-reel {
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.digit-value {
-    height: 1.2em;
-    line-height: 1.2em;
-    text-align: center;
-}
-
-.comma-separator {
-    display: inline-block;
-    margin: 0 1px;
-}
-
-/* Gold Divider */
+/* Divider Line */
 .pkg-divider-gold {
     height: 1px;
     background: linear-gradient(90deg, rgba(217, 119, 6, 0.3) 0%, rgba(229, 231, 235, 0.5) 50%, rgba(217, 119, 6, 0.3) 100%);
     margin: 22px 0;
 }
 
-/* Features List */
+/* Section Title & Grid */
 .pkg-section-title {
     font-size: 15px;
     font-weight: 700;
@@ -2589,7 +2554,7 @@ body.dark-mode .expertise-card .sub-text {
     font-size: 15px;
 }
 
-/* Notice Box */
+/* Important Notice Card */
 .pkg-note-card {
     display: flex;
     gap: 12px;
@@ -2613,7 +2578,7 @@ body.dark-mode .expertise-card .sub-text {
     font-weight: 600;
 }
 
-/* Dark Mode Support */
+/* Dark Mode Overrides */
 body.dark-mode .bathroom-pkg-card-premium {
     background: linear-gradient(145deg, #1e1e1e 0%, #161616 100%) !important;
     border-color: rgba(245, 158, 11, 0.35) !important;
@@ -2629,6 +2594,8 @@ body.dark-mode .pkg-subtitle {
     color: #9ca3af !important;
 }
 
+body.dark-mode .pkg-currency-gold,
+body.dark-mode .gold-counter-display,
 body.dark-mode .pkg-unit-gold {
     color: #f59e0b !important;
 }
@@ -2724,108 +2691,51 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById("car-launch-counter");
-    if (!container) return;
+    const counterElement = document.getElementById("car-launch-counter");
+    if (!counterElement) return;
 
-    // Car Launch Price Keyframes (1 -> 1.5 Lakh Peak -> Fluctuation -> Lock 1 Lakh)
-    const priceKeyframes = [1, 25000, 75000, 120000, 150000, 110000, 130000, 95000, 100000];
-    
-    // Render initial digits reel
-    function renderDigits(numberString) {
-        container.innerHTML = '';
-        for (let char of numberString) {
-            if (char === ',') {
-                const comma = document.createElement('span');
-                comma.className = 'comma-separator';
-                comma.innerText = ',';
-                container.appendChild(comma);
-            } else {
-                const box = document.createElement('span');
-                box.className = 'digit-box';
+    // Car Launch Price Steps: 1 -> Peak 1.5 Lakh -> Fluctuates -> Locks at 1 Lakh
+    const priceSteps = [
+        { val: 1, delay: 0 },
+        { val: 25000, delay: 350 },
+        { val: 75000, delay: 350 },
+        { val: 120000, delay: 400 },
+        { val: 150000, delay: 550 }, // PEAK 1.5 LAKH
+        { val: 110000, delay: 450 }, 
+        { val: 130000, delay: 400 }, 
+        { val: 95000, delay: 450 },  
+        { val: 100000, delay: 800 }  // LOCK AT 1 LAKH
+    ];
+
+    const runCarLaunchAnimation = () => {
+        let totalDelay = 0;
+        
+        priceSteps.forEach((step, index) => {
+            totalDelay += step.delay;
+            setTimeout(() => {
+                counterElement.innerText = step.val.toLocaleString('en-IN');
                 
-                const reel = document.createElement('span');
-                reel.className = 'digit-reel';
-                
-                for (let i = 0; i <= 9; i++) {
-                    const num = document.createElement('span');
-                    num.className = 'digit-value';
-                    num.innerText = i;
-                    reel.appendChild(num);
-                }
-                
-                box.appendChild(reel);
-                container.appendChild(box);
-                
-                // Set initial position
-                const targetDigit = parseInt(char);
-                reel.style.transform = `translateY(-${targetDigit * 1.2}em)`;
-            }
-        }
-    }
-
-    // Update digits with rolling movement
-    function updateDigits(number) {
-        const formatted = number.toLocaleString('en-IN');
-        const digitBoxes = container.querySelectorAll('.digit-box');
-        const digitsOnly = formatted.replace(/,/g, '');
-
-        if (digitBoxes.length !== digitsOnly.length) {
-            renderDigits(formatted);
-            return;
-        }
-
-        let boxIndex = 0;
-        for (let char of formatted) {
-            if (char !== ',') {
-                const targetDigit = parseInt(char);
-                const reel = digitBoxes[boxIndex].querySelector('.digit-reel');
-                reel.style.transform = `translateY(-${targetDigit * 1.2}em)`;
-                boxIndex++;
-            }
-        }
-    }
-
-    // Execute Launch Sequence
-    const startGoldenLaunchReveal = () => {
-        let step = 0;
-        renderDigits((1).toLocaleString('en-IN'));
-
-        const delays = [0, 300, 300, 350, 500, 400, 350, 400, 700];
-
-        function nextStep() {
-            if (step < priceKeyframes.length) {
-                updateDigits(priceKeyframes[step]);
-                
-                // Final lock scaling pulse
-                if (step === priceKeyframes.length - 1) {
-                    container.style.transition = "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-                    container.style.transform = "scale(1.15)";
+                // Final step zoom-in pulse
+                if (index === priceSteps.length - 1) {
+                    counterElement.style.transform = "scale(1.15)";
                     setTimeout(() => {
-                        container.style.transform = "scale(1)";
-                    }, 400);
+                        counterElement.style.transform = "scale(1)";
+                    }, 300);
                 }
-
-                step++;
-                if (step < priceKeyframes.length) {
-                    setTimeout(nextStep, delays[step]);
-                }
-            }
-        }
-
-        nextStep();
+            }, totalDelay);
+        });
     };
 
-    // Trigger when scrolled into view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                startGoldenLaunchReveal();
+                runCarLaunchAnimation();
                 observer.disconnect();
             }
         });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.5 });
 
-    observer.observe(container);
+    observer.observe(counterElement);
 });
 </script>
 </body>
