@@ -1242,13 +1242,12 @@ header, .navbar {
         <h3>Full Bathroom Construction & Renovation 🚽</h3>
         <p class="pkg-subtitle">Complete Civil Work, Electrical, Plumbing, Plaster, Tiles & Paint Labour</p>
         
-        <div class="pkg-price-wrapper">
-            <span class="pkg-currency">₹</span>
-            <span class="pkg-amount">1,00,000</span>
-            <span class="pkg-unit">/ Standard Bathroom (Labour Only)</span>
-        </div>
-    </div>
-    
+       <div class="pkg-price-wrapper">
+    <span class="pkg-currency">₹</span>
+    <span class="pkg-amount" id="bathroom-price-counter">1</span>
+    <span class="pkg-unit">/ Standard Bathroom (Labour Only)</span>
+</div>
+        
     <div class="pkg-divider-gold"></div>
 
     <div class="pkg-body-content">
@@ -2671,6 +2670,44 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+});
+</script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const counterElement = document.getElementById("bathroom-price-counter");
+    if (!counterElement) return;
+
+    // Sequence of numbers for fluctuation effect
+    const priceSteps = [
+        1, 15000, 35000, 60000, 85000, 120000, 
+        95000, 110000, 98000, 105000, 100000
+    ];
+
+    let stepIndex = 0;
+
+    // Function to run when counter is visible on screen
+    const startCounterAnimation = () => {
+        const interval = setInterval(() => {
+            if (stepIndex < priceSteps.length) {
+                counterElement.innerText = priceSteps[stepIndex].toLocaleString('en-IN');
+                stepIndex++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 120); // Speed of number change (120ms)
+    };
+
+    // Intersection Observer to trigger animation when user scrolls to it
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounterAnimation();
+                observer.disconnect(); // Runs only once
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(counterElement);
 });
 </script>
 </body>
