@@ -817,26 +817,6 @@ body.dark-mode #map-iframe {
         background: transparent !important;
     }
 }
-   /* Independence Day Full-Width Tiranga Top Bar */
-body::before {
-    content: "🇮🇳 Happy Independence Day! Celebrating 21 Years of Trust & Quality 🇮🇳";
-    display: block;
-    width: 100%;
-    background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
-    color: #000000 !important;
-    text-align: center;
-    padding: 8px 10px;
-    font-weight: 600;
-    font-size: 14px;
-    box-sizing: border-box;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-/* Header ki split borders ko completely clean karne ke liye */
-header, .navbar {
-    border-top: none !important;
-    border-image: none !important;
-}
  </style>
 </head>
 <body>
@@ -925,19 +905,6 @@ header, .navbar {
         Aaj bhi site par quality maintain rakhne ke liye, zaroorat padne par Hum khud workers ke saath milkar kaam karte aur guide karte hain. Isi hands-on knowledge ki wajah se har project me ekdum mazboot aur premium finishing milti hai.
     </p>
 </div>
-</section>
-<!-- Short, Stylish & Festive Wishes -->
-<section class="iday-wishes-section">
-    <div class="iday-wish-card">
-        <div class="iday-badge">
-            <span class="flag-wave">🇮🇳</span> 15th AUGUST SPECIAL
-        </div>
-        
-        <h2 class="iday-title">Building Stronger Foundations for a Stronger Nation.</h2>
-        <p class="iday-text">Aap sabhi ko Swatantrata Diwas ki hardik shubhkamnayein!</p>
-
-        <div class="iday-decor-line"></div>
-    </div>
 </section>
 
 <hr class="section-divider">
@@ -1674,10 +1641,6 @@ function sendToWhatsApp() {
         <p>&copy; 2026 Chaudhary Tiles & Stone.</p>
         <p>Crafted for Excellence <i class="fas fa-heart gold-text"></i></p>
     </div>
-    <!-- Footer Section ke andar Copyright text ke niche paste karein -->
-<div class="footer-patriotic-text">
-    Proudly Serving Nation's Homes | Happy Independence Day 🇮🇳
-</div>
 </footer>
 
 <style>
@@ -2234,81 +2197,6 @@ footer span {
     opacity: 1 !important;
 }   
     
-/* Festive Independence Day Wishes Card */
-.iday-wishes-section {
-    width: 100%;
-    padding: 35px 20px;
-    background: linear-gradient(180deg, #ffffff 0%, #fffdfa 100%);
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.iday-wish-card {
-    max-width: 800px;
-    width: 100%;
-    /* Tricolor Gradient Glow Background */
-    background: linear-gradient(135deg, rgba(255, 153, 51, 0.08) 0%, #ffffff 50%, rgba(19, 136, 8, 0.08) 100%);
-    padding: 30px 25px;
-    border-radius: 16px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 8px 25px rgba(255, 153, 51, 0.12), 0 8px 25px rgba(19, 136, 8, 0.12);
-    border: 1px solid rgba(255, 153, 51, 0.2);
-    overflow: hidden;
-}
-
-/* Top Tricolor Strip */
-.iday-wish-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
-}
-
-.iday-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #ffffff;
-    color: #d97706;
-    padding: 6px 14px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    border-radius: 50px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border: 1px solid #fce7f3;
-}
-
-.iday-title {
-    background: linear-gradient(90deg, #d97706, #111827, #15803d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 22px;
-    font-weight: 800;
-    margin: 8px 0 10px 0;
-    letter-spacing: -0.3px;
-}
-
-.iday-text {
-    color: #374151 !important;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.iday-decor-line {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #FF9933, #138808);
-    margin: 15px auto 0 auto;
-    border-radius: 10px;
-}
 
 /* Bottom Divider */
 .section-divider {
@@ -2328,17 +2216,7 @@ footer span {
     margin-left: 5px;
 }
 
-/* 4th Feature: Tricolor Glow on Hover for All Buttons */
-.btn, button, .btn-primary, .booking-btn {
-    transition: all 0.3s ease-in-out !important;
-}
 
-.btn:hover, button:hover, .btn-primary:hover, .booking-btn:hover {
-    box-shadow: -4px 0 12px rgba(255, 153, 51, 0.6), 
-                 0 4px 12px rgba(255, 255, 255, 0.8), 
-                 4px 0 12px rgba(19, 136, 8, 0.6) !important;
-    transform: translateY(-2px);
-}
         /* Footer Patriotic Text Style */
 .footer-patriotic-text {
     font-size: 13px;
@@ -2743,43 +2621,6 @@ body.dark-mode .pkg-features-grid li {
     color: #d4d4d8 !important;
 }
 </style>
-    <!-- Auto-Remove Independence Day Theme After 16th August -->
-<script>
-(function() {
-    // Expiry Date: 17th August 2026 (00:00:00 AM)
-    const expiryDate = new Date('August 17, 2026 00:00:00');
-    const currentDate = new Date();
-
-    if (currentDate >= expiryDate) {
-        // 1. Top Banner Remove
-        const banner = document.querySelector('.i-day-banner');
-        if (banner) banner.style.display = 'none';
-
-        // 2. Snowfall Canvas Remove
-        const canvas = document.getElementById('snowfall-canvas');
-        if (canvas) canvas.remove();
-
-        // 3. Wishes Section Remove
-        const wishSection = document.querySelector('.iday-wishes-section');
-        if (wishSection) wishSection.style.display = 'none';
-
-        const divider = document.querySelector('.section-divider');
-        if (divider) divider.style.display = 'none';
-
-        // 4. CSS-based Body Banner Remove
-        document.body.classList.add('hide-iday-theme');
-    }
-})();
-    /* Footer Patriotic Text Style */
-.footer-patriotic-text {
-    font-size: 13px;
-    color: #9ca3af; /* Subdued clean text color */
-    margin-top: 8px;
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: 0.3px;
-}
-</script>
 
 <style>
 /* Auto-Expiry CSS Reset */
