@@ -864,7 +864,7 @@ body.dark-mode #map-iframe {
     </div>
 </section>
     
-<section id="about" class="section-padding reveal">
+<section id="founder-section" class="section-padding reveal">
     <div class="grid-2">
         <div class="about-img-box">
             <img src="founder.jpg" alt="Akhilesh Chaudhary - Founder">
@@ -1272,7 +1272,7 @@ body.dark-mode #map-iframe {
         </a>
     </div>
 </section>
-<section id="calculator" class="section-padding" style="background: #000; color: #fff; padding: 80px 8%;">
+<section id="calculator-section" class="section-padding" style="background: #000; color: #fff; padding: 80px 8%;">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">Investment Guide</span>
         <h2 style="font-size: 2.5rem;">Labour <span class="gold-text">Cost Estimator</span></h2>
@@ -1326,7 +1326,7 @@ function calcPrice() {
     }
 }
 </script>
-   <section id="faq" class="section-padding" style="background: var(--light-bg); padding: 80px 8%;">
+   <section id="qna-section" class="section-padding" style="background: var(--light-bg); padding: 80px 8%;">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label" style="color: var(--gold); letter-spacing: 2px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Zaroori Jaankari</span>
         <h2 style="font-size: 2.5rem; margin-top: 10px;">Aksar Pooche Jaane Wale <span class="gold-text" style="color: var(--gold);">Sawal</span></h2>
@@ -1361,7 +1361,7 @@ function calcPrice() {
 
     </div>
 </section>
-    <section class="tips-container">
+    <section id="tips-section">
     <h2 class="section-title">Chaudhary Expert Tips</h2>
     <p class="section-subtitle">Apne ghar ko behtar banane ke liye kuch zaroori baatein</p>
 
@@ -1465,7 +1465,7 @@ function sendToWhatsApp() {
     window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
 }
 </script>
-<section id="reviews" class="section-padding reveal">
+<section id="reviews-section" class="section-padding reveal">
     <div style="text-align: center; margin-bottom: 50px;">
         <span class="gold-label">Testimonials</span>
         <h2>What Our <span class="gold-text">Clients Say</span></h2>
@@ -2755,11 +2755,10 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(counterElement);
 });
 </script>
-    <!-- ========================================================= -->
-<!-- CHAUDHARY TILES & STONE - CUSTOM CLEAN SECTION CONTROLLER  -->
+<!-- ========================================================= -->
+<!-- CHAUDHARY TILES & STONE - EXACT SECTION TOGGLE SCRIPT     -->
 <!-- ========================================================= -->
 <style>
-  /* Fixed Top-Right Hamburger Button */
   .cts-toggle-btn {
     position: fixed;
     top: 15px;
@@ -2778,8 +2777,6 @@ document.addEventListener("DOMContentLoaded", function () {
     align-items: center;
     justify-content: center;
   }
-
-  /* Overlay Background */
   .cts-menu-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -2787,8 +2784,6 @@ document.addEventListener("DOMContentLoaded", function () {
     z-index: 99998;
     display: none;
   }
-
-  /* Side Menu Panel */
   .cts-menu-panel {
     position: fixed;
     top: 0; right: -300px;
@@ -2800,47 +2795,26 @@ document.addEventListener("DOMContentLoaded", function () {
     display: flex; flex-direction: column;
   }
   .cts-menu-panel.open { right: 0; }
-
   .cts-panel-head {
-    background: #1a365d;
-    color: #fff;
-    padding: 18px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 15px;
+    background: #1a365d; color: #fff;
+    padding: 18px 15px; display: flex;
+    justify-content: space-between; align-items: center;
+    font-weight: bold; font-size: 15px;
   }
-  .cts-close-btn {
-    background: none; border: none; color: #fff; font-size: 22px; cursor: pointer;
-  }
-
-  /* Navigation Links */
+  .cts-close-btn { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
   .cts-nav-list { list-style: none; margin: 0; padding: 10px 0; }
   .cts-nav-item { border-bottom: 1px solid #eee; }
   .cts-nav-link {
-    display: block;
-    padding: 14px 20px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
+    display: block; padding: 14px 20px; color: #333;
+    text-decoration: none; font-size: 14px; font-weight: 600; cursor: pointer;
   }
   .cts-nav-link:hover, .cts-nav-link.active {
-    background: #f0f4f8;
-    color: #1a365d;
-    border-left: 4px solid #1a365d;
+    background: #f0f4f8; color: #1a365d; border-left: 4px solid #1a365d;
   }
-
-  .cts-hide-section { display: none !important; }
-  .cts-show-section { display: block !important; }
 </style>
 
-<!-- Floating Hamburger Menu Button -->
 <button class="cts-toggle-btn" onclick="openCtsMenu()">☰</button>
 
-<!-- Side Drawer Container -->
 <div class="cts-menu-overlay" id="ctsOverlay" onclick="closeCtsMenu()"></div>
 <div class="cts-menu-panel" id="ctsPanel">
   <div class="cts-panel-head">
@@ -2848,12 +2822,12 @@ document.addEventListener("DOMContentLoaded", function () {
     <button class="cts-close-btn" onclick="closeCtsMenu()">✕</button>
   </div>
   <ul class="cts-nav-list">
-    <li class="cts-nav-item"><a class="cts-nav-link active" onclick="showCtsSection('home', this)">🏠 Home</a></li>
-    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showCtsSection('founder', this)">👤 About Founder</a></li>
-    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showCtsSection('calculator', this)">🧮 Budget Calculator</a></li>
-    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showCtsSection('qna', this)">❓ Q&A / FAQs</a></li>
-    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showCtsSection('tips', this)">💡 Expert Tips</a></li>
-    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showCtsSection('reviews', this)">⭐ Client Reviews</a></li>
+    <li class="cts-nav-item"><a class="cts-nav-link active" onclick="showExactSection('home', this)">🏠 Home</a></li>
+    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showExactSection('founder', this)">👤 About Founder</a></li>
+    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showExactSection('calculator', this)">🧮 Budget Calculator</a></li>
+    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showExactSection('qna', this)">❓ Q&A / FAQs</a></li>
+    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showExactSection('tips', this)">💡 Expert Tips</a></li>
+    <li class="cts-nav-item"><a class="cts-nav-link" onclick="showExactSection('reviews', this)">⭐ Client Reviews</a></li>
   </ul>
 </div>
 
@@ -2867,55 +2841,56 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('ctsOverlay').style.display = 'none';
   }
 
-  function showCtsSection(targetKey, element) {
-    // 1. Highlight clicked menu link
+  // List of IDs that should be hidden from Home Page
+  const customSectionIds = [
+    'founder-section',
+    'calculator-section',
+    'qna-section',
+    'tips-section',
+    'reviews-section'
+  ];
+
+  function showExactSection(target, element) {
+    // Update menu highlight
     document.querySelectorAll('.cts-nav-link').forEach(link => link.classList.remove('active'));
     if(element) element.classList.add('active');
 
-    // 2. Map sections based on keywords in their text
-    const allSections = document.querySelectorAll("section, div[id]");
+    if (target === 'home') {
+      // Hide the 5 menu sections
+      customSectionIds.forEach(id => {
+        const sec = document.getElementById(id);
+        if(sec) sec.style.display = 'none';
+      });
 
-    allSections.forEach(sec => {
-      const text = sec.innerText.toLowerCase();
-      const id = (sec.id || "").toLowerCase();
-
-      let category = "home";
-
-      if (text.includes("founder") || text.includes("akhilesh") || id.includes("founder") || id.includes("about")) {
-        category = "founder";
-      } else if (text.includes("calculator") || text.includes("estimator") || id.includes("calc")) {
-        category = "calculator";
-      } else if (text.includes("faq") || text.includes("question") || text.includes("qna") || id.includes("faq")) {
-        category = "qna";
-      } else if (text.includes("tip") || text.includes("expert") || id.includes("tip")) {
-        category = "tips";
-      } else if (text.includes("review") || text.includes("client say") || text.includes("feedback") || id.includes("review")) {
-        category = "reviews";
-      }
-
-      // Show/Hide target content
-      if (targetKey === 'home') {
-        if (category === 'home' || text.includes("bathroom package") || text.includes("1,00,000")) {
-          sec.classList.remove('cts-hide-section');
-          sec.classList.add('cts-show-section');
-        } else {
-          sec.classList.remove('cts-show-section');
-          sec.classList.add('cts-hide-section');
+      // Show all other elements on Home Page
+      document.querySelectorAll("body > section, body > div, body > main").forEach(el => {
+        if (!customSectionIds.includes(el.id) && !el.classList.contains('cts-menu-panel') && !el.classList.contains('cts-menu-overlay')) {
+          el.style.display = '';
         }
-      } else {
-        if (category === targetKey) {
-          sec.classList.remove('cts-hide-section');
-          sec.classList.add('cts-show-section');
-        } else {
-          sec.classList.remove('cts-show-section');
-          sec.classList.add('cts-hide-section');
+      });
+    } else {
+      // Hide everything on Home Page first
+      document.querySelectorAll("body > section, body > div, body > main").forEach(el => {
+        if (!el.classList.contains('cts-menu-panel') && !el.classList.contains('cts-menu-overlay') && !el.classList.contains('cts-toggle-btn')) {
+          el.style.display = 'none';
         }
+      });
+
+      // Show ONLY the selected target section
+      const activeSec = document.getElementById(target + '-section');
+      if (activeSec) {
+        activeSec.style.display = 'block';
       }
-    });
+    }
 
     closeCtsMenu();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Run automatically when page loads
+  document.addEventListener("DOMContentLoaded", function() {
+    showExactSection('home', document.querySelector('.cts-nav-link'));
+  });
 </script>
 <!-- ========================================================= -->
 </body>
