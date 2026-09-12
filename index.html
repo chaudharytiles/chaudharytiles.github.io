@@ -2755,5 +2755,123 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(counterElement);
 });
 </script>
+    <!-- ========================================================= -->
+<!-- CHAUDHARY TILES & STONE - MULTI-PAGE NAVIGATION SCRIPT    -->
+<!-- ========================================================= -->
+<style>
+  /* Sticky Navigation Bar */
+  .cts-nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #1a365d;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  .cts-nav-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff44;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .cts-nav-btn:hover, .cts-nav-btn.active {
+    background: #ffffff;
+    color: #1a365d;
+    border-color: #ffffff;
+  }
+  /* Tab Section Visibility Controls */
+  .tab-content-hidden {
+    display: none !important;
+  }
+  .tab-content-visible {
+    display: block !important;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Target body and inject top navigation bar
+    const body = document.body;
+    const navBar = document.createElement("nav");
+    navBar.className = "cts-nav-bar";
+    navBar.innerHTML = `
+      <button class="cts-nav-btn active" onclick="switchCtsTab('home', this)"> Home</button>
+      <button class="cts-nav-btn" onclick="switchCtsTab('services', this)"> Services & Rates</button>
+      <button class="cts-nav-btn" onclick="switchCtsTab('package', this)"> Bathroom Package (₹1 Lakh)</button>
+      <button class="cts-nav-btn" onclick="switchCtsTab('estimator', this)"> Budget Estimator</button>
+      <button class="cts-nav-btn" onclick="switchCtsTab('tips', this)"> Expert Tips</button>
+    `;
+    body.insertBefore(navBar, body.firstChild);
+
+    // 2. Classify existing sections into dynamic tabs
+    const sections = document.querySelectorAll("section, div[id], footer, header");
+    
+    sections.forEach(sec => {
+      const text = sec.innerText.toLowerCase();
+      const id = (sec.id || "").toLowerCase();
+
+      // Categorize Sections
+      if (text.includes("1,00,000") || text.includes("bathroom package") || id.includes("package")) {
+        sec.classList.add("cts-tab-section", "cts-tab-package");
+      } else if (text.includes("rate") || text.includes("price") || text.includes("sq.ft") || id.includes("rate") || id.includes("service")) {
+        sec.classList.add("cts-tab-section", "cts-tab-services");
+      } else if (text.includes("estimator") || text.includes("calculator") || id.includes("estimate") || id.includes("calc")) {
+        sec.classList.add("cts-tab-section", "cts-tab-estimator");
+      } else if (text.includes("tip") || text.includes("blog") || text.includes("guide") || id.includes("tip")) {
+        sec.classList.add("cts-tab-section", "cts-tab-tips");
+      } else {
+        sec.classList.add("cts-tab-section", "cts-tab-home");
+      }
+    });
+
+    // Default to Home View
+    switchCtsTab('home', document.querySelector('.cts-nav-btn'));
+  });
+
+  // Tab Switching Function
+  function switchCtsTab(tabName, btnElement) {
+    // Update active button state
+    document.querySelectorAll('.cts-nav-btn').forEach(btn => btn.classList.remove('active'));
+    if(btnElement) btnElement.classList.add('active');
+
+    // Hide all sections first
+    const allSections = document.querySelectorAll('.cts-tab-section');
+    allSections.forEach(sec => {
+      sec.classList.remove('tab-content-visible');
+      sec.classList.add('tab-content-hidden');
+    });
+
+    // Show target section(s)
+    if(tabName === 'home') {
+      document.querySelectorAll('.cts-tab-home').forEach(sec => {
+        sec.classList.remove('tab-content-hidden');
+        sec.classList.add('tab-content-visible');
+      });
+    } else {
+      document.querySelectorAll('.cts-tab-' + tabName).forEach(sec => {
+        sec.classList.remove('tab-content-hidden');
+        sec.classList.add('tab-content-visible');
+      });
+    }
+
+    // Scroll smoothly to top on click
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+<!-- ========================================================= -->
 </body>
 </html>
