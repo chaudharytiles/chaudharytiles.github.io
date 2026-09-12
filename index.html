@@ -2756,65 +2756,79 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <!-- ========================================================= -->
-<!-- CHAUDHARY TILES & STONE - EXACT SECTION TOGGLE SCRIPT     -->
+<!-- CHAUDHARY TILES & STONE - HEADER INTEGRATED MENU SCRIPT    -->
 <!-- ========================================================= -->
 <style>
-  .cts-toggle-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 99999;
-    background: #1a365d;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* Header integrated menu button styling */
+  .cts-header-menu-btn {
+    background: transparent !important;
+    color: #000000 !important;
+    border: none !important;
+    font-size: 26px !important;
+    cursor: pointer !important;
+    padding: 0 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
+  .cts-header-menu-btn:hover {
+    opacity: 0.7;
+  }
+
+  /* Overlay Background */
   .cts-menu-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.5);
     z-index: 99998;
     display: none;
   }
+
+  /* Side Menu Panel */
   .cts-menu-panel {
     position: fixed;
     top: 0; right: -300px;
-    width: 270px; height: 100%;
+    width: 280px; height: 100%;
     background: #ffffff;
     z-index: 99999;
-    box-shadow: -4px 0 15px rgba(0,0,0,0.2);
+    box-shadow: -4px 0 15px rgba(0,0,0,0.15);
     transition: right 0.3s ease;
     display: flex; flex-direction: column;
+    font-family: inherit;
   }
   .cts-menu-panel.open { right: 0; }
+
   .cts-panel-head {
-    background: #1a365d; color: #fff;
-    padding: 18px 15px; display: flex;
-    justify-content: space-between; align-items: center;
-    font-weight: bold; font-size: 15px;
+    background: #ffffff;
+    color: #000000;
+    padding: 20px 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: 2px solid #f0f0f0;
   }
-  .cts-close-btn { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+  .cts-close-btn {
+    background: none; border: none; color: #000000; font-size: 24px; cursor: pointer; font-weight: bold;
+  }
+
+  /* Navigation Links */
   .cts-nav-list { list-style: none; margin: 0; padding: 10px 0; }
-  .cts-nav-item { border-bottom: 1px solid #eee; }
+  .cts-nav-item { border-bottom: 1px solid #f5f5f5; }
   .cts-nav-link {
-    display: block; padding: 14px 20px; color: #333;
+    display: block; padding: 14px 20px; color: #111111;
     text-decoration: none; font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s ease;
   }
   .cts-nav-link:hover, .cts-nav-link.active {
-    background: #f0f4f8; color: #1a365d; border-left: 4px solid #1a365d;
+    background: #f8f8f8; color: #d4af37; padding-left: 25px;
   }
 </style>
 
-<button class="cts-toggle-btn" onclick="openCtsMenu()">☰</button>
-
+<!-- Side Drawer Container -->
 <div class="cts-menu-overlay" id="ctsOverlay" onclick="closeCtsMenu()"></div>
 <div class="cts-menu-panel" id="ctsPanel">
   <div class="cts-panel-head">
@@ -2841,7 +2855,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('ctsOverlay').style.display = 'none';
   }
 
-  // List of IDs that should be hidden from Home Page
   const customSectionIds = [
     'founder-section',
     'calculator-section',
@@ -2851,32 +2864,27 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   function showExactSection(target, element) {
-    // Update menu highlight
     document.querySelectorAll('.cts-nav-link').forEach(link => link.classList.remove('active'));
     if(element) element.classList.add('active');
 
     if (target === 'home') {
-      // Hide the 5 menu sections
       customSectionIds.forEach(id => {
         const sec = document.getElementById(id);
         if(sec) sec.style.display = 'none';
       });
 
-      // Show all other elements on Home Page
       document.querySelectorAll("body > section, body > div, body > main").forEach(el => {
         if (!customSectionIds.includes(el.id) && !el.classList.contains('cts-menu-panel') && !el.classList.contains('cts-menu-overlay')) {
           el.style.display = '';
         }
       });
     } else {
-      // Hide everything on Home Page first
       document.querySelectorAll("body > section, body > div, body > main").forEach(el => {
-        if (!el.classList.contains('cts-menu-panel') && !el.classList.contains('cts-menu-overlay') && !el.classList.contains('cts-toggle-btn')) {
+        if (!el.classList.contains('cts-menu-panel') && !el.classList.contains('cts-menu-overlay') && el.tagName !== 'HEADER') {
           el.style.display = 'none';
         }
       });
 
-      // Show ONLY the selected target section
       const activeSec = document.getElementById(target + '-section');
       if (activeSec) {
         activeSec.style.display = 'block';
@@ -2887,8 +2895,18 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Run automatically when page loads
   document.addEventListener("DOMContentLoaded", function() {
+    // 1. Move ☰ icon directly inside top header
+    const headerNav = document.querySelector("header nav") || document.querySelector("header");
+    if (headerNav) {
+      const btn = document.createElement("button");
+      btn.className = "cts-header-menu-btn";
+      btn.innerHTML = "☰";
+      btn.onclick = openCtsMenu;
+      headerNav.appendChild(btn);
+    }
+
+    // 2. Load Home section view
     showExactSection('home', document.querySelector('.cts-nav-link'));
   });
 </script>
