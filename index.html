@@ -2755,120 +2755,225 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(counterElement);
 });
 </script>
-    <!-- ========================================================= -->
-<!-- CHAUDHARY TILES & STONE - MULTI-PAGE NAVIGATION SCRIPT    -->
+ <!-- ========================================================= -->
+<!-- CHAUDHARY TILES & STONE - SIDE HAMBURGER MENU (3 LINES)   -->
 <!-- ========================================================= -->
 <style>
-  /* Sticky Navigation Bar */
-  .cts-nav-bar {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
+  /* Fixed Top Right 3-Lines Button */
+  .cts-menu-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 10000;
     background: #1a365d;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-  .cts-nav-btn {
-    background: transparent;
     color: #ffffff;
-    border: 1px solid #ffffff44;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 22px;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
   }
-  .cts-nav-btn:hover, .cts-nav-btn.active {
-    background: #ffffff;
-    color: #1a365d;
-    border-color: #ffffff;
+  .cts-menu-toggle:hover {
+    background: #2b4c7e;
+    transform: scale(1.05);
   }
-  /* Tab Section Visibility Controls */
-  .tab-content-hidden {
+
+  /* Side Drawer Overlay */
+  .cts-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .cts-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Side Drawer Panel */
+  .cts-side-drawer {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: #ffffff;
+    z-index: 10002;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+  }
+  .cts-side-drawer.active {
+    right: 0;
+  }
+
+  /* Drawer Header */
+  .cts-drawer-header {
+    background: #1a365d;
+    color: #ffffff;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cts-drawer-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .cts-drawer-close {
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* Menu Items List */
+  .cts-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    overflow-y: auto;
+  }
+  .cts-menu-item {
+    border-bottom: 1px solid #edf2f7;
+  }
+  .cts-menu-link {
+    display: block;
+    padding: 14px 20px;
+    color: #2d3748;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cts-menu-link:hover, .cts-menu-link.active {
+    background: #ebf8ff;
+    color: #1a365d;
+    padding-left: 25px;
+    border-left: 4px solid #1a365d;
+  }
+
+  /* Section Visibility */
+  .cts-section-hidden {
     display: none !important;
   }
-  .tab-content-visible {
+  .cts-section-visible {
     display: block !important;
-    animation: fadeIn 0.4s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
   }
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // 1. Target body and inject top navigation bar
-    const body = document.body;
-    const navBar = document.createElement("nav");
-    navBar.className = "cts-nav-bar";
-    navBar.innerHTML = `
-      <button class="cts-nav-btn active" onclick="switchCtsTab('home', this)"> Home</button>
-      <button class="cts-nav-btn" onclick="switchCtsTab('services', this)"> Services & Rates</button>
-      <button class="cts-nav-btn" onclick="switchCtsTab('package', this)"> Bathroom Package (₹1 Lakh)</button>
-      <button class="cts-nav-btn" onclick="switchCtsTab('estimator', this)"> Budget Estimator</button>
-      <button class="cts-nav-btn" onclick="switchCtsTab('tips', this)"> Expert Tips</button>
-    `;
-    body.insertBefore(navBar, body.firstChild);
+<!-- Hamburger Trigger Button -->
+<button class="cts-menu-toggle" id="ctsMenuBtn" onclick="toggleCtsDrawer()">☰</button>
 
-    // 2. Classify existing sections into dynamic tabs
-    const sections = document.querySelectorAll("section, div[id], footer, header");
+<!-- Side Drawer Overlay & Panel -->
+<div class="cts-drawer-overlay" id="ctsOverlay" onclick="toggleCtsDrawer()"></div>
+<div class="cts-side-drawer" id="ctsDrawer">
+  <div class="cts-drawer-header">
+    <div class="cts-drawer-title">Chaudhary Tiles & Stone</div>
+    <button class="cts-drawer-close" onclick="toggleCtsDrawer()">✕</button>
+  </div>
+  <ul class="cts-menu-list">
+    <li class="cts-menu-item"><a class="cts-menu-link active" onclick="showCtsTab('home', this)">🏠 Home</a></li>
+    <li class="cts-menu-item"><a class="cts-menu-link" onclick="showCtsTab('services', this)">💎 Services & Materials</a></li>
+    <li class="cts-menu-item"><a class="cts-menu-link" onclick="showCtsTab('rates', this)">📊 Rate Card / Price List</a></li>
+    <li class="cts-menu-item"><a class="cts-menu-link" onclick="showCtsTab('package', this)">🛁 Bathroom Package (₹1 Lakh)</a></li>
+    <li class="cts-menu-item"><a class="cts-menu-link" onclick="showCtsTab('epoxy', this)">✨ Precision Epoxy Grouting</a></li>
+    <li class="cts-menu-item"><a class="cts-menu-link" onclick="showCtsTab('estimator', this)">🧮 Budget Estimator</a></li>
+    <li class="cts-menu-item"><a class="cts-menu-link" onclick="showCtsTab('tips', this)">💡 Expert Tips & Guide</a></li>
+    <li class="cts-menu-item"><a class="cts-menu-link" onclick="showCtsTab('contact', this)">📞 Contact & Site Visit</a></li>
+  </ul>
+</div>
+
+<script>
+  function toggleCtsDrawer() {
+    document.getElementById('ctsDrawer').classList.toggle('active');
+    document.getElementById('ctsOverlay').classList.toggle('active');
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Automatically classify all existing sections on your website
+    const allSecs = document.querySelectorAll("section, div[id], footer");
     
-    sections.forEach(sec => {
+    allSecs.forEach(sec => {
       const text = sec.innerText.toLowerCase();
       const id = (sec.id || "").toLowerCase();
 
-      // Categorize Sections
       if (text.includes("1,00,000") || text.includes("bathroom package") || id.includes("package")) {
-        sec.classList.add("cts-tab-section", "cts-tab-package");
-      } else if (text.includes("rate") || text.includes("price") || text.includes("sq.ft") || id.includes("rate") || id.includes("service")) {
-        sec.classList.add("cts-tab-section", "cts-tab-services");
-      } else if (text.includes("estimator") || text.includes("calculator") || id.includes("estimate") || id.includes("calc")) {
-        sec.classList.add("cts-tab-section", "cts-tab-estimator");
-      } else if (text.includes("tip") || text.includes("blog") || text.includes("guide") || id.includes("tip")) {
-        sec.classList.add("cts-tab-section", "cts-tab-tips");
+        sec.classList.add("cts-sec", "cts-sec-package");
+      } else if (text.includes("epoxy") || id.includes("epoxy")) {
+        sec.classList.add("cts-sec", "cts-sec-epoxy");
+      } else if (text.includes("rate") || text.includes("price") || text.includes("sq.ft") || id.includes("rate")) {
+        sec.classList.add("cts-sec", "cts-sec-rates");
+      } else if (text.includes("service") || text.includes("material") || id.includes("service")) {
+        sec.classList.add("cts-sec", "cts-sec-services");
+      } else if (text.includes("estimator") || text.includes("calculator") || id.includes("calc")) {
+        sec.classList.add("cts-sec", "cts-sec-estimator");
+      } else if (text.includes("tip") || text.includes("guide") || id.includes("tip")) {
+        sec.classList.add("cts-sec", "cts-sec-tips");
+      } else if (text.includes("contact") || text.includes("book") || text.includes("phone") || id.includes("contact")) {
+        sec.classList.add("cts-sec", "cts-sec-contact");
       } else {
-        sec.classList.add("cts-tab-section", "cts-tab-home");
+        sec.classList.add("cts-sec", "cts-sec-home");
       }
     });
 
-    // Default to Home View
-    switchCtsTab('home', document.querySelector('.cts-nav-btn'));
+    // Set default view to Home Page
+    showCtsTab('home', document.querySelector('.cts-menu-link'));
   });
 
-  // Tab Switching Function
-  function switchCtsTab(tabName, btnElement) {
-    // Update active button state
-    document.querySelectorAll('.cts-nav-btn').forEach(btn => btn.classList.remove('active'));
-    if(btnElement) btnElement.classList.add('active');
+  function showCtsTab(category, element) {
+    // Update active highlight in menu
+    document.querySelectorAll('.cts-menu-link').forEach(link => link.classList.remove('active'));
+    if(element) element.classList.add('active');
 
     // Hide all sections first
-    const allSections = document.querySelectorAll('.cts-tab-section');
-    allSections.forEach(sec => {
-      sec.classList.remove('tab-content-visible');
-      sec.classList.add('tab-content-hidden');
+    document.querySelectorAll('.cts-sec').forEach(sec => {
+      sec.classList.remove('cts-section-visible');
+      sec.classList.add('cts-section-hidden');
     });
 
-    // Show target section(s)
-    if(tabName === 'home') {
-      document.querySelectorAll('.cts-tab-home').forEach(sec => {
-        sec.classList.remove('tab-content-hidden');
-        sec.classList.add('tab-content-visible');
+    // Show selected category section(s)
+    if(category === 'home') {
+      document.querySelectorAll('.cts-sec-home').forEach(sec => {
+        sec.classList.remove('cts-section-hidden');
+        sec.classList.add('cts-section-visible');
       });
     } else {
-      document.querySelectorAll('.cts-tab-' + tabName).forEach(sec => {
-        sec.classList.remove('tab-content-hidden');
-        sec.classList.add('tab-content-visible');
+      document.querySelectorAll('.cts-sec-' + category).forEach(sec => {
+        sec.classList.remove('cts-section-hidden');
+        sec.classList.add('cts-section-visible');
       });
     }
 
-    // Scroll smoothly to top on click
+    // Close side drawer menu smoothly
+    const drawer = document.getElementById('ctsDrawer');
+    if(drawer.classList.contains('active')) {
+      toggleCtsDrawer();
+    }
+
+    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
